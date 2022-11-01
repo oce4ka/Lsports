@@ -1495,7 +1495,7 @@ html, body {
   text-align: center;
   height: 730px;
   background: url(../img/img-about-header.svg) no-repeat center center;
-  background-size: contain;
+  background-size: auto 100%;
   position: relative;
 
   h1 {
@@ -1504,6 +1504,7 @@ html, body {
     transform: translate(-50%, -50%);
     top: 50%;
     left: calc(50% - 30px);
+    min-width: 700px;
   }
 
   .slogan {
@@ -1518,6 +1519,10 @@ html, body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    p {
+      width: 100%;
+    }
   }
 }
 
@@ -1643,6 +1648,8 @@ html, body {
 
 .s-about-story {
   padding: 170px 0 70px;
+  max-width: 100vw;
+  overflow: hidden;
 
   h2 {
     font-weight: 900;
@@ -2669,17 +2676,20 @@ html, body {
 
   // Page About
   .s-about-header {
-    height: 730*@x;
+    background: url(../img/img-about-header-tab.svg) no-repeat top center;
+    background-size: contain;
+    height: 679*@x;
 
     h1 {
-      font-size: 200*@x;
-      left: calc(50% - 30 * @x);
+      font-size: 185*@x;
+      left: 50%;
+      min-width: 0;
     }
 
     .slogan {
       height: 131*@x;
-      width: 916*@x;
-      left: calc(50% - 30 * @x);
+      width: 745*@x;
+      left: calc(50%);
     }
   }
 

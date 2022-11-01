@@ -1235,7 +1235,7 @@ body {
   text-align: center;
   height: 730px;
   background: url(../img/img-about-header.svg) no-repeat center center;
-  background-size: contain;
+  background-size: auto 100%;
   position: relative;
 }
 .s-about-header h1 {
@@ -1244,6 +1244,7 @@ body {
   transform: translate(-50%, -50%);
   top: 50%;
   left: calc(50% - 30px);
+  min-width: 700px;
 }
 .s-about-header .slogan {
   height: 131px;
@@ -1257,6 +1258,9 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.s-about-header .slogan p {
+  width: 100%;
 }
 .s-about-values {
   padding: 120px 0;
@@ -1356,6 +1360,8 @@ body {
 }
 .s-about-story {
   padding: 170px 0 70px;
+  max-width: 100vw;
+  overflow: hidden;
 }
 .s-about-story h2 {
   font-weight: 900;
@@ -2168,16 +2174,19 @@ body {
     padding: 6.545vw 0;
   }
   .s-about-header {
-    height: 56.21vw;
+    background: url(../img/img-about-header-tab.svg) no-repeat top center;
+    background-size: contain;
+    height: 52.283vw;
   }
   .s-about-header h1 {
-    font-size: 15.4vw;
-    left: calc(50% - 30 * 0.077vw);
+    font-size: 14.245vw;
+    left: 50%;
+    min-width: 0;
   }
   .s-about-header .slogan {
     height: 10.087vw;
-    width: 70.532vw;
-    left: calc(50% - 30 * 0.077vw);
+    width: 57.365vw;
+    left: calc(50%);
   }
   .s-about-values {
     padding: 9.24vw 0;
