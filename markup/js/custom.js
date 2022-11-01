@@ -112,6 +112,41 @@ jQuery(document).ready(function ($) {
         ],
     });
 
+    // About Carousel
+    var carousel = $(".s-about-values__slides"),
+        items = $(".s-about-values__slide"),
+        currdeg = 0;
+
+    $(".s-about-values__next").on("click", {d: "n"}, rotate);
+    $(".s-about-values__prev").on("click", {d: "p"}, rotate);
+
+    function rotate(e) {
+        if (e.data.d == "n") {
+            currdeg = currdeg - 60;
+        }
+        if (e.data.d == "p") {
+            currdeg = currdeg + 60;
+        }
+        carousel.css({
+            "-webkit-transform": "rotateY(" + currdeg + "deg)",
+            "-moz-transform": "rotateY(" + currdeg + "deg)",
+            "-o-transform": "rotateY(" + currdeg + "deg)",
+            "transform": "rotateY(" + currdeg + "deg)"
+        });
+        items.css({
+            "-webkit-transform": "rotateY(" + (-currdeg) + "deg)",
+            "-moz-transform": "rotateY(" + (-currdeg) + "deg)",
+            "-o-transform": "rotateY(" + (-currdeg) + "deg)",
+            "transform": "rotateY(" + (-currdeg) + "deg)"
+        });
+    }
+
+    // Q&A
+
+    $('.s-prod-qa__item').click(function () {
+        $(this).toggleClass('opened').find('.s-prod-qa__a').slideToggle();
+    });
+
     // scroll animation
     AOS.init();
 
