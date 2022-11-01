@@ -1952,6 +1952,127 @@ html, body {
   }
 }
 
+// Page Contact Us
+
+.s-contact {
+  padding: 160px 0;
+
+  h1 {
+    font-size: 90px;
+    margin-bottom: 50px;
+  }
+
+  h2 {
+    font-size: 35px;
+    margin-bottom: 20px;
+  }
+
+  &__grid {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__content-form {
+    width: 560px;
+  }
+
+  &__content {
+    width: 520px;
+    background: url(../img/img-contact.svg) top center no-repeat;
+    background-size: 100% auto;
+    box-sizing: border-box;
+    padding: 140px 55px;
+  }
+
+  &__form {
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  input, select, textarea {
+    margin-bottom: 20px;
+    border: 1px solid #000;
+    width: calc(50% - 10px);
+    height: 52px;
+    line-height: 22px;
+    padding: 15px;
+    box-sizing: border-box;
+
+    &.full-width {
+      width: 100%;
+    }
+  }
+
+  textarea {
+    height: 230px;
+  }
+
+  select {
+    font-weight: 500;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #000;
+    padding: 15px;
+    line-height: 22px;
+  }
+
+  .btn-yellow {
+    margin-top: 12px;
+  }
+
+  ul {
+    font-family: @ff2;
+    font-size: 16px;
+    line-height: 28px;
+    margin-bottom: 75px;
+  }
+
+  li {
+    padding-left: 30px;
+
+    &:before {
+      content: '';
+      float: left;
+      width: 12px;
+      height: 12px;
+      border: 1px solid #000000;
+      border-radius: 50%;
+      margin: 8px 0 8px -30px;
+
+    }
+  }
+}
+
+::-webkit-input-placeholder { /* Edge */
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 1.5;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #000;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 1.5;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #000;
+}
+
+::placeholder {
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 1.5;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #000;
+}
+
 // medium screens
 
 @media (max-width: 1300px) {
@@ -2949,6 +3070,85 @@ html, body {
         max-width: 365*@x;
       }
     }
+  }
+
+
+  // Page Contact Us
+  .s-contact {
+    padding: 160*@x 0;
+
+    h1 {
+      font-size: 90*@x;
+      margin-bottom: 50*@x;
+    }
+
+    h2 {
+      font-size: 35*@x;
+      margin-bottom: 20*@x;
+    }
+
+    &__content-form {
+      width: 560*@x;
+    }
+
+    &__content {
+      width: 520*@x;
+      padding: 140*@x 55*@x;
+    }
+
+    &__form {
+      margin-top: 50*@x;
+    }
+
+    input, select, textarea {
+      margin-bottom: 20*@x;
+      width: calc(50% - 10 * @x);
+      height: 52*@x;
+      line-height: 22*@x;
+      padding: 15*@x;
+    }
+
+    textarea {
+      height: 230*@x;
+    }
+
+    select {
+      font-size: 10*@x;
+      padding: 15*@x;
+      line-height: 22*@x;
+    }
+
+    .btn-yellow {
+      margin-top: 12*@x;
+    }
+
+    ul {
+      font-size: 16*@x;
+      line-height: 28*@x;
+      margin-bottom: 75*@x;
+    }
+
+    li {
+      padding-left: 30*@x;
+
+      &:before {
+        width: 12*@x;
+        height: 12*@x;
+        margin: 8*@x 0 8*@x -30*@x;
+      }
+    }
+  }
+
+  ::-webkit-input-placeholder { /* Edge */
+    font-size: 10*@x;
+  }
+
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    font-size: 10*@x;
+  }
+
+  ::placeholder {
+    font-size: 10*@x;
   }
 }
 
@@ -4220,6 +4420,97 @@ html, body {
         }
       }
     }
+  }
+
+
+  // Page Contact Us
+  .s-contact {
+    padding: 70*@x 0;
+
+    &__grid {
+      flex-wrap: wrap;
+    }
+
+    h1 {
+      font-size: 55*@x;
+      margin-bottom: 40*@x;
+    }
+
+    h2 {
+      font-size: 25*@x;
+      margin-bottom: 20*@x;
+    }
+
+    &__content-form {
+      width: 560*@x;
+    }
+
+    &__content {
+      margin-top: 60*@x;
+      background-image: url(../img/img-contact-mob.svg);
+      background-size: contain;
+      width: 520*@x;
+      padding: 110*@x 15*@x;
+
+      h2 {
+        font-size: 18*@x;
+        margin-bottom: 10*@x;
+      }
+    }
+
+    &__form {
+      margin-top: 50*@x;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      margin-bottom: 7*@x;
+      height: 52*@x;
+      line-height: 22*@x;
+      padding: 15*@x;
+    }
+
+    textarea {
+      height: 230*@x;
+    }
+
+    select {
+      font-size: 10*@x;
+      padding: 15*@x;
+      line-height: 22*@x;
+    }
+
+    .btn-yellow {
+      margin: 16*@x auto 0;
+    }
+
+    ul {
+      font-size: 14*@x;
+      line-height: 22*@x;
+      margin-bottom: 52*@x;
+    }
+
+    li {
+      padding-left: 20*@x;
+
+      &:before {
+        width: 12*@x;
+        height: 12*@x;
+        margin: 6*@x 0 6*@x -20*@x;
+      }
+    }
+  }
+
+  ::-webkit-input-placeholder { /* Edge */
+    font-size: 10*@x;
+  }
+
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    font-size: 10*@x;
+  }
+
+  ::placeholder {
+    font-size: 10*@x;
   }
 }
 
