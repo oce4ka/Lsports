@@ -1058,6 +1058,31 @@ html, body {
   }
 }
 
+.s-404 {
+  text-align: center;
+
+  .container {
+    margin-top: 120px;
+    margin-bottom: 120px;
+    background: url(../img/img-404.svg) top center no-repeat;
+    background-size: 1082px 455px;
+  }
+
+  h1 {
+    font-size: 260px;
+    margin-bottom: 50px;
+  }
+
+  h2 {
+    font-size: 75px;
+  }
+
+  h3 {
+    font-size: 55px;
+    margin-bottom: 45px;
+  }
+}
+
 // page category
 
 .s-cat-header {
@@ -3150,6 +3175,29 @@ html, body {
   ::placeholder {
     font-size: 10*@x;
   }
+
+  // page 404
+  .s-404 {
+    .container {
+      margin-top: 120*@x;
+      margin-bottom: 120*@x;
+      background-size: 1082*@x 455*@x;
+    }
+
+    h1 {
+      font-size: 260*@x;
+      margin-bottom: 50*@x;
+    }
+
+    h2 {
+      font-size: 75*@x;
+    }
+
+    h3 {
+      font-size: 55*@x;
+      margin-bottom: 45*@x;
+    }
+  }
 }
 
 // mobile screens
@@ -4511,6 +4559,31 @@ html, body {
 
   ::placeholder {
     font-size: 10*@x;
+  }
+
+  // page 404
+  .s-404 {
+    .container {
+      background-image: url(../img/img-404-mob.svg);
+      background-size: 100% auto;
+      margin: 30*@x 15*@x 0;
+      padding-top: 120*@x;
+      padding-bottom: 40*@x;
+    }
+
+    h1 {
+      font-size: 130*@x;
+      margin-bottom: 140*@x;
+    }
+
+    h2 {
+      font-size: 45*@x;
+    }
+
+    h3 {
+      font-size: 35*@x;
+      margin-bottom: 35*@x;
+    }
   }
 }
 
