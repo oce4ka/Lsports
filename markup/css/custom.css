@@ -1,77 +1,3 @@
-/***
-The new CSS reset - version 1.7.3 (last updated 7.8.2022)
-GitHub page: https://github.com/elad2412/the-new-css-reset
-***/
-/*
-    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
-    - The "symbol *" part is to solve Firefox SVG sprite bug
- */
-*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
-  all: unset;
-  display: revert;
-}
-/* Preferred box-sizing value */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-/* Reapply the pointer cursor for anchor tags */
-a,
-button {
-  cursor: revert;
-}
-/* Remove list styles (bullets/numbers) */
-ol,
-ul,
-menu {
-  list-style: none;
-}
-/* For images to not be able to exceed their container */
-img {
-  max-width: 100%;
-}
-/* removes spacing between cells in tables */
-table {
-  border-collapse: collapse;
-}
-/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
-input,
-textarea {
-  -webkit-user-select: auto;
-}
-/* revert the 'white-space' property for textarea elements on Safari */
-textarea {
-  white-space: revert;
-}
-/* minimum style to allow to style meter element */
-meter {
-  -webkit-appearance: revert;
-  appearance: revert;
-}
-/* reset default text opacity of input placeholder */
-::placeholder {
-  color: unset;
-}
-/* fix the feature of 'hidden' attribute.
-   display:revert; revert to element instead of attribute */
-:where([hidden]) {
-  display: none;
-}
-/* revert for bug in Chromium browsers
-   - fix for the content editable attribute will work properly.
-   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
-:where([contenteditable]:not([contenteditable="false"])) {
-  -moz-user-modify: read-write;
-  -webkit-user-modify: read-write;
-  overflow-wrap: break-word;
-  -webkit-line-break: after-white-space;
-  -webkit-user-select: auto;
-}
-/* apply back the draggable feature - exist only in Chromium and Safari */
-:where([draggable="true"]) {
-  -webkit-user-drag: element;
-}
 @font-face {
   font-family: "PP Formula";
   src: url("../fonts/FormulaCondensed-Bold.woff") format("woff"), url("../fonts/FormulaCondensed-Bold.ttf") format("truetype");
@@ -93,7 +19,7 @@ meter {
   font-weight: 400;
 }
 .bg-grey {
-  background: #F5F5F5;
+  background: #E8E8ED;
 }
 .bg-white {
   background: #fff;
@@ -134,7 +60,7 @@ u {
   transition: all 0.2s ease-in-out;
 }
 .btn-yellow:hover {
-  background-color: #F5F5F5;
+  background-color: #E8E8ED;
 }
 p {
   font-family: "Test Söhne", sans-serif;
@@ -169,7 +95,7 @@ h3 {
 }
 html,
 body {
-  background: #F5F5F5;
+  background: #E8E8ED;
   font-family: "PP Formula", sans-serif;
   font-weight: 400;
 }
@@ -230,7 +156,7 @@ body {
   border-width: 0 1px 1px 1px;
   border-style: solid;
   border-color: #000;
-  background-color: #F5F5F5;
+  background-color: #E8E8ED;
   z-index: 2;
   display: none;
 }
@@ -315,7 +241,7 @@ body {
   gap: 120px;
 }
 .s-hp-features .feature {
-  margin: 60px 0;
+  margin: 90px 0;
   text-align: center;
   position: relative;
 }
@@ -429,9 +355,16 @@ body {
   align-items: center;
   padding: 60px 0 0;
 }
+.s-hp-news.image-bordered .image-wrapper {
+  margin: 0 30px 0 0;
+  width: 186px;
+  height: 162px;
+  border-right: 1px solid #000;
+}
 .s-hp-news__headings {
   width: 330px;
   margin-left: 120px;
+  margin-bottom: 60px;
 }
 .s-hp-news h2 {
   margin-bottom: 20px;
@@ -476,7 +409,7 @@ body {
   transition: all 0.2s ease-in-out;
 }
 .s-hp-news .btn-read-more:hover {
-  background-color: #F5F5F5;
+  background-color: #E8E8ED;
 }
 .s-hp-news .btn-read-more .text-vertical {
   font-weight: 400;
@@ -893,7 +826,7 @@ body {
   background-image: url(../img/img-category-header.svg);
   background-position: right center;
   background-repeat: no-repeat;
-  background-size: auto calc(100% + 4px);
+  background-size: auto calc(100% + 7px);
   border-bottom: 1px solid #000;
 }
 .s-cat-header__content {
@@ -918,6 +851,9 @@ body {
 }
 .s-cat-features {
   padding: 120px 0 1px;
+}
+.s-cat-features.about h2 {
+  margin-bottom: 15px;
 }
 .s-cat-features__feature {
   margin-bottom: 120px;
@@ -1030,7 +966,7 @@ body {
   background-size: contain;
 }
 .s-cat-highlights {
-  padding: 120px 0;
+  padding: 150px 0 80px;
 }
 .s-cat-highlights h2 {
   text-align: center;
@@ -1093,7 +1029,7 @@ body {
 }
 .s-prod-header {
   border-bottom: 1px solid #000;
-  padding: 130px 0 85px;
+  padding: 170px 0 85px;
 }
 .s-prod-header__grid {
   display: grid;
@@ -1183,7 +1119,7 @@ body {
   margin-top: -10px;
 }
 .s-prod-qa {
-  padding: 85px 0;
+  padding: 112px 0;
 }
 .s-prod-qa__list {
   margin: 50px 0 0;
@@ -1220,8 +1156,8 @@ body {
 }
 .s-prod-qa .button-wrapper {
   text-align: center;
-  margin-top: 40px;
-  padding: 40px 0 0;
+  margin-bottom: -12px;
+  padding: 100px 0 0;
 }
 .s-prod-sports {
   padding: 90px 0 0;
@@ -1310,7 +1246,7 @@ body {
   position: absolute;
   width: var(--slide-width);
   height: 505px;
-  background: #F5F5F5;
+  background: #E8E8ED;
   transition: transform 1s;
   border: 1px solid #000;
 }
@@ -1783,7 +1719,7 @@ body {
   .nav-main > ul > li > ul {
     padding: 1.54vw 1.155vw;
     top: 5.082vw;
-    background-color: #F5F5F5;
+    background-color: #E8E8ED;
   }
   .nav-main > ul > li > ul > li {
     font-size: 0.924vw;
@@ -1828,7 +1764,7 @@ body {
     gap: 9.24vw;
   }
   .s-hp-features .feature {
-    margin: 4.62vw 0;
+    margin: 6.93vw 0;
   }
   .s-hp-features .feature:after {
     right: -4.62vw;
@@ -1883,9 +1819,15 @@ body {
   .s-hp-news {
     padding: 4.62vw 0 0;
   }
+  .s-hp-news.image-bordered .image-wrapper {
+    margin: 0 2.31vw 0 0;
+    width: 14.322vw;
+    height: 12.474vw;
+  }
   .s-hp-news__headings {
     width: 25.41vw;
     margin-left: 9.24vw;
+    margin-bottom: 4.62vw;
   }
   .s-hp-news h2 {
     margin-bottom: 1.54vw;
@@ -1909,7 +1851,7 @@ body {
     width: 3.465vw;
   }
   .s-hp-news .btn-read-more:hover {
-    background-color: #F5F5F5;
+    background-color: #E8E8ED;
   }
   .s-hp-news .btn-read-more .text-vertical {
     font-size: 0.924vw;
@@ -2087,7 +2029,7 @@ body {
     padding: 0 1.54vw;
   }
   .s-cat-header {
-    background-size: auto calc(100% + 4 * 0.077vw);
+    background-size: auto calc(100% + 7 * 0.077vw);
   }
   .s-cat-header__content {
     height: 36.652vw;
@@ -2102,6 +2044,9 @@ body {
   }
   .s-cat-features {
     padding: 9.24vw 0 1px;
+  }
+  .s-cat-features.about h2 {
+    margin-bottom: 1.155vw;
   }
   .s-cat-features__feature {
     margin-bottom: 9.24vw;
@@ -2176,7 +2121,7 @@ body {
     margin-left: 0.77vw;
   }
   .s-cat-highlights {
-    padding: 9.24vw 0;
+    padding: 11.55vw 0 6.16vw;
   }
   .s-cat-highlights h2 {
     margin-bottom: 7.7vw;
@@ -2210,7 +2155,7 @@ body {
     margin-right: 1.232vw;
   }
   .s-prod-header {
-    padding: 10.01vw 0 6.545vw;
+    padding: 13.09vw 0 6.545vw;
   }
   .s-prod-header__grid {
     grid-template-columns: 43.659vw 37.73vw;
@@ -2261,7 +2206,7 @@ body {
     margin-top: -0.77vw;
   }
   .s-prod-qa {
-    padding: 6.545vw 0;
+    padding: 8.624vw 0;
   }
   .s-prod-qa__list {
     margin: 3.85vw 0 0;
@@ -2278,8 +2223,8 @@ body {
     padding: 0 0 2.464vw;
   }
   .s-prod-qa .button-wrapper {
-    margin-top: 3.08vw;
-    padding: 3.08vw 0 0;
+    margin-bottom: -0.924vw;
+    padding: 7.7vw 0 0;
   }
   .s-prod-sports {
     padding: 6.93vw 0 0;
@@ -2638,7 +2583,7 @@ body {
     position: absolute;
     top: 15.753vw;
     z-index: 2;
-    background: #F5F5F5;
+    background: #E8E8ED;
     left: 0;
     right: 0;
   }
@@ -2813,9 +2758,17 @@ body {
     padding: 16.02vw 0 0;
     flex-wrap: wrap;
   }
+  .s-hp-news.image-bordered .image-wrapper {
+    margin: 0 7.476vw 0 0;
+    width: 24.297vw;
+    height: 33.909vw;
+    background-size: cover;
+    background-position: center center;
+  }
   .s-hp-news__headings {
     width: 88.11vw;
     margin-left: 32.04vw;
+    margin-bottom: 0;
   }
   .s-hp-news h2 {
     margin-bottom: 4.005vw;
@@ -2854,7 +2807,7 @@ body {
     border-top: 1px solid #000;
   }
   .s-hp-news .btn-read-more:hover {
-    background-color: #F5F5F5;
+    background-color: #E8E8ED;
   }
   .s-hp-news .btn-read-more .text-vertical {
     font-size: 3.204vw;
@@ -3113,6 +3066,9 @@ body {
   .s-cat-features {
     padding: 13.35vw 0 1px;
   }
+  .s-cat-features.about h2 {
+    margin-bottom: 4.005vw;
+  }
   .s-cat-features__feature {
     margin-bottom: 13.35vw;
     gap: 0;
@@ -3325,6 +3281,7 @@ body {
   }
   .s-prod-qa .button-wrapper {
     margin-top: 10.68vw;
+    margin-bottom: 0;
     padding: 1.335vw 0 0;
   }
   .s-prod-sports {

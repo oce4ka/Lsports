@@ -1,4 +1,4 @@
-jQuery(document).ready(function ($) {
+(function ($) {
 
     $('.btn-hamburger').click(function (e) {
         e.preventDefault();
@@ -184,5 +184,5 @@ jQuery(document).ready(function ($) {
 
      */
 
-});
+})(jQuery);
 
