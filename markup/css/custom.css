@@ -1,3 +1,4 @@
+@import "style.css";
 @font-face {
   font-family: "PP Formula";
   src: url("../fonts/FormulaCondensed-Bold.woff") format("woff"), url("../fonts/FormulaCondensed-Bold.ttf") format("truetype");
