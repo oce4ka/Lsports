@@ -65,23 +65,6 @@
         $('.s-hp-products__img-title-slides').slick('slickPrev');
     });
 
-
-    //{
-    //         infinite: true,
-    //
-    //         dots: false,
-    //         autoplay: true,
-    //         autoplaySpeed: 3000,
-    //         speed: 500,
-    //         fade: true,
-    //         cssEase: 'linear',
-    //         pauseOnHover: true,
-    //         prevArrow: $(".s-hp-products__prev"),
-    //         nextArrow: $(".s-hp-products__next"),
-    //     }
-
-    $('.s-hp-products__img-title')
-
     // Carousel Case Study
 
     let optionsCarouselCaseStudy = {
@@ -98,18 +81,21 @@
 
     $('.s-hp-case-study__slides').slick(optionsCarouselCaseStudy); // content
     $('.s-hp-cs-content__slides').slick(optionsCarouselCaseStudy); // image
-    $('.s-hp-cs-img-titles__slides').slick(optionsCarouselCaseStudy); //title
+    $('.s-hp-cs-img-titles__slides').slick(optionsCarouselCaseStudy); // title
+    $('.s-hp-case-study__image-description-slides').slick(optionsCarouselCaseStudy); // image description
 
     $(".s-hp-case-study__next").click(function () {
         $('.s-hp-case-study__slides').slick('slickNext');
         $('.s-hp-cs-content__slides').slick('slickNext');
         $('.s-hp-cs-img-titles__slides').slick('slickNext');
+        $('.s-hp-case-study__image-description-slides').slick('slickNext');
     });
 
     $(".s-hp-case-study__prev").click(function () {
         $('.s-hp-case-study__slides').slick('slickPrev');
         $('.s-hp-cs-content__slides').slick('slickPrev');
         $('.s-hp-cs-img-titles__slides').slick('slickPrev');
+        $('.s-hp-case-study__image-description-slides').slick('slickPrev');
     });
 
     //

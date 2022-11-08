@@ -314,12 +314,22 @@ body {
   line-height: 90px;
 }
 .s-hp-products__img-title {
-  height: 100%;
   font-style: normal;
   font-weight: 400;
   font-size: 10px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
+  width: 90px;
+  height: 481px;
+  box-sizing: border-box;
+  padding: 95px 0;
+}
+.s-hp-products__img-title-slides {
+  width: 100%;
+  height: 100%;
+}
+.s-hp-products__img-title-slides .slick-slide {
+  height: 290px;
 }
 .s-hp-products__prev,
 .s-hp-products__next {
@@ -559,12 +569,26 @@ body {
 }
 .s-hp-sportsbooks {
   background: url("../img/bg-sportsbook.png") center center;
-  background-size: cover;
+  background-size: auto 100%;
   display: flex;
   justify-content: space-evenly;
   text-align: center;
   color: #fff;
   height: 480px;
+}
+.s-hp-sportsbooks.alternative {
+  background-image: url(../img/bg-sportsbook-alt.png);
+}
+.s-hp-sportsbooks.alternative .s-hp-sportsbooks__content {
+  width: 100%;
+}
+.s-hp-sportsbooks.alternative h2 {
+  position: absolute;
+  margin: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: 11px;
 }
 .s-hp-sportsbooks__content {
   width: 50%;
@@ -680,6 +704,9 @@ body {
 .s-hp-case-study__image-description {
   flex-grow: 1;
 }
+.s-hp-case-study__image-description-slides {
+  max-width: 482px;
+}
 .s-hp-case-study__prev,
 .s-hp-case-study__next {
   width: 90px;
@@ -713,7 +740,7 @@ body {
   line-height: 39px;
 }
 .s-hp-case-study__image-title .text-vertical {
-  height: 71px;
+  height: 90px;
 }
 .s-hp-contact-us {
   min-height: 520px;
@@ -1808,6 +1835,12 @@ body {
   }
   .s-hp-products__img-title {
     font-size: 0.77vw;
+    width: 6.93vw;
+    height: 37.037vw;
+    padding: 7.315vw 0;
+  }
+  .s-hp-products__img-title-slides .slick-slide {
+    height: 22.33vw;
   }
   .s-hp-products__prev,
   .s-hp-products__next {
@@ -1930,6 +1963,9 @@ body {
   .s-hp-sportsbooks {
     height: 36.96vw;
   }
+  .s-hp-sportsbooks.alternative h2 {
+    margin-top: 0.847vw;
+  }
   .s-hp-sportsbooks h2 {
     margin-top: 15.4vw;
   }
@@ -1983,10 +2019,16 @@ body {
   .s-hp-case-study__image-description {
     padding: 0 3.08vw;
   }
+  .s-hp-case-study__image-description-slides {
+    max-width: 37.114vw;
+  }
   .s-hp-case-study__image-title {
     width: 3.003vw;
     height: 6.93vw;
     line-height: 3.003vw;
+  }
+  .s-hp-case-study__image-title .text-vertical {
+    height: 6.93vw;
   }
   .s-hp-contact-us {
     min-height: 40.04vw;
@@ -2736,6 +2778,8 @@ body {
     flex-grow: 1;
     border: 1px solid #000;
     border-bottom: 0;
+    padding: 0;
+    height: 100%;
   }
   .s-hp-products__img-title .text-vertical {
     writing-mode: horizontal-tb;
@@ -2900,6 +2944,12 @@ body {
     justify-content: center;
     align-items: center;
   }
+  .s-hp-sportsbooks.alternative {
+    background-image: url(../img/bg-sportsbook-alt-mob.png);
+  }
+  .s-hp-sportsbooks.alternative h2 {
+    margin-top: -1.335vw;
+  }
   .s-hp-sportsbooks h2 {
     margin-top: 53.4vw;
   }
@@ -2991,6 +3041,9 @@ body {
     border-bottom: 1px solid #000;
     flex-shrink: 1;
   }
+  .s-hp-case-study__image-description-slides {
+    max-width: 52.866vw;
+  }
   .s-hp-case-study__image-title {
     width: 3.204vw;
     height: 9.612vw;
@@ -2998,6 +3051,9 @@ body {
     flex-shrink: 0;
     border-bottom: 1px solid #000;
     font-size: 1.335vw;
+  }
+  .s-hp-case-study__image-title .text-vertical {
+    height: 9.612vw;
   }
   .s-hp-contact-us {
     min-height: 0;

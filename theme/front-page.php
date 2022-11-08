@@ -84,9 +84,9 @@ get_header();
                     <div class="s-hp-products__prev arrow-after"></div>
                     <div class="s-hp-products__img-title">
                         <div class="s-hp-products__img-title-slides">
-                            <?php if (have_rows('products_heading')): while (have_rows('products_heading')) : the_row(); ?>
+                            <?php if (have_rows('products')): while (have_rows('products')) : the_row(); ?>
                                 <div>
-                                    <div class="text-vertical"><?php ?></div>
+                                    <div class="text-vertical"><?php the_sub_field('vertical_title'); ?></div>
                                 </div>
                             <?php endwhile; endif; ?>
                         </div>
@@ -94,7 +94,7 @@ get_header();
                     <div class="s-hp-products__next arrow-after"></div>
                 </div>
                 <div class="s-hp-products__slides">
-                    <?php if (have_rows('products_heading')): while (have_rows('products_heading')) : the_row(); ?>
+                    <?php if (have_rows('products')): while (have_rows('products')) : the_row(); ?>
                         <div class="s-hp-products__slide">
                             <div class="s-hp-products__slide-content">
                                 <div class="s-hp-products__content">
@@ -103,7 +103,7 @@ get_header();
                                     <a href="<?php the_sub_field('link'); ?>" class="btn-yellow"><?php the_field('learn_more', 'option') ?></a>
                                 </div>
                                 <div class="s-hp-products__image">
-                                    <img src="i<?php the_sub_field('image'); ?>" alt=""/>
+                                    <img src="<?php the_sub_field('image'); ?>" alt=""/>
                                 </div>
                             </div>
                         </div>
@@ -120,33 +120,28 @@ get_header();
 
         <?php
         wp_reset_postdata();
-        $args = array(
-            'numberposts' => 3,
-            'category' => 'news'
+        $args_news = array(
+            'posts_per_page' => 3,
+            'category_name' => 'news'
         );
 
-        $latest_news = new WP_Query($args);
+        $latest_news = new WP_Query($args_news);
         ?>
 
         <div class="s-hp-news__content">
             <div class="s-hp-news__carousel-wrapper">
                 <div class="s-hp-news__carousel">
                     <?php
-                    if ($latest_news->have_posts()) :
-                        while ($latest_news->have_posts()) :
-                            $latest_news->the_post();
-                            ?>
-                            <div class="s-hp-news__news-item">
-                                <div class="s-hp-news__news-item__content">
-                                    <div class="image-wrapper" style="background-image: url(<?php echo get_the_post_thumbnail_url(); ?>)"></div>
-                                    <h3><?php the_title(); ?></h3>
-                                </div>
-                                <a href="<?php the_permalink(); ?>" class="btn-read-more"><span class="text-vertical arrow-after"><?php the_field('read_more', 'option') ?></span></a>
+                    if ($latest_news->have_posts()) : while ($latest_news->have_posts()) : $latest_news->the_post(); ?>
+                        <div class="s-hp-news__news-item">
+                            <div class="s-hp-news__news-item__content">
+                                <div class="image-wrapper" style="background-image: url(<?php echo get_the_post_thumbnail_url(); ?>)"></div>
+                                <h3><?php the_title(); ?></h3>
                             </div>
-                        <?php
-                        endwhile;
-                    endif;
-                    ?>
+                            <a href="<?php the_permalink(); ?>" class="btn-read-more"><span class="text-vertical arrow-after"><?php the_field('read_more', 'option') ?></span></a>
+                        </div>
+                    <?php endwhile; endif; ?>
+
                 </div>
             </div>
             <div class="s-hp-news__controls">
@@ -155,6 +150,7 @@ get_header();
                 <div class="s-hp-news__arrow-next arrow-after"></div>
             </div>
         </div>
+        <?php wp_reset_postdata(); ?>
     </section>
     <section class="s-hp-events bg-grey">
         <h2 data-aos="fade-up"
@@ -163,15 +159,34 @@ get_header();
             data-aos-duration="600"><?php the_field('upcoming_events', 'option') ?></h2>
         <h6 class="arrow-after"><?php the_field('see_all_events', 'option') ?></h6>
         <div class="s-hp-events__event-wrapper">
-            <div class="s-hp-events__event-item">
-                <div class="date">20-22 Sep</div>
-                <div class="image-wrapper" style="background-image: url(images-upload/img-event.png)"></div>
-                <h3>SBC Summit</h3>
-                <div class="country">Barcelona, Spain</div>
-                <div class="info">Stand C10</div>
-                <a href="#" class="btn-event-details arrow-after"><?php the_field('event_details', 'option') ?></a>
-            </div>
-            <div class="s-hp-events__event-item">
+            <?php
+            wp_reset_postdata();
+            $args_events = array(
+                'posts_per_page' => 3,
+                'category_name' => 'events'
+            );
+
+            $latest_events = new WP_Query($args_events);
+            ?>
+            <?php if ($latest_events->have_posts()) : while ($latest_events->have_posts()) : $latest_events->the_post(); ?>
+                <div class="s-hp-events__event-item">
+                    <div class="date">
+                        <?php
+                        if (get_field('date_end')):
+                            echo date("j", strtotime(get_field('date_start', false, false))) . '-' . date("j", strtotime(get_field('date_end', false, false))) . ' ' . date("M", strtotime(get_field('date_end', false, false)));
+                        else:
+                            echo date("j", strtotime(get_field('date_start', false, false))) . ' ' . date("M", strtotime(get_field('date_start', false, false)));
+                        endif;
+                        ?>
+                    </div>
+                    <div class="image-wrapper" style="background-image: url(<?php echo get_the_post_thumbnail_url(); ?>)"></div>
+                    <h3><?php the_field('title_short') ?></h3>
+                    <div class="country"><?php the_field('location') ?></div>
+                    <div class="info"><?php the_field('stand_c10_rename_it') ?></div>
+                    <a href="#" class="btn-event-details arrow-after"><?php the_field('event_details', 'option') ?></a>
+                </div>
+            <?php endwhile; endif; ?>
+            <!--div class="s-hp-events__event-item">
                 <div class="date">20-22 Sep</div>
                 <div class="image-wrapper" style="background-image: url(images-upload/img-event.png)"></div>
                 <h3>SBC Summit</h3>
@@ -186,82 +201,96 @@ get_header();
                 <div class="country">Barcelona, Spain</div>
                 <div class="info">Stand C10</div>
                 <a href="#" class="btn-event-details arrow-after">Event details</a>
-            </div>
+            </div-->
+            <?php wp_reset_postdata(); ?>
         </div>
     </section>
+<?php if (have_rows('sportsbooks')): while (have_rows('sportsbooks')) : the_row(); ?>
+    <section class="s-hp-sportsbooks<?php if (get_sub_field('do_not_show_right_section')) echo ' alternative'; ?>">
+        <div class="s-hp-sportsbooks__content">
+            <h2><?php the_sub_field('title'); ?></h2>
+        </div>
+        <?php if (!get_sub_field('do_not_show_right_section')): ?>
+            <div class="s-hp-sportsbooks__content">
+                <h2><?php the_sub_field('title_right'); ?></h2>
+                <p><?php the_sub_field('description_right'); ?></p>
+            </div>
+        <?php endif; ?>
+    </section>
+<?php endwhile; endif; ?>
+    <!-- This is just for demonstration, plz remove! -->
+<?php if (have_rows('sportsbooks')): while (have_rows('sportsbooks')) : the_row(); ?>
     <section class="s-hp-sportsbooks">
         <div class="s-hp-sportsbooks__content">
-            <h2>Sp<u>o</u>rtsbooks</h2>
+            <h2><?php the_sub_field('title'); ?></h2>
         </div>
         <div class="s-hp-sportsbooks__content">
-            <h2>Media Pr<u>o</u>viders</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan felis, quis phasellus tempus vitae eget velit erat aliquam. Id nec eget fermentum donec gravida vitae. Viverra duis nisi integer vitae, pharetra blandit.</p>
+            <h2><?php the_sub_field('title_right'); ?></h2>
+            <p><?php the_sub_field('description_right'); ?></p>
         </div>
     </section>
+<?php endwhile; endif; ?>
+    <!-- END This is just for demonstration, plz remove! -->
     <section class="s-hp-sports">
-        <h2 data-aos="fade-up"
-            data-aos-delay="50"
-            data-aos-offset="10"
-            data-aos-duration="600">Covering in <u>o</u>ver 100+ sports</h2>
-        <p data-aos="fade-up"
-           data-aos-delay="100"
-           data-aos-offset="50"
-           data-aos-duration="600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan felis, quis phasellus tempus vitae eget velit erat aliquam. Id nec eget fermentum donec gravida vitae. Viverra duis nisi integer vitae, pharetra blandit.</p>
-        <h6 class="arrow-after"><?php the_field('read_more', 'option') ?></h6>
+        <?php if (have_rows('covering_headings')): while (have_rows('covering_headings')) : the_row(); ?>
+            <h2 data-aos="fade-up"
+                data-aos-delay="50"
+                data-aos-offset="10"
+                data-aos-duration="600"><?php the_sub_field('title'); ?></h2>
+            <p data-aos="fade-up"
+               data-aos-delay="100"
+               data-aos-offset="50"
+               data-aos-duration="600"><?php the_sub_field('description'); ?></p>
+            <a href="<?php the_sub_field('link'); ?>"><h6 class="arrow-after"><?php the_field('read_more', 'option') ?></h6></a>
+        <?php endwhile; endif; ?>
         <div class="image-marquee">
-            <div><img class="s-hp-sports__image desktop-only" src="img/img-sports.png" alt=""></div>
-            <div><img class="s-hp-sports__image desktop-only" src="img/img-sports.png" alt=""></div>
+            <div><img class="s-hp-sports__image desktop-only" src="<?php echo get_template_directory_uri() ?>/img/img-sports.png" alt=""></div>
+            <div><img class="s-hp-sports__image desktop-only" src="<?php echo get_template_directory_uri() ?>/img/img-sports.png" alt=""></div>
         </div>
         <div class="image-marquee slow">
-            <div><img class="s-hp-sports__image desktop-only" src="img/img-sports.png" alt=""></div>
-            <div><img class="s-hp-sports__image desktop-only" src="img/img-sports.png" alt=""></div>
+            <div><img class="s-hp-sports__image desktop-only" src="<?php echo get_template_directory_uri() ?>/img/img-sports.png" alt=""></div>
+            <div><img class="s-hp-sports__image desktop-only" src="<?php echo get_template_directory_uri() ?>/img/img-sports.png" alt=""></div>
         </div>
         <div class="image-marquee">
-            <div><img class="s-hp-sports__image desktop-only" src="img/img-sports.png" alt=""></div>
-            <div><img class="s-hp-sports__image desktop-only" src="img/img-sports.png" alt=""></div>
+            <div><img class="s-hp-sports__image desktop-only" src="<?php echo get_template_directory_uri() ?>/img/img-sports.png" alt=""></div>
+            <div><img class="s-hp-sports__image desktop-only" src="<?php echo get_template_directory_uri() ?>/img/img-sports.png" alt=""></div>
         </div>
     </section>
     <section class="s-hp-case-study">
         <div class="container s-hp-case-study__grid">
             <div class="s-hp-case-study__content">
                 <div class="s-hp-cs-content__slides">
-                    <div>
-                        <h2><u>t</u>he Case study title goes here</h2>
-                        <p>LSports is a world-leading sports data company that partners with sportsbooks to create engaging customer offerings by utilizing the most accurate real-time data on the broadest range of events in the market </p>
-                        <div class="btn-yellow"><?php the_field('learn_more', 'option') ?></div>
-                    </div>
-                    <div>
-                        <h2>the Case sdsd study title goes here</h2>
-                        <p>LSports is a fdfdf world-leading sports data company that partners with sportsbooks to create engaging customer offerings by utilizing the most accurate real-time data on the broadest range of events in the market </p>
-                        <div class="btn-yellow"><?php the_field('learn_more', 'option') ?></div>
-                    </div>
-                    <div>
-                        <h2>the Case sd study title goes here</h2>
-                        <p>LSports a fdfdf world-leading sports data company that partners with sportsbooks to create engaging customer offerings by utilizing the most accurate real-time data on the broadest range of events in the market </p>
-                        <div class="btn-yellow"><?php the_field('learn_more', 'option') ?></div>
-                    </div>
+                    <?php if (have_rows('covering_slides')): while (have_rows('covering_slides')) : the_row(); ?>
+                        <div>
+                            <h2><?php the_sub_field('title') ?></h2>
+                            <p><?php the_sub_field('description') ?></p>
+                            <a href="<?php the_sub_field('link') ?>" class="btn-yellow"><?php the_field('learn_more', 'option') ?></a>
+                        </div>
+                    <?php endwhile; endif; ?>
                 </div>
             </div>
             <div class="s-hp-case-study__image">
                 <div class="s-hp-case-study__slides">
-                    <div><img src="images-upload/img-case-study.png" alt=""></div>
-                    <div><img src="images-upload/img-case-study-1.png" alt=""></div>
-                    <div><img src="images-upload/img-case-study.png" alt=""></div>
+                    <?php if (have_rows('covering_slides')): while (have_rows('covering_slides')) : the_row(); ?>
+                        <div><img src="<?php the_sub_field('image') ?>" alt=""></div>
+                    <?php endwhile; endif; ?>
                 </div>
                 <div class="s-hp-case-study__controls">
-                    <div class="s-hp-case-study__image-description">Powering the worlds most engaging sports products</div>
+                    <div class="s-hp-case-study__image-description">
+                        <div class="s-hp-case-study__image-description-slides">
+                            <?php if (have_rows('covering_slides')): while (have_rows('covering_slides')) : the_row(); ?>
+                                <div><?php the_sub_field('image_description') ?></div>
+                            <?php endwhile; endif; ?>
+                        </div>
+                    </div>
                     <div class="s-hp-case-study__prev arrow-after"></div>
                     <div class="s-hp-case-study__image-title">
                         <div class="s-hp-cs-img-titles__slides">
-                            <div>
-                                <span class="text-vertical">0001</span>
-                            </div>
-                            <div>
-                                <span class="text-vertical">0002</span>
-                            </div>
-                            <div>
-                                <span class="text-vertical">0003</span>
-                            </div>
+                            <?php if (have_rows('covering_slides')): while (have_rows('covering_slides')) : the_row(); ?>
+                                <div>
+                                    <span class="text-vertical"><?php the_sub_field('image_title') ?></span>
+                                </div>
+                            <?php endwhile; endif; ?>
                         </div>
                     </div>
                     <div class="s-hp-case-study__next arrow-after"></div>
