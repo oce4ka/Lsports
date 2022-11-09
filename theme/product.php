@@ -1,14 +1,216 @@
 <?php
 /**
- * The template for displaying front page
+ * Template Name: Product
  *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ * The template for displaying one product (different types)
  *
  * @package LSport
  */
 
 get_header();
 ?>
+    <section class="s-prod-header bg-grey">
+        <?php if (have_rows('header')): while (have_rows('header')) : the_row(); ?>
+            <div class="container s-prod-header__grid">
+                <div class="s-prod-header__content">
+                    <h2><?php the_sub_field('title') ?></h2>
+                    <h6><?php the_sub_field('subtitle') ?></h6>
+                    <div class="s-prod-header__image mobile-only">
+                        <img src="<?php the_sub_field('image') ?>" alt="<?php the_sub_field('title') ?>">
+                    </div>
+                    <?php the_sub_field('description') ?>
+                    <p class="powered"><?php the_sub_field('powered') ?></p>
+                </div>
+                <div class="s-prod-header__image desktop-only">
+                    <img src="<?php the_sub_field('image') ?>" alt="<?php the_sub_field('title') ?>">
+                </div>
+            </div>
+        <?php endwhile; endif; ?>
+        <?php if (have_rows('in_numbers')): while (have_rows('in_numbers')) : the_row(); ?>
+            <div class="container s-prod-header__numbers-wrapper">
+                <h3><?php the_sub_field('title') ?></h3>
+                <div class="s-prod-header__numbers">
+                    <?php if (have_rows('in_numbers')): while (have_rows('in_numbers')) : the_row(); ?>
+                        <div class="s-prod-header__number">
+                            <div class="number"><?php the_sub_field('digit') ?></div>
+                            <div class="name"><?php the_sub_field('label') ?></div>
+                        </div>
+                    <?php endwhile; endif; ?>
+                    <!--div class="s-prod-header__number">
+                        <div class="number">+80</div>
+                        <div class="name">sports</div>
+                    </div>
+                    <div class="s-prod-header__number">
+                        <div class="number">+150k</div>
+                        <div class="name">Live In-Play</div>
+                    </div>
+                    <div class="s-prod-header__number">
+                        <div class="number">+75k</div>
+                        <div class="name">Pregame</div>
+                    </div>
+                    <div class="s-prod-header__number">
+                        <div class="number">+2.5k</div>
+                        <div class="name">Bookmakers</div>
+                    </div>
+                    <div class="s-prod-header__number">
+                        <div class="number">+100</div>
+                        <div class="name">Markets</div>
+                    </div-->
+                </div>
+            </div>
+        <?php endwhile; endif; ?>
+    </section>
+
+
+    <section class="s-cat-highlights bg-white">
+        <div class="container">
+            <h2 data-aos="fade-up"
+                data-aos-delay="50"
+                data-aos-offset="10"
+                data-aos-duration="600">Hig<u>h</u>lights and Be<u>n</u>efits</h2>
+            <ul class="s-cat-highlights__list">
+                <li class="s-cat-highlights__item">Proven to increase user retention and turnover rates</li>
+                <li class="s-cat-highlights__item">Significantly boost customers engagement</li>
+                <li class="s-cat-highlights__item">Proven to increase user retention and turnover rates</li>
+                <li class="s-cat-highlights__item">Significantly boost customers engagement</li>
+                <li class="s-cat-highlights__item">Proven to increase user retention and turnover rates</li>
+                <li class="s-cat-highlights__item">Significantly boost customers engagement</li>
+            </ul>
+        </div>
+    </section>
+    <section class="s-prod-qa bg-grey">
+        <div class="container">
+            <h2><u>Q</u>&A</h2>
+            <ul class="s-prod-qa__list">
+                <li class="s-prod-qa__item">
+                    <div class="s-prod-qa__q">Whatֿ is the difference between Sports Trading Manager (STM) and OddService?</div>
+                    <div class="s-prod-qa__a">Whatֿ is the difference between Sports Trading Manager (STM) and OddService. Whatֿ is the difference between Sports Trading Manager (STM) and OddService. Whatֿ is the difference between Sports Trading Manager (STM) and OddService.</div>
+                </li>
+                <li class="s-prod-qa__item">
+                    <div class="s-prod-qa__q">Whatֿ is the difference between Sports Trading Manager (STM) and OddService?</div>
+                    <div class="s-prod-qa__a">Whatֿ is the difference between Sports Trading Manager (STM) and OddService. Whatֿ is the difference between Sports Trading Manager (STM) and OddService. Whatֿ is the difference between Sports Trading Manager (STM) and OddService.</div>
+                </li>
+                <li class="s-prod-qa__item">
+                    <div class="s-prod-qa__q">Whatֿ is the difference between Sports Trading Manager (STM) and OddService?</div>
+                    <div class="s-prod-qa__a">Whatֿ is the difference between Sports Trading Manager (STM) and OddService. Whatֿ is the difference between Sports Trading Manager (STM) and OddService. Whatֿ is the difference between Sports Trading Manager (STM) and OddService.</div>
+                </li>
+                <li class="s-prod-qa__item">
+                    <div class="s-prod-qa__q">Whatֿ is the difference between Sports Trading Manager (STM) and OddService?</div>
+                    <div class="s-prod-qa__a">Whatֿ is the difference between Sports Trading Manager (STM) and OddService. Whatֿ is the difference between Sports Trading Manager (STM) and OddService. Whatֿ is the difference between Sports Trading Manager (STM) and OddService.</div>
+                </li>
+            </ul>
+            <div class="button-wrapper">
+                <div class="btn-yellow">read more</div>
+            </div>
+        </div>
+    </section>
+    <section class="s-prod-sports bg-white">
+        <div class="container">
+            <div class="s-prod-sports__grid">
+                <div class="s-prod-sports__item">
+                    <img src="img/decor-11.svg" alt="">
+                    <h3>Global Sports</h3>
+                    <p>Soccer</p>
+                    <p>Tennis</p>
+                    <p>Table Tennis</p>
+                    <p>Basketball</p>
+                    <p>Cricket</p>
+                    <p>E-Sports</p>
+                    <p>Volleyball</p>
+                </div>
+                <div class="s-prod-sports__item">
+                    <img src="img/decor-12.svg" alt="">
+                    <h3>American Sports</h3>
+                    <p>Baseball</p>
+                    <p>Am. Football</p>
+                    <p>Hockey</p>
+                    <p>Golf</p>
+                    <p>Nascar</p>
+                    <p>Boxing</p>
+                </div>
+                <div class="s-prod-sports__item">
+                    <img src="img/decor-13.svg" alt="">
+                    <h3>UK Sports</h3>
+                    <p>Horse Racing</p>
+                    <p>Greyhounds</p>
+                </div>
+            </div>
+        </div>
+        <div class="bg-grey button-wrapper">
+            <div class="btn-yellow">read more</div>
+        </div>
+    </section>
+    <section class="s-hp-contact-us bg-yellow">
+        <h2>
+            <div data-aos="fade-up"
+                 data-aos-delay="50"
+                 data-aos-offset="0"
+                 data-aos-easing="ease-out"
+                 data-aos-duration="600">Plug your product in t<u>o</u>
+            </div>
+            <div data-aos="fade-up"
+                 data-aos-delay="100"
+                 data-aos-offset="100"
+                 data-aos-easing="ease-out"
+                 data-aos-duration="600"><u>t</u>he best sp<u>o</u>rts data feeds
+            </div>
+            <div data-aos="fade-up"
+                 data-aos-delay="150"
+                 data-aos-offset="200"
+                 data-aos-easing="ease-out"
+                 data-aos-duration="600">in the <u>w</u>orld
+            </div>
+        </h2>
+        <div class="btn-yellow">CONTACT US</div>
+    </section>
+    <section class="s-cat-solutions bg-white">
+        <div class="container">
+            <h2 data-aos="fade-up"
+                data-aos-delay="50"
+                data-aos-offset="10"
+                data-aos-duration="600">Check Out Our Popular Data Feeds & Solutions:</h2>
+            <ul class="s-cat-solutions__list">
+                <li class="s-cat-solutions__item">PREMIUM RACING PACKAGE</li>
+                <li class="s-cat-solutions__item">HORSE RACING</li>
+                <li class="s-cat-solutions__item">TROTTING</li>
+                <li class="s-cat-solutions__item">GREYHOUND</li>
+                <li class="s-cat-solutions__item">ESPORTS DATA</li>
+                <li class="s-cat-solutions__item">PREMIUM RACING PACKAGE</li>
+                <li class="s-cat-solutions__item">HORSE RACING</li>
+                <li class="s-cat-solutions__item">TROTTING</li>
+                <li class="s-cat-solutions__item">GREYHOUND</li>
+                <li class="s-cat-solutions__item">ESPORTS DATA</li>
+            </ul>
+            <a href="#" class="btn-yellow">learn about our coverage</a>
+        </div>
+    </section>
+
+
+    <section class="s-hp-contact-us bg-yellow">
+        <h2>
+            <div data-aos="fade-up"
+                 data-aos-delay="50"
+                 data-aos-offset="0"
+                 data-aos-easing="ease-out"
+                 data-aos-duration="600">Plug your product in t<u>o</u>
+            </div>
+            <div data-aos="fade-up"
+                 data-aos-delay="100"
+                 data-aos-offset="100"
+                 data-aos-easing="ease-out"
+                 data-aos-duration="600"><u>t</u>he best sp<u>o</u>rts data feeds
+            </div>
+            <div data-aos="fade-up"
+                 data-aos-delay="150"
+                 data-aos-offset="200"
+                 data-aos-easing="ease-out"
+                 data-aos-duration="600">in the <u>w</u>orld
+            </div>
+        </h2>
+        <div class="btn-yellow">CONTACT US</div>
+    </section>
+
+
     <section class="s-hp-header-promo bg-grey">
         <div class="s-hp-header-promo__slides">
             <?php if (have_rows('header')): while (have_rows('header')) : the_row(); ?>
@@ -244,16 +446,16 @@ get_header();
             <a href="<?php the_sub_field('link'); ?>"><h6 class="arrow-after"><?php the_field('read_more', 'option') ?></h6></a>
         <?php endwhile; endif; ?>
         <div class="image-marquee">
-            <div><img class="s-hp-sports__image desktop-only" src="<?php echo get_template_directory_uri() ?>/img/img-sports-1.png" alt=""></div>
-            <div><img class="s-hp-sports__image desktop-only" src="<?php echo get_template_directory_uri() ?>/img/img-sports-1.png" alt=""></div>
+            <div><img class="s-hp-sports__image desktop-only" src="<?php echo get_template_directory_uri() ?>/img/img-sports.png" alt=""></div>
+            <div><img class="s-hp-sports__image desktop-only" src="<?php echo get_template_directory_uri() ?>/img/img-sports.png" alt=""></div>
         </div>
         <div class="image-marquee slow">
-            <div><img class="s-hp-sports__image desktop-only" src="<?php echo get_template_directory_uri() ?>/img/img-sports-2.png" alt=""></div>
-            <div><img class="s-hp-sports__image desktop-only" src="<?php echo get_template_directory_uri() ?>/img/img-sports-2.png" alt=""></div>
+            <div><img class="s-hp-sports__image desktop-only" src="<?php echo get_template_directory_uri() ?>/img/img-sports.png" alt=""></div>
+            <div><img class="s-hp-sports__image desktop-only" src="<?php echo get_template_directory_uri() ?>/img/img-sports.png" alt=""></div>
         </div>
         <div class="image-marquee">
-            <div><img class="s-hp-sports__image desktop-only" src="<?php echo get_template_directory_uri() ?>/img/img-sports-3.png" alt=""></div>
-            <div><img class="s-hp-sports__image desktop-only" src="<?php echo get_template_directory_uri() ?>/img/img-sports-3.png" alt=""></div>
+            <div><img class="s-hp-sports__image desktop-only" src="<?php echo get_template_directory_uri() ?>/img/img-sports.png" alt=""></div>
+            <div><img class="s-hp-sports__image desktop-only" src="<?php echo get_template_directory_uri() ?>/img/img-sports.png" alt=""></div>
         </div>
     </section>
     <section class="s-hp-case-study">
@@ -299,7 +501,28 @@ get_header();
 
         </div>
     </section>
-
-<?php if (get_field('add_contact_section')) get_template_part('contact-section'); ?>
+    <section class="s-hp-contact-us bg-yellow">
+        <h2>
+            <div data-aos="fade-up"
+                 data-aos-delay="50"
+                 data-aos-offset="0"
+                 data-aos-easing="ease-out"
+                 data-aos-duration="600">Plug your product in t<u>o</u>
+            </div>
+            <div data-aos="fade-up"
+                 data-aos-delay="100"
+                 data-aos-offset="100"
+                 data-aos-easing="ease-out"
+                 data-aos-duration="600"><u>t</u>he best sp<u>o</u>rts data feeds
+            </div>
+            <div data-aos="fade-up"
+                 data-aos-delay="150"
+                 data-aos-offset="200"
+                 data-aos-easing="ease-out"
+                 data-aos-duration="600">in the <u>w</u>orld
+            </div>
+        </h2>
+        <div class="btn-yellow"><?php the_field('contact_us', 'option') ?></div>
+    </section>
 
 <?php get_footer();

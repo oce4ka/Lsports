@@ -9,11 +9,6 @@
   font-weight: 400;
 }
 @font-face {
-  font-family: "PP Formula";
-  src: url("../fonts/FormulaCondensed-Light.woff") format("woff"), url("../fonts/FormulaCondensed-Light.ttf") format("truetype");
-  font-weight: 300;
-}
-@font-face {
   font-family: "Test Söhne";
   src: url("../fonts/soehne-buch.woff") format("woff"), url("../fonts/soehne-buch.ttf") format("truetype");
   font-weight: 400;
@@ -314,12 +309,22 @@ body {
   line-height: 90px;
 }
 .s-hp-products__img-title {
-  height: 100%;
   font-style: normal;
   font-weight: 400;
   font-size: 10px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
+  width: 90px;
+  height: 481px;
+  box-sizing: border-box;
+  padding: 95px 0;
+}
+.s-hp-products__img-title-slides {
+  width: 100%;
+  height: 100%;
+}
+.s-hp-products__img-title-slides .slick-slide {
+  height: 290px;
 }
 .s-hp-products__prev,
 .s-hp-products__next {
@@ -519,6 +524,8 @@ body {
 .s-hp-events h3 {
   font-size: 35px;
   margin: 30px 25px 0;
+  overflow: hidden;
+  height: 35px;
 }
 .s-hp-events .country {
   font-weight: 500;
@@ -528,6 +535,8 @@ body {
   text-transform: uppercase;
   color: #333;
   margin: 0 25px;
+  max-height: 18px;
+  overflow: hidden;
 }
 .s-hp-events .info {
   font-family: "Test Söhne", sans-serif;
@@ -559,12 +568,26 @@ body {
 }
 .s-hp-sportsbooks {
   background: url("../img/bg-sportsbook.png") center center;
-  background-size: cover;
+  background-size: auto 100%;
   display: flex;
   justify-content: space-evenly;
   text-align: center;
   color: #fff;
   height: 480px;
+}
+.s-hp-sportsbooks.alternative {
+  background-image: url(../img/bg-sportsbook-alt.png);
+}
+.s-hp-sportsbooks.alternative .s-hp-sportsbooks__content {
+  width: 100%;
+}
+.s-hp-sportsbooks.alternative h2 {
+  position: absolute;
+  margin: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: 11px;
 }
 .s-hp-sportsbooks__content {
   width: 50%;
@@ -620,15 +643,15 @@ body {
 .image-marquee div {
   display: flex;
   position: relative;
-  animation: marquee 20s linear infinite;
+  animation: marquee 50s linear infinite;
   justify-content: space-around;
 }
 .image-marquee.slow div {
-  animation: marquee 30s linear infinite;
+  animation: marquee 70s linear infinite;
 }
 .image-marquee img {
   display: block;
-  min-width: var(--image-size);
+  min-width: calc(var(--image-size) * 2.5);
   height: auto;
   margin: 0;
 }
@@ -680,6 +703,9 @@ body {
 .s-hp-case-study__image-description {
   flex-grow: 1;
 }
+.s-hp-case-study__image-description-slides {
+  max-width: 482px;
+}
 .s-hp-case-study__prev,
 .s-hp-case-study__next {
   width: 90px;
@@ -713,7 +739,7 @@ body {
   line-height: 39px;
 }
 .s-hp-case-study__image-title .text-vertical {
-  height: 71px;
+  height: 90px;
 }
 .s-hp-contact-us {
   min-height: 520px;
@@ -975,7 +1001,7 @@ body {
   margin-bottom: 100px;
 }
 .s-cat-highlights__list {
-  max-width: 650px;
+  max-width: 805px;
   margin: 0 auto;
 }
 .s-cat-highlights__item {
@@ -1037,7 +1063,7 @@ body {
   display: grid;
   grid-template-columns: 567px 490px;
   gap: 140px;
-  align-items: center;
+  align-items: start;
 }
 .s-prod-header__content {
   display: flex;
@@ -1331,14 +1357,14 @@ body {
   margin-top: 230px;
   margin-bottom: 350px;
 }
-.timeline:before {
-  content: '';
+.timeline .line {
   position: absolute;
   background: #000;
   width: 1px;
   left: 50%;
   top: 0;
   bottom: 0;
+  max-height: 100%;
 }
 .timeline .year {
   font-weight: 900;
@@ -1982,6 +2008,12 @@ body {
   }
   .s-hp-products__img-title {
     font-size: 0.77vw;
+    width: 6.93vw;
+    height: 37.037vw;
+    padding: 7.315vw 0;
+  }
+  .s-hp-products__img-title-slides .slick-slide {
+    height: 22.33vw;
   }
   .s-hp-products__prev,
   .s-hp-products__next {
@@ -2086,10 +2118,12 @@ body {
   .s-hp-events h3 {
     font-size: 2.695vw;
     margin: 2.31vw 1.925vw 0;
+    height: 2.695vw;
   }
   .s-hp-events .country {
     font-size: 0.924vw;
     margin: 0 1.925vw;
+    max-height: 1.386vw;
   }
   .s-hp-events .info {
     font-size: 1.078vw;
@@ -2103,6 +2137,9 @@ body {
   }
   .s-hp-sportsbooks {
     height: 36.96vw;
+  }
+  .s-hp-sportsbooks.alternative h2 {
+    margin-top: 0.847vw;
   }
   .s-hp-sportsbooks h2 {
     margin-top: 15.4vw;
@@ -2157,10 +2194,16 @@ body {
   .s-hp-case-study__image-description {
     padding: 0 3.08vw;
   }
+  .s-hp-case-study__image-description-slides {
+    max-width: 37.114vw;
+  }
   .s-hp-case-study__image-title {
     width: 3.003vw;
     height: 6.93vw;
     line-height: 3.003vw;
+  }
+  .s-hp-case-study__image-title .text-vertical {
+    height: 6.93vw;
   }
   .s-hp-contact-us {
     min-height: 40.04vw;
@@ -2304,7 +2347,7 @@ body {
     margin-bottom: 7.7vw;
   }
   .s-cat-highlights__list {
-    max-width: 50.05vw;
+    max-width: 61.985vw;
   }
   .s-cat-highlights__item {
     font-size: 1.386vw;
@@ -2910,6 +2953,8 @@ body {
     flex-grow: 1;
     border: 1px solid #000;
     border-bottom: 0;
+    padding: 0;
+    height: 100%;
   }
   .s-hp-products__img-title .text-vertical {
     writing-mode: horizontal-tb;
@@ -3052,10 +3097,14 @@ body {
   .s-hp-events h3 {
     font-size: 9.345vw;
     margin: 8.01vw 6.675vw 0;
+    overflow: auto;
+    height: auto;
   }
   .s-hp-events .country {
     font-size: 3.204vw;
     margin: 0 6.675vw;
+    max-height: 100%;
+    overflow: auto;
   }
   .s-hp-events .info {
     font-size: 3.738vw;
@@ -3073,6 +3122,12 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+  .s-hp-sportsbooks.alternative {
+    background-image: url(../img/bg-sportsbook-alt-mob.png);
+  }
+  .s-hp-sportsbooks.alternative h2 {
+    margin-top: -1.335vw;
   }
   .s-hp-sportsbooks h2 {
     margin-top: 53.4vw;
@@ -3165,6 +3220,9 @@ body {
     border-bottom: 1px solid #000;
     flex-shrink: 1;
   }
+  .s-hp-case-study__image-description-slides {
+    max-width: 52.866vw;
+  }
   .s-hp-case-study__image-title {
     width: 3.204vw;
     height: 9.612vw;
@@ -3172,6 +3230,9 @@ body {
     flex-shrink: 0;
     border-bottom: 1px solid #000;
     font-size: 1.335vw;
+  }
+  .s-hp-case-study__image-title .text-vertical {
+    height: 9.612vw;
   }
   .s-hp-contact-us {
     min-height: 0;
@@ -3346,7 +3407,7 @@ body {
     max-width: 215px;
   }
   .s-cat-highlights__list {
-    max-width: 173.55vw;
+    max-width: 100%;
   }
   .s-cat-highlights__item {
     font-size: 3.471vw;
@@ -3562,7 +3623,7 @@ body {
     margin-top: 26.7vw;
     margin-bottom: 26.7vw;
   }
-  .timeline:before {
+  .timeline .line {
     left: 8.01vw;
   }
   .timeline .year {

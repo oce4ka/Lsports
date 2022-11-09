@@ -17,6 +17,15 @@
         <div class="linkedin"></div>
     </div>
     <nav class="nav-footer" role="navigation">
+        <?php
+        wp_nav_menu(
+            array(
+                'theme_location' => 'footer-menu',
+                'menu_class' => '',
+                'container' => false,
+            )
+        );
+        ?>
         <ul>
             <li><a href="">Coverage</a></li>
             <li>
