@@ -10,13 +10,16 @@
 get_header();
 ?>
 
-    <section class="s-text">
-<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-    <h1 class="text-heading"><?php the_title(); ?></h1>
-    <div class="text-content">
-        <?php the_content(); ?>
-    </div>
-<?php endwhile; ?>
+<?php if (has_category('products')) : ?>
+    <?php get_template_part('product-post'); ?>
+<?php elseif (has_category('events')): ?>
+    <?php get_template_part('event-post'); ?>
+<?php elseif (has_category('news')): ?>
+    <?php get_template_part('news-post'); ?>
+<?php else: ?>
+    <?php get_template_part('text-post'); ?>
 <?php endif; ?>
+
+<?php if (get_field('add_contact_section')) get_template_part('contact-section'); ?>
 
 <?php get_footer();

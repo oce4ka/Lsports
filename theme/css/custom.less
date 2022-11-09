@@ -11,30 +11,17 @@
   font-weight: 400;
 }
 
-@font-face {
-  font-family: "PP Formula";
-  src: url("../fonts/FormulaCondensed-Light.woff") format("woff"), url("../fonts/FormulaCondensed-Light.ttf") format("truetype");
-  font-weight: 300;
-}
+//@font-face {
+//  font-family: "PP Formula";
+//  src: url("../fonts/FormulaCondensed-Light.woff") format("woff"), url("../fonts/FormulaCondensed-Light.ttf") format("truetype");
+//  font-weight: 300;
+//}
 
 @font-face {
   font-family: "Test Söhne";
   src: url("../fonts/soehne-buch.woff") format("woff"), url("../fonts/soehne-buch.ttf") format("truetype");
   font-weight: 400;
 }
-
-//
-//@font-face {
-//  font-family: "Test Söhne";
-//  src: url("../fonts/Formula-Medium.woff") format("woff"), url("../fonts/Formula-Medium.ttf") format("truetype");
-//  font-weight: 400;
-//}
-//
-//@font-face {
-//  font-family: "Test Söhne";
-//  src: url("../fonts/FormulaCondensed-Light.woff") format("woff"), url("../fonts/FormulaCondensed-Light.ttf") format("truetype");
-//  font-weight: 300;
-//}
 
 @ff1: "PP Formula", sans-serif;
 @ff2: "Test Söhne", sans-serif;
@@ -659,6 +646,8 @@ html, body {
   h3 {
     font-size: 35px;
     margin: 30px 25px 0;
+    overflow: hidden;
+    height: 35px;
   }
 
   .country {
@@ -669,6 +658,8 @@ html, body {
     text-transform: uppercase;
     color: #333;
     margin: 0 25px;
+    max-height: 18px;
+    overflow: hidden;
   }
 
   .info {
@@ -1226,7 +1217,7 @@ html, body {
   }
 
   &__list {
-    max-width: 650px;
+    max-width: 805px;
     margin: 0 auto;
   }
 
@@ -1299,7 +1290,7 @@ html, body {
     display: grid;
     grid-template-columns: 567px 490px;
     gap: 140px;
-    align-items: center;
+    align-items: start;
   }
 
   &__content {
@@ -1652,14 +1643,14 @@ html, body {
   margin-top: 230px;
   margin-bottom: 350px;
 
-  &:before {
-    content: '';
+  .line {
     position: absolute;
     background: #000;
     width: 1px;
     left: 50%;
     top: 0;
     bottom: 0;
+    max-height: 100%;
   }
 
   .year {
@@ -2386,11 +2377,13 @@ html, body {
     h3 {
       font-size: 35*@x;
       margin: 30*@x 25*@x 0;
+      height: 35*@x;
     }
 
     .country {
       font-size: 12*@x;
       margin: 0 25*@x;
+      max-height: 18*@x;
     }
 
     .info {
@@ -2676,7 +2669,7 @@ html, body {
     }
 
     &__list {
-      max-width: 650*@x;
+      max-width: 805*@x;
     }
 
     &__item {
@@ -3624,11 +3617,15 @@ html, body {
     h3 {
       font-size: 35*@x;
       margin: 30*@x 25*@x 0;
+      overflow: auto;
+      height: auto;
     }
 
     .country {
       font-size: 12*@x;
       margin: 0 25*@x;
+      max-height: 100%;
+      overflow: auto;
     }
 
     .info {
@@ -3999,7 +3996,7 @@ html, body {
     }
 
     &__list {
-      max-width: 650*@x;
+      max-width: 100%;
     }
 
     &__item {
@@ -4271,7 +4268,7 @@ html, body {
     margin-top: 100*@x;
     margin-bottom: 100*@x;
 
-    &:before {
+    .line {
       left: 30*@x;
     }
 

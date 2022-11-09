@@ -73,3 +73,9 @@ acf_add_options_page(array(
     'menu_title'  => __('Section labels'),
     'redirect'    => false,
 ));
+
+acf_add_options_page(array(
+    'page_title'  => __('contacts'),
+    'menu_title'  => __('Section Contacts'),
+    'redirect'    => false,
+));

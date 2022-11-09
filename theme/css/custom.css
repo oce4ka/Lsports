@@ -9,11 +9,6 @@
   font-weight: 400;
 }
 @font-face {
-  font-family: "PP Formula";
-  src: url("../fonts/FormulaCondensed-Light.woff") format("woff"), url("../fonts/FormulaCondensed-Light.ttf") format("truetype");
-  font-weight: 300;
-}
-@font-face {
   font-family: "Test Söhne";
   src: url("../fonts/soehne-buch.woff") format("woff"), url("../fonts/soehne-buch.ttf") format("truetype");
   font-weight: 400;
@@ -529,6 +524,8 @@ body {
 .s-hp-events h3 {
   font-size: 35px;
   margin: 30px 25px 0;
+  overflow: hidden;
+  height: 35px;
 }
 .s-hp-events .country {
   font-weight: 500;
@@ -538,6 +535,8 @@ body {
   text-transform: uppercase;
   color: #333;
   margin: 0 25px;
+  max-height: 18px;
+  overflow: hidden;
 }
 .s-hp-events .info {
   font-family: "Test Söhne", sans-serif;
@@ -1002,7 +1001,7 @@ body {
   margin-bottom: 100px;
 }
 .s-cat-highlights__list {
-  max-width: 650px;
+  max-width: 805px;
   margin: 0 auto;
 }
 .s-cat-highlights__item {
@@ -1064,7 +1063,7 @@ body {
   display: grid;
   grid-template-columns: 567px 490px;
   gap: 140px;
-  align-items: center;
+  align-items: start;
 }
 .s-prod-header__content {
   display: flex;
@@ -1358,14 +1357,14 @@ body {
   margin-top: 230px;
   margin-bottom: 350px;
 }
-.timeline:before {
-  content: '';
+.timeline .line {
   position: absolute;
   background: #000;
   width: 1px;
   left: 50%;
   top: 0;
   bottom: 0;
+  max-height: 100%;
 }
 .timeline .year {
   font-weight: 900;
@@ -1945,10 +1944,12 @@ body {
   .s-hp-events h3 {
     font-size: 2.695vw;
     margin: 2.31vw 1.925vw 0;
+    height: 2.695vw;
   }
   .s-hp-events .country {
     font-size: 0.924vw;
     margin: 0 1.925vw;
+    max-height: 1.386vw;
   }
   .s-hp-events .info {
     font-size: 1.078vw;
@@ -2172,7 +2173,7 @@ body {
     margin-bottom: 7.7vw;
   }
   .s-cat-highlights__list {
-    max-width: 50.05vw;
+    max-width: 61.985vw;
   }
   .s-cat-highlights__item {
     font-size: 1.386vw;
@@ -2922,10 +2923,14 @@ body {
   .s-hp-events h3 {
     font-size: 9.345vw;
     margin: 8.01vw 6.675vw 0;
+    overflow: auto;
+    height: auto;
   }
   .s-hp-events .country {
     font-size: 3.204vw;
     margin: 0 6.675vw;
+    max-height: 100%;
+    overflow: auto;
   }
   .s-hp-events .info {
     font-size: 3.738vw;
@@ -3228,7 +3233,7 @@ body {
     max-width: 215px;
   }
   .s-cat-highlights__list {
-    max-width: 173.55vw;
+    max-width: 100%;
   }
   .s-cat-highlights__item {
     font-size: 3.471vw;
@@ -3444,7 +3449,7 @@ body {
     margin-top: 26.7vw;
     margin-bottom: 26.7vw;
   }
-  .timeline:before {
+  .timeline .line {
     left: 8.01vw;
   }
   .timeline .year {
