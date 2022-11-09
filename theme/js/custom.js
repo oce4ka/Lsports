@@ -6,7 +6,7 @@
         $(this).siblings('ul').fadeToggle();
     });
 
-    $('.nav-main ul>li>a').click(function (e) {
+    $('.nav-main ul>li>a, .s-news__types-dropdown>a').click(function (e) {
         e.preventDefault();
         $(e.target).parent().find('ul').fadeToggle();
     })
