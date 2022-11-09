@@ -160,14 +160,13 @@
     // About timeline
 
     $('.timeline .line').height(0);
-
     $(window).scroll(function () {
         var hT = $('.timeline .line').offset().top,
             hH = $('.timeline .line').outerHeight(),
             wH = $(window).height(),
             wS = $(this).scrollTop();
         if (wS > (hT + hH - wH)) {
-            console.log(wS);
+            //console.log(wS);
             // console.log(hT);
             // console.log(hH);
             // console.log(wH);

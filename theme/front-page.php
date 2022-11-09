@@ -244,16 +244,16 @@ get_header();
             <a href="<?php the_sub_field('link'); ?>"><h6 class="arrow-after"><?php the_field('read_more', 'option') ?></h6></a>
         <?php endwhile; endif; ?>
         <div class="image-marquee">
-            <div><img class="s-hp-sports__image desktop-only" src="<?php echo get_template_directory_uri() ?>/img/img-sports.png" alt=""></div>
-            <div><img class="s-hp-sports__image desktop-only" src="<?php echo get_template_directory_uri() ?>/img/img-sports.png" alt=""></div>
+            <div><img class="s-hp-sports__image desktop-only" src="<?php echo get_template_directory_uri() ?>/img/img-sports-1.png" alt=""></div>
+            <div><img class="s-hp-sports__image desktop-only" src="<?php echo get_template_directory_uri() ?>/img/img-sports-1.png" alt=""></div>
         </div>
         <div class="image-marquee slow">
-            <div><img class="s-hp-sports__image desktop-only" src="<?php echo get_template_directory_uri() ?>/img/img-sports.png" alt=""></div>
-            <div><img class="s-hp-sports__image desktop-only" src="<?php echo get_template_directory_uri() ?>/img/img-sports.png" alt=""></div>
+            <div><img class="s-hp-sports__image desktop-only" src="<?php echo get_template_directory_uri() ?>/img/img-sports-2.png" alt=""></div>
+            <div><img class="s-hp-sports__image desktop-only" src="<?php echo get_template_directory_uri() ?>/img/img-sports-2.png" alt=""></div>
         </div>
         <div class="image-marquee">
-            <div><img class="s-hp-sports__image desktop-only" src="<?php echo get_template_directory_uri() ?>/img/img-sports.png" alt=""></div>
-            <div><img class="s-hp-sports__image desktop-only" src="<?php echo get_template_directory_uri() ?>/img/img-sports.png" alt=""></div>
+            <div><img class="s-hp-sports__image desktop-only" src="<?php echo get_template_directory_uri() ?>/img/img-sports-3.png" alt=""></div>
+            <div><img class="s-hp-sports__image desktop-only" src="<?php echo get_template_directory_uri() ?>/img/img-sports-3.png" alt=""></div>
         </div>
     </section>
     <section class="s-hp-case-study">

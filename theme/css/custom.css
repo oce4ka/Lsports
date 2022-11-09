@@ -643,15 +643,15 @@ body {
 .image-marquee div {
   display: flex;
   position: relative;
-  animation: marquee 20s linear infinite;
+  animation: marquee 50s linear infinite;
   justify-content: space-around;
 }
 .image-marquee.slow div {
-  animation: marquee 30s linear infinite;
+  animation: marquee 70s linear infinite;
 }
 .image-marquee img {
   display: block;
-  min-width: var(--image-size);
+  min-width: calc(var(--image-size) * 2.5);
   height: auto;
   margin: 0;
 }

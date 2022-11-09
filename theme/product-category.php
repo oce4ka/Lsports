@@ -27,7 +27,6 @@ get_header();
     </section>
 <?php endwhile; endif; ?>
 
-
 <?php if (have_rows('category_items')): while (have_rows('category_items')) : the_row(); ?>
     <section class="s-cat-features bg-grey">
         <div class="container">
