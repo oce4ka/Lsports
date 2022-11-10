@@ -2393,6 +2393,10 @@ html, body {
     text-transform: uppercase;
     color: #000;
     text-align: center;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
 
@@ -2429,6 +2433,10 @@ html, body {
   @x: 0.077vw; //100/1300
   .container {
     width: 1200*@x;
+
+    &--post {
+      width: 882*@x;
+    }
   }
 
   .btn-yellow {
@@ -2876,6 +2884,11 @@ html, body {
 
   .nav-social {
     height: 55*@x;
+
+    &--post {
+      height: 19*@x;
+      margin-bottom: 35*@x;
+    }
 
     .facebook, .twitter, .linkedin {
       width: 25*@x;
@@ -3554,6 +3567,91 @@ html, body {
     }
   }
 
+  .s-news-post {
+    padding: 50*@x 0 68*@x;
+
+    &__header, p {
+      margin-right: 72*@x;
+      max-width: 700*@x;
+    }
+
+    .back {
+      font-size: 10*@x;
+    }
+
+    .meta {
+      margin: 35*@x 0 24*@x;
+
+      .separator {
+        height: 17*@x;
+        margin: 0 28*@x;
+      }
+
+      .type,
+      .date {
+        font-size: 14*@x;
+      }
+    }
+
+    picture {
+      margin-bottom: 35*@x;
+    }
+
+    .excerpt {
+      font-size: 16*@x;
+      margin: 24*@x 0;
+    }
+  }
+
+  .s-related {
+    padding-top: 87*@x;
+    padding-bottom: 66*@x;
+
+    &__wrapper {
+      margin-right: 72*@x;
+      max-width: 700*@x;
+    }
+
+    h2 {
+      font-size: 35*@x;
+      margin-bottom: 40*@x;
+    }
+
+    &__item {
+      padding-bottom: 22*@x;
+      margin-bottom: 26*@x;
+
+      .image-wrapper {
+        width: 230*@x;
+        height: 152*@x;
+      }
+
+      .type {
+        font-size: 14*@x;
+        margin-bottom: 12*@x;
+      }
+
+      .excerpt {
+        font-size: 16*@x;
+      }
+
+      .date {
+        margin-top: 16*@x;
+        font-size: 10*@x;
+      }
+    }
+
+    &__item-content {
+      width: calc(100% - 230*@x);
+      padding-left: 32*@x;
+    }
+
+    &__show-all {
+      margin-top: 94*@x;
+      font-size: 14*@x;
+    }
+  }
+
   // Page Contact Us
   .s-contact {
     padding: 160*@x 0;
@@ -3663,6 +3761,10 @@ html, body {
   .container {
     width: auto;
     margin: 0 30*@x;
+
+    &--post {
+      width: auto;
+    }
   }
 
   .btn-yellow {
@@ -4265,6 +4367,17 @@ html, body {
       height: 25*@x;
       margin: 0 10*@x;
     }
+
+    &--post {
+      height: 24*@x;
+      margin-bottom: 25*@x;
+
+      .facebook, .twitter, .linkedin {
+        width: 18*@x;
+        height: 18*@x;
+        margin: 0 8*@x;
+      }
+    }
   }
 
   .nav-footer {
@@ -4718,6 +4831,95 @@ html, body {
     &__item-content {
       padding: 32*@x 24*@x;
       height: calc(100% - 247*@x);
+    }
+  }
+
+  .s-news-post {
+    padding: 35*@x 0 40*@x;
+
+    &__header, p {
+      margin-left: 30*@x;
+      margin-right: 0;
+      max-width: 100%;
+    }
+
+    .back {
+      font-size: 8*@x;
+    }
+
+    .meta {
+      margin: 35*@x 0 24*@x;
+
+      .separator {
+        height: 17*@x;
+        margin: 0 28*@x;
+      }
+
+      .type,
+      .date {
+        font-size: 12*@x;
+      }
+    }
+
+    picture {
+      margin-bottom: 25*@x;
+    }
+
+    .excerpt {
+      font-size: 16*@x;
+      margin: 24*@x 0;
+    }
+  }
+
+  .s-related {
+    padding-top: 70*@x;
+    padding-bottom: 40*@x;
+
+    &__wrapper {
+      margin-left: 30*@x;
+      margin-right: 0;
+      max-width: 100%;
+    }
+
+    h2 {
+      font-size: 35*@x;
+      margin-bottom: 25*@x;
+    }
+
+    &__item {
+      flex-direction: column;
+      padding-bottom: 22*@x;
+      margin-bottom: 26*@x;
+
+      .image-wrapper {
+        width: 100%;
+        height: 180*@x;
+      }
+
+      .type {
+        font-size: 8*@x;
+        margin-bottom: 10*@x;
+      }
+
+      .excerpt {
+        font-size: 14*@x;
+      }
+
+      .date {
+        margin-top: 16*@x;
+        font-size: 8*@x;
+      }
+    }
+
+    &__item-content {
+      width: 100%;
+      padding-left: 0;
+      padding-top: 22*@x;
+    }
+
+    &__show-all {
+      margin-top: 60*@x;
+      font-size: 10*@x;
     }
   }
 
