@@ -961,6 +961,10 @@ html, body {
     background-repeat: no-repeat;
     background-size: contain;
     margin: 0 15px;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   .facebook {
@@ -969,6 +973,7 @@ html, body {
     &--black {
       margin-left: 0;
       margin-right: 22px;
+      height: 19px;
       background-image: url("../img/icon-facebook-black.svg");
     }
   }
@@ -979,6 +984,7 @@ html, body {
     &--black {
       margin-left: 0;
       margin-right: 22px;
+      height: 19px;
       background-image: url("../img/icon-twitter-black.svg");
     }
   }
@@ -989,6 +995,7 @@ html, body {
     &--black {
       margin-left: 0;
       margin-right: 22px;
+      height: 19px;
       background-image: url("../img/icon-linkedin-black.svg");
     }
   }
@@ -2428,7 +2435,6 @@ html, body {
 }
 
 // medium screens
-
 @media (max-width: 1300px) {
   @x: 0.077vw; //100/1300
   .container {
@@ -2894,6 +2900,12 @@ html, body {
       width: 25*@x;
       height: 25*@x;
       margin: 0 15*@x;
+
+      &--black {
+        height: 19*@x;
+        margin-left: 0;
+        margin-right: 22*@x;
+      }
     }
   }
 
@@ -3755,7 +3767,6 @@ html, body {
 }
 
 // mobile screens
-
 @media (max-width: 768px) {
   @x: .267vw; // 100/375px;
   .container {
@@ -4373,9 +4384,8 @@ html, body {
       margin-bottom: 25*@x;
 
       .facebook, .twitter, .linkedin {
-        width: 18*@x;
-        height: 18*@x;
-        margin: 0 8*@x;
+        height: 16*@x;
+        margin: 0 8*@x 0 0;
       }
     }
   }
@@ -4872,7 +4882,7 @@ html, body {
   }
 
   .s-related {
-    padding-top: 70*@x;
+    padding-top: 60*@x;
     padding-bottom: 40*@x;
 
     &__wrapper {
@@ -5380,7 +5390,6 @@ html, body {
     }
   }
 }
-
 
 @media (min-width: 768.01px) {
   .mobile-only {
