@@ -2407,6 +2407,126 @@ html, body {
   }
 }
 
+.s-events {
+  padding: 150px 0 100px;
+
+  &__header {
+    border-bottom: 1px solid #000;
+    padding-bottom: 45px;
+  }
+
+  h1 {
+    font-size: 90px;
+    text-align: center;
+  }
+
+  &__filter {
+    margin-top: 40px;
+    display: flex;
+    list-style: none;
+    justify-content: center;
+
+      div {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 1.55;
+        letter-spacing: .2em;
+        padding: 18px 30px;
+        border: 1px solid #000;
+        margin: 0 8px;
+        text-transform: uppercase;
+        transition: @transition;
+
+        &:hover {
+          cursor: pointer;
+          background-color: @yellow;
+        }
+
+        &.active {
+          background-color: @yellow;
+        }
+      }
+  }
+
+  &__grid {
+    display: flex;
+    flex-direction: column;
+    margin-top: 45px;
+  }
+
+  &__item {
+    width: 100%;
+    padding: 40px 48px;
+    border: 1px solid #000;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 45px;
+    align-items: center;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &.hide {
+      display: none;
+    }
+
+    .image-wrapper {
+      width: 485px;
+      height: 380px;
+      border: 1px solid #000;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    .item-content {
+      padding-left: 80px;
+      width: 56%;
+    }
+
+    .meta {
+      display: flex;
+      font-weight: 500;
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #000;
+      margin-bottom: 16px;
+    }
+
+    .icon-calendar,
+    .icon-place {
+      float: left;
+      margin-right: 8px;
+      height: 15px;
+      width: 15px;
+      background-image: url('../img/icon-calendar.svg');
+      background-size: auto 100%;
+      background-repeat: no-repeat;
+    }
+
+    .icon-place {
+      background-image: url('../img/icon-place.svg');
+    }
+
+    .separator {
+      width: 1px;
+      height: 15px;
+      margin: 0 8px;
+      border: 1px solid #666;
+    }
+
+    .excerpt {
+      margin-top: 10px;
+      margin-bottom: 30px;
+      font-size: 16px;
+      line-height: 1.55;
+      color: #333;
+    }
+  }
+}
+
 ::-webkit-input-placeholder { /* Edge */
   font-weight: 500;
   font-size: 10px;
@@ -3661,6 +3781,68 @@ html, body {
     &__show-all {
       margin-top: 94*@x;
       font-size: 14*@x;
+    }
+  }
+
+  .s-events {
+    padding: 150*@x 0 100*@x;
+
+    &__header {
+      padding-bottom: 45*@x;
+    }
+
+    h1 {
+      font-size: 90*@x;
+    }
+
+    &__filter {
+      margin-top: 40*@x;
+
+      div {
+        font-size: 12*@x;
+        padding: 18*@x 30*@x;
+        margin: 0 8*@x;
+      }
+    }
+
+    &__grid {
+      margin-top: 45*@x;
+    }
+
+    &__item {
+      padding: 40*@x 48*@x;
+      margin-bottom: 45*@x;
+
+      .image-wrapper {
+        width: 485*@x;
+        height: 380*@x;
+      }
+
+      .item-content {
+        padding-left: 80*@x;
+      }
+
+      .meta {
+        font-size: 12*@x;
+        margin-bottom: 16*@x;
+      }
+
+      .icon-calendar,
+      .icon-place {
+        width: 15*@x;
+        height: 15*@x;
+      }
+
+      .separator {
+        height: 15*@x;
+        margin: 0 8*@x;
+      }
+
+      .excerpt {
+        margin-top: 10*@x;
+        margin-bottom: 30*@x;
+        font-size: 16*@x;
+      }
     }
   }
 
@@ -4930,6 +5112,81 @@ html, body {
     &__show-all {
       margin-top: 60*@x;
       font-size: 10*@x;
+    }
+  }
+
+  .s-events {
+    padding: 70*@x 0 40*@x;
+
+    &__header {
+      padding-bottom: 24*@x;
+    }
+
+    h1 {
+      font-size: 55*@x;
+    }
+
+    &__filter {
+      margin-top: 36*@x;
+      flex-wrap: wrap;
+
+      div {
+        font-size: 10*@x;
+        padding: 8*@x 15*@x;
+        margin: 0 6*@x 12*@x;
+      }
+    }
+
+    &__grid {
+      margin-top: 30*@x;
+    }
+
+    &__item {
+      padding: 20*@x;
+      margin-bottom: 36*@x;
+      flex-direction: column;
+
+      .image-wrapper {
+        width: 100%;
+        height: 233*@x;
+        margin-bottom: 20*@x;
+      }
+
+      .item-content {
+        width: 100%;
+        padding-left: 0;
+      }
+
+      .meta {
+        font-size: 12*@x;
+        margin-bottom: 20*@x;
+        flex-direction: column;
+      }
+
+      .type,
+      .date {
+        width: 100%;
+      }
+
+      .date {
+        margin-bottom: 5*@x;
+      }
+
+      .icon-calendar,
+      .icon-place {
+        width: 15*@x;
+        height: 15*@x;
+      }
+
+      .separator {
+        display: none;
+      }
+
+      .excerpt {
+        margin-top: 10*@x;
+        margin-bottom: 30*@x;
+        font-size: 16*@x;
+      }
     }
   }
 
