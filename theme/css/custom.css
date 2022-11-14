@@ -76,7 +76,6 @@ u {
   white-space: nowrap;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
-  margin-left: 16px;
 }
 .btn-gray:hover {
   background-color: #E1F32C;
@@ -2403,6 +2402,9 @@ body {
   font-weight: 900;
   font-size: 25px;
 }
+.s-events-post__cta-btns > * {
+  margin-left: 16px;
+}
 ::-webkit-input-placeholder {
   /* Edge */
   font-weight: 500;
@@ -3473,6 +3475,53 @@ body {
     margin-top: 2.079vw;
     max-width: 11.011vw;
   }
+  .s-events-post {
+    padding: 9.24vw 0 5.39vw;
+  }
+  .s-events-post h1 {
+    font-size: 4.235vw;
+  }
+  .s-events-post h3 {
+    font-size: 1.925vw;
+    margin-bottom: 0.616vw;
+    margin-top: 3.08vw;
+  }
+  .s-events-post p,
+  .s-events-post li {
+    font-size: 1.232vw;
+  }
+  .s-events-post__wrapper {
+    margin-top: 1.694vw;
+  }
+  .s-events-post__image {
+    width: 50.897vw;
+    height: 29.876vw;
+  }
+  .s-events-post__detail {
+    width: 37.268vw;
+  }
+  .s-events-post__meta {
+    padding: 1.848vw 4.928vw;
+    font-size: 1.078vw;
+  }
+  .s-events-post__meta .place {
+    margin-top: 1.617vw;
+  }
+  .s-events-post__content {
+    margin-top: 4.389vw;
+  }
+  .s-events-post__cta {
+    padding: 5.39vw 0;
+  }
+  .s-events-post__cta-title {
+    font-size: 1.078vw;
+  }
+  .s-events-post__cta h4 {
+    font-size: 1.925vw;
+  }
+  .s-events-post__cta-btns > * {
+    margin-left: 1.232vw;
+  }
   .s-contact {
     padding: 12.32vw 0;
   }
@@ -3570,6 +3619,9 @@ body {
     font-size: 3.204vw;
     line-height: 14.685vw;
   }
+  .btn-gray {
+    font-size: 3.204vw;
+  }
   p {
     font-size: 4.272vw;
     margin: 0 0 5.34vw;
@@ -3589,6 +3641,10 @@ body {
     margin-right: 2.136vw;
     height: 4.005vw;
     width: 4.005vw;
+  }
+  .video-wrapper__overlay:before {
+    height: 8.811vw;
+    width: 8.811vw;
   }
   .header-global {
     height: 15.486vw;
@@ -3870,6 +3926,38 @@ body {
   }
   .s-hp-news__dots .slick-dots {
     margin: 1.335vw 5.34vw;
+  }
+  .s-hp-news--event {
+    padding: 11.481vw 0 16.287vw;
+  }
+  .s-hp-news--event .s-hp-news__headings {
+    margin-left: 8.01vw;
+  }
+  .s-hp-news--event .s-hp-news__news-item {
+    width: 79.032vw;
+  }
+  .s-hp-news--event .s-hp-news__news-item__content {
+    flex-direction: column;
+  }
+  .s-hp-news--event .image-wrapper {
+    margin: 4.539vw;
+    width: 69.954vw;
+    height: 27.501vw;
+  }
+  .s-hp-news--event .s-hp-news__news-item__wrapper {
+    margin: 0 4.539vw 5.607vw;
+  }
+  .s-hp-news--event .meta {
+    margin-bottom: 4.539vw;
+  }
+  .s-hp-news--event h3 {
+    font-size: 4.806vw;
+    margin: 0;
+  }
+  .s-hp-news--event .excerpt {
+    margin-top: 1.602vw;
+    margin-right: 0;
+    font-size: 3.738vw;
   }
   .s-hp-events {
     padding: 16.02vw 8.01vw 5.34vw;
@@ -4517,10 +4605,12 @@ body {
     padding: 18.69vw 0 10.68vw;
   }
   .s-events__header {
+    margin: 0 8.01vw;
     padding-bottom: 6.408vw;
   }
   .s-events h1 {
     font-size: 14.685vw;
+    text-align: left;
   }
   .s-events__filter {
     margin-top: 9.612vw;
@@ -4618,6 +4708,75 @@ body {
     margin-top: 7.209vw;
     max-width: 38.181vw;
     min-width: unset;
+  }
+  .s-events-post {
+    padding: 18.69vw 0 13.35vw;
+  }
+  .s-events-post p,
+  .s-events-post li {
+    font-size: 3.738vw;
+  }
+  .s-events-post h1 {
+    font-size: 14.685vw;
+  }
+  .s-events-post h3 {
+    font-size: 6.675vw;
+    margin-bottom: 2.136vw;
+  }
+  .s-events-post__wrapper {
+    margin-top: 6.675vw;
+    flex-direction: column;
+  }
+  .s-events-post__image {
+    width: 100%;
+    height: 48.861vw;
+  }
+  .s-events-post__detail {
+    width: 100%;
+    margin-top: 6.675vw;
+  }
+  .s-events-post__meta {
+    padding: 6.408vw 5.34vw;
+    font-size: 2.403vw;
+    margin-bottom: 2.136vw;
+  }
+  .s-events-post__meta .place {
+    margin-top: 4.539vw;
+  }
+  .s-events-post__content {
+    width: 100%;
+    margin-top: 10.68vw;
+  }
+  .s-events-post__cta-grid {
+    flex-direction: column;
+    margin-left: calc(86*0.267vw - 30*0.267vw);
+    margin-right: calc(50*0.267vw - 30*0.267vw);
+  }
+  .s-events-post__cta {
+    padding: 11.481vw 0 13.617vw;
+  }
+  .s-events-post__cta .date {
+    display: flex;
+    align-items: center;
+  }
+  .s-events-post__cta-title {
+    font-size: 2.403vw;
+  }
+  .s-events-post__cta h4 {
+    font-size: 6.675vw;
+    margin-top: 2.67vw;
+  }
+  .s-events-post__cta-btns {
+    margin-top: 5.34vw;
+  }
+  .s-events-post__cta-btns > * {
+    width: 100%;
+    max-width: 54.201vw;
+    margin-left: 0;
+    margin-bottom: 4.272vw;
+  }
+  .s-events-post__cta-btns > *:last-child {
+    margin-bottom: 0;
   }
   .s-about-header {
     height: 125.49vw;
