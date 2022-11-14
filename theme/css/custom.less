@@ -2915,6 +2915,187 @@ html, body {
   color: #000;
 }
 
+.modal {
+  top: 0;
+  left: 0;
+  display: block;
+  position: fixed;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  z-index: 99;
+
+  &.hide {
+    display: none;
+  }
+
+  &-overlay {
+    width: 100%;
+    height: 100%;
+    background-color: #E8E8ED;
+  }
+
+  &-logo {
+    position: absolute;
+    top: 17px;
+    left: 30px;
+  }
+
+  &-wrapper {
+    height: 672px;
+    width: 1195px;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    border: 1px solid #000;
+    background-color: #fff;
+  }
+
+  &-close {
+    width: 48px;
+    height: 48px;
+    border-bottom: 1px solid #000;
+    border-left: 1px solid #000;
+    position: absolute;
+    top: 0;
+    left: auto;
+    right: 0;
+    text-align: center;
+
+    img {
+      margin: 11px;
+    }
+  }
+
+  &-grid {
+    display: flex;
+    align-items: stretch;
+    height: 100%;
+
+    &__left {
+      width: 450px;
+      background: #00CEF5;
+      border-right: 1px solid #000;
+      padding:  190px 65px 65px;
+      flex-direction: column;
+    }
+
+    &__right {
+      width: calc(100% - 450px);
+      padding: 87px 58px;
+    }
+
+    &__label-form {
+      font-family: @ff1;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 1.55;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: #000;
+    }
+
+    &__form-wrapper {
+      margin-top: 20px;
+    }
+
+    &__form {
+      input,
+      textarea {
+        padding: 16px 30px;
+        border: 1px solid #000;
+        font-weight: 500;
+        font-size: 10px;
+        line-height: 1.55;
+        letter-spacing: .2em;
+        text-transform: uppercase;
+        color: #000;
+        float: left;
+      }
+
+      input {
+        width: 280px;
+        height: 48px;
+        margin-bottom: 21px;
+
+        &:nth-child(odd) {
+          margin-right: 24px;
+        }
+
+        &[type=submit] {
+          margin-bottom: 0;
+          width: 583px;
+        }
+      }
+
+      textarea {
+        width: 583px;
+        height: 179px;
+        margin-bottom: 21px;
+      }
+    }
+
+    &__date {
+      font-family: @ff2;
+      font-size: 14px;
+      line-height: 1.55;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: #000;
+      display: flex;
+      align-items: center;
+    }
+
+    &__title {
+      margin-top: 30px;
+      font-family: @ff1;
+      font-weight: 900;
+      font-size: 55px;
+      line-height: 1;
+      text-transform: uppercase;
+      color: #000;
+    }
+  }
+}
+
+.set-meeting {
+  width: 100vw;
+  height: 727px;
+  min-height: 50vh;
+  background-color: #fff;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  padding: 80px 0;
+  transition: @transition;
+
+  &.hide {
+    bottom: -100vh;
+  }
+
+  &__close {
+    width: 23px;
+    height: 23px;
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    background-image: url("../img/icon-close.svg");
+    background-size: 100%;
+  }
+
+  &__wrapper {
+    margin: auto;
+    width: 584px;
+  }
+
+  h1 {
+    font-size: 55px;
+    margin-bottom: 56px;
+  }
+}
+
 // medium screens
 @media (max-width: 1300px) {
   @x: 0.077vw; //100/1300
@@ -3208,6 +3389,49 @@ html, body {
 
       .slick-dots {
         margin: 5*@x 20*@x;
+      }
+    }
+
+    .s-hp-news__news-item {
+      width: 658*@x;
+    }
+
+    &--event {
+      padding: 71*@x 0;
+
+      .image-wrapper {
+        width: 237*@x;
+        height: 198*@x;
+        margin: 21*@x 18*@x 21*@x 21*@x;
+      }
+
+      .s-hp-news__headings {
+        width: 351*@x;
+        margin-left: 123*@x;
+      }
+
+      h2,
+      h3 {
+        font-size: 35*@x;
+      }
+
+      .excerpt {
+        font-size: 16*@x;
+        margin: 5*@x 65*@x 5*@x 0;
+      }
+
+      .meta {
+        margin: 0 0 31*@x;
+
+        .separator {
+          height: 15*@x;
+          margin: 0 8*@x;
+        }
+
+        .date,
+        .place {
+          font-size: 12*@x;
+        }
       }
     }
   }
@@ -4402,6 +4626,98 @@ html, body {
     font-size: 10*@x;
   }
 
+  .modal {
+    &-logo {
+      top: 17*@x;
+      left: 30*@x;
+    }
+
+    &-wrapper {
+      height: 672*@x;
+      width: 1195*@x;
+    }
+
+    &-close {
+      width: 48*@x;
+      height: 48*@x;
+
+      img {
+        margin: 11*@x;
+      }
+    }
+
+    &-grid {
+      &__left {
+        width: 450*@x;
+        padding: 190*@x 65*@x 65*@x;
+      }
+
+      &__right {
+        width: calc(100% - 450*@x);
+        padding: 87*@x 58*@x;
+      }
+
+      &__label-form {
+        font-size: 14*@x;
+      }
+
+      &__form-wrapper {
+        margin-top: 20*@x;
+      }
+
+      &__form {
+        input,
+        textarea {
+          padding: 16*@x 30*@x;
+          font-size: 10*@x;
+        }
+
+        input {
+          width: 280*@x;
+          height: 48*@x;
+          margin-bottom: 21*@x;
+
+          &:nth-child(odd) {
+            margin-right: 24*@x;
+          }
+
+          &[type=submit] {
+            width: 583*@x;
+          }
+        }
+
+        textarea {
+          width: 583*@x;
+          height: 179*@x;
+          margin-bottom: 21*@x;
+        }
+      }
+
+      &__date {
+        font-size: 14*@x;
+      }
+
+      &__title {
+        margin-top: 30*@x;
+        font-size: 55*@x;
+      }
+    }
+  }
+
+  .set-meeting {
+    height: 727*@x;
+    padding: 80*@x 0;
+
+    &__wrapper {
+      width: 584*@x;
+    }
+
+    h1 {
+      font-size: 55*@x;
+      margin-bottom: 56*@x;
+    }
+  }
+
   // page 404
   .s-404 {
     .container {
@@ -4824,6 +5140,57 @@ html, body {
         margin: 5*@x 20*@x;
       }
     }
+
+    .s-hp-news__news-item {
+      width: 296*@x;
+    }
+
+    &--event {
+      padding: 60*@x 0;
+
+      .image-wrapper {
+        width: 262*@x;
+        height: 103*@x;
+        margin: 17*@x;
+      }
+
+      .s-hp-news__headings {
+        width: 100%;
+        margin: 0 30*@x;
+      }
+
+      h2,
+      h3 {
+        font-size: 35*@x;
+      }
+
+      h6 {
+        margin-bottom: 16*@x;
+      }
+
+      .excerpt {
+        font-size: 14*@x;
+        margin: 6*@x 0 21*@x;
+      }
+
+      .meta {
+        margin: 0 0 11*@x;
+
+        .separator {
+          height: 8*@x;
+          margin: 0 7*@x;
+        }
+
+        .date,
+        .place {
+          font-size: 9*@x;
+        }
+      }
+
+      .btn-read-more .text-vertical {
+        font-size: 9*@x;
+      }
+    }
   }
 
   .s-hp-news--event {
@@ -4848,7 +5215,7 @@ html, body {
     }
 
     .s-hp-news__news-item__wrapper {
-      margin: 0 17*@x 21*@x;
+      margin: 0 17*@x;
     }
 
     .meta {
@@ -6315,6 +6682,101 @@ html, body {
 
   ::placeholder {
     font-size: 10*@x;
+  }
+
+  .modal {
+    &-logo {
+      display: none;
+    }
+
+    &-wrapper {
+      height: 100vh;
+      width: 100vw;
+    }
+
+    &-close {
+      width: 33*@x;
+      height: 33*@x;
+
+      img {
+        margin: 5*@x;
+      }
+    }
+
+    &-grid {
+      flex-direction: column;
+
+      &__left {
+        width: 100%;
+        padding: 15*@x;
+        border-right: none;
+        border-bottom: 1px solid #000;
+      }
+
+      &__right {
+        width: 100%;
+        padding: 15*@x;
+      }
+
+      &__label-form {
+        font-size: 10*@x;
+      }
+
+      &__form-wrapper {
+        margin-top: 15*@x;
+      }
+
+      &__form {
+        input,
+        textarea {
+          padding: 6*@x 15*@x;
+          font-size: 10*@x;
+        }
+
+        input {
+          width: 100%;
+          height: 36*@x;
+          margin-bottom: 15*@x;
+
+          &:nth-child(odd) {
+            margin-right: 0;
+          }
+
+          &[type=submit] {
+            width: 100%;
+          }
+        }
+
+        textarea {
+          width: 100%;
+          height: 80*@x;
+          margin-bottom: 15*@x;
+        }
+      }
+
+      &__date {
+        font-size: 9*@x;
+      }
+
+      &__title {
+        margin-top: 15*@x;
+        font-size: 35*@x;
+      }
+    }
+  }
+
+  .set-meeting {
+    height: 100vh;
+    padding: 70*@x 30*@x;
+
+    &__wrapper {
+      width: 100%;
+    }
+
+    h1 {
+      font-size: 55*@x;
+      margin-bottom: 38*@x;
+    }
   }
 
   // page 404

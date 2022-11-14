@@ -2431,6 +2431,161 @@ body {
   text-transform: uppercase;
   color: #000;
 }
+.modal {
+  top: 0;
+  left: 0;
+  display: block;
+  position: fixed;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  z-index: 99;
+}
+.modal.hide {
+  display: none;
+}
+.modal-overlay {
+  width: 100%;
+  height: 100%;
+  background-color: #E8E8ED;
+}
+.modal-logo {
+  position: absolute;
+  top: 17px;
+  left: 30px;
+}
+.modal-wrapper {
+  height: 672px;
+  width: 1195px;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  border: 1px solid #000;
+  background-color: #fff;
+}
+.modal-close {
+  width: 48px;
+  height: 48px;
+  border-bottom: 1px solid #000;
+  border-left: 1px solid #000;
+  position: absolute;
+  top: 0;
+  left: auto;
+  right: 0;
+  text-align: center;
+}
+.modal-close img {
+  margin: 11px;
+}
+.modal-grid {
+  display: flex;
+  align-items: stretch;
+  height: 100%;
+}
+.modal-grid__left {
+  width: 450px;
+  background: #00CEF5;
+  border-right: 1px solid #000;
+  padding: 190px 65px 65px;
+  flex-direction: column;
+}
+.modal-grid__right {
+  width: calc(100% - 450px);
+  padding: 87px 58px;
+}
+.modal-grid__label-form {
+  font-family: "PP Formula", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.55;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #000;
+}
+.modal-grid__form-wrapper {
+  margin-top: 20px;
+}
+.modal-grid__form input,
+.modal-grid__form textarea {
+  padding: 16px 30px;
+  border: 1px solid #000;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 1.55;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #000;
+  float: left;
+}
+.modal-grid__form input {
+  width: 280px;
+  height: 48px;
+  margin-bottom: 21px;
+}
+.modal-grid__form input:nth-child(odd) {
+  margin-right: 24px;
+}
+.modal-grid__form input[type=submit] {
+  margin-bottom: 0;
+  width: 583px;
+}
+.modal-grid__form textarea {
+  width: 583px;
+  height: 179px;
+  margin-bottom: 21px;
+}
+.modal-grid__date {
+  font-family: "Test Söhne", sans-serif;
+  font-size: 14px;
+  line-height: 1.55;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #000;
+  display: flex;
+  align-items: center;
+}
+.modal-grid__title {
+  margin-top: 30px;
+  font-family: "PP Formula", sans-serif;
+  font-weight: 900;
+  font-size: 55px;
+  line-height: 1;
+  text-transform: uppercase;
+  color: #000;
+}
+.set-meeting {
+  width: 100vw;
+  height: 727px;
+  min-height: 50vh;
+  background-color: #fff;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  padding: 80px 0;
+  transition: all 0.2s ease-in-out;
+}
+.set-meeting.hide {
+  bottom: -100vh;
+}
+.set-meeting__close {
+  width: 23px;
+  height: 23px;
+  position: absolute;
+  right: 30px;
+  top: 30px;
+  background-image: url("../img/icon-close.svg");
+  background-size: 100%;
+}
+.set-meeting__wrapper {
+  margin: auto;
+  width: 584px;
+}
+.set-meeting h1 {
+  font-size: 55px;
+  margin-bottom: 56px;
+}
 @media (max-width: 1300px) {
   .container {
     width: 92.4vw;
@@ -2656,6 +2811,40 @@ body {
   }
   .s-hp-news__dots .slick-dots {
     margin: 0.385vw 1.54vw;
+  }
+  .s-hp-news .s-hp-news__news-item {
+    width: 50.666vw;
+  }
+  .s-hp-news--event {
+    padding: 5.467vw 0;
+  }
+  .s-hp-news--event .image-wrapper {
+    width: 18.249vw;
+    height: 15.246vw;
+    margin: 1.617vw 1.386vw 1.617vw 1.617vw;
+  }
+  .s-hp-news--event .s-hp-news__headings {
+    width: 27.027vw;
+    margin-left: 9.471vw;
+  }
+  .s-hp-news--event h2,
+  .s-hp-news--event h3 {
+    font-size: 2.695vw;
+  }
+  .s-hp-news--event .excerpt {
+    font-size: 1.232vw;
+    margin: 0.385vw 5.005vw 0.385vw 0;
+  }
+  .s-hp-news--event .meta {
+    margin: 0 0 2.387vw;
+  }
+  .s-hp-news--event .meta .separator {
+    height: 1.155vw;
+    margin: 0 0.616vw;
+  }
+  .s-hp-news--event .meta .date,
+  .s-hp-news--event .meta .place {
+    font-size: 0.924vw;
   }
   .s-hp-events {
     padding: 4.62vw 0;
@@ -3587,6 +3776,74 @@ body {
   ::placeholder {
     font-size: 0.77vw;
   }
+  .modal-logo {
+    top: 1.309vw;
+    left: 2.31vw;
+  }
+  .modal-wrapper {
+    height: 51.744vw;
+    width: 92.015vw;
+  }
+  .modal-close {
+    width: 3.696vw;
+    height: 3.696vw;
+  }
+  .modal-close img {
+    margin: 0.847vw;
+  }
+  .modal-grid__left {
+    width: 34.65vw;
+    padding: 14.63vw 5.005vw 5.005vw;
+  }
+  .modal-grid__right {
+    width: calc(100% - 450*0.077vw);
+    padding: 6.699vw 4.466vw;
+  }
+  .modal-grid__label-form {
+    font-size: 1.078vw;
+  }
+  .modal-grid__form-wrapper {
+    margin-top: 1.54vw;
+  }
+  .modal-grid__form input,
+  .modal-grid__form textarea {
+    padding: 1.232vw 2.31vw;
+    font-size: 0.77vw;
+  }
+  .modal-grid__form input {
+    width: 21.56vw;
+    height: 3.696vw;
+    margin-bottom: 1.617vw;
+  }
+  .modal-grid__form input:nth-child(odd) {
+    margin-right: 1.848vw;
+  }
+  .modal-grid__form input[type=submit] {
+    width: 44.891vw;
+  }
+  .modal-grid__form textarea {
+    width: 44.891vw;
+    height: 13.783vw;
+    margin-bottom: 1.617vw;
+  }
+  .modal-grid__date {
+    font-size: 1.078vw;
+  }
+  .modal-grid__title {
+    margin-top: 2.31vw;
+    font-size: 4.235vw;
+  }
+  .set-meeting {
+    height: 55.979vw;
+    padding: 6.16vw 0;
+  }
+  .set-meeting__wrapper {
+    width: 44.968vw;
+  }
+  .set-meeting h1 {
+    font-size: 4.235vw;
+    margin-bottom: 4.312vw;
+  }
   .s-404 .container {
     margin-top: 9.24vw;
     margin-bottom: 9.24vw;
@@ -3927,6 +4184,46 @@ body {
   .s-hp-news__dots .slick-dots {
     margin: 1.335vw 5.34vw;
   }
+  .s-hp-news .s-hp-news__news-item {
+    width: 79.032vw;
+  }
+  .s-hp-news--event {
+    padding: 16.02vw 0;
+  }
+  .s-hp-news--event .image-wrapper {
+    width: 69.954vw;
+    height: 27.501vw;
+    margin: 4.539vw;
+  }
+  .s-hp-news--event .s-hp-news__headings {
+    width: 100%;
+    margin: 0 8.01vw;
+  }
+  .s-hp-news--event h2,
+  .s-hp-news--event h3 {
+    font-size: 9.345vw;
+  }
+  .s-hp-news--event h6 {
+    margin-bottom: 4.272vw;
+  }
+  .s-hp-news--event .excerpt {
+    font-size: 3.738vw;
+    margin: 1.602vw 0 5.607vw;
+  }
+  .s-hp-news--event .meta {
+    margin: 0 0 2.937vw;
+  }
+  .s-hp-news--event .meta .separator {
+    height: 2.136vw;
+    margin: 0 1.869vw;
+  }
+  .s-hp-news--event .meta .date,
+  .s-hp-news--event .meta .place {
+    font-size: 2.403vw;
+  }
+  .s-hp-news--event .btn-read-more .text-vertical {
+    font-size: 2.403vw;
+  }
   .s-hp-news--event {
     padding: 11.481vw 0 16.287vw;
   }
@@ -3945,7 +4242,7 @@ body {
     height: 27.501vw;
   }
   .s-hp-news--event .s-hp-news__news-item__wrapper {
-    margin: 0 4.539vw 5.607vw;
+    margin: 0 4.539vw;
   }
   .s-hp-news--event .meta {
     margin-bottom: 4.539vw;
@@ -5118,6 +5415,78 @@ body {
   }
   ::placeholder {
     font-size: 2.67vw;
+  }
+  .modal-logo {
+    display: none;
+  }
+  .modal-wrapper {
+    height: 100vh;
+    width: 100vw;
+  }
+  .modal-close {
+    width: 8.811vw;
+    height: 8.811vw;
+  }
+  .modal-close img {
+    margin: 1.335vw;
+  }
+  .modal-grid {
+    flex-direction: column;
+  }
+  .modal-grid__left {
+    width: 100%;
+    padding: 4.005vw;
+    border-right: none;
+    border-bottom: 1px solid #000;
+  }
+  .modal-grid__right {
+    width: 100%;
+    padding: 4.005vw;
+  }
+  .modal-grid__label-form {
+    font-size: 2.67vw;
+  }
+  .modal-grid__form-wrapper {
+    margin-top: 4.005vw;
+  }
+  .modal-grid__form input,
+  .modal-grid__form textarea {
+    padding: 1.602vw 4.005vw;
+    font-size: 2.67vw;
+  }
+  .modal-grid__form input {
+    width: 100%;
+    height: 9.612vw;
+    margin-bottom: 4.005vw;
+  }
+  .modal-grid__form input:nth-child(odd) {
+    margin-right: 0;
+  }
+  .modal-grid__form input[type=submit] {
+    width: 100%;
+  }
+  .modal-grid__form textarea {
+    width: 100%;
+    height: 21.36vw;
+    margin-bottom: 4.005vw;
+  }
+  .modal-grid__date {
+    font-size: 2.403vw;
+  }
+  .modal-grid__title {
+    margin-top: 4.005vw;
+    font-size: 9.345vw;
+  }
+  .set-meeting {
+    height: 100vh;
+    padding: 18.69vw 8.01vw;
+  }
+  .set-meeting__wrapper {
+    width: 100%;
+  }
+  .set-meeting h1 {
+    font-size: 14.685vw;
+    margin-bottom: 10.146vw;
   }
   .s-404 .container {
     background-image: url(../img/img-404-mob.svg);
