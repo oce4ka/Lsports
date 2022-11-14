@@ -105,7 +105,6 @@ u {
   white-space: nowrap;
   cursor: pointer;
   transition: @transition;
-  margin-left: 16px;
 
   &:hover {
     background-color: @yellow;
@@ -2881,6 +2880,12 @@ html, body {
       font-size: 25px;
     }
   }
+
+  &__cta-btns {
+    & > * {
+      margin-left: 16px;
+    }
+  }
 }
 
 ::-webkit-input-placeholder { /* Edge */
@@ -4257,6 +4262,68 @@ html, body {
     }
   }
 
+  .s-events-post {
+    padding: 120*@x 0 70*@x;
+
+    h1 {
+      font-size: 55*@x;
+    }
+
+    h3 {
+      font-size: 25*@x;
+      margin-bottom: 8*@x;
+      margin-top: 40*@x;
+    }
+
+    p, li {
+      font-size: 16*@x;
+    }
+
+    &__wrapper {
+      margin-top: 22*@x;
+    }
+
+    &__image {
+      width: 661*@x;
+      height: 388*@x;
+    }
+
+    &__detail {
+      width: 484*@x;
+    }
+
+    &__meta {
+      padding: 24*@x 64*@x;
+      font-size: 14*@x;
+
+      .place {
+        margin-top: 21*@x;
+      }
+    }
+
+    &__content {
+      margin-top: 57*@x;
+    }
+
+    &__cta {
+      padding: 70*@x 0;
+
+      &-title {
+        font-size: 14*@x;
+      }
+
+      h4 {
+        font-size: 25*@x;
+      }
+    }
+
+    &__cta-btns {
+      & > * {
+        margin-left: 16*@x;
+      }
+    }
+  }
+
   // Page Contact Us
   .s-contact {
     padding: 160*@x 0;
@@ -4379,6 +4446,10 @@ html, body {
     line-height: 55*@x;
   }
 
+  .btn-gray {
+    font-size: 12*@x;
+  }
+
   p {
     font-size: 16*@x;
     margin: 0 0 20*@x;
@@ -4401,6 +4472,13 @@ html, body {
     margin-right: 8*@x;
     height: 15*@x;
     width: 15*@x;
+  }
+
+  .video-wrapper__overlay {
+    &:before {
+      height: 33*@x;
+      width: 33*@x;
+    }
   }
 
   // end variables and common
@@ -4745,6 +4823,47 @@ html, body {
       .slick-dots {
         margin: 5*@x 20*@x;
       }
+    }
+  }
+
+  .s-hp-news--event {
+    padding: 43*@x 0 61*@x;
+
+    .s-hp-news__headings {
+      margin-left: 30*@x;
+    }
+
+    .s-hp-news__news-item {
+      width: 296*@x;
+    }
+
+    .s-hp-news__news-item__content {
+      flex-direction: column;
+    }
+
+    .image-wrapper {
+      margin: 17*@x;
+      width: 262*@x;
+      height: 103*@x;
+    }
+
+    .s-hp-news__news-item__wrapper {
+      margin: 0 17*@x 21*@x;
+    }
+
+    .meta {
+      margin-bottom: 17*@x;
+    }
+
+    h3 {
+      font-size: 18*@x;
+      margin: 0;
+    }
+
+    .excerpt {
+      margin-top: 6*@x;
+      margin-right: 0;
+      font-size: 14*@x;
     }
   }
 
@@ -5548,11 +5667,13 @@ html, body {
     padding: 70*@x 0 40*@x;
 
     &__header {
+      margin: 0 30*@x;
       padding-bottom: 24*@x;
     }
 
     h1 {
       font-size: 55*@x;
+      text-align: left;
     }
 
     &__filter {
@@ -5676,6 +5797,92 @@ html, body {
       margin-top: 27*@x;
       max-width: 143*@x;
       min-width: unset;
+    }
+  }
+
+  .s-events-post {
+    padding: 70*@x 0 50*@x;
+
+    p, li {
+      font-size: 14*@x;
+    }
+
+    h1 {
+      font-size: 55*@x;
+    }
+
+    h3 {
+      font-size: 25*@x;
+      margin-bottom: 8*@x;
+    }
+
+    &__wrapper {
+      margin-top: 25*@x;
+      flex-direction: column;
+    }
+
+    &__image {
+      width: 100%;
+      height: 183*@x;
+    }
+
+    &__detail {
+      width: 100%;
+      margin-top: 25*@x;
+    }
+
+    &__meta {
+      padding: 24*@x 20*@x;
+      font-size: 9*@x;
+      margin-bottom: 8*@x;
+
+      .place {
+        margin-top: 17*@x;
+      }
+    }
+
+    &__content {
+      width: 100%;
+      margin-top: 40*@x;
+    }
+
+    &__cta-grid {
+      flex-direction: column;
+      margin-left: calc(86*@x - 30*@x);
+      margin-right: calc(50*@x - 30*@x);
+    }
+
+    &__cta {
+      padding: 43*@x 0 51*@x;
+
+      .date {
+        display: flex;
+        align-items: center;
+      }
+
+      &-title {
+        font-size: 9*@x;
+      }
+
+      h4 {
+        font-size: 25*@x;
+        margin-top: 10*@x;
+      }
+    }
+
+    &__cta-btns {
+      margin-top: 20*@x;
+
+      & > * {
+        width: 100%;
+        max-width: 203*@x;
+        margin-left: 0;
+        margin-bottom: 16*@x;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
     }
   }
 
