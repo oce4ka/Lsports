@@ -3742,7 +3742,6 @@ body {
   .s-contact select,
   .s-contact textarea {
     margin-bottom: 1.54vw;
-    width: calc(50% - 10 * 0.077vw);
     height: 4.004vw;
     line-height: 1.694vw;
     padding: 1.155vw;
@@ -3754,6 +3753,13 @@ body {
     font-size: 0.77vw;
     padding: 1.155vw;
     line-height: 1.694vw;
+  }
+  .s-contact .wpcf7-form-control-wrap {
+    width: calc(50% - 10 * 0.077vw);
+  }
+  .s-contact .wpcf7-not-valid-tip {
+    font-size: 0.924vw;
+    margin: -1.155vw 0 1.54vw;
   }
   .s-contact .btn-yellow {
     margin-top: 0.924vw;
@@ -3770,6 +3776,11 @@ body {
     width: 0.924vw;
     height: 0.924vw;
     margin: 0.616vw 0 0.616vw -2.31vw;
+  }
+  .wpcf7 form .wpcf7-response-output {
+    font-size: 0.924vw;
+    margin: -1.54vw 0 0;
+    padding: 0.77vw;
   }
   ::-webkit-input-placeholder {
     /* Edge */
@@ -5381,7 +5392,6 @@ body {
   .s-contact input,
   .s-contact select,
   .s-contact textarea {
-    width: 100%;
     margin-bottom: 1.869vw;
     height: 13.884vw;
     line-height: 5.874vw;
@@ -5394,6 +5404,13 @@ body {
     font-size: 2.67vw;
     padding: 4.005vw;
     line-height: 5.874vw;
+  }
+  .s-contact .wpcf7-form-control-wrap {
+    width: 100%;
+  }
+  .s-contact .wpcf7-not-valid-tip {
+    font-size: 3.204vw;
+    margin: 0 0 2.67vw;
   }
   .s-contact .btn-yellow {
     margin: 4.272vw auto 0;
@@ -5410,6 +5427,11 @@ body {
     width: 3.204vw;
     height: 3.204vw;
     margin: 1.602vw 0 1.602vw -5.34vw;
+  }
+  .wpcf7 form .wpcf7-response-output {
+    font-size: 3.204vw;
+    margin: -5.34vw 0 0;
+    padding: 2.67vw;
   }
   ::-webkit-input-placeholder {
     /* Edge */

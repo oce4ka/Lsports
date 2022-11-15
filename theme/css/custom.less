@@ -985,6 +985,7 @@ html, body {
   }
 }
 
+
 .s-hp-case-study {
   margin-top: 80px;
 
@@ -3105,6 +3106,7 @@ html, body {
 }
 
 // medium screens
+
 @media (max-width: 1300px) {
   @x: 0.077vw; //100/1300
   .container {
@@ -4585,7 +4587,7 @@ html, body {
 
     input, select, textarea {
       margin-bottom: 20*@x;
-      width: calc(50% - 10 * @x);
+      //width: calc(50% - 10 * @x);
       height: 52*@x;
       line-height: 22*@x;
       padding: 15*@x;
@@ -4599,6 +4601,15 @@ html, body {
       font-size: 10*@x;
       padding: 15*@x;
       line-height: 22*@x;
+    }
+
+    .wpcf7-form-control-wrap {
+      width: calc(50% - 10 * @x);
+    }
+
+    .wpcf7-not-valid-tip {
+      font-size: 12*@x;
+      margin: -15*@x 0 20*@x;
     }
 
     .btn-yellow {
@@ -4620,6 +4631,12 @@ html, body {
         margin: 8*@x 0 8*@x -30*@x;
       }
     }
+  }
+
+  .wpcf7 form .wpcf7-response-output {
+    font-size: 12*@x;
+    margin: -20*@x 0 0;
+    padding: 10*@x;
   }
 
   ::-webkit-input-placeholder { /* Edge */
@@ -4751,6 +4768,7 @@ html, body {
 }
 
 // mobile screens
+
 @media (max-width: 768px) {
   @x: .267vw; // 100/375px;
   .container {
@@ -6642,7 +6660,6 @@ html, body {
     }
 
     input, select, textarea {
-      width: 100%;
       margin-bottom: 7*@x;
       height: 52*@x;
       line-height: 22*@x;
@@ -6657,6 +6674,15 @@ html, body {
       font-size: 10*@x;
       padding: 15*@x;
       line-height: 22*@x;
+    }
+
+    .wpcf7-form-control-wrap {
+      width: 100%;
+    }
+
+    .wpcf7-not-valid-tip {
+      font-size: 12*@x;
+      margin: 0 0 10*@x;
     }
 
     .btn-yellow {
@@ -6678,6 +6704,12 @@ html, body {
         margin: 6*@x 0 6*@x -20*@x;
       }
     }
+  }
+
+  .wpcf7 form .wpcf7-response-output {
+    font-size: 12*@x;
+    margin: -20*@x 0 0;
+    padding: 10*@x;
   }
 
   ::-webkit-input-placeholder { /* Edge */
