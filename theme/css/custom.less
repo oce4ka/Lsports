@@ -2406,19 +2406,13 @@ html, body {
   padding: 50px 0 68px;
 
   &__header, p {
-    margin-left: auto;
     margin-right: 72px;
-    max-width: 700px;
-    color: #000;
+    margin-left: 110px;
   }
 
   .back {
     display: block;
-    font-family: @ff1;
-    font-style: normal;
-    font-weight: 500;
     font-size: 10px;
-    line-height: 1.55;
     letter-spacing: .2em;
     text-align: right;
     text-transform: uppercase;
@@ -2430,20 +2424,20 @@ html, body {
     align-items: center;
     margin: 35px 0 24px;
 
-    .separator {
-      height: 17px;
-      width: 1px;
-      margin: 0 28px;
-      background-color: #000;
-    }
-
     .type,
     .date {
       font-family: @ff2;
       font-size: 14px;
-      line-height: 1.5;
+      line-height: 17px;
       letter-spacing: 0.14em;
       text-transform: uppercase;
+      padding: 0 28px 0 0;
+      margin: 0 28px 0 0;
+      border-right: 1px solid #000;
+
+      &:last-child {
+        border: 0;
+      }
     }
   }
 
@@ -2553,6 +2547,8 @@ html, body {
     }
   }
 }
+
+// Page events
 
 .s-events {
   padding: 150px 0 100px;
@@ -4257,7 +4253,7 @@ html, body {
 
     &__header, p {
       margin-right: 72*@x;
-      max-width: 700*@x;
+      margin-left: 110*@x;
     }
 
     .back {
@@ -4267,14 +4263,12 @@ html, body {
     .meta {
       margin: 35*@x 0 24*@x;
 
-      .separator {
-        height: 17*@x;
-        margin: 0 28*@x;
-      }
-
       .type,
       .date {
         font-size: 14*@x;
+        line-height: 17*@x;
+        padding: 0 28*@x 0 0;
+        margin: 0 28*@x 0 0;
       }
     }
 
@@ -4337,6 +4331,7 @@ html, body {
     }
   }
 
+  // Page events
   .s-events {
     padding: 150*@x 0 100*@x;
 
@@ -5875,7 +5870,7 @@ html, body {
         }
 
         .image-wrapper {
-          width:100%;
+          width: 100%;
           height: 172*@x;
         }
       }
@@ -5921,14 +5916,12 @@ html, body {
     .meta {
       margin: 25*@x 0 21*@x;
 
-      .separator {
-        height: 9*@x;
-        margin: 0 6*@x;
-      }
-
       .type,
       .date {
         font-size: 9*@x;
+        line-height: 9*@x;
+        padding: 0 6*@x 0 0;
+        margin: 0 6*@x 0 0;
       }
     }
 
@@ -5993,6 +5986,7 @@ html, body {
     }
   }
 
+  // Page events
   .s-events {
     padding: 70*@x 0 40*@x;
 

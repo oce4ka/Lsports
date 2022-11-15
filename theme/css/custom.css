@@ -1997,18 +1997,12 @@ body {
 }
 .s-news-post__header,
 .s-news-post p {
-  margin-left: auto;
   margin-right: 72px;
-  max-width: 700px;
-  color: #000;
+  margin-left: 110px;
 }
 .s-news-post .back {
   display: block;
-  font-family: "PP Formula", sans-serif;
-  font-style: normal;
-  font-weight: 500;
   font-size: 10px;
-  line-height: 1.55;
   letter-spacing: 0.2em;
   text-align: right;
   text-transform: uppercase;
@@ -2019,19 +2013,20 @@ body {
   align-items: center;
   margin: 35px 0 24px;
 }
-.s-news-post .meta .separator {
-  height: 17px;
-  width: 1px;
-  margin: 0 28px;
-  background-color: #000;
-}
 .s-news-post .meta .type,
 .s-news-post .meta .date {
   font-family: "Test Söhne", sans-serif;
   font-size: 14px;
-  line-height: 1.5;
+  line-height: 17px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
+  padding: 0 28px 0 0;
+  margin: 0 28px 0 0;
+  border-right: 1px solid #000;
+}
+.s-news-post .meta .type:last-child,
+.s-news-post .meta .date:last-child {
+  border: 0;
 }
 .s-news-post picture {
   display: flex;
@@ -3480,7 +3475,7 @@ body {
   .s-news-post__header,
   .s-news-post p {
     margin-right: 5.544vw;
-    max-width: 53.9vw;
+    margin-left: 8.47vw;
   }
   .s-news-post .back {
     font-size: 0.77vw;
@@ -3488,13 +3483,12 @@ body {
   .s-news-post .meta {
     margin: 2.695vw 0 1.848vw;
   }
-  .s-news-post .meta .separator {
-    height: 1.309vw;
-    margin: 0 2.156vw;
-  }
   .s-news-post .meta .type,
   .s-news-post .meta .date {
     font-size: 1.078vw;
+    line-height: 1.309vw;
+    padding: 0 2.156vw 0 0;
+    margin: 0 2.156vw 0 0;
   }
   .s-news-post picture {
     margin-bottom: 2.695vw;
@@ -4807,13 +4801,12 @@ body {
   .s-news-post .meta {
     margin: 6.675vw 0 5.607vw;
   }
-  .s-news-post .meta .separator {
-    height: 2.403vw;
-    margin: 0 1.602vw;
-  }
   .s-news-post .meta .type,
   .s-news-post .meta .date {
     font-size: 2.403vw;
+    line-height: 2.403vw;
+    padding: 0 1.602vw 0 0;
+    margin: 0 1.602vw 0 0;
   }
   .s-news-post picture {
     margin: 6.408vw 0;
