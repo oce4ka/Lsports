@@ -2475,6 +2475,9 @@ body {
   right: 0;
   text-align: center;
 }
+.modal-close:hover {
+  cursor: pointer;
+}
 .modal-close img {
   margin: 11px;
 }
@@ -2577,6 +2580,9 @@ body {
   top: 30px;
   background-image: url("../img/icon-close.svg");
   background-size: 100%;
+}
+.set-meeting__close:hover {
+  cursor: pointer;
 }
 .set-meeting__wrapper {
   margin: auto;
