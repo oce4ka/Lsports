@@ -215,5 +215,29 @@
 
      */
 
+    function videoPlay(self, youtube) {
+        let src = self.parentNode.querySelector(youtube).getAttribute('data-url'),
+            yPlay = `${src}?rel=0&autoplay=1`;
+
+        if(src.length) {
+            self.parentNode.querySelector(youtube).innerHTML = `<iframe src="${yPlay}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+            setTimeout(() => { self.classList.add('playing'); }, 1000);
+        }
+    }
+
+
+    if(document.querySelector('.video-wrapper')) {
+        let videoOverlay = document.querySelectorAll('.video-wrapper__overlay');
+        [].forEach.call(videoOverlay, function(e) {
+            e.addEventListener('click', function H() {
+                let __this = this;
+                videoPlay(
+                    __this,
+                    '.video-wrapper__iframe'
+                );
+            });
+        });
+    }
+
 })(jQuery);
 
