@@ -21,7 +21,6 @@
         <nav class="nav-main" role="navigation">
             <button class="btn-hamburger"></button>
             <?php
-            /*
             wp_nav_menu(
                 array(
                     'theme_location' => 'header-menu',
@@ -29,22 +28,8 @@
                     'container' => false,
                 )
             );
-            */
             ?>
-            <ul>
-                <li>
-                    <a href="">Products</a>
-                    <ul>
-                        <li><a href="#">Esports</a></li>
-                        <li><a href="#">Special bets data</a></li>
-                        <li><a href="#">premium racing</a></li>
-                    </ul>
-                </li>
-                <li><a href="">Coverage</a></li>
-                <li class="active"><a href="">Coverage</a></li>
-                <li><a href="">Coverage</a></li>
-            </ul>
-            <ul class="nav-lang"></ul>
+            <!--<ul class="nav-lang"></ul>-->
         </nav>
     </header>
     <main class="content-main">

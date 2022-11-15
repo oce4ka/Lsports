@@ -18,7 +18,6 @@
     </div>
     <nav class="nav-footer" role="navigation">
         <?php
-        /*
         wp_nav_menu(
             array(
                 'theme_location' => 'footer-menu',
@@ -26,21 +25,7 @@
                 'container' => false,
             )
         );
-        */
         ?>
-        <ul>
-            <li><a href="">Coverage</a></li>
-            <li>
-                <a href="">Products</a>
-                <ul>
-                    <li><a href="#">Esports</a></li>
-                    <li><a href="#">Special bets data</a></li>
-                    <li><a href="#">premium racing</a></li>
-                </ul>
-            </li>
-            <li><a href="">Coverage</a></li>
-        </ul>
-        <div class="btn-yellow">Get Started</div>
     </nav>
 </footer>
 

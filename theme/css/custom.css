@@ -244,6 +244,7 @@ body {
 .nav-main > ul > li > a {
   height: 65px;
   display: inline-block;
+  cursor: pointer;
 }
 .nav-main > ul > li > ul {
   position: absolute;
@@ -1010,9 +1011,28 @@ body {
   line-height: 14px;
   max-width: 126px;
 }
-.nav-footer .btn-yellow {
+.nav-footer .active {
+  padding: 0 30px;
+  min-width: 270px;
+  height: 55px;
+  background: #E1F32C;
+  border: 1px solid #000;
+  display: inline-block;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 55px;
+  letter-spacing: 0.2em;
+  color: #000;
+  text-transform: uppercase;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
   padding: 0 20px;
   min-width: 0;
+}
+.nav-footer .active:hover {
+  background-color: #E8E8ED;
 }
 .s-404 {
   text-align: center;
@@ -1813,7 +1833,7 @@ body {
 .s-contact textarea {
   margin-bottom: 20px;
   border: 1px solid #000;
-  width: calc(50% - 10px);
+  width: 100%;
   height: 52px;
   line-height: 22px;
   padding: 15px;
@@ -1839,6 +1859,22 @@ body {
 .s-contact .btn-yellow {
   margin-top: 12px;
 }
+.s-contact .wpcf7-form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.s-contact .wpcf7-form-control-wrap {
+  display: inline-block;
+  width: calc(50% - 10px);
+}
+.s-contact .wpcf7-form-control-wrap:has(.full-width) {
+  width: 100%;
+}
+.s-contact .wpcf7-not-valid-tip {
+  font-size: 12px;
+  margin: -15px 0 20px;
+}
 .s-contact ul {
   font-family: "Test Söhne", sans-serif;
   font-size: 16px;
@@ -1856,6 +1892,13 @@ body {
   border: 1px solid #000000;
   border-radius: 50%;
   margin: 8px 0 8px -30px;
+}
+.wpcf7 form .wpcf7-response-output {
+  font-size: 12px;
+  width: 100%;
+  margin: 0;
+  padding: 10px;
+  border-width: 1px;
 }
 .s-news {
   padding: 150px 0 85px;
@@ -2969,8 +3012,14 @@ body {
     line-height: 1.078vw;
     max-width: 9.702vw;
   }
-  .nav-footer .btn-yellow {
+  .nav-footer .active {
+    padding: 0 2.31vw;
+    min-width: 20.79vw;
+    height: 4.235vw;
+    font-size: 0.924vw;
+    line-height: 4.235vw;
     padding: 0 1.54vw;
+    min-width: 0;
   }
   .s-cat-header {
     background-size: auto calc(100% + 7 * 0.077vw);
@@ -3724,7 +3773,7 @@ body {
   }
   .wpcf7 form .wpcf7-response-output {
     font-size: 0.924vw;
-    margin: -1.54vw 0 0;
+    margin: 0;
     padding: 0.77vw;
   }
   ::-webkit-input-placeholder {
@@ -4445,8 +4494,14 @@ body {
     line-height: 3.738vw;
     max-width: 33.642vw;
   }
-  .nav-footer .btn-yellow {
+  .nav-footer .active {
+    padding: 0 8.01vw;
+    min-width: 72.09vw;
+    height: 14.685vw;
+    font-size: 3.204vw;
+    line-height: 14.685vw;
     padding: 0 5.34vw;
+    min-width: 0;
   }
   .s-cat-header {
     background-image: url(../img/img-category-header-mob.svg);
@@ -5371,7 +5426,7 @@ body {
   }
   .wpcf7 form .wpcf7-response-output {
     font-size: 3.204vw;
-    margin: -5.34vw 0 0;
+    margin: 0;
     padding: 2.67vw;
   }
   ::-webkit-input-placeholder {

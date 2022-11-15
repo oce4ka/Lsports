@@ -6,9 +6,10 @@
         $(this).siblings('ul').fadeToggle();
     });
 
-    $('.nav-main ul>li>a, .s-news__types-dropdown>a').click(function (e) {
+    $('.menu-item-has-children>a, .s-news__types-dropdown>a').click(function (e) {
         e.preventDefault();
         $(e.target).parent().find('ul').fadeToggle();
+        console.log('prevent');
     })
 
     $('.register-js-action').on('click', function () {

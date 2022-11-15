@@ -290,6 +290,7 @@ html, body {
       & > a {
         height: 65px;
         display: inline-block;
+        cursor: pointer;
       }
 
       & > ul {
@@ -1206,7 +1207,8 @@ html, body {
     }
   }
 
-  .btn-yellow {
+  .active {
+    .btn-yellow();
     padding: 0 20px;
     min-width: 0;
   }
@@ -2183,7 +2185,8 @@ html, body {
   input, select, textarea {
     margin-bottom: 20px;
     border: 1px solid #000;
-    width: calc(50% - 10px);
+    //width: calc(50% - 10px);
+    width: 100%;
     height: 52px;
     line-height: 22px;
     padding: 15px;
@@ -2212,6 +2215,26 @@ html, body {
     margin-top: 12px;
   }
 
+  .wpcf7-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .wpcf7-form-control-wrap {
+    display: inline-block;
+    width: calc(50% - 10px);
+
+    &:has(.full-width) {
+      width: 100%;
+    }
+  }
+
+  .wpcf7-not-valid-tip {
+    font-size: 12px;
+    margin: -15px 0 20px;
+  }
+
   ul {
     font-family: @ff2;
     font-size: 16px;
@@ -2230,9 +2253,16 @@ html, body {
       border: 1px solid #000000;
       border-radius: 50%;
       margin: 8px 0 8px -30px;
-
     }
   }
+}
+
+.wpcf7 form .wpcf7-response-output {
+  font-size: 12px;
+  width: 100%;
+  margin: 0;
+  padding: 10px;
+  border-width: 1px;
 }
 
 // Page News
@@ -3599,8 +3629,10 @@ html, body {
       }
     }
 
-    .btn-yellow {
+    .active {
+      .btn-yellow();
       padding: 0 20*@x;
+      min-width: 0;
     }
   }
 
@@ -4572,7 +4604,7 @@ html, body {
 
   .wpcf7 form .wpcf7-response-output {
     font-size: 12*@x;
-    margin: -20*@x 0 0;
+    margin: 0;
     padding: 10*@x;
   }
 
@@ -5467,8 +5499,10 @@ html, body {
       }
     }
 
-    .btn-yellow {
+    .active {
+      .btn-yellow();
       padding: 0 20*@x;
+      min-width: 0;
     }
   }
 
@@ -6639,7 +6673,7 @@ html, body {
 
   .wpcf7 form .wpcf7-response-output {
     font-size: 12*@x;
-    margin: -20*@x 0 0;
+    margin: 0;
     padding: 10*@x;
   }
 
