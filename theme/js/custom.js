@@ -11,6 +11,22 @@
         $(e.target).parent().find('ul').fadeToggle();
     })
 
+    $('.register-js-action').on('click', function () {
+        $('.register-modal').removeClass('hide');
+    });
+
+    $('.register-modal-close').on('click', function () {
+        $('.register-modal').addClass('hide');
+    });
+
+    $('.set-meeting-js-action').on('click', function () {
+        $('.set-meeting').removeClass('hide');
+    });
+
+    $('.set-meeting__close').on('click', function () {
+        $('.set-meeting').addClass('hide');
+    });
+
     // todo: сделать только при изменении резолюции lt gt 768px
     let width = $(window).width();
     //let lastWidth = $(window).width();
