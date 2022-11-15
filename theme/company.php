@@ -33,10 +33,10 @@ get_header();
                      data-aos-offset="10"
                      data-aos-duration="600" class="s-cat-features__feature">
                     <div class="s-cat-features__content">
-                        <h2>WE USE TECHNOLOGY TO MAKE THE BEST OUT OF YOUR BUISNESS</h2>
-                        <p>LSportsis a sports tech company that collects and processes sports data information in real time and sends it to customers worldwide. The information processed is been checked and transformed into a validated data stream using AI and ML systems.</p>
+                        <h2><?php the_sub_field('title') ?></h2>
+                        <p><?php the_sub_field('description') ?></p>
                     </div>
-                    <div class="s-cat-features__image decor-<?php echo $decor_number ?>"><img src="https://www.fillmurray.com/606/257" alt=""></div>
+                    <div class="s-cat-features__image decor-<?php echo $decor_number ?>"><img src="<?php the_sub_field('image') ?>" alt="<?php echo strip_tags(get_sub_field('title')) ?>"></div>
                 </div>
                 <?php
                 $decor_number++;
@@ -61,7 +61,7 @@ get_header();
                         <div>
                             <div class="s-about-values__slide">
                                 <div class="s-about-values__image <?php echo $color_classes[$slide_number % 3]; ?>">
-                                    <img src="<?php the_sub_field('image') ?>" alt="">
+                                    <img src="<?php the_sub_field('image') ?>" alt="<?php echo strip_tags(get_sub_field('title')) ?>">
                                 </div>
                                 <h3><?php the_sub_field('title') ?></h3>
                                 <h6><?php the_sub_field('subtitle') ?></h6>
@@ -96,15 +96,15 @@ get_header();
                 <?php if ($point_number == 0): ?>
                     <div class="timeline-point first">
                         <div class="image">
-                            <div data-aos="fade-up"
+                            <div data-aos="fade"
                                  data-aos-delay="150"
                                  data-aos-offset="50"
                                  data-aos-easing="ease-out"
                                  data-aos-duration="600">
-                                <img src="<?php the_sub_field('image') ?>" alt="">
+                                <img src="<?php the_sub_field('image') ?>" alt="<?php echo strip_tags(get_sub_field('title')) ?>">
                             </div>
                         </div>
-                        <div data-aos="fade-up"
+                        <div data-aos="fade"
                              data-aos-delay="100"
                              data-aos-offset="0"
                              data-aos-easing="ease-out"
@@ -114,7 +114,7 @@ get_header();
                             </div>
                         </div>
                         <div class="content">
-                            <div data-aos="fade-up"
+                            <div data-aos="fade"
                                  data-aos-delay="150"
                                  data-aos-offset="200"
                                  data-aos-easing="ease-out"
@@ -129,15 +129,15 @@ get_header();
 
                     <div class="timeline-point right">
                         <div class="image">
-                            <div data-aos="fade-up"
+                            <div data-aos="fade"
                                  data-aos-delay="150"
                                  data-aos-offset="50"
                                  data-aos-easing="ease-out"
                                  data-aos-duration="600">
-                                <img src="<?php the_sub_field('image') ?>" alt="">
+                                <img src="<?php the_sub_field('image') ?>" alt="<?php echo strip_tags(get_sub_field('title')) ?>">
                             </div>
                         </div>
-                        <div data-aos="fade-up"
+                        <div data-aos="fade"
                              data-aos-delay="100"
                              data-aos-offset="0"
                              data-aos-easing="ease-out"
@@ -145,7 +145,7 @@ get_header();
                             <div class="year"><?php the_sub_field('year') ?></div>
                         </div>
                         <div class="content">
-                            <div data-aos="fade-up"
+                            <div data-aos="fade"
                                  data-aos-delay="150"
                                  data-aos-offset="200"
                                  data-aos-easing="ease-out"
@@ -160,15 +160,15 @@ get_header();
 
                     <div class="timeline-point left">
                         <div class="image">
-                            <div data-aos="fade-up"
+                            <div data-aos="fade"
                                  data-aos-delay="250"
                                  data-aos-offset="450"
                                  data-aos-easing="ease-out"
                                  data-aos-duration="600">
-                                <img src="<?php the_sub_field('image') ?>" alt="">
+                                <img src="<?php the_sub_field('image') ?>" alt="<?php echo strip_tags(get_sub_field('title')) ?>">
                             </div>
                         </div>
-                        <div data-aos="fade-up"
+                        <div data-aos="fade"
                              data-aos-delay="100"
                              data-aos-offset="0"
                              data-aos-easing="ease-out"
@@ -176,7 +176,7 @@ get_header();
                             <div class="year"><?php the_sub_field('year') ?></div>
                         </div>
                         <div class="content">
-                            <div data-aos="fade-up"
+                            <div data-aos="fade"
                                  data-aos-delay="150"
                                  data-aos-offset="200"
                                  data-aos-easing="ease-out"
@@ -192,7 +192,7 @@ get_header();
                     <div class="timeline-point last">
                         <div class="year"><?php the_sub_field('year') ?></div>
                         <div class="content">
-                            <div data-aos="fade-up"
+                            <div data-aos="fade"
                                  data-aos-delay="150"
                                  data-aos-offset="200"
                                  data-aos-easing="ease-out"
@@ -202,12 +202,12 @@ get_header();
                             </div>
                         </div>
                         <div class="image">
-                            <div data-aos="fade-up"
+                            <div data-aos="fade"
                                  data-aos-delay="150"
                                  data-aos-offset="50"
                                  data-aos-easing="ease-out"
                                  data-aos-duration="600">
-                                <img src="<?php the_sub_field('image') ?>" alt="">
+                                <img src="<?php the_sub_field('image') ?>" alt="<?php echo strip_tags(get_sub_field('title')) ?>">
                             </div>
                         </div>
                     </div>
@@ -267,7 +267,7 @@ get_header();
                 <?php if (have_rows('item')): while (have_rows('item')) : the_row(); ?>
                     <div class="s-about-acknowledgments__item">
                         <div class="s-about-acknowledgments__image">
-                            <img src="<?php the_sub_field('image') ?>" alt="">
+                            <img src="<?php the_sub_field('image') ?>" alt="<?php echo strip_tags(get_sub_field('title')) ?>">
                         </div>
                         <h3><?php the_sub_field('title') ?></h3>
                         <p><?php the_sub_field('subtitle') ?></p>
@@ -287,11 +287,11 @@ get_header();
                 <p><?php the_sub_field('description') ?></p>
             </div>
             <div class="s-about-positions__video">
-                <img src="<?php the_sub_field('video_preview_image') ?>" alt="<?php the_sub_field('title') ?>">
+                <img src="<?php the_sub_field('video_preview_image') ?>" alt="<?php echo strip_tags(get_sub_field('title')) ?>">
             </div>
             <div class="s-about-positions__gallery">
                 <?php if (have_rows('gallery')): while (have_rows('gallery')) : the_row(); ?>
-                    <img src="<?php the_sub_field('image') ?>" alt="<?php the_sub_field('title') ?>">
+                    <img src="<?php the_sub_field('image') ?>" alt="<?php echo strip_tags(get_sub_field('title')) ?>">
                 <?php endwhile; endif; ?>
             </div>
             <a href="<?php the_sub_field('link') ?>" class="btn-yellow">see all positions</a>

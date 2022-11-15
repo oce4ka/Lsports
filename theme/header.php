@@ -21,6 +21,7 @@
         <nav class="nav-main" role="navigation">
             <button class="btn-hamburger"></button>
             <?php
+            /*
             wp_nav_menu(
                 array(
                     'theme_location' => 'header-menu',
@@ -28,6 +29,7 @@
                     'container' => false,
                 )
             );
+            */
             ?>
             <ul>
                 <li>

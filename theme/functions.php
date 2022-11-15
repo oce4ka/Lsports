@@ -79,3 +79,6 @@ acf_add_options_page(array(
     'menu_title'  => __('Section Contacts'),
     'redirect'    => false,
 ));
+
+// remove <p> from CF7
+add_filter('wpcf7_autop_or_not', '__return_false');

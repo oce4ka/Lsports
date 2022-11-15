@@ -4,7 +4,7 @@
         $delay = 0;
         $delay_difference = 50;
         $offset = 0;
-        $offset_difference = 100;
+        $offset_difference = 50;
         ?>
         <?php if (have_rows('contact_title', 'option')): while (have_rows('contact_title', 'option')) : the_row(); ?>
             <?php
