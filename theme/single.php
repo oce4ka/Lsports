@@ -11,11 +11,11 @@ get_header();
 ?>
 
 <?php if (has_category('products')) : ?>
-    <?php get_template_part('product-post'); ?>
+    <?php get_template_part('product-item'); ?>
 <?php elseif (has_category('events')): ?>
-    <?php get_template_part('event-post'); ?>
-<?php elseif (has_category('news')): ?>
-    <?php get_template_part('news-post'); ?>
+    <?php get_template_part('event-item'); ?>
+<?php elseif (has_category('news') || has_category('article') || has_category('blog-post') || has_category('press-release') || has_category('update')): ?>
+    <?php get_template_part('news-item'); ?>
 <?php else: ?>
     <?php get_template_part('text-post'); ?>
 <?php endif; ?>

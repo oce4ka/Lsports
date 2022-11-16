@@ -167,14 +167,14 @@ h1, h2, h3 {
   background-image: url('../img/icon-place.svg');
 }
 
-.video-wrapper {                    /* main video wrapper*/
+.video-wrapper { /* main video wrapper*/
   width: 100%;
   height: 100%;
   position: relative;
   box-sizing: border-box;
 }
 
-.video-wrapper__overlay {           /* overlay style */
+.video-wrapper__overlay { /* overlay style */
   position: absolute;
   left: 50%;
   top: 50%;
@@ -188,12 +188,12 @@ h1, h2, h3 {
   z-index: 1;
 }
 
-.video-wrapper__overlay.playing {       /* hide overlay */
+.video-wrapper__overlay.playing { /* hide overlay */
   display: none;
   z-index: -1;
 }
 
-.video-wrapper__overlay:before {        /* play button */
+.video-wrapper__overlay:before { /* play button */
   content: "";
   position: absolute;
   background-image: url("../img/play_button.png");
@@ -203,15 +203,15 @@ h1, h2, h3 {
   background-repeat: no-repeat;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%) scale(1);
-  transition: transform .3s ease-out,-webkit-transform .3s ease-out;
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform .3s ease-out, -webkit-transform .3s ease-out;
 }
 
-.video-wrapper__overlay:hover:before {              /* button effect */
-  transform: translate(-50%,-50%) scale(1.1);
+.video-wrapper__overlay:hover:before { /* button effect */
+  transform: translate(-50%, -50%) scale(1.1);
 }
 
-.video-wrapper__iframe-wrap {                      /* iframe wrapper */
+.video-wrapper__iframe-wrap { /* iframe wrapper */
   width: 100%;
   height: 0;
   padding-bottom: 50%;
@@ -219,13 +219,13 @@ h1, h2, h3 {
 }
 
 .video-wrapper__iframe iframe,
-.video-wrapper__iframe {                          /* iframe  */
-  max-width: 100%!important;
+.video-wrapper__iframe { /* iframe  */
+  max-width: 100% !important;
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 100%!important;
-  height: 100%!important;
+  width: 100% !important;
+  height: 100% !important;
   transform: translate(-50%, -50%);
   border: 0;
 }
@@ -290,6 +290,7 @@ html, body {
       & > a {
         height: 65px;
         display: inline-block;
+        cursor: pointer;
       }
 
       & > ul {
@@ -1205,7 +1206,8 @@ html, body {
     }
   }
 
-  .btn-yellow {
+  .active {
+    .btn-yellow();
     padding: 0 20px;
     min-width: 0;
   }
@@ -2182,7 +2184,8 @@ html, body {
   input, select, textarea {
     margin-bottom: 20px;
     border: 1px solid #000;
-    width: calc(50% - 10px);
+    //width: calc(50% - 10px);
+    width: 100%;
     height: 52px;
     line-height: 22px;
     padding: 15px;
@@ -2211,6 +2214,26 @@ html, body {
     margin-top: 12px;
   }
 
+  .wpcf7-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .wpcf7-form-control-wrap {
+    display: inline-block;
+    width: calc(50% - 10px);
+
+    &:has(.full-width) {
+      width: 100%;
+    }
+  }
+
+  .wpcf7-not-valid-tip {
+    font-size: 12px;
+    margin: -15px 0 20px;
+  }
+
   ul {
     font-family: @ff2;
     font-size: 16px;
@@ -2229,15 +2252,23 @@ html, body {
       border: 1px solid #000000;
       border-radius: 50%;
       margin: 8px 0 8px -30px;
-
     }
   }
+}
+
+.wpcf7 form .wpcf7-response-output {
+  font-size: 12px;
+  width: 100%;
+  margin: 0;
+  padding: 10px;
+  border-width: 1px;
 }
 
 // Page News
 
 .s-news {
   padding: 150px 0 85px;
+  text-align: center;
 
   h1 {
     font-size: 90px;
@@ -2248,7 +2279,7 @@ html, body {
     margin-bottom: 20px;
   }
 
-  &__header-grid {
+  &__header {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -2256,8 +2287,6 @@ html, body {
   }
 
   &__types-dropdown {
-    font-family: @ff1;
-    font-weight: 500;
     font-size: 12px;
     padding: 15px 20px;
     border: 1px solid #000;
@@ -2265,9 +2294,6 @@ html, body {
     line-height: 1.55;
     letter-spacing: .2em;
     text-transform: uppercase;
-    width: 147px;
-    display: flex;
-    align-items: center;
 
     &:has(a):after {
       content: "";
@@ -2283,46 +2309,26 @@ html, body {
       position: absolute;
       text-align: left;
       left: -1px;
-      right: 0;
+      right: -1px;
       top: 49px;
-      width: calc(100% + 2px);
-      border-width: 0 1px 1px 1px;
-      border-style: solid;
-      border-color: #000;
+      border: 1px solid #000;
+      border-top: 0;
       background-color: @grey;
       z-index: 2;
       display: none;
 
       & > li {
-        display: flex;
-        font-size: 12px;
-        line-height: 1.55;
-        letter-spacing: .2em;
-        text-transform: uppercase;
-
-        &:first-child {
-          & > a {
-            padding-top: 12px;
-            border-top: none;
-          }
-
-        }
-
         &:last-child {
-          & > a {
-            padding-bottom: 12px;
-            border-bottom: none;
-          }
+          margin-bottom: -1px;
         }
       }
 
       a {
-        width: 100%;
         display: block;
         padding: 8px 23px;
         transition: @transition;
-        border-top: 1px solid transparent;
-        border-bottom: 1px solid transparent;
+        border: 1px solid transparent;
+        border-width: 1px 0;
 
         &:hover {
           border-color: #000;
@@ -2332,33 +2338,59 @@ html, body {
     }
   }
 
-  &__grid {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
   &__wrapper {
     display: flex;
     flex-wrap: wrap;
-    grid-template-columns: repeat(3, 1fr);
     justify-content: space-between;
+    gap: 45px;
+    margin-bottom: 50px;
   }
 
   &__item {
-    width: 370px;
+    display: block;
+    width: calc((100% - 90px) / 3);
     height: 505px;
     border: 1px solid #000;
-    position: relative;
     text-align: left;
-    font-family: @ff1;
-    color: #000000;
-    margin-bottom: 53px;
-    background-color: transparent;
-    transition: @transition;
+
+    &:first-child {
+      height: 353px;
+      width: 100%;
+      display: flex;
+
+      .image-wrapper {
+        width: 50%;
+        height: 100%;
+        min-width: 50%;
+        border: 0;
+        border-right: 1px solid #000;
+      }
+
+      .type {
+        font-size: 14px;
+      }
+
+      h3 {
+        font-size: 35px;
+        margin: 24px 0 16px;
+      }
+
+      .s-news__item-content {
+        width: 50%;
+        padding: 58px 33px;
+        height: auto;
+      }
+    }
+
+    .s-news__item-content {
+      background-color: transparent;
+      transition: @transition;
+    }
 
     &:hover {
-      background-color: @yellow;
+      .s-news__item-content {
+        background-color: @yellow;
+      }
     }
 
     .image-wrapper {
@@ -2369,7 +2401,6 @@ html, body {
     }
 
     .type {
-      font-weight: 500;
       font-size: 10px;
       line-height: 1.55;
       letter-spacing: .2em;
@@ -2381,15 +2412,8 @@ html, body {
       margin: 20px 0 5px;
     }
 
-    .excerpt {
-      font-size: 16px;
-      line-height: 1.55;
-      font-family: @ff2;
-    }
-
     .date {
       margin-top: auto;
-      font-weight: 500;
       font-size: 12px;
       line-height: 1.55;
       letter-spacing: .2em;
@@ -2403,69 +2427,21 @@ html, body {
     padding: 32px 24px;
     height: calc(100% - 247px);
   }
-
-  &__load-more {
-    text-align: center;
-
-    .btn-yellow {
-      padding: 0;
-      min-width: unset;
-      width: 157px;
-    }
-  }
-
-  &__main-post-item {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    height: 353px;
-
-    .image-wrapper {
-      width: 50%;
-      height: 100%;
-      min-width: 50%;
-      border-bottom: unset;
-      border-right: 1px solid #000;
-    }
-
-    .type {
-      font-size: 14px;
-    }
-
-    h3 {
-      font-size: 35px;
-      margin: 24px 0 16px;
-    }
-
-    .item-content {
-      width: 50%;
-    }
-  }
-
-  &__main-post-content {
-    padding: 58px 33px;
-    display: flex;
-    flex-direction: column;
-  }
 }
+
+// Page News Item
 
 .s-news-post {
   padding: 50px 0 68px;
 
   &__header, p {
-    margin-left: auto;
     margin-right: 72px;
-    max-width: 700px;
-    color: #000;
+    margin-left: 110px;
   }
 
   .back {
     display: block;
-    font-family: @ff1;
-    font-style: normal;
-    font-weight: 500;
     font-size: 10px;
-    line-height: 1.55;
     letter-spacing: .2em;
     text-align: right;
     text-transform: uppercase;
@@ -2477,20 +2453,20 @@ html, body {
     align-items: center;
     margin: 35px 0 24px;
 
-    .separator {
-      height: 17px;
-      width: 1px;
-      margin: 0 28px;
-      background-color: #000;
-    }
-
     .type,
     .date {
       font-family: @ff2;
       font-size: 14px;
-      line-height: 1.5;
+      line-height: 17px;
       letter-spacing: 0.14em;
       text-transform: uppercase;
+      padding: 0 28px 0 0;
+      margin: 0 28px 0 0;
+      border-right: 1px solid #000;
+
+      &:last-child {
+        border: 0;
+      }
     }
   }
 
@@ -2601,6 +2577,8 @@ html, body {
   }
 }
 
+// Page events
+
 .s-events {
   padding: 150px 0 100px;
 
@@ -2620,26 +2598,26 @@ html, body {
     list-style: none;
     justify-content: center;
 
-      div {
-        font-weight: 400;
-        font-size: 12px;
-        line-height: 1.55;
-        letter-spacing: .2em;
-        padding: 18px 30px;
-        border: 1px solid #000;
-        margin: 0 8px;
-        text-transform: uppercase;
-        transition: @transition;
+    div {
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 1.55;
+      letter-spacing: .2em;
+      padding: 18px 30px;
+      border: 1px solid #000;
+      margin: 0 8px;
+      text-transform: uppercase;
+      transition: @transition;
 
-        &:hover {
-          cursor: pointer;
-          background-color: @yellow;
-        }
-
-        &.active {
-          background-color: @yellow;
-        }
+      &:hover {
+        cursor: pointer;
+        background-color: @yellow;
       }
+
+      &.active {
+        background-color: @yellow;
+      }
+    }
   }
 
   &__grid {
@@ -2817,8 +2795,8 @@ html, body {
     background-size: cover;
 
     iframe {
-      width: 100%!important;
-      height: 100%!important;
+      width: 100% !important;
+      height: 100% !important;
     }
   }
 
@@ -2981,7 +2959,7 @@ html, body {
       width: 450px;
       background: #00CEF5;
       border-right: 1px solid #000;
-      padding:  190px 65px 65px;
+      padding: 190px 65px 65px;
       flex-direction: column;
     }
 
@@ -3650,8 +3628,10 @@ html, body {
       }
     }
 
-    .btn-yellow {
+    .active {
+      .btn-yellow();
       padding: 0 20*@x;
+      min-width: 0;
     }
   }
 
@@ -4212,6 +4192,7 @@ html, body {
     }
   }
 
+  // Page News
   .s-news {
     padding: 150*@x 0 85*@x;
 
@@ -4219,51 +4200,66 @@ html, body {
       font-size: 90*@x;
     }
 
-    &__header-grid {
+    h2 {
+      font-size: 35*@x;
+      margin-bottom: 20*@x;
+    }
+
+    &__header {
       margin-bottom: 50*@x;
     }
 
     &__types-dropdown {
-      width: auto;
       font-size: 12*@x;
       padding: 15*@x 20*@x;
+
+      &:has(a):after {
+        height: 15*@x;
+        width: 15*@x;
+        background-size: 7*@x 5*@x;
+      }
 
       & > ul {
         top: 49*@x;
 
-        & > li {
-          font-size: 12*@x;
-
-          &:first-child {
-            & > a {
-              padding-top: 12*@x;
-            }
-          }
-
-          &:last-child {
-            & > a {
-              padding-bottom: 12*@x;
-            }
-          }
-
-          a {
-            padding: 8*@x 23*@x;
-          }
+        a {
+          padding: 8*@x 23*@x;
         }
       }
     }
 
-    &__main-post-content {
-      padding: 58*@x 33*@x;
+    &__wrapper {
+      gap: 45*@x;
+      margin-bottom: 50*@x;
     }
 
     &__item {
-      width: 370*@x;
+      width: calc((100% - 90 * @x) / 3);
       height: 505*@x;
-      margin-bottom: 53*@x;
+
+      &:first-child {
+        height: 353*@x;
+
+        .type {
+          font-size: 14*@x;
+        }
+
+        h3 {
+          font-size: 35*@x;
+          margin: 24*@x 0 16*@x;
+        }
+
+        .s-news__item-content {
+          padding: 58*@x 33*@x;
+        }
+      }
 
       .image-wrapper {
         height: 247*@x;
+      }
+
+      .type {
+        font-size: 10*@x;
       }
 
       h3 {
@@ -4271,50 +4267,24 @@ html, body {
         margin: 20*@x 0 5*@x;
       }
 
-      .type {
-        font-size: 10*@x;
-      }
-
-      .excerpt {
-        font-size: 16*@x;
-      }
-
       .date {
         font-size: 12*@x;
       }
     }
 
-    &__main-post-item {
-      width: 100%;
-      height: 353*@x;
-      margin-bottom: 53*@x;
-
-      .image-wrapper {
-        height: 100%;
-      }
-
-      .type {
-        font-size: 14*@x;
-      }
-
-      h3 {
-        font-size: 35*@x;
-        margin: 24*@x 0 16*@x;
-      }
-    }
-
     &__item-content {
       padding: 32*@x 24*@x;
-      height: calc(100% - 247*@x);
+      height: calc(100% - 247 * @x);
     }
   }
 
+  // Page News Item
   .s-news-post {
     padding: 50*@x 0 68*@x;
 
     &__header, p {
       margin-right: 72*@x;
-      max-width: 700*@x;
+      margin-left: 110*@x;
     }
 
     .back {
@@ -4324,14 +4294,12 @@ html, body {
     .meta {
       margin: 35*@x 0 24*@x;
 
-      .separator {
-        height: 17*@x;
-        margin: 0 28*@x;
-      }
-
       .type,
       .date {
         font-size: 14*@x;
+        line-height: 17*@x;
+        padding: 0 28*@x 0 0;
+        margin: 0 28*@x 0 0;
       }
     }
 
@@ -4384,7 +4352,7 @@ html, body {
     }
 
     &__item-content {
-      width: calc(100% - 230*@x);
+      width: calc(100% - 230 * @x);
       padding-left: 32*@x;
     }
 
@@ -4394,6 +4362,7 @@ html, body {
     }
   }
 
+  // Page events
   .s-events {
     padding: 150*@x 0 100*@x;
 
@@ -4634,7 +4603,7 @@ html, body {
 
   .wpcf7 form .wpcf7-response-output {
     font-size: 12*@x;
-    margin: -20*@x 0 0;
+    margin: 0;
     padding: 10*@x;
   }
 
@@ -4677,7 +4646,7 @@ html, body {
       }
 
       &__right {
-        width: calc(100% - 450*@x);
+        width: calc(100% - 450 * @x);
         padding: 87*@x 58*@x;
       }
 
@@ -5529,8 +5498,10 @@ html, body {
       }
     }
 
-    .btn-yellow {
+    .active {
+      .btn-yellow();
       padding: 0 20*@x;
+      min-width: 0;
     }
   }
 
@@ -5864,62 +5835,85 @@ html, body {
     }
   }
 
+  // Page News
   .s-news {
-    padding: 45*@x 0 81*@x;
+    padding: 45*@x 0 80*@x;
 
     h1 {
       font-size: 55*@x;
     }
 
-    &__header-grid {
+    h2 {
+      font-size: 35*@x;
+      margin-bottom: 20*@x;
+    }
+
+    &__header {
       flex-direction: column;
-      align-items: self-start;
+      align-items: flex-start;
       margin-bottom: 26*@x;
     }
 
     &__types-dropdown {
-      width: auto;
       font-size: 12*@x;
       padding: 8*@x 23*@x 4*@x;
       align-items: flex-start;
-      margin-top: 26px;
+      margin-top: 20*@x;
+
+      &:has(a):after {
+        height: 15*@x;
+        width: 15*@x;
+        background-size: 7*@x 5*@x;
+      }
 
       & > ul {
         top: 32*@x;
 
-        & > li {
-          font-size: 12*@x;
-
-          &:first-child {
-            & > a {
-              padding-top: 12*@x;
-            }
-          }
-
-          &:last-child {
-            & > a {
-              padding-bottom: 12*@x;
-            }
-          }
-
-          a {
-            padding: 8*@x 23*@x;
-          }
+        a {
+          padding: 8*@x 23*@x;
         }
       }
     }
 
-    &__main-post-content {
-      padding: 32*@x 24*@x;
+    &__wrapper {
+      gap: 40*@x;
+      margin-bottom: 50*@x;
     }
 
     &__item {
-      width: 370*@x;
+      width: auto;
       height: auto;
-      margin-bottom: 40*@x;
+
+      &:first-child {
+        height: auto;
+        display: block;
+
+        .type {
+          font-size: 13*@x;
+        }
+
+        h3 {
+          font-size: 30*@x;
+          margin: 16*@x 0;
+        }
+
+        .s-news__item-content {
+          width: auto;
+          padding: 32*@x 24*@x;
+        }
+
+        .image-wrapper {
+          width: 100%;
+          height: 172*@x;
+        }
+      }
 
       .image-wrapper {
-        height: 150*@x;
+        height: 172*@x;
+      }
+
+      .type {
+        font-size: 9*@x;
       }
 
       h3 {
@@ -5927,47 +5921,19 @@ html, body {
         margin: 18*@x 0 6*@x;
       }
 
-      .type {
-        font-size: 9*@x;
-      }
-
-      .excerpt {
-        font-size: 16*@x;
-      }
-
       .date {
-        margin-top: 20*@x;
+        //margin-top: 20*@x;
         font-size: 9*@x;
-      }
-    }
-
-    &__main-post-item {
-      width: 100%;
-      height: auto;
-      margin-bottom: 53*@x;
-      flex-direction: column;
-
-      .image-wrapper {
-        width: 100%;
-        height: 172*@x;
-      }
-
-      .type {
-        font-size: 13*@x;
-      }
-
-      h3 {
-        font-size: 30*@x;
-        margin: 16*@x 0;
       }
     }
 
     &__item-content {
       padding: 20*@x 15*@x;
-      height: calc(100% - 172*@x);
+      height: auto;
     }
   }
 
+  // Page News Item
   .s-news-post {
     padding: 26*@x 0 50*@x;
 
@@ -5983,14 +5949,12 @@ html, body {
     .meta {
       margin: 25*@x 0 21*@x;
 
-      .separator {
-        height: 9*@x;
-        margin: 0 6*@x;
-      }
-
       .type,
       .date {
         font-size: 9*@x;
+        line-height: 9*@x;
+        padding: 0 6*@x 0 0;
+        margin: 0 6*@x 0 0;
       }
     }
 
@@ -6055,6 +6019,7 @@ html, body {
     }
   }
 
+  // Page events
   .s-events {
     padding: 70*@x 0 40*@x;
 
@@ -6240,8 +6205,8 @@ html, body {
 
     &__cta-grid {
       flex-direction: column;
-      margin-left: calc(86*@x - 30*@x);
-      margin-right: calc(50*@x - 30*@x);
+      margin-left: calc(86 * @x - 30 * @x);
+      margin-right: calc(50 * @x - 30 * @x);
     }
 
     &__cta {
@@ -6707,7 +6672,7 @@ html, body {
 
   .wpcf7 form .wpcf7-response-output {
     font-size: 12*@x;
-    margin: -20*@x 0 0;
+    margin: 0;
     padding: 10*@x;
   }
 

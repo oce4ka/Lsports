@@ -1,38 +1,16 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>News</title>
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    <link rel="stylesheet" href="../theme/style.css">
-    <link rel="stylesheet" href="../theme/css/custom.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-</head>
-<body>
-<header class="header-global">
-    <div class="logo-global"></div>
-    <nav class="nav-main" role="navigation">
-        <button class="btn-hamburger"></button>
-        <ul>
-            <li>
-                <a href="#">Products</a>
-                <ul>
-                    <li><a href="#">Esports</a></li>
-                    <li><a href="#">Special bets data</a></li>
-                    <li><a href="#">premium racing</a></li>
-                </ul>
-            </li>
-            <li><a href="#">Coverage</a></li>
-            <li class="active"><a href="#">Coverage</a></li>
-            <li><a href="#">Coverage</a></li>
-        </ul>
-        <ul class="nav-lang"></ul>
-    </nav>
-</header>
+<?php
+/**
+ * Template Name: News
+ *
+ * The template for displaying News
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ *
+ * @package LSport
+ */
 
-<main class="content-main">
+get_header();
+?>
     <section class="s-news bg-grey">
         <div class="container">
             <div class="s-news__header">
@@ -135,59 +113,13 @@
             <div class="btn-yellow">view more</div>
         </div>
     </section>
-    <section class="s-hp-contact-us bg-yellow">
-        <h2>
-            <div data-aos="fade-up"
-                 data-aos-delay="50"
-                 data-aos-offset="0"
-                 data-aos-easing="ease-out"
-                 data-aos-duration="600">Plug your product in t<u>o</u>
-            </div>
-            <div data-aos="fade-up"
-                 data-aos-delay="100"
-                 data-aos-offset="100"
-                 data-aos-easing="ease-out"
-                 data-aos-duration="600"><u>t</u>he best sp<u>o</u>rts data feeds
-            </div>
-            <div data-aos="fade-up"
-                 data-aos-delay="150"
-                 data-aos-offset="200"
-                 data-aos-easing="ease-out"
-                 data-aos-duration="600">in the <u>w</u>orld
-            </div>
-        </h2>
-        <div class="btn-yellow">CONTACT US</div>
-    </section>
-</main>
-
-<footer class="footer-global">
-    <div class="logo-footer"></div>
-    <div class="nav-social">
-        <div class="facebook"></div>
-        <div class="twitter"></div>
-        <div class="linkedin"></div>
+    <section class="s-text">
+<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+    <h1 class="text-heading"><?php the_title(); ?></h1>
+    <div class="text-content">
+        <?php the_content(); ?>
     </div>
-    <nav class="nav-footer" role="navigation">
-        <ul>
-            <li><a href="#">Coverage</a></li>
-            <li>
-                <a href="#">Products</a>
-                <ul>
-                    <li><a href="#">Esports</a></li>
-                    <li><a href="#">Special bets data</a></li>
-                    <li><a href="#">premium racing</a></li>
-                </ul>
-            </li>
-            <li><a href="#">Coverage</a></li>
-        </ul>
-        <div class="btn-yellow">Get Started</div>
-    </nav>
-</footer>
+<?php endwhile; ?>
+<?php endif; ?>
 
-<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script src="../theme/js/custom.js"></script>
-
-</body>
-</html>
+<?php get_footer();
