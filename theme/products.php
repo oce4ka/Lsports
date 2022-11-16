@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Product Category
+ * Template Name: Products
  *
  * This is the template that displays Product Category.
  * Please note that this is the WordPress construct of pages

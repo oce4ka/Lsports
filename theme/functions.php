@@ -70,7 +70,7 @@ add_action( 'after_setup_theme', 'lsport_activate_classic_widgets' );
 
 acf_add_options_page(array(
     'page_title'  => __('labels'),
-    'menu_title'  => __('Section labels'),
+    'menu_title'  => __('Section Labels'),
     'redirect'    => false,
 ));
 
