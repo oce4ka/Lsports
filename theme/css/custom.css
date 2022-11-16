@@ -2071,7 +2071,7 @@ body {
 .s-news-post .meta .date:last-child {
   border: 0;
 }
-.s-news-post picture {
+.s-news-post img {
   display: flex;
   margin: 35px 0 45px;
   border: 1px solid #000;
