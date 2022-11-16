@@ -82,3 +82,24 @@ acf_add_options_page(array(
 
 // remove <p> from CF7
 add_filter('wpcf7_autop_or_not', '__return_false');
+
+/**
+ * Move image inside <p> tag above the <p> tag while preserving any link around image.
+ * Can be prevented by adding any attribute or whitespace to <p> tag, e.g. <p class="yolo"> or even <p >
+ */
+function remove_p_around_img($content)
+{
+    $contentWithFixedPTags =  preg_replace_callback('/<p>((?:.(?!p>))*?)(<a[^>]*>)?\s*(<img[^>]+>)(<\/a>)?(.*?)<\/p>/is', function($matches) {
+        $image = $matches[2] . $matches[3] . $matches[4];
+        $content = trim( $matches[1] . $matches[5] );
+        if ($content) {
+            $content = '<p>'. $content .'</p>';
+        }
+        return $image . $content;
+    }, $content);
+
+    // On large strings, this regular expression fails to execute, returning NULL
+    return is_null($contentWithFixedPTags) ? $content : $contentWithFixedPTags;
+}
+
+add_filter('the_content', 'remove_p_around_img');
