@@ -20,6 +20,7 @@ get_header();
     <?php get_template_part('text-post'); ?>
 <?php endif; ?>
 
-<?php if (get_field('add_contact_section')) get_template_part('contact-section'); ?>
+<?php //if (get_field('add_contact_section')) get_template_part('contact-section'); ?>
+<?php get_template_part('contact-section'); ?>
 
 <?php get_footer();

@@ -226,8 +226,8 @@
       anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
 
     });
+*/
 
-     */
 
     function videoPlay(self, youtube) {
         let src = self.parentNode.querySelector(youtube).getAttribute('data-url'),
@@ -254,6 +254,10 @@
             });
         });
     }
+
+
+    // Country in country select
+    $('select[name="country"]').find('option:first').html('Country*');
 
 })(jQuery);
 
