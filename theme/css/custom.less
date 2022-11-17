@@ -2147,6 +2147,10 @@ html, body {
 .s-contact {
   padding: 160px 0;
 
+  &--no-padding {
+    padding: 0;
+  }
+
   h1 {
     font-size: 90px;
     margin-bottom: 50px;
@@ -2980,36 +2984,7 @@ html, body {
 
     &__form-wrapper {
       margin-top: 20px;
-    }
-
-    &__form {
-      input,
-      textarea {
-        padding: 16px 30px;
-        border: 1px solid #000;
-        font-weight: 500;
-        font-size: 10px;
-        line-height: 1.55;
-        letter-spacing: .2em;
-        text-transform: uppercase;
-        color: #000;
-        float: left;
-      }
-
-      input {
-        width: 280px;
-        height: 48px;
-        margin-bottom: 21px;
-
-        &:nth-child(odd) {
-          margin-right: 24px;
-        }
-
-        &[type=submit] {
-          margin-bottom: 0;
-          width: 583px;
-        }
-      }
+      padding: 0;
 
       textarea {
         width: 583px;
@@ -3079,6 +3054,12 @@ html, body {
   h1 {
     font-size: 55px;
     margin-bottom: 56px;
+  }
+
+  &__form-wrapper {
+    textarea {
+      height: 180px;
+    }
   }
 }
 
@@ -4530,6 +4511,10 @@ html, body {
   .s-contact {
     padding: 160*@x 0;
 
+    &--no-padding {
+      padding: 0;
+    }
+
     h1 {
       font-size: 90*@x;
       margin-bottom: 50*@x;
@@ -4656,33 +4641,10 @@ html, body {
 
       &__form-wrapper {
         margin-top: 20*@x;
-      }
-
-      &__form {
-        input,
-        textarea {
-          padding: 16*@x 30*@x;
-          font-size: 10*@x;
-        }
-
-        input {
-          width: 280*@x;
-          height: 48*@x;
-          margin-bottom: 21*@x;
-
-          &:nth-child(odd) {
-            margin-right: 24*@x;
-          }
-
-          &[type=submit] {
-            width: 583*@x;
-          }
-        }
+        padding: 0;
 
         textarea {
-          width: 583*@x;
           height: 179*@x;
-          margin-bottom: 21*@x;
         }
       }
 
@@ -4708,6 +4670,12 @@ html, body {
     h1 {
       font-size: 55*@x;
       margin-bottom: 56*@x;
+    }
+
+    &__form-wrapper {
+      textarea {
+        height: 180*@x;
+      }
     }
   }
 
@@ -6588,6 +6556,10 @@ html, body {
   .s-contact {
     padding: 70*@x 0;
 
+    &--no-padding {
+      padding: 0;
+    }
+
     &__grid {
       flex-wrap: wrap;
     }
@@ -6728,33 +6700,9 @@ html, body {
 
       &__form-wrapper {
         margin-top: 15*@x;
-      }
-
-      &__form {
-        input,
-        textarea {
-          padding: 6*@x 15*@x;
-          font-size: 10*@x;
-        }
-
-        input {
-          width: 100%;
-          height: 36*@x;
-          margin-bottom: 15*@x;
-
-          &:nth-child(odd) {
-            margin-right: 0;
-          }
-
-          &[type=submit] {
-            width: 100%;
-          }
-        }
 
         textarea {
-          width: 100%;
           height: 80*@x;
-          margin-bottom: 15*@x;
         }
       }
 
@@ -6772,6 +6720,7 @@ html, body {
   .set-meeting {
     height: 100vh;
     padding: 70*@x 30*@x;
+    overflow: auto;
 
     &__wrapper {
       width: 100%;
@@ -6780,6 +6729,12 @@ html, body {
     h1 {
       font-size: 55*@x;
       margin-bottom: 38*@x;
+    }
+
+    &__form-wrapper {
+      textarea {
+        height: 200*@x;
+      }
     }
   }
 
