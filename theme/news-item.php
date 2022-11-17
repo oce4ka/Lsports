@@ -3,23 +3,35 @@ if (has_category('article')) {
     $category = 'article';
     $category_name = get_term_by('slug', 'article', 'category')->name;
     $category_link = get_permalink(get_page_by_path('article'));
+    $related_heading = get_field('related_articles', 'option');
+    $related_all = get_field('view_all_articles', 'option');
 } elseif (has_category('blog-post')) {
     $category = 'blog-post';
     $category_name = get_term_by('slug', 'blog-post', 'category')->name;
     $category_link = get_permalink(get_page_by_path('blog-post'));
+    $related_heading = get_field('related_news', 'option');
+    $related_all = get_field('view_all_news', 'option');
 } elseif (has_category('press-release')) {
     $category = 'press-release';
     $category_name = get_term_by('slug', 'press-release', 'category')->name;
     $category_link = get_permalink(get_page_by_path('press-release'));
+    $related_heading = get_field('related_press_releases', 'option');
+    $related_all = get_field('view_all_press_releases', 'option');
 } elseif (has_category('update')) {
     $category = 'update';
     $category_name = get_term_by('slug', 'update', 'category')->name;
     $category_link = get_permalink(get_page_by_path('update'));
+    $related_heading = get_field('related_updates', 'option');
+    $related_all = get_field('view_all_updates', 'option');
 } elseif (has_category('news')) {
     $category = 'news';
     $category_name = get_term_by('slug', 'news', 'category')->name;
     $category_link = get_permalink(get_page_by_path('news'));
+    $related_heading = get_field('related_news', 'option');
+    $related_all = get_field('view_all_news', 'option');
 };
+
+$category_link = get_permalink(get_page_by_path('news'));
 ?>
 
 <section class="s-news-post bg-grey">
@@ -82,65 +94,33 @@ if (has_category('article')) {
     </div>
 </section>
 
-<section class="s-related">
-    <div class="container container--post">
-        <div class="s-related__wrapper">
-            <h2>Related Press Releases</h2>
-            <div class="s-related__grid">
-                <div data-aos="fade-up"
-                     data-aos-delay="50"
-                     data-aos-offset="0"
-                     data-aos-easing="ease-out"
-                     data-aos-duration="600"
-                     class="s-related__item">
-                    <div class="image-wrapper" style="background-image: url(images-upload/img-event.png)"></div>
-                    <div class="s-related__item-content">
-                        <div class="type">Press Release</div>
-                        <div class="excerpt">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.</div>
-                        <div class="date">August 8, 2022</div>
-                        <a href="" class="arrow-after arrow-after--right">&nbsp;</a>
-                    </div>
-                </div>
-                <div data-aos="fade-up"
-                     data-aos-delay="100"
-                     data-aos-offset="0"
-                     data-aos-easing="ease-out"
-                     data-aos-duration="600"
-                     class="s-related__item">
-                    <div class="image-wrapper" style="background-image: url(images-upload/img-event.png)"></div>
-                    <div class="s-related__item-content">
-                        <div class="type">Press Release</div>
-                        <div class="excerpt">Amet minim sit aliqua dolor do amet sint. Velit officia consequat. Press Release Amet minim mollit non deserunt ullamco est sit ali</div>
-                        <div class="date">August 8, 2022</div>
-                        <a href="" class="arrow-after arrow-after--right">&nbsp;</a>
-                    </div>
-                </div>
-            </div>
-            <div class="s-related__show-all">View all Press Releases</div>
-        </div>
-    </div>
-</section>
+<?php if (have_rows('related_posts')): ?>
+    <section class="s-related">
+        <div class="container container--post">
+            <div class="s-related__wrapper">
+                <h2><?php echo $related_heading ?></h2>
+                <div class="s-related__grid">
 
-<section class="s-hp-contact-us bg-yellow">
-    <h2>
-        <div data-aos="fade-up"
-             data-aos-delay="50"
-             data-aos-offset="0"
-             data-aos-easing="ease-out"
-             data-aos-duration="600">Plug your product in t<u>o</u>
+                    <?php while (have_rows('related_posts')) : the_row(); ?>
+                        <?php $related_post = get_sub_field('post') ?>
+                        <div data-aos="fade-up"
+                             data-aos-delay="50"
+                             data-aos-offset="0"
+                             data-aos-easing="ease-out"
+                             data-aos-duration="600"
+                             class="s-related__item">
+                            <div class="image-wrapper" style="background-image: url(<?php echo wp_get_attachment_url(get_post_thumbnail_id($related_post)); ?>)"></div>
+                            <div class="s-related__item-content">
+                                <div class="type"><?php echo $category_name ?></div>
+                                <div class="excerpt"><?php echo $related_post->post_title; ?></div>
+                                <div class="date"><?php echo get_the_date('F d, Y', $related_post); ?></div>
+                                <a href="<?php echo get_permalink($related_post) ?>" class="arrow-after arrow-after--right">&nbsp;</a>
+                            </div>
+                        </div>
+                    <?php endwhile; ?>
+                </div>
+                <a style="display: block;" href="<?php echo $category_link ?>" class="s-related__show-all"><?php echo $related_all ?></a>
+            </div>
         </div>
-        <div data-aos="fade-up"
-             data-aos-delay="100"
-             data-aos-offset="100"
-             data-aos-easing="ease-out"
-             data-aos-duration="600"><u>t</u>he best sp<u>o</u>rts data feeds
-        </div>
-        <div data-aos="fade-up"
-             data-aos-delay="150"
-             data-aos-offset="200"
-             data-aos-easing="ease-out"
-             data-aos-duration="600">in the <u>w</u>orld
-        </div>
-    </h2>
-    <div class="btn-yellow">CONTACT US</div>
-</section>
+    </section>
+<?php endif; ?>

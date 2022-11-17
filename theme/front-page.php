@@ -48,7 +48,7 @@ get_header();
             <?php if (have_rows('features')): while (have_rows('features')) : the_row(); ?>
                 <div class="feature">
                     <div class="feature__image-container">
-                        <img src="<?php the_sub_field('image') ?>" alt="">
+                        <lottie-player src="<?php echo get_template_directory_uri().'/img/lottie/'.get_sub_field('lottie_file_name') ?>" background="transparent"  speed="1" loop autoplay></lottie-player>
                     </div>
                     <h3><?php the_sub_field('title') ?></h3>
                     <p><?php the_sub_field('description') ?></p>
@@ -182,26 +182,10 @@ get_header();
                     <div class="image-wrapper" style="background-image: url(<?php echo get_the_post_thumbnail_url(); ?>)"></div>
                     <h3><?php the_field('title_short') ?></h3>
                     <div class="country"><?php the_field('location') ?></div>
-                    <div class="info"><?php the_field('stand_c10_rename_it') ?></div>
-                    <a href="#" class="btn-event-details arrow-after"><?php the_field('event_details', 'option') ?></a>
+                    <div class="info"><?php the_field('stand_location') ?></div>
+                    <a href="<?php the_permalink() ?>" class="btn-event-details arrow-after"><?php the_field('event_details', 'option') ?></a>
                 </div>
             <?php endwhile; endif; ?>
-            <!--div class="s-hp-events__event-item">
-                <div class="date">20-22 Sep</div>
-                <div class="image-wrapper" style="background-image: url(images-upload/img-event.png)"></div>
-                <h3>SBC Summit</h3>
-                <div class="country">Barcelona, Spain</div>
-                <div class="info">Stand C10</div>
-                <a href="#" class="btn-event-details arrow-after">Event details</a>
-            </div>
-            <div class="s-hp-events__event-item">
-                <div class="date">20-22 Sep</div>
-                <div class="image-wrapper" style="background-image: url(images-upload/img-event.png)"></div>
-                <h3>SBC Summit</h3>
-                <div class="country">Barcelona, Spain</div>
-                <div class="info">Stand C10</div>
-                <a href="#" class="btn-event-details arrow-after">Event details</a>
-            </div-->
             <?php wp_reset_postdata(); ?>
         </div>
     </section>

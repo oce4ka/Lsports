@@ -432,11 +432,6 @@ html, body {
 
     &__image-container {
       height: 216px;
-
-      img {
-        max-height: 100%;
-        max-width: 100%;
-      }
     }
   }
 
@@ -783,6 +778,8 @@ html, body {
     margin: 0 20px;
     position: relative;
     text-align: left;
+    display: flex;
+    flex-direction: column;
   }
 
   .image-wrapper {
@@ -853,6 +850,7 @@ html, body {
     justify-content: space-between;
     align-items: center;
     transition: @transition;
+    margin-top: auto;
 
     &:hover {
       background: @yellow;
@@ -2098,6 +2096,7 @@ html, body {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    align-items: flex-start;
   }
 
   &__content {
