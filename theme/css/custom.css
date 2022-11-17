@@ -190,6 +190,140 @@ h3 {
   transform: translate(-50%, -50%);
   border: 0;
 }
+.cta-dropdown {
+  font-size: 12px;
+  padding: 0 30px;
+  border: 1px solid #000;
+  position: relative;
+  line-height: 55px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.cta-dropdown:hover {
+  background: #000;
+  color: #fff;
+}
+.cta-dropdown:hover > a:hover {
+  color: #fff;
+}
+.cta-dropdown > ul {
+  position: absolute;
+  text-align: left;
+  left: -1px;
+  right: -1px;
+  top: 54px;
+  border: 1px solid #000;
+  border-top: 0;
+  background-color: #E8E8ED;
+  z-index: 2;
+  display: none;
+}
+.cta-dropdown > ul > li:last-child {
+  margin-bottom: -1px;
+}
+.cta-dropdown > ul a {
+  display: flex;
+  align-items: center;
+  line-height: 1.55;
+  padding: 17.5px 23px;
+  transition: all 0.2s ease-in-out;
+  border: 1px solid #000;
+  border-width: 0 0 1px;
+  color: #000;
+}
+.cta-dropdown > ul a:hover {
+  border-color: #000;
+  background-color: #E1F32C;
+}
+.cta-dropdown.center > ul a {
+  justify-content: center;
+}
+.apple,
+.g-calendar,
+.m-365,
+.outlook,
+.teams,
+.yahoo,
+.ical {
+  margin-right: 18px;
+}
+.facebook,
+.twitter,
+.linkedin,
+.link,
+.viber,
+.apple,
+.g-calendar,
+.m-365,
+.outlook,
+.teams,
+.yahoo,
+.ical {
+  width: 18px;
+  height: 18px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.facebook:hover,
+.twitter:hover,
+.linkedin:hover,
+.link:hover,
+.viber:hover,
+.apple:hover,
+.g-calendar:hover,
+.m-365:hover,
+.outlook:hover,
+.teams:hover,
+.yahoo:hover,
+.ical:hover {
+  cursor: pointer;
+}
+.facebook {
+  background-image: url("../img/icon-facebook.svg");
+}
+.facebook--black {
+  background-image: url("../img/icon-facebook-black.svg");
+}
+.twitter {
+  background-image: url("../img/icon-twitter.svg");
+}
+.twitter--black {
+  background-image: url("../img/icon-twitter-black.svg");
+}
+.linkedin {
+  background-image: url("../img/icon-linkedin.svg");
+}
+.linkedin--black {
+  background-image: url("../img/icon-linkedin-black.svg");
+}
+.link--black {
+  background-image: url("../img/icon-link-black.png");
+}
+.viber--black {
+  background-image: url("../img/icon-viber-black.svg");
+}
+.apple {
+  background-image: url("../img/icon-apple.svg");
+}
+.g-calendar {
+  background-image: url("../img/icon-g-calendar.svg");
+}
+.m-365 {
+  background-image: url("../img/icon-m-365.svg");
+}
+.outlook {
+  background-image: url("../img/icon-outlook.svg");
+}
+.teams {
+  background-image: url("../img/icon-teams.svg");
+}
+.yahoo {
+  background-image: url("../img/icon-yahoo.svg");
+}
+.ical {
+  background-image: url("../img/icon-ical.svg");
+}
 html,
 body {
   background: #E8E8ED;
@@ -935,49 +1069,15 @@ body {
 .nav-social .link {
   width: 25px;
   height: 25px;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: contain;
   margin: 0 15px;
 }
-.nav-social .facebook:hover,
-.nav-social .twitter:hover,
-.nav-social .linkedin:hover,
-.nav-social .link:hover {
-  cursor: pointer;
-}
-.nav-social .facebook {
-  background-image: url("../img/icon-facebook.svg");
-}
-.nav-social .facebook--black {
-  margin-left: 0;
-  margin-right: 22px;
-  height: 19px;
-  background-image: url("../img/icon-facebook-black.svg");
-}
-.nav-social .twitter {
-  background-image: url("../img/icon-twitter.svg");
-}
-.nav-social .twitter--black {
-  margin-left: 0;
-  margin-right: 22px;
-  height: 19px;
-  background-image: url("../img/icon-twitter-black.svg");
-}
-.nav-social .linkedin {
-  background-image: url("../img/icon-linkedin.svg");
-}
-.nav-social .linkedin--black {
-  margin-left: 0;
-  margin-right: 22px;
-  height: 19px;
-  background-image: url("../img/icon-linkedin-black.svg");
-}
+.nav-social .facebook--black,
+.nav-social .twitter--black,
+.nav-social .linkedin--black,
 .nav-social .link--black {
   margin-left: 0;
   margin-right: 22px;
   height: 19px;
-  background-image: url("../img/icon-link-black.png");
 }
 .nav-footer {
   display: flex;
@@ -2584,6 +2684,47 @@ body {
     font-size: 0.924vw;
     line-height: 4.235vw;
   }
+  .btn-gray {
+    padding: 0 2.31vw;
+    height: 4.235vw;
+    font-size: 0.924vw;
+    line-height: 4.235vw;
+  }
+  .cta-dropdown {
+    font-size: 0.924vw;
+    padding: 0 2.31vw;
+    line-height: 4.235vw;
+  }
+  .cta-dropdown > ul {
+    top: 4.158vw;
+  }
+  .cta-dropdown > ul a {
+    padding: 1.3475vw 1.771vw;
+  }
+  .apple,
+  .g-calendar,
+  .m-365,
+  .outlook,
+  .teams,
+  .yahoo,
+  .ical {
+    margin-right: 1.386vw;
+  }
+  .facebook,
+  .twitter,
+  .linkedin,
+  .link,
+  .viber,
+  .apple,
+  .g-calendar,
+  .m-365,
+  .outlook,
+  .teams,
+  .yahoo,
+  .ical {
+    width: 1.386vw;
+    height: 1.386vw;
+  }
   p {
     font-size: 1.232vw;
     margin: 0 0 1.54vw;
@@ -3860,7 +4001,44 @@ body {
     line-height: 14.685vw;
   }
   .btn-gray {
+    height: 14.685vw;
     font-size: 3.204vw;
+    line-height: 14.685vw;
+  }
+  .cta-dropdown {
+    font-size: 3.204vw;
+    padding: 0;
+    line-height: 14.685vw;
+  }
+  .cta-dropdown > ul {
+    top: 14.418vw;
+  }
+  .cta-dropdown > ul a {
+    padding: 4.6725vw 4.005vw;
+  }
+  .apple,
+  .g-calendar,
+  .m-365,
+  .outlook,
+  .teams,
+  .yahoo,
+  .ical {
+    margin-right: 4.806vw;
+  }
+  .facebook,
+  .twitter,
+  .linkedin,
+  .link,
+  .viber,
+  .apple,
+  .g-calendar,
+  .m-365,
+  .outlook,
+  .teams,
+  .yahoo,
+  .ical {
+    width: 4.806vw;
+    height: 4.806vw;
   }
   p {
     font-size: 4.272vw;
