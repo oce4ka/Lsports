@@ -43,12 +43,13 @@ function LSport_scripts()
     wp_enqueue_style('style-animation-aos', '//unpkg.com/aos@2.3.1/dist/aos.css', array(), _S_VERSION, 'all');
 
     // https://code.jquery.com/jquery-3.6.1.min.js - ???
+    wp_enqueue_script('lottie-player', '//unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js', '', _S_VERSION, true);
     wp_enqueue_script('script-slick', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js', array('jquery'), _S_VERSION, true);
     wp_enqueue_script('script-animation-aos', '//unpkg.com/aos@2.3.1/dist/aos.js', array('jquery'), _S_VERSION, true);
     wp_enqueue_script('script', get_template_directory_uri() . '/js/custom.js', array('jquery'), _S_VERSION, true);
 
 
-    wp_style_add_data('LSport-style', 'rtl', 'replace');
+    //wp_style_add_data('LSport-style', 'rtl', 'replace');
 }
 
 add_action('wp_enqueue_scripts', 'LSport_scripts');
