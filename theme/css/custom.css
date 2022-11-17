@@ -1800,6 +1800,9 @@ body {
 .s-contact {
   padding: 160px 0;
 }
+.s-contact--no-padding {
+  padding: 0;
+}
 .s-contact h1 {
   font-size: 90px;
   margin-bottom: 50px;
@@ -2503,32 +2506,9 @@ body {
 }
 .modal-grid__form-wrapper {
   margin-top: 20px;
+  padding: 0;
 }
-.modal-grid__form input,
-.modal-grid__form textarea {
-  padding: 16px 30px;
-  border: 1px solid #000;
-  font-weight: 500;
-  font-size: 10px;
-  line-height: 1.55;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: #000;
-  float: left;
-}
-.modal-grid__form input {
-  width: 280px;
-  height: 48px;
-  margin-bottom: 21px;
-}
-.modal-grid__form input:nth-child(odd) {
-  margin-right: 24px;
-}
-.modal-grid__form input[type=submit] {
-  margin-bottom: 0;
-  width: 583px;
-}
-.modal-grid__form textarea {
+.modal-grid__form-wrapper textarea {
   width: 583px;
   height: 179px;
   margin-bottom: 21px;
@@ -2586,6 +2566,9 @@ body {
 .set-meeting h1 {
   font-size: 55px;
   margin-bottom: 56px;
+}
+.set-meeting__form-wrapper textarea {
+  height: 180px;
 }
 @media (max-width: 1300px) {
   .container {
@@ -3714,6 +3697,9 @@ body {
   .s-contact {
     padding: 12.32vw 0;
   }
+  .s-contact--no-padding {
+    padding: 0;
+  }
   .s-contact h1 {
     font-size: 6.93vw;
     margin-bottom: 3.85vw;
@@ -3815,27 +3801,10 @@ body {
   }
   .modal-grid__form-wrapper {
     margin-top: 1.54vw;
+    padding: 0;
   }
-  .modal-grid__form input,
-  .modal-grid__form textarea {
-    padding: 1.232vw 2.31vw;
-    font-size: 0.77vw;
-  }
-  .modal-grid__form input {
-    width: 21.56vw;
-    height: 3.696vw;
-    margin-bottom: 1.617vw;
-  }
-  .modal-grid__form input:nth-child(odd) {
-    margin-right: 1.848vw;
-  }
-  .modal-grid__form input[type=submit] {
-    width: 44.891vw;
-  }
-  .modal-grid__form textarea {
-    width: 44.891vw;
+  .modal-grid__form-wrapper textarea {
     height: 13.783vw;
-    margin-bottom: 1.617vw;
   }
   .modal-grid__date {
     font-size: 1.078vw;
@@ -3854,6 +3823,9 @@ body {
   .set-meeting h1 {
     font-size: 4.235vw;
     margin-bottom: 4.312vw;
+  }
+  .set-meeting__form-wrapper textarea {
+    height: 13.86vw;
   }
   .s-404 .container {
     margin-top: 9.24vw;
@@ -5357,6 +5329,9 @@ body {
   .s-contact {
     padding: 18.69vw 0;
   }
+  .s-contact--no-padding {
+    padding: 0;
+  }
   .s-contact__grid {
     flex-wrap: wrap;
   }
@@ -5473,26 +5448,8 @@ body {
   .modal-grid__form-wrapper {
     margin-top: 4.005vw;
   }
-  .modal-grid__form input,
-  .modal-grid__form textarea {
-    padding: 1.602vw 4.005vw;
-    font-size: 2.67vw;
-  }
-  .modal-grid__form input {
-    width: 100%;
-    height: 9.612vw;
-    margin-bottom: 4.005vw;
-  }
-  .modal-grid__form input:nth-child(odd) {
-    margin-right: 0;
-  }
-  .modal-grid__form input[type=submit] {
-    width: 100%;
-  }
-  .modal-grid__form textarea {
-    width: 100%;
+  .modal-grid__form-wrapper textarea {
     height: 21.36vw;
-    margin-bottom: 4.005vw;
   }
   .modal-grid__date {
     font-size: 2.403vw;
@@ -5504,6 +5461,7 @@ body {
   .set-meeting {
     height: 100vh;
     padding: 18.69vw 8.01vw;
+    overflow: auto;
   }
   .set-meeting__wrapper {
     width: 100%;
@@ -5511,6 +5469,9 @@ body {
   .set-meeting h1 {
     font-size: 14.685vw;
     margin-bottom: 10.146vw;
+  }
+  .set-meeting__form-wrapper textarea {
+    height: 53.4vw;
   }
   .s-404 .container {
     background-image: url(../img/img-404-mob.svg);
