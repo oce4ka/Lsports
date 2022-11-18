@@ -94,8 +94,8 @@
                             <li><a href="https://www.linkedin.com/shareArticle?mini=true&url=NEWS-LINK" target="_blank" rel="nofollow">
                                 <div class="linkedin linkedin--black"></div>
                             </a></li>
-                            <li><a href="viber://forward?text=NEWS-LINK">
-                                <div class="viber viber--black"></div>
+                            <li><a href="whatsapp://forward?text=NEWS-LINK">
+                                <div class="whatsapp whatsapp--black"></div>
                             </a></li>
                         </ul>
                     </div>
@@ -127,7 +127,7 @@
                         </ul>
                     </div>
 
-                    <div class="btn-gray set-meeting-js-action">set a meeting</div>
+                    <button class="btn-yellow register-js-action">register now</button>
                 </div>
             </div>
         </div>
@@ -263,35 +263,31 @@
     </nav>
 </footer>
 
-<section class="modal register-modal hide">
+<section class="modal register-modal">
     <div class="modal-overlay">
         <div class="logo-footer modal-logo"></div>
         <div class="modal-wrapper">
-            <div class="modal-close register-modal-close">
-                <img src="img/icon-close.svg" alt="X"/>
-            </div>
+            <div class="modal-close register-modal-close"></div>
             <div class="modal-grid">
-                <div class="modal-grid__left">
+                <div class="modal-grid__headings">
                     <div class="modal-grid__date">
                         <div class="icon-calendar"></div>
                         Monday, August 8 at 10:00 am
                     </div>
-                    <div class="modal-grid__title">A new world unfolds for sportsbooks</div>
+                    <h3>A new world unfolds for sportsbooks</h3>
                 </div>
-                <div class="modal-grid__right">
-                    <div class="modal-grid__label-form">Register Now</div>
-                    <div class="s-contact modal-grid__form-wrapper">
-                        <form class="wpcf7-form" action="">
-                            <span class="wpcf7-form-control-wrap"><input type="text" placeholder="First Name*"></span>
-                            <span class="wpcf7-form-control-wrap"><input type="text" placeholder="Last Name*"></span>
-                            <span class="wpcf7-form-control-wrap"><input type="text" placeholder="Work Email*"></span>
-                            <span class="wpcf7-form-control-wrap"><input type="text" placeholder="Company Name*"></span>
-                            <span class="wpcf7-form-control-wrap"><input type="text" placeholder="Job Title*"></span>
-                            <span class="wpcf7-form-control-wrap"><input type="text" placeholder="Phone number"></span>
-                            <span class="wpcf7-form-control-wrap"><textarea name="" id="form" cols="30" rows="10" placeholder="Message" class="full-width"></textarea></span>
-                            <input type="submit" class="btn-yellow" value="submit">
-                        </form>
-                    </div>
+                <div class="modal-grid__form s-contact">
+                    <div class="modal__form-heading">Register Now</div>
+                    <form class="wpcf7-form" action="">
+                        <span class="wpcf7-form-control-wrap"><input type="text" placeholder="First Name*"></span>
+                        <span class="wpcf7-form-control-wrap"><input type="text" placeholder="Last Name*"></span>
+                        <span class="wpcf7-form-control-wrap"><input type="text" placeholder="Work Email*"></span>
+                        <span class="wpcf7-form-control-wrap"><input type="text" placeholder="Company Name*"></span>
+                        <span class="wpcf7-form-control-wrap"><input type="text" placeholder="Job Title*"></span>
+                        <span class="wpcf7-form-control-wrap"><input type="text" placeholder="Phone number"></span>
+                        <span class="wpcf7-form-control-wrap"><textarea name="" id="form" cols="30" rows="10" placeholder="Message" class="full-width"></textarea></span>
+                        <input type="submit" class="btn-yellow" value="submit">
+                    </form>
                 </div>
             </div>
         </div>

@@ -12,10 +12,12 @@
         //console.log('prevent');
     })
 
-    //
+    // Share and add to cal dropdowns
     $('.dropdown-js-action').click(function (e) {
-        e.preventDefault();
-        $(e.target).find('ul').fadeToggle();
+        if (!$(e.target).is('a, a *')) {
+            e.preventDefault();
+            $(e.target).find('ul').fadeToggle();
+        }
     })
 
     // button on event page

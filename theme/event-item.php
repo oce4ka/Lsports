@@ -72,18 +72,25 @@
                 <div class="cta-dropdown center btn-gray dropdown-js-action">
                     share
                     <ul>
-                        <li><a href="https://www.facebook.com/sharer/sharer.php?u=NEWS-LINK" target="_blank" rel="nofollow">
-                                <div class="facebook facebook--black"></div>
-                            </a></li>
-                        <li><a href="https://twitter.com/intent/tweet?url=NEWS-LINK&text=NEWS-TITLE" target="_blank" rel="nofollow">
-                                <div class="twitter twitter--black"></div>
-                            </a></li>
-                        <li><a href="https://www.linkedin.com/shareArticle?mini=true&url=NEWS-LINK" target="_blank" rel="nofollow">
-                                <div class="linkedin linkedin--black"></div>
-                            </a></li>
-                        <li><a href="viber://forward?text=NEWS-LINK">
-                                <div class="viber viber--black"></div>
-                            </a></li>
+                        <li>
+                            <a href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink() ?>" target="_blank" rel="nofollow">
+                                <div class="facebook facebook--black">Share via facebook</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://twitter.com/intent/tweet?url=<?php the_permalink() ?>&text=<?php the_title() ?>" target="_blank" rel="nofollow">
+                                <div class="twitter twitter--black">Share via twitter</div>
+                            </a>
+                        </li>
+                        <li><a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php the_permalink() ?>" target="_blank" rel="nofollow">
+                                <div class="linkedin linkedin--black">Share via linkedin</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="whatsapp://send?text=<?php the_permalink() ?> <?php the_title() ?>" data-action="share/whatsapp/share">
+                                <div class="whatsapp whatsapp--black">Share via Whatsapp</div>
+                            </a>
+                        </li>
                     </ul>
                 </div>
 
@@ -116,7 +123,7 @@
                     </div>
                 */ ?>
 
-                <button class="btn-yellow set-meeting-js-action">register now</button>
+                <button class="btn-yellow register-js-action">register now</button>
             </div>
         </div>
     </div>

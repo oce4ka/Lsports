@@ -108,7 +108,7 @@ h3 {
 .icon-calendar,
 .icon-place {
   display: inline-block;
-  vertical-align: middle;
+  vertical-align: text-top;
   height: 15px;
   width: 15px;
   background-image: url('../img/icon-calendar.svg');
@@ -225,7 +225,7 @@ h3 {
 .twitter,
 .linkedin,
 .link,
-.viber,
+.whatsapp,
 .apple,
 .g-calendar,
 .m-365,
@@ -238,12 +238,14 @@ h3 {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
+  text-indent: -100vw;
+  overflow: hidden;
 }
 .facebook:hover,
 .twitter:hover,
 .linkedin:hover,
 .link:hover,
-.viber:hover,
+.whatsapp:hover,
 .apple:hover,
 .g-calendar:hover,
 .m-365:hover,
@@ -274,8 +276,8 @@ h3 {
 .link--black {
   background-image: url("../img/icon-link-black.png");
 }
-.viber--black {
-  background-image: url("../img/icon-viber-black.svg");
+.whatsapp--black {
+  background-image: url("../img/icon-whatsapp-black.svg");
 }
 .apple {
   background-image: url("../img/icon-apple.svg");
@@ -1927,6 +1929,7 @@ body {
 }
 .s-contact textarea {
   height: 230px;
+  display: block;
 }
 .s-contact select {
   font-weight: 500;
@@ -2505,7 +2508,6 @@ body {
 .modal {
   top: 0;
   left: 0;
-  display: block;
   position: fixed;
   overflow: hidden;
   height: 100vh;
@@ -2549,37 +2551,18 @@ body {
 }
 .modal-grid {
   display: flex;
-  align-items: stretch;
   height: 100%;
 }
-.modal-grid__left {
+.modal-grid__headings {
   width: 450px;
   background: #00CEF5;
   border-right: 1px solid #000;
   padding: 190px 65px 65px;
   flex-direction: column;
+  flex-shrink: 0;
 }
-.modal-grid__right {
-  width: calc(100% - 450px);
-  padding: 87px 58px;
-}
-.modal-grid__label-form {
-  font-family: "PP Formula", sans-serif;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 1.55;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: #000;
-}
-.modal-grid__form-wrapper {
-  margin-top: 20px;
-  padding: 0;
-}
-.modal-grid__form-wrapper textarea {
-  width: 583px;
-  height: 179px;
-  margin-bottom: 21px;
+.modal-grid__form {
+  padding: 87px 58px 0 58px;
 }
 .modal-grid__date {
   font-family: "Test Söhne", sans-serif;
@@ -2587,18 +2570,22 @@ body {
   line-height: 1.55;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #000;
-  display: flex;
-  align-items: center;
+  margin-bottom: 30px;
 }
-.modal-grid__title {
-  margin-top: 30px;
+.modal__form-heading {
   font-family: "PP Formula", sans-serif;
-  font-weight: 900;
-  font-size: 55px;
-  line-height: 1;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.55;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: #000;
+  margin-bottom: 20px;
+}
+.modal textarea {
+  width: 583px;
+  height: 179px;
+  margin-bottom: 8px;
 }
 /*
 .set-meeting {
@@ -2691,7 +2678,7 @@ body {
   .twitter,
   .linkedin,
   .link,
-  .viber,
+  .whatsapp,
   .apple,
   .g-calendar,
   .m-365,
@@ -3899,30 +3886,23 @@ body {
     width: 3.696vw;
     height: 3.696vw;
   }
-  .modal-grid__left {
+  .modal-grid__headings {
     width: 34.65vw;
     padding: 14.63vw 5.005vw 5.005vw;
   }
-  .modal-grid__right {
-    width: calc(100% - 450 * 0.077vw);
+  .modal-grid__form {
     padding: 6.699vw 4.466vw;
-  }
-  .modal-grid__label-form {
-    font-size: 1.078vw;
-  }
-  .modal-grid__form-wrapper {
-    margin-top: 1.54vw;
-    padding: 0;
-  }
-  .modal-grid__form-wrapper textarea {
-    height: 13.783vw;
   }
   .modal-grid__date {
     font-size: 1.078vw;
+    margin-bottom: 2.31vw;
   }
-  .modal-grid__title {
-    margin-top: 2.31vw;
-    font-size: 4.235vw;
+  .modal__form-heading {
+    font-size: 1.078vw;
+  }
+  .modal textarea {
+    height: 13.783vw;
+    margin-bottom: 0.616vw;
   }
   /*
   .set-meeting {
@@ -4005,7 +3985,7 @@ body {
   .twitter,
   .linkedin,
   .link,
-  .viber,
+  .whatsapp,
   .apple,
   .g-calendar,
   .m-365,
@@ -5554,12 +5534,16 @@ body {
   ::placeholder {
     font-size: 2.67vw;
   }
+  .modal {
+    position: fixed;
+  }
   .modal-logo {
     display: none;
   }
   .modal-wrapper {
-    height: 100vh;
-    width: 100vw;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
   }
   .modal-close {
     width: 8.811vw;
@@ -5568,47 +5552,50 @@ body {
   .modal-grid {
     flex-direction: column;
   }
-  .modal-grid__left {
+  .modal-grid__headings {
     width: 100%;
     padding: 4.005vw;
-    border-right: none;
+    border-right: 0;
     border-bottom: 1px solid #000;
   }
-  .modal-grid__right {
+  .modal-grid__form {
     width: 100%;
     padding: 4.005vw;
-  }
-  .modal-grid__label-form {
-    font-size: 2.67vw;
-  }
-  .modal-grid__form-wrapper {
-    margin-top: 4.005vw;
-  }
-  .modal-grid__form-wrapper textarea {
-    height: 21.36vw;
   }
   .modal-grid__date {
     font-size: 2.403vw;
+    margin-bottom: 4.005vw;
   }
-  .modal-grid__title {
-    margin-top: 4.005vw;
-    font-size: 9.345vw;
+  .modal__form-heading {
+    font-size: 2.67vw;
+    margin-bottom: 4.005vw;
   }
-  .set-meeting {
-    height: 100vh;
-    padding: 18.69vw 8.01vw;
-    overflow: auto;
+  .modal textarea {
+    height: 21.36vw;
+    margin-bottom: 0;
   }
-  .set-meeting__wrapper {
-    width: 100%;
-  }
-  .set-meeting h1 {
-    font-size: 14.685vw;
-    margin-bottom: 10.146vw;
-  }
-  .set-meeting__form-wrapper textarea {
-    height: 53.4vw;
-  }
+  /*
+    .set-meeting {
+      height: 100vh;
+      padding: 70*@x 30*@x;
+      overflow: auto;
+
+      &__wrapper {
+        width: 100%;
+      }
+
+      h1 {
+        font-size: 55*@x;
+        margin-bottom: 38*@x;
+      }
+
+      &__form-wrapper {
+        textarea {
+          height: 200*@x;
+        }
+      }
+    }
+  */
   .s-404 .container {
     background-image: url(../img/img-404-mob.svg);
     background-size: 100% auto;
