@@ -287,7 +287,12 @@ get_header();
                 <p><?php the_sub_field('description') ?></p>
             </div>
             <div class="s-about-positions__video">
-                <img src="<?php the_sub_field('video_preview_image') ?>" alt="<?php echo strip_tags(get_sub_field('title')) ?>">
+                <div class="video-wrapper">
+                    <div class="video-wrapper__overlay btn-play" style="background-image: url('<?php the_sub_field('video_preview_image') ?>')"></div>
+                    <div class="video-wrapper__iframe-wrap">
+                        <div class="video-wrapper__iframe" data-url="<?php the_sub_field('video_link') ?>"></div>
+                    </div>
+                </div>
             </div>
             <div class="s-about-positions__gallery">
                 <?php if (have_rows('gallery')): while (have_rows('gallery')) : the_row(); ?>

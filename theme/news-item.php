@@ -57,40 +57,6 @@ $category_link = get_permalink(get_page_by_path('news'));
         </div>
         <img src="<?php echo wp_get_attachment_url(get_post_thumbnail_id(get_the_ID())); ?>" alt="<?php the_title() ?>">
         <?php the_content(); ?>
-
-        <br>
-        <br>
-        Markup:
-        <br>
-        <br>
-
-        <picture data-aos="fade-up"
-                 data-aos-delay="50"
-                 data-aos-offset="0"
-                 data-aos-easing="ease-out"
-                 data-aos-duration="600">
-            <img src="images-upload/post-img.png" alt="">
-        </picture>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris interdum quam justo, id dictum lorem pulvinar sit amet. Pellentesque fringilla sapien viverra sapien egestas ultricies. Cras mattis maximus nibh, quis lacinia lorem congue non. Donec at dolor auctor, varius ex elementum, molestie ligula. Aenean placerat mi sapien, eget dignissim lectus ornare sit amet. Phasellus hendrerit
-            orci nec arcu ultricies, vel feugiat sapien pellentesque.</p>
-        <p>Vivamus magna turpis, aliquam sit amet nisi in, fringilla pretium tortor. Etiam ac risus auctor, dignissim neque quis, euismod lacus. Ut dapibus lectus eu tortor faucibus cursus. Nulla sollicitudin nisl et rutrum sagittis. Phasellus eu libero sit amet magna pharetra dignissim sit amet.</p>
-        <p>Nulla lectus neque, rhoncus a nunc aliquam, sagittis mattis magna. In hac habitasse platea dictumst. Sed mattis, ex at interdum tempus, erat quam consectetur augue, vehicula porta mauris augue ut turpis. Mauris porta ullamcorper gravida. Pellentesque convallis velit rutrum rhoncus dictum. Maecenas ut cursus velit. Donec faucibus turpis rhoncus eros pharetra, eget auctor ligula
-            fringilla. Sed sed scelerisque odio, eleifend sollicitudin augue.</p>
-        <p>Mauris non enim vitae urna facilisis scelerisque nec id orci. Praesent finibus tincidunt nibh, nec pharetra mauris rutrum eget. Maecenas convallis arcu et purus tincidunt, id volutpat turpis mollis. Nulla sit amet nisl luctus, commodo sem id, commodo dolor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed malesuada eu lacus at dapibus.
-            Pellentesque mollis felis a nunc ornare auctor.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus congue malesuada nulla, eu rhoncus justo cursus vitae. Donec lacinia augue mi, quis volutpat massa efficitur sit amet. Mauris sit amet fermentum magna. Cras sit amet risus dignissim, mattis turpis sit amet, bibendum elit.</p>
-        <picture data-aos="fade-up"
-                 data-aos-delay="50"
-                 data-aos-offset="0"
-                 data-aos-easing="ease-out"
-                 data-aos-duration="600">
-            <img src="images-upload/post-img.png" alt="">
-        </picture>
-        <p>Vivamus magna turpis, aliquam sit amet nisi in, fringilla pretium tortor. Etiam ac risus auctor, dignissim neque quis, euismod lacus. Ut dapibus lectus eu tortor faucibus cursus. Nulla sollicitudin nisl et rutrum sagittis. Phasellus eu libero sit amet magna pharetra dignissim sit amet.</p>
-        <p>Nulla lectus neque, rhoncus a nunc aliquam, sagittis mattis magna. In hac habitasse platea dictumst. Sed mattis, ex at interdum tempus, erat quam consectetur augue, vehicula porta mauris augue ut turpis. Mauris porta ullamcorper gravida. Pellentesque convallis velit rutrum rhoncus dictum. Maecenas ut cursus velit. Donec faucibus turpis rhoncus eros pharetra, eget auctor ligula
-            fringilla. Sed sed scelerisque odio, eleifend sollicitudin augue.</p>
-        <p>Mauris non enim vitae urna facilisis scelerisque nec id orci. Praesent finibus tincidunt nibh, nec pharetra mauris rutrum eget. Maecenas convallis arcu et purus tincidunt, id volutpat turpis mollis. Nulla sit amet nisl luctus, commodo sem id, commodo dolor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed malesuada eu lacus at dapibus.
-            Pellentesque mollis felis a nunc ornare auctor.</p-->
     </div>
 </section>
 
@@ -119,7 +85,7 @@ $category_link = get_permalink(get_page_by_path('news'));
                         </div>
                     <?php endwhile; ?>
                 </div>
-                <a style="display: block;" href="<?php echo $category_link ?>" class="s-related__show-all"><?php echo $related_all ?></a>
+                <a href="<?php echo $category_link ?>" class="s-related__show-all"><?php echo $related_all ?></a>
             </div>
         </div>
     </section>
