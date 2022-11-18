@@ -202,6 +202,149 @@ h1, h2, h3 {
   border: 0;
 }
 
+.cta-dropdown {
+  font-size: 12px;
+  padding: 0 30px;
+  border: 1px solid #000;
+  position: relative;
+  line-height: 55px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+
+  &:hover {
+    background: #000;
+    color: #fff;
+
+    & > a:hover {
+      color: #fff;
+    }
+  }
+
+  & > ul {
+    position: absolute;
+    text-align: left;
+    left: -1px;
+    right: -1px;
+    top: 54px;
+    border: 1px solid #000;
+    border-top: 0;
+    background-color: @grey;
+    z-index: 2;
+    display: none;
+
+    & > li {
+      &:last-child {
+        margin-bottom: -1px;
+      }
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      line-height: 1.55;
+      padding: 17.5px 23px;
+      transition: @transition;
+      border: 1px solid #000;
+      border-width: 0 0 1px;
+      color: #000;
+
+      &:hover {
+        border-color: #000;
+        background-color: @yellow;
+      }
+    }
+  }
+
+  &.center {
+    & > ul {
+      a {
+        justify-content: center;
+      }
+    }
+  }
+}
+
+.apple, .g-calendar, .m-365, .outlook, .teams, .yahoo, .ical {
+  margin-right: 18px;
+}
+
+.facebook, .twitter, .linkedin, .link, .viber,
+.apple, .g-calendar, .m-365, .outlook, .teams, .yahoo, .ical {
+  width: 18px;
+  height: 18px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.facebook {
+  background-image: url("../img/icon-facebook.svg");
+
+  &--black {
+    background-image: url("../img/icon-facebook-black.svg");
+  }
+}
+
+.twitter {
+  background-image: url("../img/icon-twitter.svg");
+
+  &--black {
+    background-image: url("../img/icon-twitter-black.svg");
+  }
+}
+
+.linkedin {
+  background-image: url("../img/icon-linkedin.svg");
+
+  &--black {
+    background-image: url("../img/icon-linkedin-black.svg");
+  }
+}
+
+.link {
+  &--black {
+    background-image: url("../img/icon-link-black.png");
+  }
+}
+
+.viber {
+  &--black {
+    background-image: url("../img/icon-viber-black.svg");
+  }
+}
+
+.apple {
+  background-image: url("../img/icon-apple.svg");
+}
+
+.g-calendar {
+  background-image: url("../img/icon-g-calendar.svg");
+}
+
+.m-365 {
+  background-image: url("../img/icon-m-365.svg");
+}
+
+.outlook {
+  background-image: url("../img/icon-outlook.svg");
+}
+
+.teams {
+  background-image: url("../img/icon-teams.svg");
+}
+
+.yahoo {
+  background-image: url("../img/icon-yahoo.svg");
+}
+
+.ical {
+  background-image: url("../img/icon-ical.svg");
+}
+
 // end variables and common
 
 html, body {
@@ -1088,55 +1231,12 @@ html, body {
   .facebook, .twitter, .linkedin, .link {
     width: 25px;
     height: 25px;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: contain;
     margin: 0 15px;
 
-    &:hover {
-      cursor: pointer;
-    }
-  }
-
-  .facebook {
-    background-image: url("../img/icon-facebook.svg");
-
     &--black {
       margin-left: 0;
       margin-right: 22px;
       height: 19px;
-      background-image: url("../img/icon-facebook-black.svg");
-    }
-  }
-
-  .twitter {
-    background-image: url("../img/icon-twitter.svg");
-
-    &--black {
-      margin-left: 0;
-      margin-right: 22px;
-      height: 19px;
-      background-image: url("../img/icon-twitter-black.svg");
-    }
-  }
-
-  .linkedin {
-    background-image: url("../img/icon-linkedin.svg");
-
-    &--black {
-      margin-left: 0;
-      margin-right: 22px;
-      height: 19px;
-      background-image: url("../img/icon-linkedin-black.svg");
-    }
-  }
-
-  .link {
-    &--black {
-      margin-left: 0;
-      margin-right: 22px;
-      height: 19px;
-      background-image: url("../img/icon-link-black.png");
     }
   }
 }
@@ -3060,6 +3160,30 @@ html, body {
     min-width: 0;
   }
 
+  .cta-dropdown {
+    font-size: 12*@x;
+    padding: 0 30*@x;
+    line-height: 55*@x;
+
+    & > ul {
+      top: 54*@x;
+
+      a {
+        padding: 17.5*@x 23*@x;
+      }
+    }
+  }
+
+  .apple, .g-calendar, .m-365, .outlook, .teams, .yahoo, .ical {
+    margin-right: 18*@x;
+  }
+
+  .facebook, .twitter, .linkedin, .link, .viber,
+  .apple, .g-calendar, .m-365, .outlook, .teams, .yahoo, .ical {
+    width: 18*@x;
+    height: 18*@x;
+  }
+
   p {
     font-size: 16*@x;
     margin: 0 0 20*@x;
@@ -4699,6 +4823,30 @@ html, body {
     min-width: 0;
   }
 
+  .cta-dropdown {
+    font-size: 12*@x;
+    padding: 0;
+    line-height: 55*@x;
+
+    & > ul {
+      top: 54*@x;
+
+      a {
+        padding: 17.5*@x 15*@x;
+      }
+    }
+  }
+
+  .apple, .g-calendar, .m-365, .outlook, .teams, .yahoo, .ical {
+    margin-right: 18*@x;
+  }
+
+  .facebook, .twitter, .linkedin, .link, .viber,
+  .apple, .g-calendar, .m-365, .outlook, .teams, .yahoo, .ical {
+    width: 18*@x;
+    height: 18*@x;
+  }
+
   p {
     font-size: 16*@x;
     margin: 0 0 20*@x;
@@ -5362,8 +5510,7 @@ html, body {
 
   .s-hp-contact-us {
     min-height: 0;
-    padding: 60*@x 0;
-    //padding: 60*@x 30*@x;
+    padding: 60*@x 30*@x;
 
     h2 {
       font-size: 35*@x;
@@ -6089,10 +6236,12 @@ html, body {
     }
   }
 
-  // Page one event
-
   .s-events-post {
     padding: 70*@x 0 50*@x;
+
+    p, li {
+      font-size: 14*@x;
+    }
 
     h1 {
       font-size: 55*@x;
@@ -6101,7 +6250,6 @@ html, body {
     h3 {
       font-size: 25*@x;
       margin-bottom: 8*@x;
-      margin-top: 40*@x;
     }
 
     &__wrapper {
@@ -6120,48 +6268,57 @@ html, body {
     }
 
     &__meta {
-      height: 92*@x;
-      padding: 0 20*@x;
+      padding: 24*@x 20*@x;
       font-size: 9*@x;
-    }
+      margin-bottom: 8*@x;
 
-    &__map {
-      width: 100%;
-      height: 160*@x;
+      .place {
+        margin-top: 17*@x;
+      }
     }
 
     &__content {
-      margin-top: 41*@x;
+      width: 100%;
+      margin-top: 40*@x;
     }
 
-    .btn-yellow{
-      margin: 0 auto;
-      display: block;
-    }
-  }
-
-  .s-events-cta {
-    padding: 43*@x 0 35*@x;
-
-    &__grid {
-      gap: 4*@x;
+    &__cta-grid {
       flex-direction: column;
-      align-items: center;
+      margin-left: calc(86 * @x - 30 * @x);
+      margin-right: calc(50 * @x - 30 * @x);
     }
 
-    &__date {
-      font-size: 9*@x;
-      margin-bottom: 10*@x;
+    &__cta {
+      padding: 43*@x 0 51*@x;
+
+      .date {
+        display: flex;
+        align-items: center;
+      }
+
+      &-title {
+        font-size: 9*@x;
+      }
+
+      h4 {
+        font-size: 25*@x;
+        margin-top: 10*@x;
+      }
     }
 
-    h2 {
-      font-size: 25*@x;
-    }
+    &__cta-btns {
+      margin-top: 20*@x;
 
-    .btn-yellow, .btn-gray {
-      display: block;
-      margin: 16*@x auto;
-      width: 203*@x;
+      & > * {
+        width: 100%;
+        max-width: 203*@x;
+        margin-left: 0;
+        margin-bottom: 16*@x;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
     }
   }
 
@@ -6479,7 +6636,16 @@ html, body {
     &__video {
       width: 100%;
       margin-top: 20*@x;
-      height: 197*@x;
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      &:after {
+        width: 42*@x;
+        height: 42*@x;
+      }
     }
 
     &__gallery {
@@ -6662,7 +6828,6 @@ html, body {
     }
   }
 
-  /*
   .set-meeting {
     height: 100vh;
     padding: 70*@x 30*@x;
@@ -6683,7 +6848,7 @@ html, body {
       }
     }
   }
-  */
+
   // page 404
   .s-404 {
     .container {
