@@ -6,12 +6,19 @@
         $(this).siblings('ul').fadeToggle();
     });
 
-    $('.menu-item-has-children>a, .dropdown-js-action>a').click(function (e) {
+    $('.menu-item-has-children>a').click(function (e) {
         e.preventDefault();
         $(e.target).parent().find('ul').fadeToggle();
-        console.log('prevent');
+        //console.log('prevent');
     })
 
+    //
+    $('.dropdown-js-action').click(function (e) {
+        e.preventDefault();
+        $(e.target).find('ul').fadeToggle();
+    })
+
+    // button on event page
     $('.register-js-action').on('click', function () {
         $('.register-modal').removeClass('hide');
     });
@@ -20,6 +27,7 @@
         $('.register-modal').addClass('hide');
     });
 
+    // button on event page
     $('.set-meeting-js-action').on('click', function () {
         $('.set-meeting').removeClass('hide');
     });
@@ -228,7 +236,7 @@
     });
 */
 
-
+    // video player on click
     function videoPlay(self, youtube) {
         let src = self.parentNode.querySelector(youtube).getAttribute('data-url'),
             yPlay = `${src}?rel=0&autoplay=1`;
@@ -254,7 +262,6 @@
             });
         });
     }
-
 
     // Country in country select
     $('select[name="country"]').find('option:first').html('Country*');

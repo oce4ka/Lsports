@@ -62,11 +62,60 @@
                 <h2><?php the_title(); ?></h2>
             </div>
             <div>
+
                 <?php
                 // todo: try this https://www.wpdecoder.com/php/add-to-calendar/
                 // <button class="btn-gray">share</button>
                 // <button class="btn-gray">add to calendar</button>
                 ?>
+
+                <div class="cta-dropdown center btn-gray dropdown-js-action">
+                    share
+                    <ul>
+                        <li><a href="https://www.facebook.com/sharer/sharer.php?u=NEWS-LINK" target="_blank" rel="nofollow">
+                                <div class="facebook facebook--black"></div>
+                            </a></li>
+                        <li><a href="https://twitter.com/intent/tweet?url=NEWS-LINK&text=NEWS-TITLE" target="_blank" rel="nofollow">
+                                <div class="twitter twitter--black"></div>
+                            </a></li>
+                        <li><a href="https://www.linkedin.com/shareArticle?mini=true&url=NEWS-LINK" target="_blank" rel="nofollow">
+                                <div class="linkedin linkedin--black"></div>
+                            </a></li>
+                        <li><a href="viber://forward?text=NEWS-LINK">
+                                <div class="viber viber--black"></div>
+                            </a></li>
+                    </ul>
+                </div>
+
+                <?php /*
+                    <div class="cta-dropdown btn-gray dropdown-js-action">
+                        add to calendar
+                        <ul>
+                            <li><a href="#">
+                                <div class="apple"></div>
+                                <span>Apple</span></a></li>
+                            <li><a href="#">
+                                <div class="g-calendar"></div>
+                                <span>Google</span></a></li>
+                            <li><a href="#">
+                                <div class="m-365"></div>
+                                <span>MICROSOFT 365</span></a></li>
+                            <li><a href="#">
+                                <div class="outlook"></div>
+                                <span>OUTLOOK</span></a></li>
+                            <li><a href="#">
+                                <div class="teams"></div>
+                                <span>TEAMS</span></a></li>
+                            <li><a href="#">
+                                <div class="yahoo"></div>
+                                <span>YAHOO</span></a></li>
+                            <li><a href="#">
+                                <div class="ical"></div>
+                                <span>ICAL FILE</span></a></li>
+                        </ul>
+                    </div>
+                */ ?>
+
                 <button class="btn-yellow set-meeting-js-action">register now</button>
             </div>
         </div>
@@ -77,9 +126,7 @@
     <div class="modal-overlay">
         <div class="logo-footer modal-logo"></div>
         <div class="modal-wrapper">
-            <div class="modal-close register-modal-close">
-                <img src="img/icon-close.svg" alt="X"/>
-            </div>
+            <div class="modal-close register-modal-close"></div>
             <div class="modal-grid">
                 <div class="modal-grid__left">
                     <div class="modal-grid__date">
