@@ -3011,17 +3011,10 @@ html, body {
     border-left: 1px solid #000;
     position: absolute;
     top: 0;
-    left: auto;
     right: 0;
-    text-align: center;
-
-    &:hover {
-      cursor: pointer;
-    }
-
-    img {
-      margin: 11px;
-    }
+    background: url(../img/icon-close.svg) center center no-repeat;
+    background-size: 50% 50%;
+    cursor: pointer;
   }
 
   &-grid {
@@ -4712,10 +4705,6 @@ html, body {
     &-close {
       width: 48*@x;
       height: 48*@x;
-
-      img {
-        margin: 11*@x;
-      }
     }
 
     &-grid {
@@ -6236,12 +6225,10 @@ html, body {
     }
   }
 
+  // Page one event
+
   .s-events-post {
     padding: 70*@x 0 50*@x;
-
-    p, li {
-      font-size: 14*@x;
-    }
 
     h1 {
       font-size: 55*@x;
@@ -6250,6 +6237,7 @@ html, body {
     h3 {
       font-size: 25*@x;
       margin-bottom: 8*@x;
+      margin-top: 40*@x;
     }
 
     &__wrapper {
@@ -6268,57 +6256,47 @@ html, body {
     }
 
     &__meta {
-      padding: 24*@x 20*@x;
+      height: 92*@x;
+      padding: 0 20*@x;
       font-size: 9*@x;
-      margin-bottom: 8*@x;
+    }
 
-      .place {
-        margin-top: 17*@x;
-      }
+    &__map {
+      width: 100%;
+      height: 160*@x;
     }
 
     &__content {
-      width: 100%;
-      margin-top: 40*@x;
+      margin-top: 41*@x;
     }
 
-    &__cta-grid {
+    .btn-yellow{
+      margin: 0 auto;
+    }
+    }
+
+  .s-events-cta {
+    padding: 43*@x 0 35*@x;
+
+    &__grid {
+      gap: 4*@x;
       flex-direction: column;
-      margin-left: calc(86 * @x - 30 * @x);
-      margin-right: calc(50 * @x - 30 * @x);
-    }
-
-    &__cta {
-      padding: 43*@x 0 51*@x;
-
-      .date {
-        display: flex;
         align-items: center;
       }
 
-      &-title {
+    &__date {
         font-size: 9*@x;
+      margin-bottom: 10*@x;
       }
 
-      h4 {
+    h2 {
         font-size: 25*@x;
-        margin-top: 10*@x;
-      }
     }
 
-    &__cta-btns {
-      margin-top: 20*@x;
-
-      & > * {
-        width: 100%;
-        max-width: 203*@x;
-        margin-left: 0;
-        margin-bottom: 16*@x;
-
-        &:last-child {
-          margin-bottom: 0;
-        }
-      }
+    .btn-yellow, .btn-gray {
+      display: block;
+      margin: 16*@x auto;
+      width: 203*@x;
     }
   }
 
@@ -6784,10 +6762,6 @@ html, body {
     &-close {
       width: 33*@x;
       height: 33*@x;
-
-      img {
-        margin: 5*@x;
-      }
     }
 
     &-grid {
