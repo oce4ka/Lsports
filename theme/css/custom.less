@@ -66,7 +66,7 @@ u {
   font-feature-settings: 'ss01';
 }
 
-.btn-yellow {
+.btn-yellow, .btn-gray {
   padding: 0 30px;
   min-width: 270px;
   height: 55px;
@@ -90,21 +90,10 @@ u {
 }
 
 .btn-gray {
+  min-width: 0;
   padding: 0 30px;
   height: 55px;
   background: #E8E8ED;
-  border: 1px solid #000;
-  display: inline-block;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 55px;
-  letter-spacing: 0.2em;
-  color: #000;
-  text-transform: uppercase;
-  text-align: center;
-  white-space: nowrap;
-  cursor: pointer;
-  transition: @transition;
 
   &:hover {
     background-color: @yellow;
@@ -154,8 +143,8 @@ h1, h2, h3 {
 
 .icon-calendar,
 .icon-place {
-  float: left;
-  margin-right: 8px;
+  display: inline-block;
+  vertical-align: middle;
   height: 15px;
   width: 15px;
   background-image: url('../img/icon-calendar.svg');
@@ -172,6 +161,7 @@ h1, h2, h3 {
   height: 100%;
   position: relative;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 .video-wrapper__overlay { /* overlay style */
@@ -191,24 +181,6 @@ h1, h2, h3 {
 .video-wrapper__overlay.playing { /* hide overlay */
   display: none;
   z-index: -1;
-}
-
-.video-wrapper__overlay:before { /* play button */
-  content: "";
-  position: absolute;
-  background-image: url("../img/play_button.png");
-  width: 70px;
-  height: 70px;
-  background-size: 100%;
-  background-repeat: no-repeat;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(1);
-  transition: transform .3s ease-out, -webkit-transform .3s ease-out;
-}
-
-.video-wrapper__overlay:hover:before { /* button effect */
-  transform: translate(-50%, -50%) scale(1.1);
 }
 
 .video-wrapper__iframe-wrap { /* iframe wrapper */
@@ -2105,23 +2077,7 @@ html, body {
 
   &__video {
     width: 518px;
-    position: relative;
-
-    img {
-      max-width: 518px;
-    }
-
-    &:after {
-      content: '';
-      position: absolute;
-      width: 70px;
-      height: 70px;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      background: url(../img/icon-play.svg) no-repeat center center;
-      background-size: contain;
-    }
+    height: 325px;
   }
 
   img {
@@ -2138,6 +2094,27 @@ html, body {
     img {
       max-width: 365px;
     }
+  }
+}
+
+.btn-play {
+  position: relative;
+
+  &:hover:after {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: url(../img/icon-play.svg) no-repeat center center;
+    background-size: contain;
+    transition: @transition;
   }
 }
 
@@ -2573,6 +2550,7 @@ html, body {
     text-transform: uppercase;
     color: #000;
     text-align: center;
+    display: block;
 
     &:hover {
       cursor: pointer;
@@ -2763,6 +2741,7 @@ html, body {
   }
 }
 
+// Page one event
 .s-events-post {
   padding: 120px 0 70px;
 
@@ -2776,13 +2755,6 @@ html, body {
     margin-top: 40px;
   }
 
-  p, li {
-    font-family: @ff1;
-    font-size: 16px;
-    line-height: 1.55;
-    color: #000;
-  }
-
   &__wrapper {
     display: flex;
     margin-top: 22px;
@@ -2792,82 +2764,81 @@ html, body {
 
   &__image {
     width: 661px;
-    height: 388px;
+    height: 385px;
     background-position: center;
-    background-repeat: no-repeat;
     background-size: cover;
-
-    iframe {
-      width: 100% !important;
-      height: 100% !important;
-    }
   }
 
   &__detail {
     width: 484px;
     background-color: #fff;
+    overflow: hidden;
   }
 
   &__meta {
-    font-family: @ff1;
     border: 1px solid #000;
-    padding: 24px 64px;
-    font-weight: 500;
+    padding: 0 40px;
     font-size: 14px;
     line-height: 1.55;
     letter-spacing: .14em;
     text-transform: uppercase;
+    height: 139px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 
-    .to-calendar {
+    a {
       color: #30AFCB;
-    }
-
-    .place {
-      margin-top: 21px;
     }
   }
 
   &__map {
     border: 1px solid #000;
-    border-top: unset;
+    border-top: 0;
+    height: 246px;
+
+    img {
+      margin: 0 auto;
+      height: 100%;
+      width: auto;
+    }
   }
 
   &__content {
-    width: 50%;
     margin-top: 57px;
   }
+}
 
-  &__cta {
-    padding: 70px 0;
-    border-top: 1px solid #000;
+.s-events-cta {
+  padding: 70px 0;
+  border-top: 1px solid #000;
 
-    &-grid {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-    }
-
-    &-title {
-      font-family: @ff1;
-      text-transform: uppercase;
-      font-weight: 500;
-      font-size: 14px;
-      line-height: 1.55;
-      letter-spacing: .14em;
-    }
-
-    h4 {
-      font-weight: 900;
-      font-size: 25px;
-    }
+  &__grid {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 60px;
   }
 
-  &__cta-btns {
-    & > * {
-      margin-left: 16px;
-    }
+  &__date {
+    font-size: 14px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    line-height: 1.55;
+  }
+
+  h2 {
+    font-size: 25px;
+  }
+
+  .btn-yellow, .btn-gray {
+    min-width: 0;
+    margin: 0 8px;
   }
 }
+
+// Modal
 
 ::-webkit-input-placeholder { /* Edge */
   font-weight: 500;
@@ -3015,6 +2986,7 @@ html, body {
   }
 }
 
+/*
 .set-meeting {
   width: 100vw;
   height: 727px;
@@ -3062,6 +3034,8 @@ html, body {
   }
 }
 
+ */
+
 // medium screens
 
 @media (max-width: 1300px) {
@@ -3074,12 +3048,16 @@ html, body {
     }
   }
 
-  .btn-yellow {
+  .btn-yellow, .btn-gray {
     padding: 0 30*@x;
     min-width: 270*@x;
     height: 55*@x;
     font-size: 12*@x;
     line-height: 55*@x;
+  }
+
+  .btn-gray {
+    min-width: 0;
   }
 
   p {
@@ -4152,15 +4130,7 @@ html, body {
 
     &__video {
       width: 518*@x;
-
-      img {
-        max-width: 518*@x;
-      }
-
-      &:after {
-        width: 70*@x;
-        height: 70*@x;
-      }
+      height: 325*@x;
     }
 
     &__gallery {
@@ -4444,6 +4414,7 @@ html, body {
     }
   }
 
+  // Page one event
   .s-events-post {
     padding: 120*@x 0 70*@x;
 
@@ -4457,17 +4428,13 @@ html, body {
       margin-top: 40*@x;
     }
 
-    p, li {
-      font-size: 16*@x;
-    }
-
     &__wrapper {
       margin-top: 22*@x;
     }
 
     &__image {
       width: 661*@x;
-      height: 388*@x;
+      height: 385*@x;
     }
 
     &__detail {
@@ -4475,34 +4442,38 @@ html, body {
     }
 
     &__meta {
-      padding: 24*@x 64*@x;
+      padding: 0 40*@x;
       font-size: 14*@x;
+      height: 139*@x;
+    }
 
-      .place {
-        margin-top: 21*@x;
-      }
+    &__map {
+      height: 246*@x;
     }
 
     &__content {
       margin-top: 57*@x;
     }
+  }
 
-    &__cta {
-      padding: 70*@x 0;
+  .s-events-cta {
+    padding: 70*@x 0;
 
-      &-title {
-        font-size: 14*@x;
-      }
-
-      h4 {
-        font-size: 25*@x;
-      }
+    &__grid {
+      gap: 60*@x;
     }
 
-    &__cta-btns {
-      & > * {
-        margin-left: 16*@x;
-      }
+    &__date {
+      font-size: 14*@x;
+      margin-bottom: 12*@x;
+    }
+
+    h2 {
+      font-size: 25*@x;
+    }
+
+    .btn-yellow, .btn-gray {
+      margin: 0 8*@x;
     }
   }
 
@@ -4658,6 +4629,7 @@ html, body {
     }
   }
 
+  /*
   .set-meeting {
     height: 727*@x;
     padding: 80*@x 0;
@@ -4677,7 +4649,7 @@ html, body {
       }
     }
   }
-
+  */
   // page 404
   .s-404 {
     .container {
@@ -4715,7 +4687,7 @@ html, body {
     }
   }
 
-  .btn-yellow {
+  .btn-yellow, .btn-gray {
     padding: 0 30*@x;
     min-width: 270*@x;
     height: 55*@x;
@@ -4724,7 +4696,7 @@ html, body {
   }
 
   .btn-gray {
-    font-size: 12*@x;
+    min-width: 0;
   }
 
   p {
@@ -4746,16 +4718,8 @@ html, body {
 
   .icon-calendar,
   .icon-place {
-    margin-right: 8*@x;
     height: 15*@x;
     width: 15*@x;
-  }
-
-  .video-wrapper__overlay {
-    &:before {
-      height: 33*@x;
-      width: 33*@x;
-    }
   }
 
   // end variables and common
@@ -5398,7 +5362,8 @@ html, body {
 
   .s-hp-contact-us {
     min-height: 0;
-    padding: 60*@x 30*@x;
+    padding: 60*@x 0;
+    //padding: 60*@x 30*@x;
 
     h2 {
       font-size: 35*@x;
@@ -6124,12 +6089,10 @@ html, body {
     }
   }
 
+  // Page one event
+
   .s-events-post {
     padding: 70*@x 0 50*@x;
-
-    p, li {
-      font-size: 14*@x;
-    }
 
     h1 {
       font-size: 55*@x;
@@ -6138,6 +6101,7 @@ html, body {
     h3 {
       font-size: 25*@x;
       margin-bottom: 8*@x;
+      margin-top: 40*@x;
     }
 
     &__wrapper {
@@ -6156,57 +6120,48 @@ html, body {
     }
 
     &__meta {
-      padding: 24*@x 20*@x;
+      height: 92*@x;
+      padding: 0 20*@x;
       font-size: 9*@x;
-      margin-bottom: 8*@x;
+    }
 
-      .place {
-        margin-top: 17*@x;
-      }
+    &__map {
+      width: 100%;
+      height: 160*@x;
     }
 
     &__content {
-      width: 100%;
-      margin-top: 40*@x;
+      margin-top: 41*@x;
     }
 
-    &__cta-grid {
+    .btn-yellow{
+      margin: 0 auto;
+      display: block;
+    }
+  }
+
+  .s-events-cta {
+    padding: 43*@x 0 35*@x;
+
+    &__grid {
+      gap: 4*@x;
       flex-direction: column;
-      margin-left: calc(86 * @x - 30 * @x);
-      margin-right: calc(50 * @x - 30 * @x);
+      align-items: center;
     }
 
-    &__cta {
-      padding: 43*@x 0 51*@x;
-
-      .date {
-        display: flex;
-        align-items: center;
-      }
-
-      &-title {
-        font-size: 9*@x;
-      }
-
-      h4 {
-        font-size: 25*@x;
-        margin-top: 10*@x;
-      }
+    &__date {
+      font-size: 9*@x;
+      margin-bottom: 10*@x;
     }
 
-    &__cta-btns {
-      margin-top: 20*@x;
+    h2 {
+      font-size: 25*@x;
+    }
 
-      & > * {
-        width: 100%;
-        max-width: 203*@x;
-        margin-left: 0;
-        margin-bottom: 16*@x;
-
-        &:last-child {
-          margin-bottom: 0;
-        }
-      }
+    .btn-yellow, .btn-gray {
+      display: block;
+      margin: 16*@x auto;
+      width: 203*@x;
     }
   }
 
@@ -6524,16 +6479,7 @@ html, body {
     &__video {
       width: 100%;
       margin-top: 20*@x;
-
-      img {
-        max-width: 100%;
-        height: auto;
-      }
-
-      &:after {
-        width: 42*@x;
-        height: 42*@x;
-      }
+      height: 197*@x;
     }
 
     &__gallery {
@@ -6716,6 +6662,7 @@ html, body {
     }
   }
 
+  /*
   .set-meeting {
     height: 100vh;
     padding: 70*@x 30*@x;
@@ -6736,7 +6683,7 @@ html, body {
       }
     }
   }
-
+  */
   // page 404
   .s-404 {
     .container {
