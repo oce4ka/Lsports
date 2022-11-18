@@ -21,9 +21,9 @@
                         endif;
                         ?>
                         <br>
-                        <a class="to-calendar">Add to calendar</a>
+                        <a class="to-calendar"><?php the_field('add_to_calendar', 'option') ?></a>
                     </div>
-                    <div class="place">Rakhel Laifer Miller 17, Ashkelon</div>
+                    <div class="place"><?php the_field('address') ?></div>
                 </div>
                 <div class="s-events-post__map">
                     <img src="<?php the_field('map_image') ?>" alt="map"/>
@@ -40,7 +40,7 @@
                 <?php the_field('schedule') ?>
             <?php endif; ?>
             <br>
-            <button class="btn-yellow register-js-action">register now</button>
+            <button class="btn-yellow register-js-action"><?php the_field('register_now', 'option'); ?></button>
         </div>
     </div>
 </section>
@@ -123,47 +123,35 @@
                     </div>
                 */ ?>
 
-                <button class="btn-yellow register-js-action">register now</button>
+                <button class="btn-yellow register-js-action"><?php the_field('register_now', 'option'); ?></button>
             </div>
         </div>
     </div>
 </section>
 
-<section class="modal register-modal hide">
+<div class="modal register-modal hide">
     <div class="modal-overlay">
         <div class="logo-footer modal-logo"></div>
         <div class="modal-wrapper">
             <div class="modal-close register-modal-close"></div>
             <div class="modal-grid">
-                <div class="modal-grid__left">
+                <div class="modal-grid__headings">
                     <div class="modal-grid__date">
                         <div class="icon-calendar"></div>
                         Monday, August 8 at 10:00 am
                     </div>
-                    <div class="modal-grid__title">A new world unfolds for sportsbooks</div>
+                    <h3>A new world unfolds for sportsbooks</h3>
                 </div>
-                <div class="modal-grid__right">
-                    <div class="modal-grid__label-form">Register Now</div>
-                    <div class="s-contact modal-grid__form-wrapper">
-                        <form class="wpcf7-form" action="">
-                            <span class="wpcf7-form-control-wrap"><input type="text" placeholder="First Name*"></span>
-                            <span class="wpcf7-form-control-wrap"><input type="text" placeholder="Last Name*"></span>
-                            <span class="wpcf7-form-control-wrap"><input type="text" placeholder="Work Email*"></span>
-                            <span class="wpcf7-form-control-wrap"><input type="text" placeholder="Company Name*"></span>
-                            <span class="wpcf7-form-control-wrap"><input type="text" placeholder="Job Title*"></span>
-                            <span class="wpcf7-form-control-wrap"><input type="text" placeholder="Phone number"></span>
-                            <span class="wpcf7-form-control-wrap"><textarea name="" id="form" cols="30" rows="10" placeholder="Message" class="full-width"></textarea></span>
-                            <input type="submit" class="btn-yellow" value="submit">
-                        </form>
-                    </div>
+                <div class="modal-grid__form s-contact">
+                    <div class="modal__form-heading"><?php the_field('register_now', 'option'); ?></div>
+                    <?php echo do_shortcode('[contact-form-7 id="539"]') ?>
                 </div>
             </div>
         </div>
     </div>
-</section>
+</div>
 
 <?php
-
 $today = date("Ymd");
 $posts = get_posts(array(
     'numberposts' => -1,
@@ -181,8 +169,8 @@ $posts = get_posts(array(
 if ($posts): ?>
     <section class="s-hp-news s-hp-news--event bg-white">
         <div class="s-hp-news__headings">
-            <h2>N<u>e</u>xt Eve<u>n</u>ts</h2>
-            <h6 class="arrow-after">SEE ALL events</h6>
+            <h2><?php the_field('next_events_decorated', 'option') ?></h2>
+            <h6 class="arrow-after"><?php the_field('see_all_events', 'option') ?></h6>
         </div>
         <div class="s-hp-news__content">
             <div class="s-hp-news__carousel-wrapper">
@@ -209,7 +197,7 @@ if ($posts): ?>
                                         <div class="place">
                                             <div class="icon-place"></div>
                                             <?php if (get_field('virtual')): ?>
-                                                Virtual
+                                                <?php the_field('virtual, option'); ?>
                                             <?php else: ?>
                                                 <?php the_field('location') ?>
                                             <?php endif; ?>
@@ -219,7 +207,7 @@ if ($posts): ?>
                                     <div class="excerpt"><?php the_field('excerpt'); ?></div>
                                 </div>
                             </div>
-                            <a href="<?php the_permalink(); ?>" class="btn-read-more"><span class="text-vertical">register now</span></a>
+                            <a href="<?php the_permalink(); ?>" class="btn-read-more"><span class="text-vertical"><?php the_field('register_now', 'option'); ?></span></a>
                         </div>
                     <?php endforeach; ?>
                 </div>

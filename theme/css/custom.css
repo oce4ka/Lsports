@@ -1977,6 +1977,12 @@ body {
   border-radius: 50%;
   margin: 8px 0 8px -30px;
 }
+.wpcf7-spinner {
+  position: absolute;
+  margin: 0;
+  bottom: 0;
+  right: 0;
+}
 .wpcf7 form .wpcf7-response-output {
   font-size: 12px;
   width: 100%;
@@ -2562,7 +2568,10 @@ body {
   flex-shrink: 0;
 }
 .modal-grid__form {
-  padding: 87px 58px 0 58px;
+  padding: 0 58px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .modal-grid__date {
   font-family: "Test Söhne", sans-serif;
@@ -3891,7 +3900,7 @@ body {
     padding: 14.63vw 5.005vw 5.005vw;
   }
   .modal-grid__form {
-    padding: 6.699vw 4.466vw;
+    padding: 0 4.466vw;
   }
   .modal-grid__date {
     font-size: 1.078vw;
@@ -5478,6 +5487,7 @@ body {
   }
   .s-contact__form {
     margin-top: 13.35vw;
+    display: block;
   }
   .s-contact input,
   .s-contact select,

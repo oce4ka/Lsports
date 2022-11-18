@@ -2340,6 +2340,13 @@ html, body {
   }
 }
 
+.wpcf7-spinner {
+  position: absolute;
+  margin: 0;
+  bottom: 0;
+  right: 0;
+}
+
 .wpcf7 form .wpcf7-response-output {
   font-size: 12px;
   width: 100%;
@@ -3034,7 +3041,10 @@ html, body {
     }
 
     &__form {
-      padding: 87px 58px 0 58px;
+      padding: 0 58px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     &__date {
@@ -4700,7 +4710,7 @@ html, body {
       }
 
       &__form {
-        padding: 87*@x 58*@x;
+        padding: 0 58*@x;
       }
 
       &__date {
@@ -6658,6 +6668,7 @@ html, body {
 
     &__form {
       margin-top: 50*@x;
+      display: block;
     }
 
     input, select, textarea {
@@ -6797,7 +6808,6 @@ html, body {
       }
     }
   */
-
   // page 404
   .s-404 {
     .container {
