@@ -2690,7 +2690,6 @@ html, body {
   padding: 150px 0 100px;
 
   &__header {
-    border-bottom: 1px solid #000;
     padding-bottom: 45px;
   }
 
@@ -2699,38 +2698,39 @@ html, body {
     text-align: center;
   }
 
-  &__filter {
-    margin-top: 40px;
-    display: flex;
-    list-style: none;
-    justify-content: center;
+  /*
+    &__filter {
+      margin-top: 40px;
+      display: flex;
+      list-style: none;
+      justify-content: center;
 
-    div {
-      font-weight: 400;
-      font-size: 12px;
-      line-height: 1.55;
-      letter-spacing: .2em;
-      padding: 18px 30px;
-      border: 1px solid #000;
-      margin: 0 8px;
-      text-transform: uppercase;
-      transition: @transition;
+      div {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 1.55;
+        letter-spacing: .2em;
+        padding: 18px 30px;
+        border: 1px solid #000;
+        margin: 0 8px;
+        text-transform: uppercase;
+        transition: @transition;
 
-      &:hover {
-        cursor: pointer;
-        background-color: @yellow;
-      }
+        &:hover {
+          cursor: pointer;
+          background-color: @yellow;
+        }
 
-      &.active {
-        background-color: @yellow;
+        &.active {
+          background-color: @yellow;
+        }
       }
     }
-  }
+   */
 
   &__grid {
     display: flex;
     flex-direction: column;
-    margin-top: 45px;
   }
 
   &__item {
@@ -4452,19 +4452,15 @@ html, body {
       font-size: 90*@x;
     }
 
-    &__filter {
-      margin-top: 40*@x;
-
-      div {
-        font-size: 12*@x;
-        padding: 18*@x 30*@x;
-        margin: 0 8*@x;
-      }
-    }
-
-    &__grid {
-      margin-top: 45*@x;
-    }
+    //&__filter {
+    //  margin-top: 40*@x;
+    //
+    //  div {
+    //    font-size: 12*@x;
+    //    padding: 18*@x 30*@x;
+    //    margin: 0 8*@x;
+    //  }
+    //}
 
     &__item {
       padding: 40*@x 48*@x;
@@ -6108,20 +6104,16 @@ html, body {
       text-align: left;
     }
 
-    &__filter {
-      margin-top: 36*@x;
-      flex-wrap: wrap;
-
-      div {
-        font-size: 10*@x;
-        padding: 8*@x 15*@x;
-        margin: 0 6*@x 12*@x;
-      }
-    }
-
-    &__grid {
-      margin-top: 30*@x;
-    }
+    //&__filter {
+    //  margin-top: 36*@x;
+    //  flex-wrap: wrap;
+    //
+    //  div {
+    //    font-size: 10*@x;
+    //    padding: 8*@x 15*@x;
+    //    margin: 0 6*@x 12*@x;
+    //  }
+    //}
 
     &__item {
       padding: 20*@x;

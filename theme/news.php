@@ -38,8 +38,6 @@ $news = new WP_Query([
     'paged' => 1,
 ]);
 ?>
-
-
     <section class="s-news bg-grey">
         <div class="container">
             <div class="s-news__header">
@@ -51,7 +49,6 @@ $news = new WP_Query([
                     else
                         echo get_term_by('slug', $cat_slug, 'category')->name;
                     ?>
-
                     <ul>
                         <li><a href="?cat=news"><?php the_field('all_types', 'option') ?></a></li>
                         <li><a href="?cat=article"><?php echo get_term_by('slug', 'article', 'category')->name ?></a></li>
@@ -69,8 +66,7 @@ $news = new WP_Query([
                 <?php endif; ?>
                 <?php wp_reset_postdata(); ?>
             </div>
-            <a href="#" class="btn-yellow" id="load-more">view more</a>
-            <!--div class="btn-yellow">view more</div-->
+            <a href="#load-more-news" class="btn-yellow" id="load-more-news"><?php the_field('view_more', 'option') ?></a>
         </div>
     </section>
 

@@ -158,3 +158,50 @@ function news_load_more()
 
 add_action('wp_ajax_news_load_more', 'news_load_more');
 add_action('wp_ajax_nopriv_news_load_more', 'news_load_more');
+
+// load more past events button on Events page
+function events_past_load_more()
+{
+    $today = date("Ymd");
+    $ajaxposts = new WP_Query([
+        'post_type' => 'post',
+        'category_name' => 'events',
+        'posts_per_page' => 4,
+        'meta_query' => array( // past
+            array(
+                'key' => 'date_start',
+                'value' => $today,
+                'compare' => '<',
+            ),
+        ),
+        'orderby' => 'meta_value',
+        'meta_key' => 'date_start',
+        'order' => 'DESC',
+        'paged' => $_POST['paged'],
+    ]);
+
+    $max_pages = $ajaxposts->max_num_pages;
+
+    //var_dump($ajaxposts);
+    if ($ajaxposts->have_posts()) {
+        ob_start();
+        while ($ajaxposts->have_posts()) : $ajaxposts->the_post();
+            echo get_template_part('event-past-card');
+        endwhile;
+        $output = ob_get_contents();
+        ob_end_clean();
+    } else {
+        $response = '';
+    }
+
+    $result = [
+        'max' => $max_pages,
+        'html' => $output,
+    ];
+
+    echo json_encode($result);
+    exit;
+}
+
+add_action('wp_ajax_events_past_load_more', 'events_past_load_more');
+add_action('wp_ajax_nopriv_events_past_load_more', 'events_past_load_more');

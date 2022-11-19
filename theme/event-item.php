@@ -138,9 +138,15 @@
                 <div class="modal-grid__headings">
                     <div class="modal-grid__date">
                         <div class="icon-calendar"></div>
-                        Monday, August 8 at 10:00 am
+                        <?php
+                        if (get_field('date_end')):
+                            echo date("l", strtotime(get_field('date_start', false, false))) . '-' . date("l", strtotime(get_field('date_end', false, false))) . ', ' . date("j", strtotime(get_field('date_start', false, false))) . '-' . date("j", strtotime(get_field('date_end', false, false))) . ' ' . date("M", strtotime(get_field('date_end', false, false)));
+                        else:
+                            echo date("l", strtotime(get_field('date_start', false, false))) . ', ' . date("F", strtotime(get_field('date_start', false, false))) . ' ' . date("j", strtotime(get_field('date_start', false, false))) . ' ' . date("Y", strtotime(get_field('date_start', false, false))) . ' at ' . get_field('time');
+                        endif;
+                        ?>
                     </div>
-                    <h3>A new world unfolds for sportsbooks</h3>
+                    <h3><?php the_title(); ?></h3>
                 </div>
                 <div class="modal-grid__form s-contact">
                     <div class="modal__form-heading"><?php the_field('register_now', 'option'); ?></div>
@@ -161,7 +167,7 @@ $posts = get_posts(array(
         array(
             'key' => 'date_start',
             'value' => $today,
-            'compare' => '>',
+            'compare' => '>=',
         ),
     ),
 ));

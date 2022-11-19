@@ -38,6 +38,12 @@
         $('.set-meeting').addClass('hide');
     });
 
+    $(document).keyup(function(e) {
+        if (e.key === "Escape") {
+            $('.modal').addClass('hide');
+        }
+    });
+
     // todo: сделать только при изменении резолюции lt gt 768px
     let width = $(window).width();
     //let lastWidth = $(window).width();
@@ -214,35 +220,6 @@
         easing: 'ease-out',
     });
 
-    /*
-
-    // You can also pass an optional settings object
-    // below listed default settings
-
-    AOS.init({
-      // Global settings:
-      disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
-      startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
-      initClassName: 'aos-init', // class applied after initialization
-      animatedClassName: 'aos-animate', // class applied on animation
-      useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
-      disableMutationObserver: false, // disables automatic mutations' detections (advanced)
-      debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
-      throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
-
-
-      // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
-      offset: 120, // offset (in px) from the original trigger point
-      delay: 0, // values from 0 to 3000, with step 50ms
-      duration: 400, // values from 0 to 3000, with step 50ms
-      easing: 'ease', // default easing for AOS animations
-      once: false, // whether animation should happen only once - while scrolling down
-      mirror: false, // whether elements should animate out while scrolling past them
-      anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
-
-    });
-*/
-
     // video player on click
     function videoPlay(self, youtube) {
         let src = self.parentNode.querySelector(youtube).getAttribute('data-url'),
@@ -292,7 +269,7 @@
 
     // Load more button on News pages
     let currentPage = 1;
-    $('#load-more').on('click', function(e) {
+    $('#load-more-news').on('click', function(e) {
         e.preventDefault();
         currentPage++; // Do currentPage + 1, because we want to load the next page
         $.ajax({
@@ -306,6 +283,24 @@
             },
             success: function (res) {
                 $('.s-news__wrapper').append(res.html);
+            }
+        });
+    });
+
+    // Load more events past button on Events pages
+    $('#load-more-events-past').on('click', function(e) {
+        e.preventDefault();
+        currentPage++; // Do currentPage + 1, because we want to load the next page
+        $.ajax({
+            type: 'POST',
+            url: '/wp-admin/admin-ajax.php',
+            dataType: 'json',
+            data: {
+                action: 'events_past_load_more',
+                paged: currentPage,
+            },
+            success: function (res) {
+                $('.s-events-past__grid').append(res.html);
             }
         });
     });

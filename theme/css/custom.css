@@ -2269,43 +2269,46 @@ body {
 }
 .s-events {
   padding: 150px 0 100px;
+  /*
+    &__filter {
+      margin-top: 40px;
+      display: flex;
+      list-style: none;
+      justify-content: center;
+
+      div {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 1.55;
+        letter-spacing: .2em;
+        padding: 18px 30px;
+        border: 1px solid #000;
+        margin: 0 8px;
+        text-transform: uppercase;
+        transition: @transition;
+
+        &:hover {
+          cursor: pointer;
+          background-color: @yellow;
+        }
+
+        &.active {
+          background-color: @yellow;
+        }
+      }
+    }
+   */
 }
 .s-events__header {
-  border-bottom: 1px solid #000;
   padding-bottom: 45px;
 }
 .s-events h1 {
   font-size: 90px;
   text-align: center;
 }
-.s-events__filter {
-  margin-top: 40px;
-  display: flex;
-  list-style: none;
-  justify-content: center;
-}
-.s-events__filter div {
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 1.55;
-  letter-spacing: 0.2em;
-  padding: 18px 30px;
-  border: 1px solid #000;
-  margin: 0 8px;
-  text-transform: uppercase;
-  transition: all 0.2s ease-in-out;
-}
-.s-events__filter div:hover {
-  cursor: pointer;
-  background-color: #E1F32C;
-}
-.s-events__filter div.active {
-  background-color: #E1F32C;
-}
 .s-events__grid {
   display: flex;
   flex-direction: column;
-  margin-top: 45px;
 }
 .s-events__item {
   width: 100%;
@@ -3700,17 +3703,6 @@ body {
   .s-events h1 {
     font-size: 6.93vw;
   }
-  .s-events__filter {
-    margin-top: 3.08vw;
-  }
-  .s-events__filter div {
-    font-size: 0.924vw;
-    padding: 1.386vw 2.31vw;
-    margin: 0 0.616vw;
-  }
-  .s-events__grid {
-    margin-top: 3.465vw;
-  }
   .s-events__item {
     padding: 3.08vw 3.696vw;
     margin-bottom: 3.465vw;
@@ -5051,18 +5043,6 @@ body {
   .s-events h1 {
     font-size: 14.685vw;
     text-align: left;
-  }
-  .s-events__filter {
-    margin-top: 9.612vw;
-    flex-wrap: wrap;
-  }
-  .s-events__filter div {
-    font-size: 2.67vw;
-    padding: 2.136vw 4.005vw;
-    margin: 0 1.602vw 3.204vw;
-  }
-  .s-events__grid {
-    margin-top: 8.01vw;
   }
   .s-events__item {
     padding: 5.34vw;
