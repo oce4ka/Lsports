@@ -2,36 +2,31 @@
 if (has_category('article')) {
     $category = 'article';
     $category_name = get_term_by('slug', 'article', 'category')->name;
-    $category_link = get_permalink(get_page_by_path('article'));
     $related_heading = get_field('related_articles', 'option');
     $related_all = get_field('view_all_articles', 'option');
 } elseif (has_category('blog-post')) {
     $category = 'blog-post';
     $category_name = get_term_by('slug', 'blog-post', 'category')->name;
-    $category_link = get_permalink(get_page_by_path('blog-post'));
     $related_heading = get_field('related_news', 'option');
     $related_all = get_field('view_all_news', 'option');
 } elseif (has_category('press-release')) {
     $category = 'press-release';
     $category_name = get_term_by('slug', 'press-release', 'category')->name;
-    $category_link = get_permalink(get_page_by_path('press-release'));
     $related_heading = get_field('related_press_releases', 'option');
     $related_all = get_field('view_all_press_releases', 'option');
 } elseif (has_category('update')) {
     $category = 'update';
     $category_name = get_term_by('slug', 'update', 'category')->name;
-    $category_link = get_permalink(get_page_by_path('update'));
     $related_heading = get_field('related_updates', 'option');
     $related_all = get_field('view_all_updates', 'option');
 } elseif (has_category('news')) {
     $category = 'news';
     $category_name = get_term_by('slug', 'news', 'category')->name;
-    $category_link = get_permalink(get_page_by_path('news'));
     $related_heading = get_field('related_news', 'option');
     $related_all = get_field('view_all_news', 'option');
 };
 
-$category_link = get_permalink(get_page_by_path('news'));
+$category_link = get_permalink(get_page_by_path('news')) . '?cat=' . $category;
 ?>
 
 <section class="s-news-post bg-grey">
@@ -39,7 +34,6 @@ $category_link = get_permalink(get_page_by_path('news'));
         <div class="s-news-post__header">
             <a href="<?php echo $category_link ?>" class="back">Back to lobby ></a>
             <div class="meta">
-
                 <div class="type"><?php echo $category_name ?></div>
                 <div class="date"><?php echo get_the_date('F d, Y') ?></div>
             </div>
@@ -69,7 +63,7 @@ $category_link = get_permalink(get_page_by_path('news'));
 
                     <?php while (have_rows('related_posts')) : the_row(); ?>
                         <?php $related_post = get_sub_field('post') ?>
-                        <div data-aos="fade-up"
+                        <a href="<?php echo get_permalink($related_post) ?>" data-aos="fade-up"
                              data-aos-delay="50"
                              data-aos-offset="0"
                              data-aos-easing="ease-out"
@@ -80,9 +74,9 @@ $category_link = get_permalink(get_page_by_path('news'));
                                 <div class="type"><?php echo $category_name ?></div>
                                 <div class="excerpt"><?php echo $related_post->post_title; ?></div>
                                 <div class="date"><?php echo get_the_date('F d, Y', $related_post); ?></div>
-                                <a href="<?php echo get_permalink($related_post) ?>" class="arrow-after arrow-after--right">&nbsp;</a>
+                                <div class="arrow-after arrow-after--right">&nbsp;</div>
                             </div>
-                        </div>
+                        </a>
                     <?php endwhile; ?>
                 </div>
                 <a href="<?php echo $category_link ?>" class="s-related__show-all"><?php echo $related_all ?></a>

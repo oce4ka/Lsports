@@ -10,22 +10,67 @@
  */
 
 get_header();
+
+if (isset($_GET['cat'])) {
+    switch ($_GET['cat']) {
+        case 'article':
+            $cat_slug = 'article';
+            break;
+        case 'blog-post':
+            $cat_slug = 'blog-post';
+            break;
+        case 'press-release':
+            $cat_slug = 'press-release';
+            break;
+        default:
+            $cat_slug = 'news, article, blog-post, press-release';
+    }
+} else {
+    $cat_slug = 'news, article, blog-post, press-release';
+}
+
+$news = new WP_Query([
+    'post_type' => 'post',
+    'category_name' => $cat_slug,
+    'posts_per_page' => 7,
+    'orderby' => 'date',
+    'order' => 'DESC',
+    'paged' => 1,
+]);
 ?>
+
+
     <section class="s-news bg-grey">
         <div class="container">
             <div class="s-news__header">
-                <h1>Ne<u>W</u>s</h1>
-                <div class="s-news__types-dropdown">
-                    <a href="#">All types</a>
+                <h1><?php the_field('news_decorated', 'option') ?></h1>
+                <div class="s-news__types-dropdown dropdown-js-action">
+                    <?php
+                    if (strpos($cat_slug, ',') !== false)
+                        the_field('all_types', 'option');
+                    else
+                        echo get_term_by('slug', $cat_slug, 'category')->name;
+                    ?>
+
                     <ul>
-                        <li><a href="#">News</a></li>
-                        <li><a href="#">Press</a></li>
-                        <li><a href="#">Lorem</a></li>
+                        <li><a href="?cat=news"><?php the_field('all_types', 'option') ?></a></li>
+                        <li><a href="?cat=article"><?php echo get_term_by('slug', 'article', 'category')->name ?></a></li>
+                        <li><a href="?cat=press-release"><?php echo get_term_by('slug', 'press-release', 'category')->name ?></a></li>
+                        <li><a href="?cat=blog-post"><?php echo get_term_by('slug', 'blog-post', 'category')->name ?></a></li>
                     </ul>
                 </div>
             </div>
             <div class="s-news__wrapper">
-                <a href="#" class="s-news__item">
+
+                <?php if ($news->have_posts()): ?>
+                    <?php while ($news->have_posts()): ?>
+                        <?php $news->the_post(); ?>
+                        <?php get_template_part('news-card'); ?>
+                    <?php endwhile; ?>
+                <?php endif; ?>
+                <?php wp_reset_postdata(); ?>
+
+                <!--a href="#" class="s-news__item">
                     <div class="image-wrapper" style="background-image: url(images-upload/img-news.png)"></div>
                     <div class="s-news__item-content">
                         <div class="type">Press Release</div>
@@ -108,18 +153,11 @@ get_header();
                         <p class="excerpt">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.</p>
                         <div class="date arrow-after arrow-after--right">August 8, 2022</div>
                     </div>
-                </a>
+                </a-->
             </div>
-            <div class="btn-yellow">view more</div>
+            <a href="#" class="btn-yellow" id="load-more">view more</a>
+            <!--div class="btn-yellow">view more</div-->
         </div>
     </section>
-    <section class="s-text">
-<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-    <h1 class="text-heading"><?php the_title(); ?></h1>
-    <div class="text-content">
-        <?php the_content(); ?>
-    </div>
-<?php endwhile; ?>
-<?php endif; ?>
 
 <?php get_footer();

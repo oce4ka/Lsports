@@ -105,10 +105,25 @@ h3 {
 .arrow-after--right:after {
   float: right;
 }
+.two-lines,
+.three-lines {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  max-height: calc(2em - 2px);
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+.three-lines {
+  -webkit-line-clamp: 3;
+  max-height: calc(100% - 2px);
+}
 .icon-calendar,
 .icon-place {
   display: inline-block;
-  vertical-align: text-top;
+  vertical-align: middle;
   height: 15px;
   width: 15px;
   background-image: url('../img/icon-calendar.svg');
@@ -2122,7 +2137,7 @@ body {
 .s-news__item-content {
   display: flex;
   flex-direction: column;
-  padding: 32px 24px;
+  padding: 27px 24px;
   height: calc(100% - 247px);
 }
 .s-news-post {
@@ -3606,7 +3621,7 @@ body {
     font-size: 0.924vw;
   }
   .s-news__item-content {
-    padding: 2.464vw 1.848vw;
+    padding: 2.079vw 1.848vw;
     height: calc(100% - 247 * 0.077vw);
   }
   .s-news-post {
@@ -4023,6 +4038,11 @@ body {
   .icon-place {
     height: 4.005vw;
     width: 4.005vw;
+  }
+  .two-lines,
+  .three-lines {
+    display: block;
+    max-height: none;
   }
   .header-global {
     height: 15.486vw;
@@ -4913,7 +4933,7 @@ body {
     margin-bottom: 13.35vw;
   }
   .s-news__item {
-    width: auto;
+    width: 100%;
     height: auto;
   }
   .s-news__item:first-child {

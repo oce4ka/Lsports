@@ -20,7 +20,7 @@ if (!defined('_S_VERSION')) {
 */
 
 add_theme_support('title-tag');
-add_theme_support( 'post-thumbnails' );
+add_theme_support('post-thumbnails');
 
 register_nav_menus(
     array(
@@ -55,30 +55,31 @@ function LSport_scripts()
 add_action('wp_enqueue_scripts', 'LSport_scripts');
 
 // Disables the block editor from managing widgets in the Gutenberg plugin.
-add_filter( 'gutenberg_use_widgets_block_editor', '__return_false', 100 );
+add_filter('gutenberg_use_widgets_block_editor', '__return_false', 100);
 
 // Disables the block editor from managing widgets.
-add_filter( 'use_widgets_block_editor', '__return_false' );
+add_filter('use_widgets_block_editor', '__return_false');
 
-if ( ! function_exists( 'lsport_activate_classic_widgets' ) ) :
-    function lsport_activate_classic_widgets() {
-        remove_theme_support( 'widgets-block-editor' );
+if (!function_exists('lsport_activate_classic_widgets')) :
+    function lsport_activate_classic_widgets()
+    {
+        remove_theme_support('widgets-block-editor');
     }
 endif;
-add_action( 'after_setup_theme', 'lsport_activate_classic_widgets' );
+add_action('after_setup_theme', 'lsport_activate_classic_widgets');
 
 // acf
 
 acf_add_options_page(array(
-    'page_title'  => __('labels'),
-    'menu_title'  => __('Section Labels'),
-    'redirect'    => false,
+    'page_title' => __('labels'),
+    'menu_title' => __('Section Labels'),
+    'redirect' => false,
 ));
 
 acf_add_options_page(array(
-    'page_title'  => __('contacts'),
-    'menu_title'  => __('Section Contacts'),
-    'redirect'    => false,
+    'page_title' => __('contacts'),
+    'menu_title' => __('Section Contacts'),
+    'redirect' => false,
 ));
 
 // remove <p> from CF7
@@ -90,11 +91,11 @@ add_filter('wpcf7_autop_or_not', '__return_false');
  */
 function remove_p_around_img($content)
 {
-    $contentWithFixedPTags =  preg_replace_callback('/<p>((?:.(?!p>))*?)(<a[^>]*>)?\s*(<img[^>]+>)(<\/a>)?(.*?)<\/p>/is', function($matches) {
+    $contentWithFixedPTags = preg_replace_callback('/<p>((?:.(?!p>))*?)(<a[^>]*>)?\s*(<img[^>]+>)(<\/a>)?(.*?)<\/p>/is', function ($matches) {
         $image = $matches[2] . $matches[3] . $matches[4];
-        $content = trim( $matches[1] . $matches[5] );
+        $content = trim($matches[1] . $matches[5]);
         if ($content) {
-            $content = '<p>'. $content .'</p>';
+            $content = '<p>' . $content . '</p>';
         }
         return $image . $content;
     }, $content);
@@ -104,3 +105,56 @@ function remove_p_around_img($content)
 }
 
 add_filter('the_content', 'remove_p_around_img');
+
+// load more button on News page
+function news_load_more()
+{
+    switch ($_POST['category']) {
+        case 'article':
+            $cat_name = 'article';
+            break;
+        case 'blog-post':
+            $cat_name = 'blog-post';
+            break;
+        case 'press-release':
+            $cat_name = 'press-release';
+            break;
+        default:
+            $cat_name = 'news, article, blog-post, press-release';
+    }
+
+    $ajaxposts = new WP_Query([
+        'post_type' => 'post',
+        'category_name' => $cat_name,
+        'posts_per_page' => 6,
+        'orderby' => 'date',
+        'order' => 'DESC',
+        //'paged' => $_POST['paged'],
+        'offset' => (($_POST['paged'] - 1) * 6) + 1,
+    ]);
+
+    $max_pages = $ajaxposts->max_num_pages;
+
+    //var_dump($ajaxposts);
+    if ($ajaxposts->have_posts()) {
+        ob_start();
+        while ($ajaxposts->have_posts()) : $ajaxposts->the_post();
+            echo get_template_part('news-card');
+        endwhile;
+        $output = ob_get_contents();
+        ob_end_clean();
+    } else {
+        $response = '';
+    }
+
+    $result = [
+        'max' => $max_pages,
+        'html' => $output,
+    ];
+
+    echo json_encode($result);
+    exit;
+}
+
+add_action('wp_ajax_news_load_more', 'news_load_more');
+add_action('wp_ajax_nopriv_news_load_more', 'news_load_more');
