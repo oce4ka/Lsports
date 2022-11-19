@@ -40,7 +40,7 @@
                 <?php the_field('schedule') ?>
             <?php endif; ?>
             <br>
-            <button class="btn-yellow register-js-action"><?php the_field('register_now', 'option'); ?></button>
+            <a href="<?php the_field('set_a_meeting_link', 'option'); ?>" class="btn-yellow"><?php the_field('set_a_meeting', 'option'); ?></a>
         </div>
     </div>
 </section>
