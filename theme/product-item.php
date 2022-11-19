@@ -33,10 +33,7 @@
 <?php if (have_rows('highlights_and_benefits')): while (have_rows('highlights_and_benefits')) : the_row(); ?>
     <section class="s-cat-highlights bg-white">
         <div class="container">
-            <h2 data-aos="fade-up"
-                data-aos-delay="50"
-                data-aos-offset="10"
-                data-aos-duration="600"><?php the_sub_field('title') ?></h2>
+            <h2 data-aos="fade-up"><?php the_sub_field('title') ?></h2>
             <ul class="s-cat-highlights__list">
                 <?php if (have_rows('item')): while (have_rows('item')) : the_row(); ?>
                     <li class="s-cat-highlights__item"><?php the_sub_field('text') ?></li>

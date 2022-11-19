@@ -32,10 +32,7 @@ get_header();
         <div class="container">
             <?php (get_sub_field('alternative_decoration')) ? $decor_number = 5 : $decor_number = 1; ?>
             <?php if (have_rows('category_item')): while (have_rows('category_item')) : the_row(); ?>
-                <div data-aos="fade-up"
-                     data-aos-delay="50"
-                     data-aos-offset="10"
-                     data-aos-duration="600" class="s-cat-features__feature">
+                <div data-aos="fade-up" class="s-cat-features__feature">
                     <div class="s-cat-features__content">
                         <h2><?php the_sub_field('title') ?></h2>
                         <p><?php the_sub_field('description') ?></p>
@@ -64,10 +61,7 @@ get_header();
     <?php if (have_rows('highlights_and_benefits')): while (have_rows('highlights_and_benefits')) : the_row(); ?>
         <section class="s-cat-highlights bg-white">
             <div class="container">
-                <h2 data-aos="fade-up"
-                    data-aos-delay="50"
-                    data-aos-offset="10"
-                    data-aos-duration="600"><?php the_sub_field('title') ?></h2>
+                <h2 data-aos="fade-up"><?php the_sub_field('title') ?></h2>
                 <ul class="s-cat-highlights__list">
                     <?php if (have_rows('item')): while (have_rows('item')) : the_row(); ?>
                         <li class="s-cat-highlights__item"><?php the_sub_field('text') ?></li>
@@ -82,10 +76,7 @@ get_header();
     <?php if (have_rows('solutions')): while (have_rows('solutions')) : the_row(); ?>
         <section class="s-cat-solutions bg-white">
             <div class="container">
-                <h2 data-aos="fade-up"
-                    data-aos-delay="50"
-                    data-aos-offset="10"
-                    data-aos-duration="600"><?php the_sub_field('title') ?></h2>
+                <h2 data-aos="fade-up"><?php the_sub_field('title') ?></h2>
                 <ul class="s-cat-solutions__list">
                     <?php if (have_rows('solution')): while (have_rows('solution')) : the_row(); ?>
                         <li class="s-cat-solutions__item"><?php the_sub_field('item') ?></li>

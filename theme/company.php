@@ -28,10 +28,7 @@ get_header();
         <div class="container">
             <?php $decor_number = 8; ?>
             <?php if (have_rows('category_item')): while (have_rows('category_item')) : the_row(); ?>
-                <div data-aos="fade-up"
-                     data-aos-delay="50"
-                     data-aos-offset="10"
-                     data-aos-duration="600" class="s-cat-features__feature">
+                <div data-aos="fade-up" class="s-cat-features__feature">
                     <div class="s-cat-features__content">
                         <h2><?php the_sub_field('title') ?></h2>
                         <p><?php the_sub_field('description') ?></p>

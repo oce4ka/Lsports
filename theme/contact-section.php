@@ -11,11 +11,7 @@
             $delay = $delay + $delay_difference;
             $offset = $offset + $offset_difference;
             ?>
-            <div data-aos="fade-up"
-                 data-aos-delay="<?php echo $delay; ?>"
-                 data-aos-offset="<?php echo $offset; ?>"
-                 data-aos-easing="ease-out"
-                 data-aos-duration="600">
+            <div data-aos="fade-up" data-aos-delay="<?php echo $delay; ?>" data-aos-offset="<?php echo $offset; ?>">
                 <?php the_sub_field('contact_title_line', 'option'); ?>
             </div>
         <?php endwhile; endif; ?>

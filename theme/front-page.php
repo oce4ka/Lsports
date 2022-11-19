@@ -15,14 +15,8 @@ get_header();
                 <div class="s-hp-header-promo__slide">
                     <div class="container s-hp-header-promo__grid">
                         <div class="s-hp-header-promo__content-container">
-                            <h2 data-aos="fade-up"
-                                data-aos-offset="10"
-                                data-aos-delay="10"
-                                data-aos-duration="600"><?php the_sub_field('title') ?></h2>
-                            <p data-aos="fade-up"
-                               data-aos-offset="300"
-                               data-aos-delay="300"
-                               data-aos-duration="600"><?php the_sub_field('description') ?></p>
+                            <h2 data-aos="fade-up"><?php the_sub_field('title') ?></h2>
+                            <p data-aos="fade-up" data-aos-offset="300" data-aos-delay="300" data-aos-duration="600"><?php the_sub_field('description') ?></p>
                             <a href="#" class="btn-yellow"><?php the_field('tell_us_what_you_need', 'option') ?></a>
                         </div>
                         <div class="s-hp-header-promo__image-container">
@@ -71,12 +65,7 @@ get_header();
                     $delay = $delay + $delay_difference;
                     $offset = $offset + $offset_difference;
                     ?>
-                    <div data-aos="fade-up"
-                         data-aos-delay="<?php echo $delay; ?>"
-                         data-aos-offset="<?php echo $offset; ?>"
-                         data-aos-easing="ease-out"
-                         data-aos-duration="600"><?php the_sub_field('title_line'); ?>
-                    </div>
+                    <div data-aos="fade-up" data-aos-delay="<?php echo $delay; ?>" data-aos-offset="<?php echo $offset; ?>"><?php the_sub_field('title_line'); ?></div>
                 <?php endwhile; endif; ?>
             </h2>
             <div class="s-hp-products__carousel">
@@ -153,10 +142,7 @@ get_header();
         <?php wp_reset_postdata(); ?>
     </section>
     <section class="s-hp-events bg-grey">
-        <h2 data-aos="fade-up"
-            data-aos-delay="50"
-            data-aos-offset="10"
-            data-aos-duration="600"><?php the_field('upcoming_events', 'option') ?></h2>
+        <h2 data-aos="fade-up"><?php the_field('upcoming_events', 'option') ?></h2>
         <h6 class="arrow-after"><?php the_field('see_all_events', 'option') ?></h6>
         <div class="s-hp-events__event-wrapper">
             <?php
@@ -217,14 +203,8 @@ get_header();
     <!-- END This is just for demonstration, plz remove! -->
     <section class="s-hp-sports">
         <?php if (have_rows('covering_headings')): while (have_rows('covering_headings')) : the_row(); ?>
-            <h2 data-aos="fade-up"
-                data-aos-delay="50"
-                data-aos-offset="10"
-                data-aos-duration="600"><?php the_sub_field('title'); ?></h2>
-            <p data-aos="fade-up"
-               data-aos-delay="100"
-               data-aos-offset="50"
-               data-aos-duration="600"><?php the_sub_field('description'); ?></p>
+            <h2 data-aos="fade-up"><?php the_sub_field('title'); ?></h2>
+            <p data-aos="fade-up" data-aos-delay="100" data-aos-offset="50"><?php the_sub_field('description'); ?></p>
             <a href="<?php the_sub_field('link'); ?>"><h6 class="arrow-after"><?php the_field('read_more', 'option') ?></h6></a>
         <?php endwhile; endif; ?>
         <div class="image-marquee">

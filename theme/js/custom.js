@@ -207,7 +207,12 @@
     // scroll animation
     // https://michalsnik.github.io/aos/
 
-    AOS.init();
+    AOS.init({
+        delay: 50,
+        offset: 10,
+        duration: 600,
+        easing: 'ease-out',
+    });
 
     /*
 

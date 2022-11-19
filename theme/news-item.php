@@ -63,12 +63,7 @@ $category_link = get_permalink(get_page_by_path('news')) . '?cat=' . $category;
 
                     <?php while (have_rows('related_posts')) : the_row(); ?>
                         <?php $related_post = get_sub_field('post') ?>
-                        <a href="<?php echo get_permalink($related_post) ?>" data-aos="fade-up"
-                             data-aos-delay="50"
-                             data-aos-offset="0"
-                             data-aos-easing="ease-out"
-                             data-aos-duration="600"
-                             class="s-related__item">
+                        <a href="<?php echo get_permalink($related_post) ?>" data-aos="fade-up" class="s-related__item">
                             <div class="image-wrapper" style="background-image: url(<?php echo wp_get_attachment_url(get_post_thumbnail_id($related_post)); ?>)"></div>
                             <div class="s-related__item-content">
                                 <div class="type"><?php echo $category_name ?></div>

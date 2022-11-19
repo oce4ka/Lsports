@@ -61,7 +61,6 @@ $news = new WP_Query([
                 </div>
             </div>
             <div class="s-news__wrapper">
-
                 <?php if ($news->have_posts()): ?>
                     <?php while ($news->have_posts()): ?>
                         <?php $news->the_post(); ?>
@@ -69,91 +68,6 @@ $news = new WP_Query([
                     <?php endwhile; ?>
                 <?php endif; ?>
                 <?php wp_reset_postdata(); ?>
-
-                <!--a href="#" class="s-news__item">
-                    <div class="image-wrapper" style="background-image: url(images-upload/img-news.png)"></div>
-                    <div class="s-news__item-content">
-                        <div class="type">Press Release</div>
-                        <h3>Lorem Ipsum headline</h3>
-                        <p class="excerpt">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
-                        <div class="date arrow-after arrow-after--right">
-                            <div class="icon-calendar"></div>
-                            August 8, 2022
-                        </div>
-                    </div>
-                </a>
-                <a href="#" class="s-news__item"
-                   data-aos="fade-up"
-                   data-aos-easing="ease-out"
-                   data-aos-duration="600">
-                    <div class="image-wrapper" style="background-image: url(images-upload/img-event.png)"></div>
-                    <div class="s-news__item-content">
-                        <div class="type">Blog post</div>
-                        <h3>Lor<u>e</u>m Ipsum hea<u>d</u>line</h3>
-                        <p class="excerpt">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.</p>
-                        <div class="date arrow-after arrow-after--right">August 8, 2022</div>
-                    </div>
-                </a>
-                <a href="#" class="s-news__item"
-                   data-aos="fade-up"
-                   data-aos-easing="ease-out"
-                   data-aos-duration="600">
-                    <div class="image-wrapper" style="background-image: url(images-upload/img-event.png)"></div>
-                    <div class="s-news__item-content">
-                        <div class="type">Blog post</div>
-                        <h3>Lor<u>e</u>m Ipsum hea<u>d</u>line</h3>
-                        <p class="excerpt">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.</p>
-                        <div class="date arrow-after arrow-after--right">August 8, 2022</div>
-                    </div>
-                </a>
-                <a href="#" class="s-news__item"
-                   data-aos="fade-up"
-                   data-aos-easing="ease-out"
-                   data-aos-duration="600">
-                    <div class="image-wrapper" style="background-image: url(images-upload/img-event.png)"></div>
-                    <div class="s-news__item-content">
-                        <div class="type">Blog post</div>
-                        <h3>Lor<u>e</u>m Ipsum hea<u>d</u>line</h3>
-                        <p class="excerpt">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.</p>
-                        <div class="date arrow-after arrow-after--right">August 8, 2022</div>
-                    </div>
-                </a>
-                <a href="#" class="s-news__item"
-                   data-aos="fade-up"
-                   data-aos-easing="ease-out"
-                   data-aos-duration="600">
-                    <div class="image-wrapper" style="background-image: url(images-upload/img-event.png)"></div>
-                    <div class="s-news__item-content">
-                        <div class="type">Blog post</div>
-                        <h3>Lor<u>e</u>m Ipsum hea<u>d</u>line</h3>
-                        <p class="excerpt">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.</p>
-                        <div class="date arrow-after arrow-after--right">August 8, 2022</div>
-                    </div>
-                </a>
-                <a href="#" class="s-news__item"
-                   data-aos="fade-up"
-                   data-aos-easing="ease-out"
-                   data-aos-duration="600">
-                    <div class="image-wrapper" style="background-image: url(images-upload/img-event.png)"></div>
-                    <div class="s-news__item-content">
-                        <div class="type">Blog post</div>
-                        <h3>Lor<u>e</u>m Ipsum hea<u>d</u>line</h3>
-                        <p class="excerpt">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.</p>
-                        <div class="date arrow-after arrow-after--right">August 8, 2022</div>
-                    </div>
-                </a>
-                <a href="#" class="s-news__item"
-                   data-aos="fade-up"
-                   data-aos-easing="ease-out"
-                   data-aos-duration="600">
-                    <div class="image-wrapper" style="background-image: url(images-upload/img-event.png)"></div>
-                    <div class="s-news__item-content">
-                        <div class="type">Blog post</div>
-                        <h3>Lor<u>e</u>m Ipsum hea<u>d</u>line</h3>
-                        <p class="excerpt">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.</p>
-                        <div class="date arrow-after arrow-after--right">August 8, 2022</div>
-                    </div>
-                </a-->
             </div>
             <a href="#" class="btn-yellow" id="load-more">view more</a>
             <!--div class="btn-yellow">view more</div-->
