@@ -38,7 +38,7 @@
         $('.set-meeting').addClass('hide');
     });
 
-    $(document).keyup(function(e) {
+    $(document).keyup(function (e) {
         if (e.key === "Escape") {
             $('.modal').addClass('hide');
         }
@@ -252,7 +252,7 @@
 
     // Access to GET variables
     var $_GET = {};
-    if(document.location.toString().indexOf('?') !== -1) {
+    if (document.location.toString().indexOf('?') !== -1) {
         var query = document.location
             .toString()
             // get the query string
@@ -261,7 +261,7 @@
             .replace(/#.*$/, '')
             .split('&');
 
-        for(var i=0, l=query.length; i<l; i++) {
+        for (var i = 0, l = query.length; i < l; i++) {
             var aux = decodeURIComponent(query[i]).split('=');
             $_GET[aux[0]] = aux[1];
         }
@@ -269,7 +269,7 @@
 
     // Load more button on News pages
     let currentPage = 1;
-    $('#load-more-news').on('click', function(e) {
+    $('#load-more-news').on('click', function (e) {
         e.preventDefault();
         currentPage++; // Do currentPage + 1, because we want to load the next page
         $.ajax({
@@ -287,23 +287,26 @@
         });
     });
 
+    // Past events functionality
     // Load more events past button on Events pages
-    $('#load-more-events-past').on('click', function(e) {
-        e.preventDefault();
-        currentPage++; // Do currentPage + 1, because we want to load the next page
-        $.ajax({
-            type: 'POST',
-            url: '/wp-admin/admin-ajax.php',
-            dataType: 'json',
-            data: {
-                action: 'events_past_load_more',
-                paged: currentPage,
-            },
-            success: function (res) {
-                $('.s-events-past__grid').append(res.html);
-            }
+    /*
+        $('#load-more-events-past').on('click', function(e) {
+            e.preventDefault();
+            currentPage++; // Do currentPage + 1, because we want to load the next page
+            $.ajax({
+                type: 'POST',
+                url: '/wp-admin/admin-ajax.php',
+                dataType: 'json',
+                data: {
+                    action: 'events_past_load_more',
+                    paged: currentPage,
+                },
+                success: function (res) {
+                    $('.s-events-past__grid').append(res.html);
+                }
+            });
         });
-    });
+     */
 
 })(jQuery);
 

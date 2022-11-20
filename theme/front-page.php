@@ -17,7 +17,7 @@ get_header();
                         <div class="s-hp-header-promo__content-container">
                             <h2 data-aos="fade-up"><?php the_sub_field('title') ?></h2>
                             <p data-aos="fade-up" data-aos-offset="300" data-aos-delay="300" data-aos-duration="600"><?php the_sub_field('description') ?></p>
-                            <a href="#" class="btn-yellow"><?php the_field('tell_us_what_you_need', 'option') ?></a>
+                            <a href="<?php the_field('tell_us_what_you_need_link', 'option') ?>" class="btn-yellow"><?php the_field('tell_us_what_you_need', 'option') ?></a>
                         </div>
                         <div class="s-hp-header-promo__image-container">
                             <img src="<?php the_sub_field('image') ?>" alt="">
@@ -42,7 +42,7 @@ get_header();
             <?php if (have_rows('features')): while (have_rows('features')) : the_row(); ?>
                 <div class="feature">
                     <div class="feature__image-container">
-                        <lottie-player src="<?php echo get_template_directory_uri().'/img/lottie/'.get_sub_field('lottie_file_name') ?>" background="transparent"  speed="1" loop autoplay></lottie-player>
+                        <lottie-player src="<?php echo get_template_directory_uri() . '/img/lottie/' . get_sub_field('lottie_file_name') ?>" background="transparent" speed="1" loop autoplay></lottie-player>
                     </div>
                     <h3><?php the_sub_field('title') ?></h3>
                     <p><?php the_sub_field('description') ?></p>
@@ -143,13 +143,26 @@ get_header();
     </section>
     <section class="s-hp-events bg-grey">
         <h2 data-aos="fade-up"><?php the_field('upcoming_events', 'option') ?></h2>
-        <h6 class="arrow-after"><?php the_field('see_all_events', 'option') ?></h6>
+        <h6 class="arrow-after"><a href="/events/"><?php the_field('see_all_events', 'option') ?></a></h6> <?php //todo: change styles ?>
         <div class="s-hp-events__event-wrapper">
             <?php
             wp_reset_postdata();
+            $today = date("Ymd");
             $args_events = array(
                 'posts_per_page' => 3,
-                'category_name' => 'events'
+                'category_name' => 'events',
+
+                'post_type' => 'post',
+                'meta_query' => array( // past
+                    array(
+                        'key' => 'date_start',
+                        'value' => $today,
+                        'compare' => '>=',
+                    ),
+                ),
+                'orderby' => 'meta_value',
+                'meta_key' => 'date_start',
+                'order' => 'ASC',
             );
 
             $latest_events = new WP_Query($args_events);
@@ -175,43 +188,34 @@ get_header();
             <?php wp_reset_postdata(); ?>
         </div>
     </section>
-<?php if (have_rows('sportsbooks')): while (have_rows('sportsbooks')) : the_row(); ?>
-    <section class="s-hp-sportsbooks<?php if (get_sub_field('do_not_show_right_section')) echo ' alternative'; ?>">
-        <div class="s-hp-sportsbooks__content">
-            <h2><?php the_sub_field('title'); ?></h2>
-        </div>
-        <?php if (!get_sub_field('do_not_show_right_section')): ?>
+
+<?php if (the_field('show_sportsbooks')): ?>
+    <?php if (have_rows('sportsbooks')): while (have_rows('sportsbooks')) : the_row(); ?>
+        <section class="s-hp-sportsbooks<?php if (get_sub_field('do_not_show_right_section')) echo ' alternative'; ?>">
             <div class="s-hp-sportsbooks__content">
-                <h2><?php the_sub_field('title_right'); ?></h2>
-                <p><?php the_sub_field('description_right'); ?></p>
+                <h2><?php the_sub_field('title'); ?></h2>
             </div>
-        <?php endif; ?>
-    </section>
-<?php endwhile; endif; ?>
-    <!-- This is just for demonstration, plz remove! -->
-<?php if (have_rows('sportsbooks')): while (have_rows('sportsbooks')) : the_row(); ?>
-    <section class="s-hp-sportsbooks">
-        <div class="s-hp-sportsbooks__content">
-            <h2><?php the_sub_field('title'); ?></h2>
-        </div>
-        <div class="s-hp-sportsbooks__content">
-            <h2><?php the_sub_field('title_right'); ?></h2>
-            <p><?php the_sub_field('description_right'); ?></p>
-        </div>
-    </section>
-<?php endwhile; endif; ?>
-    <!-- END This is just for demonstration, plz remove! -->
+            <?php if (!get_sub_field('do_not_show_right_section')): ?>
+                <div class="s-hp-sportsbooks__content">
+                    <h2><?php the_sub_field('title_right'); ?></h2>
+                    <p><?php the_sub_field('description_right'); ?></p>
+                </div>
+            <?php endif; ?>
+        </section>
+    <?php endwhile; endif; ?>
+<?php endif; ?>
+
     <section class="s-hp-sports">
         <?php if (have_rows('covering_headings')): while (have_rows('covering_headings')) : the_row(); ?>
             <h2 data-aos="fade-up"><?php the_sub_field('title'); ?></h2>
-            <p data-aos="fade-up" data-aos-delay="100" data-aos-offset="50"><?php the_sub_field('description'); ?></p>
-            <a href="<?php the_sub_field('link'); ?>"><h6 class="arrow-after"><?php the_field('read_more', 'option') ?></h6></a>
+            <!--p data-aos="fade-up" data-aos-delay="100" data-aos-offset="50"><?php the_sub_field('description'); ?></p-->
+            <!--a href="<?php // the_sub_field('link'); ?>"><h6 class="arrow-after"><?php // the_field('read_more', 'option') ?></h6></a-->
         <?php endwhile; endif; ?>
         <div class="image-marquee">
             <div><img class="s-hp-sports__image desktop-only" src="<?php echo get_template_directory_uri() ?>/img/img-sports-1.png" alt=""></div>
             <div><img class="s-hp-sports__image desktop-only" src="<?php echo get_template_directory_uri() ?>/img/img-sports-1.png" alt=""></div>
         </div>
-        <div class="image-marquee slow">
+        <div class="image-marquee slow"> <!-- todo: to right -->
             <div><img class="s-hp-sports__image desktop-only" src="<?php echo get_template_directory_uri() ?>/img/img-sports-2.png" alt=""></div>
             <div><img class="s-hp-sports__image desktop-only" src="<?php echo get_template_directory_uri() ?>/img/img-sports-2.png" alt=""></div>
         </div>
@@ -219,7 +223,9 @@ get_header();
             <div><img class="s-hp-sports__image desktop-only" src="<?php echo get_template_directory_uri() ?>/img/img-sports-3.png" alt=""></div>
             <div><img class="s-hp-sports__image desktop-only" src="<?php echo get_template_directory_uri() ?>/img/img-sports-3.png" alt=""></div>
         </div>
+        <div style="height: 50px"></div>
     </section>
+<?php /*
     <section class="s-hp-case-study">
         <div class="container s-hp-case-study__grid">
             <div class="s-hp-case-study__content">
@@ -263,7 +269,7 @@ get_header();
 
         </div>
     </section>
-
+*/ ?>
 <?php if (get_field('add_contact_section')) get_template_part('contact-section'); ?>
 
 <?php get_footer();

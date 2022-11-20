@@ -256,25 +256,27 @@ get_header();
     <?php wp_reset_postdata(); ?>
 <?php endwhile; endif; ?>
 
-<?php if (have_rows('acknowledgements')): while (have_rows('acknowledgements')) : the_row(); ?>
-    <section class="s-about-acknowledgments bg-white">
-        <div class="container">
-            <h2><?php the_sub_field('title') ?></h2>
-            <div class="s-about-acknowledgments__list">
-                <?php if (have_rows('item')): while (have_rows('item')) : the_row(); ?>
-                    <div class="s-about-acknowledgments__item">
-                        <div class="s-about-acknowledgments__image">
-                            <img src="<?php the_sub_field('image') ?>" alt="<?php echo strip_tags(get_sub_field('title')) ?>">
+<?php if (the_field('show_acknowledgements')): ?>
+    <?php if (have_rows('acknowledgements')): while (have_rows('acknowledgements')) : the_row(); ?>
+        <section class="s-about-acknowledgments bg-white">
+            <div class="container">
+                <h2><?php the_sub_field('title') ?></h2>
+                <div class="s-about-acknowledgments__list">
+                    <?php if (have_rows('item')): while (have_rows('item')) : the_row(); ?>
+                        <div class="s-about-acknowledgments__item">
+                            <div class="s-about-acknowledgments__image">
+                                <img src="<?php the_sub_field('image') ?>" alt="<?php echo strip_tags(get_sub_field('title')) ?>">
+                            </div>
+                            <h3><?php the_sub_field('title') ?></h3>
+                            <p><?php the_sub_field('subtitle') ?></p>
+                            <p class="year"><?php the_sub_field('year') ?></p>
                         </div>
-                        <h3><?php the_sub_field('title') ?></h3>
-                        <p><?php the_sub_field('subtitle') ?></p>
-                        <p class="year"><?php the_sub_field('year') ?></p>
-                    </div>
-                <?php endwhile; endif; ?>
+                    <?php endwhile; endif; ?>
+                </div>
             </div>
-        </div>
-    </section>
-<?php endwhile; endif; ?>
+        </section>
+    <?php endwhile; endif; ?>
+<?php endif; ?>
 
 <?php if (have_rows('positions')): while (have_rows('positions')) : the_row(); ?>
     <section class="s-about-positions">
@@ -283,20 +285,15 @@ get_header();
                 <h2><?php the_sub_field('title') ?></h2>
                 <p><?php the_sub_field('description') ?></p>
             </div>
-            <div class="s-about-positions__video">
-                <div class="video-wrapper">
-                    <div class="video-wrapper__overlay btn-play" style="background-image: url('<?php the_sub_field('video_preview_image') ?>')"></div>
-                    <div class="video-wrapper__iframe-wrap">
-                        <div class="video-wrapper__iframe" data-url="<?php the_sub_field('video_link') ?>"></div>
-                    </div>
-                </div>
+            <div class="s-about-positions__image">
+                <img alt="<?php echo strip_tags(get_sub_field('title')) ?>" src="<?php the_sub_field('video_preview_image') ?>">
             </div>
             <div class="s-about-positions__gallery">
                 <?php if (have_rows('gallery')): while (have_rows('gallery')) : the_row(); ?>
                     <img src="<?php the_sub_field('image') ?>" alt="<?php echo strip_tags(get_sub_field('title')) ?>">
                 <?php endwhile; endif; ?>
             </div>
-            <a href="<?php the_sub_field('link') ?>" class="btn-yellow">see all positions</a>
+            <!--a href="<?php the_sub_field('link') ?>" class="btn-yellow">see all positions</a-->
         </div>
     </section>
 <?php endwhile; endif; ?>

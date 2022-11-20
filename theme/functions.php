@@ -119,17 +119,20 @@ function news_load_more()
         case 'press-release':
             $cat_name = 'press-release';
             break;
+        case 'update':
+            $cat_name = 'update';
+            break;
         default:
-            $cat_name = 'news, article, blog-post, press-release';
+            $cat_name = 'news, article, blog-post, press-release, update';
     }
 
     $ajaxposts = new WP_Query([
         'post_type' => 'post',
+        'post_status' => 'publish',
         'category_name' => $cat_name,
         'posts_per_page' => 6,
         'orderby' => 'date',
         'order' => 'DESC',
-        //'paged' => $_POST['paged'],
         'offset' => (($_POST['paged'] - 1) * 6) + 1,
     ]);
 
@@ -159,12 +162,15 @@ function news_load_more()
 add_action('wp_ajax_news_load_more', 'news_load_more');
 add_action('wp_ajax_nopriv_news_load_more', 'news_load_more');
 
+// Past events functionality
+/*
 // load more past events button on Events page
 function events_past_load_more()
 {
     $today = date("Ymd");
     $ajaxposts = new WP_Query([
         'post_type' => 'post',
+        'post_status' => 'publish',
         'category_name' => 'events',
         'posts_per_page' => 4,
         'meta_query' => array( // past
@@ -205,3 +211,4 @@ function events_past_load_more()
 
 add_action('wp_ajax_events_past_load_more', 'events_past_load_more');
 add_action('wp_ajax_nopriv_events_past_load_more', 'events_past_load_more');
+*/

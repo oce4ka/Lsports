@@ -57,7 +57,7 @@ get_header();
     </section>
 <?php endwhile; endif; ?>
 
-<?php if (!get_field('hide_highlights_and_benefits_section')): ?>
+<?php /* if (!get_field('hide_highlights_and_benefits_section')): ?>
     <?php if (have_rows('highlights_and_benefits')): while (have_rows('highlights_and_benefits')) : the_row(); ?>
         <section class="s-cat-highlights bg-white">
             <div class="container">
@@ -70,7 +70,7 @@ get_header();
             </div>
         </section>
     <?php endwhile; endif; ?>
-<?php endif; ?>
+<?php endif; */ ?>
 
 <?php if (!get_field('hide_solutions_section')): ?>
     <?php if (have_rows('solutions')): while (have_rows('solutions')) : the_row(); ?>

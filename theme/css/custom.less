@@ -1414,11 +1414,11 @@ html, body {
     }
 
     &.decor-2:after {
-      background-image: url(../img/decor-2.svg);
-      width: 124px;
-      height: 138px;
-      top: -69px;
-      right: 0;
+      background-image: url(../img/decor-4.svg);
+      width: 103px;
+      height: 113px;
+      top: -56px;
+      left: -48px;
     }
 
     &.decor-3:after {
@@ -1430,11 +1430,11 @@ html, body {
     }
 
     &.decor-4:after {
-      background-image: url(../img/decor-4.svg);
-      width: 103px;
-      height: 113px;
-      top: -56px;
-      left: -48px;
+      background-image: url(../img/decor-2.svg);
+      width: 124px;
+      height: 138px;
+      top: -69px;
+      right: 0;
     }
 
     &.decor-5:after {
@@ -1542,6 +1542,7 @@ html, body {
 .s-cat-solutions {
   padding: 120px 0;
   text-align: center;
+  display: none;
 
   &__list {
     display: flex;
@@ -2193,9 +2194,13 @@ html, body {
     width: 506px;
   }
 
-  &__video {
+  &__image {
     width: 518px;
-    height: 325px;
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
   }
 
   img {
@@ -2922,11 +2927,14 @@ html, body {
     border: 1px solid #000;
     border-top: 0;
     height: 246px;
+    background-position: center;
+    background-size: cover;
 
     img {
       margin: 0 auto;
       height: 100%;
       width: auto;
+      display: block;
     }
   }
 
@@ -3768,9 +3776,10 @@ html, body {
       }
 
       &.decor-2:after {
-        width: 124*@x;
-        height: 138*@x;
-        top: -69*@x;
+        width: 103*@x;
+        height: 113*@x;
+        top: -56*@x;
+        left: -48*@x;
       }
 
       &.decor-3:after {
@@ -3781,10 +3790,9 @@ html, body {
       }
 
       &.decor-4:after {
-        width: 103*@x;
-        height: 113*@x;
-        top: -56*@x;
-        left: -48*@x;
+        width: 124*@x;
+        height: 138*@x;
+        top: -69*@x;
       }
 
       &.decor-5:after {
@@ -4256,9 +4264,8 @@ html, body {
       width: 506*@x;
     }
 
-    &__video {
+    &__image {
       width: 518*@x;
-      height: 325*@x;
     }
 
     &__gallery {
@@ -5638,9 +5645,10 @@ html, body {
       }
 
       &.decor-2:after {
-        width: 65*@x;
-        height: 73*@x;
-        top: -37*@x;
+        width: 51*@x;
+        height: 59*@x;
+        top: -17*@x;
+        left: -7*@x;
       }
 
       &.decor-3:after {
@@ -5651,10 +5659,9 @@ html, body {
       }
 
       &.decor-4:after {
-        width: 51*@x;
-        height: 59*@x;
-        top: -17*@x;
-        left: -7*@x;
+        width: 65*@x;
+        height: 73*@x;
+        top: -37*@x;
       }
 
       &.decor-5:after {
@@ -6609,19 +6616,9 @@ html, body {
       width: 506*@x;
     }
 
-    &__video {
+    &__image {
       width: 100%;
       margin-top: 20*@x;
-
-      img {
-        max-width: 100%;
-        height: auto;
-      }
-
-      &:after {
-        width: 42*@x;
-        height: 42*@x;
-      }
     }
 
     &__gallery {

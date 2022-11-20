@@ -54,13 +54,13 @@ $today = date("Ymd");
                     'posts_per_page' => -1,
                     'orderby' => 'meta_value',
                     'meta_key' => 'date_start',
-                    'order' => 'DESC',
+                    'order' => 'ASC',
                 ]);
                 ?>
                 <?php if ($upcoming_events->have_posts()): ?>
                     <?php while ($upcoming_events->have_posts()): ?>
                         <?php $upcoming_events->the_post(); ?>
-                        <a href="<?php the_permalink() ?>" class="s-events__item">
+                        <div class="s-events__item">
                             <div class="image-wrapper" style="background-image: url(<?php echo wp_get_attachment_url(get_post_thumbnail_id(get_the_ID())); ?>)"></div>
                             <div class="item-content">
                                 <div class="meta">
@@ -82,9 +82,9 @@ $today = date("Ymd");
                                 </div>
                                 <h3><?php the_field('title') ?></h3>
                                 <div class="excerpt"><?php echo strip_tags(get_field('title')) ?></div>
-                                <div class="btn btn-yellow"><?php the_field('register_now', 'option') ?></div>
+                                <a href="<?php the_permalink() ?>" class="btn btn-yellow"><?php the_field('meet_us', 'option') ?></a>
                             </div>
-                        </a>
+                        </div>
                     <?php endwhile; ?>
                 <?php endif; ?>
                 <?php wp_reset_postdata(); ?>
@@ -148,7 +148,8 @@ $today = date("Ymd");
             </div>
         </div>
     </section>
-<?php
+<?php // Past events functionality
+/*
 $past_events = new WP_Query([
     'post_type' => 'post',
     'category_name' => 'events',
@@ -165,7 +166,10 @@ $past_events = new WP_Query([
     'order' => 'DESC',
     'paged' => 1,
 ]);
+*/
 ?>
+<?php // Past events functionality
+/*
     <section class="s-events-past bg-white">
         <div class="container">
             <h2><?php the_field('past_events_decorated', 'option') ?></h2>
@@ -181,5 +185,7 @@ $past_events = new WP_Query([
             <a href="#load-more-events-past" class="s-events-past__btn btn-yellow" id="load-more-events-past"><?php the_field('see_more', 'option') ?></a>
         </div>
     </section>
+*/
+?>
 
-<?php get_footer();
+<?php get_footer(); ?>

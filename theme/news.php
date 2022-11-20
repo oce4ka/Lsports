@@ -11,6 +11,7 @@
 
 get_header();
 
+wp_reset_postdata();
 if (isset($_GET['cat'])) {
     switch ($_GET['cat']) {
         case 'article':
@@ -22,11 +23,14 @@ if (isset($_GET['cat'])) {
         case 'press-release':
             $cat_slug = 'press-release';
             break;
+        case 'update':
+            $cat_slug = 'update';
+            break;
         default:
-            $cat_slug = 'news, article, blog-post, press-release';
+            $cat_slug = 'news, article, blog-post, press-release, update';
     }
 } else {
-    $cat_slug = 'news, article, blog-post, press-release';
+    $cat_slug = 'news, article, blog-post, press-release, update';
 }
 
 $news = new WP_Query([
@@ -37,6 +41,7 @@ $news = new WP_Query([
     'order' => 'DESC',
     'paged' => 1,
 ]);
+
 ?>
     <section class="s-news bg-grey">
         <div class="container">

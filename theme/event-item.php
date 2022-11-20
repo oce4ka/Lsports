@@ -2,14 +2,18 @@
     <div class="container">
         <h1><?php the_field('title'); ?></h1>
         <div class="s-events-post__wrapper">
-            <div class="s-events-post__image">
-                <div class="video-wrapper">
-                    <div class="video-wrapper__overlay btn-play" style="background-image: url('<?php the_field('video_cover') ?>')"></div>
-                    <div class="video-wrapper__iframe-wrap">
-                        <div class="video-wrapper__iframe" data-url="<?php the_field('video_link') ?>"></div>
+            <?php if (get_field('image_without_video')): ?>
+                <div class="s-events-post__image" style="background-image: url(<?php echo wp_get_attachment_url(get_post_thumbnail_id(get_the_ID())); ?>)"></div>
+            <?php else: ?>
+                <div class="s-events-post__image">
+                    <div class="video-wrapper">
+                        <div class="video-wrapper__overlay btn-play" style="background-image: url('<?php the_field('video_cover') ?>')"></div>
+                        <div class="video-wrapper__iframe-wrap">
+                            <div class="video-wrapper__iframe" data-url="<?php the_field('video_link') ?>"></div>
+                        </div>
                     </div>
                 </div>
-            </div>
+            <?php endif; ?>
             <div class="s-events-post__detail">
                 <div class="s-events-post__meta">
                     <div class="time">
@@ -25,9 +29,7 @@
                     </div>
                     <div class="place"><?php the_field('address') ?></div>
                 </div>
-                <div class="s-events-post__map">
-                    <img src="<?php the_field('map_image') ?>" alt="map"/>
-                </div>
+                <div class="s-events-post__map" style="background-image: url(<?php the_field('map_image') ?>)"></div>
             </div>
         </div>
         <div class="s-events-post__content">
@@ -40,7 +42,7 @@
                 <?php the_field('schedule') ?>
             <?php endif; ?>
             <br>
-            <a href="<?php the_field('set_a_meeting_link', 'option'); ?>" class="btn-yellow"><?php the_field('set_a_meeting', 'option'); ?></a>
+            <a href="<?php the_field('set_a_meeting_link', 'option'); ?>" class="btn-yellow"><?php the_field('meet_us', 'option'); ?></a>
         </div>
     </div>
 </section>
@@ -123,7 +125,7 @@
                     </div>
                 */ ?>
 
-                <button class="btn-yellow register-js-action"><?php the_field('register_now', 'option'); ?></button>
+                <?php /* <button class="btn-yellow register-js-action"><?php the_field('register_now', 'option'); ?></button> */ ?>
             </div>
         </div>
     </div>
