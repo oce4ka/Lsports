@@ -1,3 +1,5 @@
+<?php // wp_enqueue_script('sticky-kit.min.js', get_template_directory_uri() . '/js/atc.min.js', false, '1.0', 'all'); ?>
+
 <section class="s-events-post">
     <div class="container">
         <h1><?php the_field('title'); ?></h1>
@@ -19,13 +21,44 @@
                     <div class="time">
                         <?php
                         if (get_field('date_end')):
-                            echo date("l", strtotime(get_field('date_start', false, false))) . '-' . date("l", strtotime(get_field('date_end', false, false))) . ', ' . date("j", strtotime(get_field('date_start', false, false))) . '-' . date("j", strtotime(get_field('date_end', false, false))) . ' ' . date("M", strtotime(get_field('date_end', false, false)));
+                            echo date("l", strtotime(get_field('date_start', false, false))) . '-' . date("l", strtotime(get_field('date_end', false, false))) . ', ' . date("j", strtotime(get_field('date_start', false, false))) . '-' . date("j", strtotime(get_field('date_end', false, false))) . ' ' . date("M", strtotime(get_field('date_end', false, false))) . ' ' . date("Y", strtotime(get_field('date_end', false, false)));
                         else:
                             echo date("l", strtotime(get_field('date_start', false, false))) . ', ' . date("F", strtotime(get_field('date_start', false, false))) . ' ' . date("j", strtotime(get_field('date_start', false, false))) . ' ' . date("Y", strtotime(get_field('date_start', false, false))) . ' at ' . get_field('time');
                         endif;
                         ?>
-                        <br>
-                        <a class="to-calendar"><?php the_field('add_to_calendar', 'option') ?></a>
+                        <!-- <a class="to-calendar">--><?php //the_field('add_to_calendar', 'option') ?><!--</a>-->
+
+                        <? /*
+                        <div title="Add to Calendar" class="to-calendar addeventatc">
+                            <?php the_field('add_to_calendar', 'option') ?>
+                            <?php
+                            if (get_field('date_end')): ?>
+                                <span class="start">
+                                <?php echo
+                                    date("d", strtotime(get_field('date_start', false, false))) . '/' .
+                                    date("m", strtotime(get_field('date_start', false, false))) . '/' .
+                                    date("Y", strtotime(get_field('date_start', false, false))) . ' ' . get_field('time'); ?>
+                                </span>
+                                <span class="end">
+                                <?php echo
+                                    date("d", strtotime(get_field('date_end', false, false))) . '/' .
+                                    date("m", strtotime(get_field('date_end', false, false))) . '/' .
+                                    date("Y", strtotime(get_field('date_end', false, false))) . ' ' . get_field('time'); ?>
+                                </span>
+
+                            <?php else: ?>
+                                <span class="start">
+                                <?php echo
+                                    date("d", strtotime(get_field('date_start', false, false))) . '/' .
+                                    date("m", strtotime(get_field('date_start', false, false))) . '/' .
+                                    date("Y", strtotime(get_field('date_start', false, false))) . ' ' . get_field('time'); ?>
+                                </span>
+                            <?php endif; ?>
+                            <span class="timezone">America/Los_Angeles</span>
+                            <span class="title"><?php the_title() ?></span>
+                            <span class="description"><?php the_field('excerpt') ?></span>
+                            <span class="location"><?php the_field('location') ?> <?php the_field('address') ?></span>
+                        </div> <? /*/ ?>
                     </div>
                     <div class="place"><?php the_field('address') ?></div>
                 </div>
@@ -55,7 +88,7 @@
                     <div class="icon-calendar"></div>
                     <?php
                     if (get_field('date_end')):
-                        echo date("l", strtotime(get_field('date_start', false, false))) . '-' . date("l", strtotime(get_field('date_end', false, false))) . ', ' . date("j", strtotime(get_field('date_start', false, false))) . '-' . date("j", strtotime(get_field('date_end', false, false))) . ' ' . date("M", strtotime(get_field('date_end', false, false)));
+                        echo date("l", strtotime(get_field('date_start', false, false))) . '-' . date("l", strtotime(get_field('date_end', false, false))) . ', ' . date("j", strtotime(get_field('date_start', false, false))) . '-' . date("j", strtotime(get_field('date_end', false, false))) . ' ' . date("M", strtotime(get_field('date_end', false, false))) . ' ' . date("Y", strtotime(get_field('date_end', false, false)));
                     else:
                         echo date("l", strtotime(get_field('date_start', false, false))) . ', ' . date("F", strtotime(get_field('date_start', false, false))) . ' ' . date("j", strtotime(get_field('date_start', false, false))) . ' ' . date("Y", strtotime(get_field('date_start', false, false))) . ' at ' . get_field('time');
                     endif;
@@ -142,7 +175,7 @@
                         <div class="icon-calendar"></div>
                         <?php
                         if (get_field('date_end')):
-                            echo date("l", strtotime(get_field('date_start', false, false))) . '-' . date("l", strtotime(get_field('date_end', false, false))) . ', ' . date("j", strtotime(get_field('date_start', false, false))) . '-' . date("j", strtotime(get_field('date_end', false, false))) . ' ' . date("M", strtotime(get_field('date_end', false, false)));
+                            echo date("l", strtotime(get_field('date_start', false, false))) . '-' . date("l", strtotime(get_field('date_end', false, false))) . ', ' . date("j", strtotime(get_field('date_start', false, false))) . '-' . date("j", strtotime(get_field('date_end', false, false))) . ' ' . date("M", strtotime(get_field('date_end', false, false))) . ' ' . date("Y", strtotime(get_field('date_end', false, false)));
                         else:
                             echo date("l", strtotime(get_field('date_start', false, false))) . ', ' . date("F", strtotime(get_field('date_start', false, false))) . ' ' . date("j", strtotime(get_field('date_start', false, false))) . ' ' . date("Y", strtotime(get_field('date_start', false, false))) . ' at ' . get_field('time');
                         endif;

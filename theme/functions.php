@@ -130,10 +130,10 @@ function news_load_more()
         'post_type' => 'post',
         'post_status' => 'publish',
         'category_name' => $cat_name,
-        'posts_per_page' => 6,
+        'posts_per_page' => 6, // how many news posts should be loaded
         'orderby' => 'date',
         'order' => 'DESC',
-        'offset' => (($_POST['paged'] - 1) * 6) + 1,
+        'offset' => (($_POST['paged'] - 1) * 6) + 1, // what is the number of the post in the beginning od scope
     ]);
 
     $posts_received = count($ajaxposts->posts);
@@ -151,7 +151,7 @@ function news_load_more()
     }
 
     $result = [
-        'count' => $posts_received,
+        'count' => $posts_received, // how many news posts should be loaded
         'html' => $output,
     ];
 

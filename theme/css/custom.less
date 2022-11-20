@@ -1378,6 +1378,7 @@ html, body {
     img {
       max-width: 555px;
       max-height: 315px;
+      border: 1px solid #000;
     }
 
     &:nth-child(2n) {
@@ -2452,7 +2453,7 @@ html, body {
   &__wrapper {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: start;
     gap: 45px;
     margin-bottom: 50px;
   }
@@ -2903,7 +2904,7 @@ html, body {
   &__detail {
     width: 484px;
     background-color: #fff;
-    overflow: hidden;
+    //overflow: hidden;
   }
 
   &__meta {
@@ -2917,10 +2918,6 @@ html, body {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-
-    a {
-      color: #30AFCB;
-    }
   }
 
   &__map {
@@ -6854,4 +6851,61 @@ html, body {
   }
 }
 
+/* temp add to calendar todo: find another script
+.copyx, .addeventatc_dropdown .frs a, .addeventatc_icon.atc_node.notranslate {
+  display: none !important;
+}
+
+.addeventatc:hover {
+  font-size: inherit;
+}
+
+.addeventatc_dropdown.addeventatc-selected {
+  font-family: @ff1 !important;
+  font-weight: 400 !important;
+  line-height: 1.55 !important;
+  letter-spacing: 0.14em !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  padding: 0;
+  background-color: @grey;
+  border: 1px solid #000;
+}
+
+.addeventatc_dropdown span{
+  font-family: @ff1 !important;
+  font-weight: 400 !important;
+  line-height: 1.55 !important;
+  letter-spacing: 0.14em !important;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+
+}
+.addeventatc_dropdown span:hover{
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+  background-color: #E8E8ED;
+}
+
+.addeventatc {
+  display: inline-block;
+  position: relative;
+  z-index: 99998;
+  font-family: inherit;
+  color: #30AFCB !important;
+  font-weight: inherit;
+  line-height: 1;
+  background: transparent;
+  font-size: inherit;
+  text-decoration: none;
+  border: 0;
+  padding: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  cursor: pointer;
+  text-shadow: none;
+  box-shadow: none !important;
+  background: none !important;
+}
+// end temp add to calendar */
 

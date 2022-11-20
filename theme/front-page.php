@@ -215,7 +215,7 @@ get_header();
             <div><img class="s-hp-sports__image desktop-only" src="<?php echo get_template_directory_uri() ?>/img/img-sports-1.png" alt=""></div>
             <div><img class="s-hp-sports__image desktop-only" src="<?php echo get_template_directory_uri() ?>/img/img-sports-1.png" alt=""></div>
         </div>
-        <div class="image-marquee slow"> <!-- todo: to right -->
+        <div class="image-marquee slow">
             <div><img class="s-hp-sports__image desktop-only" src="<?php echo get_template_directory_uri() ?>/img/img-sports-2.png" alt=""></div>
             <div><img class="s-hp-sports__image desktop-only" src="<?php echo get_template_directory_uri() ?>/img/img-sports-2.png" alt=""></div>
         </div>

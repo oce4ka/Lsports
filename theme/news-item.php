@@ -44,9 +44,15 @@ $category_link = get_permalink(get_page_by_path('news')) . '?cat=' . $category;
             <?php endif; ?>
             <div class="excerpt"><?php the_field('excerpt') ?></div>
             <div class="nav-social nav-social--post">
-                <div class="facebook facebook--black"></div>
-                <div class="twitter twitter--black"></div>
-                <div class="linkedin linkedin--black"></div>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink() ?>" target="_blank" rel="nofollow">
+                    <div class="facebook facebook--black"></div>
+                </a>
+                <a href="https://twitter.com/intent/tweet?url=<?php the_permalink() ?>&text=<?php the_title() ?>" target="_blank" rel="nofollow">
+                    <div class="twitter twitter--black"></div>
+                </a>
+                <a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php the_permalink() ?>" target="_blank" rel="nofollow">
+                    <div class="linkedin linkedin--black"></div>
+                </a>
             </div>
         </div>
         <img src="<?php echo wp_get_attachment_url(get_post_thumbnail_id(get_the_ID())); ?>" alt="<?php the_title() ?>">

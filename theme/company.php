@@ -217,11 +217,10 @@ get_header();
     </section>
 <?php endwhile; endif; ?>
 
-<?php if (have_rows('news')): while (have_rows('news')) : the_row(); ?>
     <section class="s-hp-news bg-yellow image-bordered">
         <div class="s-hp-news__headings">
-            <h2><?php the_sub_field('title') ?></h2>
-            <a href="<?php the_sub_field('see_all_link') ?>"><h6 class="arrow-after"><?php the_field('see_all_news', 'option') ?></h6></a>
+            <h2><?php the_field('news', 'option') ?></h2>
+            <a href="<?php the_field('see_all_news_link', 'option') ?>"><h6 class="arrow-after"><?php the_field('see_all_news', 'option') ?></h6></a>
         </div>
         <div class="s-hp-news__content">
             <div class="s-hp-news__carousel-wrapper">
@@ -253,8 +252,7 @@ get_header();
             </div>
         </div>
     </section>
-    <?php wp_reset_postdata(); ?>
-<?php endwhile; endif; ?>
+<?php wp_reset_postdata(); ?>
 
 <?php if (the_field('show_acknowledgements')): ?>
     <?php if (have_rows('acknowledgements')): while (have_rows('acknowledgements')) : the_row(); ?>
