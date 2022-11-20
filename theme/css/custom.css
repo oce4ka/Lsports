@@ -920,7 +920,7 @@ body {
   justify-content: space-around;
 }
 .image-marquee.slow div {
-  animation: marquee 70s linear infinite;
+  animation: marquee 70s linear infinite reverse;
 }
 .image-marquee img {
   display: block;

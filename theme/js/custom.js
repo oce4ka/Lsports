@@ -283,6 +283,8 @@
             },
             success: function (res) {
                 $('.s-news__wrapper').append(res.html);
+                console.log(res.count);
+                console.log(currentPage);
             }
         });
     });

@@ -136,7 +136,7 @@ function news_load_more()
         'offset' => (($_POST['paged'] - 1) * 6) + 1,
     ]);
 
-    $max_pages = $ajaxposts->max_num_pages;
+    $posts_received = count($ajaxposts->posts);
 
     //var_dump($ajaxposts);
     if ($ajaxposts->have_posts()) {
@@ -151,7 +151,7 @@ function news_load_more()
     }
 
     $result = [
-        'max' => $max_pages,
+        'count' => $posts_received,
         'html' => $output,
     ];
 
@@ -162,7 +162,7 @@ function news_load_more()
 add_action('wp_ajax_news_load_more', 'news_load_more');
 add_action('wp_ajax_nopriv_news_load_more', 'news_load_more');
 
-// Past events functionality
+// Past events functionality https://weichie.com/blog/load-more-posts-ajax-wordpress/
 /*
 // load more past events button on Events page
 function events_past_load_more()

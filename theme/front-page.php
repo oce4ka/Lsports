@@ -104,7 +104,7 @@ get_header();
     <section class="s-hp-news bg-yellow">
         <div class="s-hp-news__headings">
             <h2><?php the_field('latest_news', 'option') ?></h2>
-            <h6 class="arrow-after"><?php the_field('see_all_news', 'option') ?></h6>
+            <a href="<?php the_field('see_all_news_link', 'option') ?>"><h6 class="arrow-after"><?php the_field('see_all_news', 'option') ?></h6></a>
         </div>
 
         <?php
@@ -143,7 +143,7 @@ get_header();
     </section>
     <section class="s-hp-events bg-grey">
         <h2 data-aos="fade-up"><?php the_field('upcoming_events', 'option') ?></h2>
-        <h6 class="arrow-after"><a href="/events/"><?php the_field('see_all_events', 'option') ?></a></h6> <?php //todo: change styles ?>
+        <a href="<?php the_field('see_all_events_link', 'option') ?>"><h6 class="arrow-after"><?php the_field('see_all_events', 'option') ?></h6></a>
         <div class="s-hp-events__event-wrapper">
             <?php
             wp_reset_postdata();

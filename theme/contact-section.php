@@ -16,5 +16,5 @@
             </div>
         <?php endwhile; endif; ?>
     </h2>
-    <a href="/contact/" class="btn-yellow"><?php the_field('contact_us', 'option') ?></a> <!-- todo: -->
+    <a href="<?php the_field('contact_link', 'option') ?>" class="btn-yellow"><?php the_field('contact_us', 'option') ?></a>
 </section>

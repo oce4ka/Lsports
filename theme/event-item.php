@@ -178,7 +178,7 @@ if ($posts): ?>
     <section class="s-hp-news s-hp-news--event bg-white">
         <div class="s-hp-news__headings">
             <h2><?php the_field('next_events_decorated', 'option') ?></h2>
-            <h6 class="arrow-after"><?php the_field('see_all_events', 'option') ?></h6>
+            <a href="<?php the_field('see_all_events_link', 'option') ?>"><h6 class="arrow-after"><?php the_field('see_all_events', 'option') ?></h6></a>
         </div>
         <div class="s-hp-news__content">
             <div class="s-hp-news__carousel-wrapper">
