@@ -498,19 +498,79 @@ html, body {
   }
 
   &__image-container {
-    max-height: 730px;
-    max-width: 746px;
     margin-right: -110px;
-    //margin-bottom: 60px;
+    height: 730px;
+    width: 730px;
+    position: relative;
+    overflow: hidden;
 
-    iframe {
-      height: 730px;
-      width: 730px;
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 3;
     }
 
-    img {
+    lottie-player, iframe {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      right: 0;
       width: 100%;
       height: 100%;
+    }
+
+    iframe {
+      z-index: 2;
+      height: 730px;
+      width: 730px;
+      transform-origin: 0 0;
+    }
+
+    .video-iframe {
+      position: static !important;
+      transform: none !important;
+      width: 100% !important;
+      height: 100% !important;
+    }
+  }
+
+  .slide-1 {
+    lottie-player {
+      top: -46px;
+    }
+
+    iframe {
+      transform: scale(.8);
+      left: 169px;
+      top: 72px;
+    }
+  }
+
+  .slide-2 {
+    lottie-player {
+      top: -76px;
+    }
+
+    iframe {
+      transform: scale(.9);
+      top: 64px;
+      left: 87px;
+    }
+  }
+
+  .slide-3 {
+    lottie-player {
+      top: -99px;
+    }
+
+    iframe {
+      //transform: scale(.8);
+      left: 215px;
     }
   }
 }
@@ -3302,13 +3362,46 @@ html, body {
     }
 
     &__image-container {
-      max-height: 730*@x;
-      max-width: 746*@x;
       margin-right: -110*@x;
+      height: 730*@x;
+      width: 730*@x;
 
       iframe {
-        height: 730*@x;
-        width: 730*@x;
+        height: 730px;
+        width: 730px;
+      }
+    }
+
+    .slide-1 {
+      lottie-player {
+        top: -46*@x;
+      }
+
+      iframe {
+        left: 169*@x;
+        top: 72*@x;
+      }
+    }
+
+    .slide-2 {
+      lottie-player {
+        top: -76*@x;
+      }
+
+      iframe {
+        top: 64*@x;
+        left: 87*@x;
+      }
+    }
+
+    .slide-3 {
+      lottie-player {
+        top: -99*@x;
+      }
+
+      iframe {
+        top: 80*@x;
+        left: 215*@x;
       }
     }
   }
@@ -4993,16 +5086,53 @@ html, body {
     }
 
     &__image-container {
-      max-height: 350*@x;
-      max-width: 100vw;
-      margin: 0 -44*@x 20*@x -30*@x;
+      height: 267*@x;
+      width: 100vw;
+      margin: 0 -30*@x 20*@x;
       order: 1;
       display: flex;
       justify-content: end;
 
+      &:has(.video-iframe) {
+        height: 100vw;
+      }
+
       iframe {
-        height: 730*@x;
-        width: 730*@x;
+        //height: 730*@x;
+        //width: 730*@x;
+      }
+    }
+
+    .slide-1 {
+      lottie-player {
+        top: -14*@x;
+      }
+
+      iframe {
+        left: 138*@x;
+        top: 24*@x;
+      }
+    }
+
+    .slide-2 {
+      lottie-player {
+        top: -25*@x;
+      }
+
+      iframe {
+        top: 26*@x;
+        left: 116*@x;
+      }
+    }
+
+    .slide-3 {
+      lottie-player {
+        top: -33*@x;
+      }
+
+      iframe {
+        top: 33*@x;
+        left: 171*@x;
       }
     }
   }

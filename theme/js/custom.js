@@ -64,12 +64,45 @@
         arrows: false,
         dots: false,
         autoplay: true,
-        autoplaySpeed: 3000,
+        autoplaySpeed: 7000,
         speed: 500,
         fade: true,
         cssEase: 'linear',
         pauseOnHover: false,
     });
+
+
+    // Responsive transforming of an iframe with animation on main page
+    if ($('.s-hp-header-promo').length && $('.video-iframe').length == 0) {
+        // Because Slick removes lottie on init
+        $('.slide-1 .s-hp-header-promo__image-container').append('<lottie-player id="iframe-fotball" src="/wp-content/themes/LSport/img/lottie/football.json" background="transparent" speed="1" loop autoplay></lottie-player>');
+        $('.slide-2 .s-hp-header-promo__image-container').append('<lottie-player id="iframe-tennis" src="/wp-content/themes/LSport/img/lottie/basketball.json" background="transparent" speed="1" loop autoplay></lottie-player>');
+        $('.slide-3 .s-hp-header-promo__image-container').append('<lottie-player id="iframe-basketball" src="/wp-content/themes/LSport/img/lottie/tennis.json" background="transparent" speed="1" loop autoplay></lottie-player>');
+
+        function fitIframeToResponsive() {
+            let windowWidth = $(window).width();
+            if (windowWidth > 1440) {
+                $('.s-hp-header-promo__slide.slide-1 iframe').css('transform', 'scale(.8)');
+                $('.s-hp-header-promo__slide.slide-2 iframe').css('transform', 'scale(.9)');
+                $('.s-hp-header-promo__slide.slide-3 iframe').css('transform', 'scale(1)');
+            } else if (windowWidth < 769) {
+                let scaleIframeTo = (windowWidth / 375).toFixed(2);
+                $('.s-hp-header-promo__slide.slide-1 iframe').css('transform', 'scale(' + (scaleIframeTo * 0.35) + ')');
+                $('.s-hp-header-promo__slide.slide-2 iframe').css('transform', 'scale(' + (scaleIframeTo * 0.35) + ')');
+                $('.s-hp-header-promo__slide.slide-3 iframe').css('transform', 'scale(' + (scaleIframeTo * 0.35) + ')');
+            } else if (windowWidth < 1440) {
+                let scaleIframeTo = (windowWidth / 1440).toFixed(2);
+                $('.s-hp-header-promo__slide.slide-1 iframe').css('transform', 'scale(' + (scaleIframeTo * 0.8) + ')');
+                $('.s-hp-header-promo__slide.slide-2 iframe').css('transform', 'scale(' + (scaleIframeTo * 0.9) + ')');
+                $('.s-hp-header-promo__slide.slide-3 iframe').css('transform', 'scale(' + scaleIframeTo + ')');
+            }
+        }
+
+        fitIframeToResponsive();
+        $(window).resize(function () {
+            fitIframeToResponsive();
+        });
+    }
 
     // Carousel Products
 

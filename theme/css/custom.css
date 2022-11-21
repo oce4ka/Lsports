@@ -430,17 +430,64 @@ body {
   width: 500px;
 }
 .s-hp-header-promo__image-container {
-  max-height: 730px;
-  max-width: 746px;
   margin-right: -110px;
-}
-.s-hp-header-promo__image-container iframe {
   height: 730px;
   width: 730px;
+  position: relative;
+  overflow: hidden;
 }
-.s-hp-header-promo__image-container img {
+.s-hp-header-promo__image-container:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+}
+.s-hp-header-promo__image-container lottie-player,
+.s-hp-header-promo__image-container iframe {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
   width: 100%;
   height: 100%;
+}
+.s-hp-header-promo__image-container iframe {
+  z-index: 2;
+  height: 730px;
+  width: 730px;
+  transform-origin: 0 0;
+}
+.s-hp-header-promo__image-container .video-iframe {
+  position: static !important;
+  transform: none !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+.s-hp-header-promo .slide-1 lottie-player {
+  top: -46px;
+}
+.s-hp-header-promo .slide-1 iframe {
+  transform: scale(0.8);
+  left: 169px;
+  top: 72px;
+}
+.s-hp-header-promo .slide-2 lottie-player {
+  top: -76px;
+}
+.s-hp-header-promo .slide-2 iframe {
+  transform: scale(0.9);
+  top: 64px;
+  left: 87px;
+}
+.s-hp-header-promo .slide-3 lottie-player {
+  top: -99px;
+}
+.s-hp-header-promo .slide-3 iframe {
+  left: 215px;
 }
 .s-hp-trusted {
   border-top: 1px solid #000;
@@ -2801,13 +2848,34 @@ body {
     width: 38.5vw;
   }
   .s-hp-header-promo__image-container {
-    max-height: 56.21vw;
-    max-width: 57.442vw;
     margin-right: -8.47vw;
-  }
-  .s-hp-header-promo__image-container iframe {
     height: 56.21vw;
     width: 56.21vw;
+  }
+  .s-hp-header-promo__image-container iframe {
+    height: 730px;
+    width: 730px;
+  }
+  .s-hp-header-promo .slide-1 lottie-player {
+    top: -3.542vw;
+  }
+  .s-hp-header-promo .slide-1 iframe {
+    left: 13.013vw;
+    top: 5.544vw;
+  }
+  .s-hp-header-promo .slide-2 lottie-player {
+    top: -5.852vw;
+  }
+  .s-hp-header-promo .slide-2 iframe {
+    top: 4.928vw;
+    left: 6.699vw;
+  }
+  .s-hp-header-promo .slide-3 lottie-player {
+    top: -7.623vw;
+  }
+  .s-hp-header-promo .slide-3 iframe {
+    top: 6.16vw;
+    left: 16.555vw;
   }
   .s-hp-trusted__content {
     padding: 1.54vw 0;
@@ -4134,16 +4202,36 @@ body {
     order: 2;
   }
   .s-hp-header-promo__image-container {
-    max-height: 93.45vw;
-    max-width: 100vw;
-    margin: 0 -11.748vw 5.34vw -8.01vw;
+    height: 71.289vw;
+    width: 100vw;
+    margin: 0 -8.01vw 5.34vw;
     order: 1;
     display: flex;
     justify-content: end;
   }
-  .s-hp-header-promo__image-container iframe {
-    height: 194.91vw;
-    width: 194.91vw;
+  .s-hp-header-promo__image-container:has(.video-iframe) {
+    height: 100vw;
+  }
+  .s-hp-header-promo .slide-1 lottie-player {
+    top: -3.738vw;
+  }
+  .s-hp-header-promo .slide-1 iframe {
+    left: 36.846vw;
+    top: 6.408vw;
+  }
+  .s-hp-header-promo .slide-2 lottie-player {
+    top: -6.675vw;
+  }
+  .s-hp-header-promo .slide-2 iframe {
+    top: 6.942vw;
+    left: 30.972vw;
+  }
+  .s-hp-header-promo .slide-3 lottie-player {
+    top: -8.811vw;
+  }
+  .s-hp-header-promo .slide-3 iframe {
+    top: 8.811vw;
+    left: 45.657vw;
   }
   .s-hp-trusted {
     margin: 8.01vw 0 0;
