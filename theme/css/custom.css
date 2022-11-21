@@ -461,12 +461,6 @@ body {
   width: 730px;
   transform-origin: 0 0;
 }
-.s-hp-header-promo__image-container .video-iframe {
-  position: static !important;
-  transform: none !important;
-  width: 100% !important;
-  height: 100% !important;
-}
 .s-hp-header-promo .slide-1 lottie-player {
   top: -46px;
 }
@@ -4208,9 +4202,6 @@ body {
     order: 1;
     display: flex;
     justify-content: end;
-  }
-  .s-hp-header-promo__image-container:has(.video-iframe) {
-    height: 100vw;
   }
   .s-hp-header-promo .slide-1 lottie-player {
     top: -3.738vw;

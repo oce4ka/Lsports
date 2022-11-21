@@ -21,19 +21,7 @@ get_header();
                             <a href="<?php the_field('tell_us_what_you_need_link', 'option') ?>" class="btn-yellow"><?php the_field('tell_us_what_you_need', 'option') ?></a>
                         </div>
                         <div class="s-hp-header-promo__image-container">
-                            <?php if (isset($_GET['showvideo'])): ?>
-                                <?php if ($slide_number == 1): ?>
-                                    <iframe class="video-iframe" src="https://lsport.digiproduct.co.il/markup/ftbl730/" frameborder="0"></iframe>
-                                <?php elseif ($slide_number == 2): ?>
-                                    <iframe class="video-iframe" src="https://studio.digiproduct.co.il/lsport/tns730x730/index.html" frameborder="0"></iframe>
-                                <?php else: ?>
-                                    <iframe class="video-iframe" src="https://studio.digiproduct.co.il/lsport/bskt730x730/index.html" frameborder="0"></iframe>
-                                <?php endif; ?>
-                            <?php elseif (isset($_GET['showimages'])): ?>
-                                <img style="z-index: 2;position: relative;" src="<?php the_sub_field('image') ?>" alt="<?php strip_tags(the_sub_field('title')) ?>">
-                            <?php else: ?>
-                                <iframe src="<?php the_sub_field('spline_video') ?>" frameborder="0"></iframe>
-                            <?php endif; ?>
+                            <iframe src="<?php the_sub_field('spline_video') ?>" frameborder="0"></iframe>
                         </div>
                     </div>
                 </div>

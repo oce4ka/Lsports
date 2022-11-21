@@ -73,7 +73,7 @@
 
 
     // Responsive transforming of an iframe with animation on main page
-    if ($('.s-hp-header-promo').length && $('.video-iframe').length == 0) {
+    if ($('.s-hp-header-promo').length) {
         // Because Slick removes lottie on init
         $('.slide-1 .s-hp-header-promo__image-container').append('<lottie-player id="iframe-fotball" src="/wp-content/themes/LSport/img/lottie/football.json" background="transparent" speed="1" loop autoplay></lottie-player>');
         $('.slide-2 .s-hp-header-promo__image-container').append('<lottie-player id="iframe-tennis" src="/wp-content/themes/LSport/img/lottie/basketball.json" background="transparent" speed="1" loop autoplay></lottie-player>');
