@@ -20,7 +20,11 @@ get_header();
                             <a href="<?php the_field('tell_us_what_you_need_link', 'option') ?>" class="btn-yellow"><?php the_field('tell_us_what_you_need', 'option') ?></a>
                         </div>
                         <div class="s-hp-header-promo__image-container">
-                            <img src="<?php the_sub_field('image') ?>" alt="">
+                            <?php if (isset($_GET['showimages'])): ?>
+                                <img src="<?php the_sub_field('image') ?>" alt="">
+                            <?php else: ?>
+                                <iframe src="<?php echo get_template_directory_uri() ?>/img/video/ftbl730/" frameborder="0"></iframe>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
