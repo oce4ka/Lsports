@@ -476,6 +476,28 @@ html, body {
 }
 
 // section homepage promo
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+@keyframes rotation-sides {
+  0% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(-10deg);
+  }
+}
+
 .s-hp-header-promo {
   font-size: 16px;
   line-height: 1.5;
@@ -530,6 +552,12 @@ html, body {
       width: 730px;
       transform-origin: 0 0;
     }
+
+    img {
+      z-index: 2;
+      position: relative;
+      animation: rotation 16s infinite linear;
+    }
   }
 
   .slide-1 {
@@ -553,6 +581,14 @@ html, body {
       transform: scale(.9);
       top: 64px;
       left: 87px;
+    }
+
+    img {
+      animation: rotation-sides 6s infinite linear;
+      margin-bottom: -30px;
+      margin-right: 36px;
+      max-width: 50%;
+      max-height: 100%;
     }
   }
 
@@ -1277,6 +1313,7 @@ html, body {
 .footer-global {
   background: #000;
   display: flex;
+  flex-wrap: wrap;
   padding: 0 30px;
   justify-content: space-between;
   align-items: start;
@@ -1358,6 +1395,15 @@ html, body {
     min-width: 0;
   }
 }
+
+.nav-footer-links {
+  width: 100%;
+  margin-top: -30px;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+// Page 404
 
 .s-404 {
   text-align: center;
@@ -4875,7 +4921,14 @@ html, body {
     }
   }
   */
-  // page 404
+
+  .nav-footer-links {
+    margin-top: -30*@x;
+    font-size: 14*@x;
+  }
+
+  // Page 404
+
   .s-404 {
     .container {
       margin-top: 120*@x;
@@ -5106,6 +5159,11 @@ html, body {
       iframe {
         top: 26*@x;
         left: 116*@x;
+      }
+
+      img {
+        margin-bottom: -30*@x;
+        margin-right: 36*@x;
       }
     }
 
@@ -5672,7 +5730,6 @@ html, body {
 
   .footer-global {
     padding: 0 30*@x;
-    flex-wrap: wrap;
   }
 
   .logo-footer {
@@ -6970,7 +7027,14 @@ html, body {
       }
     }
   */
-  // page 404
+
+  .nav-footer-links {
+    margin: 20px 0;
+    font-size: 14*@x;
+  }
+
+  // Page 404
+
   .s-404 {
     .container {
       background-image: url(../img/img-404-mob.svg);

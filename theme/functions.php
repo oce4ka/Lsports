@@ -26,6 +26,7 @@ register_nav_menus(
     array(
         'header-menu' => esc_html__('header-menu'),
         'footer-menu' => esc_html__('footer-menu'),
+        'footer-links-menu' => esc_html__('footer-links-menu'),
     )
 );
 

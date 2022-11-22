@@ -411,6 +411,25 @@ body {
 .btn-hamburger.close {
   background-image: url("../img/icon-close.svg");
 }
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+@keyframes rotation-sides {
+  0% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(-10deg);
+  }
+}
 .s-hp-header-promo {
   font-size: 16px;
   line-height: 1.5;
@@ -461,6 +480,11 @@ body {
   width: 730px;
   transform-origin: 0 0;
 }
+.s-hp-header-promo__image-container img {
+  z-index: 2;
+  position: relative;
+  animation: rotation 16s infinite linear;
+}
 .s-hp-header-promo .slide-1 lottie-player {
   top: -46px;
 }
@@ -476,6 +500,13 @@ body {
   transform: scale(0.9);
   top: 64px;
   left: 87px;
+}
+.s-hp-header-promo .slide-2 img {
+  animation: rotation-sides 6s infinite linear;
+  margin-bottom: -30px;
+  margin-right: 36px;
+  max-width: 50%;
+  max-height: 100%;
 }
 .s-hp-header-promo .slide-3 lottie-player {
   top: -99px;
@@ -1075,6 +1106,7 @@ body {
 .footer-global {
   background: #000;
   display: flex;
+  flex-wrap: wrap;
   padding: 0 30px;
   justify-content: space-between;
   align-items: start;
@@ -1168,6 +1200,12 @@ body {
 }
 .nav-footer .active:hover {
   background-color: #E8E8ED;
+}
+.nav-footer-links {
+  width: 100%;
+  margin-top: -30px;
+  font-size: 14px;
+  line-height: 1.2;
 }
 .s-404 {
   text-align: center;
@@ -4021,6 +4059,10 @@ body {
     }
   }
   */
+  .nav-footer-links {
+    margin-top: -2.31vw;
+    font-size: 1.078vw;
+  }
   .s-404 .container {
     margin-top: 9.24vw;
     margin-bottom: 9.24vw;
@@ -4216,6 +4258,10 @@ body {
   .s-hp-header-promo .slide-2 iframe {
     top: 6.942vw;
     left: 30.972vw;
+  }
+  .s-hp-header-promo .slide-2 img {
+    margin-bottom: -8.01vw;
+    margin-right: 9.612vw;
   }
   .s-hp-header-promo .slide-3 lottie-player {
     top: -8.811vw;
@@ -4673,7 +4719,6 @@ body {
   }
   .footer-global {
     padding: 0 8.01vw;
-    flex-wrap: wrap;
   }
   .logo-footer {
     width: 34.71vw;
@@ -5706,6 +5751,10 @@ body {
       }
     }
   */
+  .nav-footer-links {
+    margin: 20px 0;
+    font-size: 3.738vw;
+  }
   .s-404 .container {
     background-image: url(../img/img-404-mob.svg);
     background-size: 100% auto;

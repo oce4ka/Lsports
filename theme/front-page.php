@@ -21,7 +21,12 @@ get_header();
                             <a href="<?php the_field('tell_us_what_you_need_link', 'option') ?>" class="btn-yellow"><?php the_field('tell_us_what_you_need', 'option') ?></a>
                         </div>
                         <div class="s-hp-header-promo__image-container">
-                            <iframe src="<?php the_sub_field('spline_video') ?>" frameborder="0"></iframe>
+                            <?php $isMob = is_numeric(strpos(strtolower($_SERVER["HTTP_USER_AGENT"]), "mobile")); ?>
+                            <?php if ($isMob) : ?>
+                                <img src="<?php the_sub_field('image') ?>" alt="<?php echo strip_tags(get_sub_field('title')) ?>">
+                            <?php else : ?>
+                                <iframe src="<?php the_sub_field('spline_video') ?>" frameborder="0"></iframe>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
@@ -56,18 +61,8 @@ get_header();
         <div class="container">
             <h6>Our Products</h6>
             <h2>
-                <?php
-                $delay = 0;
-                $delay_difference = 50;
-                $offset = 0;
-                $offset_difference = 100;
-                ?>
                 <?php if (have_rows('products_heading')): while (have_rows('products_heading')) : the_row(); ?>
-                    <?php
-                    $delay = $delay + $delay_difference;
-                    $offset = $offset + $offset_difference;
-                    ?>
-                    <div data-aos="fade-up" data-aos-delay="<?php echo $delay; ?>" data-aos-offset="<?php echo $offset; ?>"><?php the_sub_field('title_line'); ?></div>
+                    <div><?php the_sub_field('title_line'); ?></div>
                 <?php endwhile; endif; ?>
             </h2>
             <div class="s-hp-products__carousel">
@@ -126,7 +121,7 @@ get_header();
                     if ($latest_news->have_posts()) : while ($latest_news->have_posts()) : $latest_news->the_post(); ?>
                         <div class="s-hp-news__news-item">
                             <div class="s-hp-news__news-item__content">
-                                <div class="image-wrapper" style="background-image: url(<?php echo get_the_post_thumbnail_url(); ?>)"></div>
+                                <div class="image-wrapper" style="background-image: url(<?php echo get_the_post_thumbnail_url(get_the_ID(), "medium"); ?>)"></div>
                                 <h3><?php the_title(); ?></h3>
                             </div>
                             <a href="<?php the_permalink(); ?>" class="btn-read-more"><span class="text-vertical arrow-after"><?php the_field('read_more', 'option') ?></span></a>
@@ -144,7 +139,7 @@ get_header();
         <?php wp_reset_postdata(); ?>
     </section>
     <section class="s-hp-events bg-grey">
-        <h2 data-aos="fade-up"><?php the_field('upcoming_events', 'option') ?></h2>
+        <h2><?php the_field('upcoming_events', 'option') ?></h2>
         <a href="<?php the_field('see_all_events_link', 'option') ?>"><h6 class="arrow-after"><?php the_field('see_all_events', 'option') ?></h6></a>
         <div class="s-hp-events__event-wrapper">
             <?php
@@ -180,7 +175,7 @@ get_header();
                         endif;
                         ?>
                     </div>
-                    <div class="image-wrapper" style="background-image: url(<?php echo get_the_post_thumbnail_url(); ?>)"></div>
+                    <div class="image-wrapper" style="background-image: url(<?php echo get_the_post_thumbnail_url(get_the_ID(), "medium"); ?>)"></div>
                     <h3><?php the_field('title_short') ?></h3>
                     <div class="country"><?php the_field('location') ?></div>
                     <div class="info"><?php the_field('stand_location') ?></div>
@@ -209,7 +204,7 @@ get_header();
 
     <section class="s-hp-sports">
         <?php if (have_rows('covering_headings')): while (have_rows('covering_headings')) : the_row(); ?>
-            <h2 data-aos="fade-up"><?php the_sub_field('title'); ?></h2>
+            <h2><?php the_sub_field('title'); ?></h2>
             <!--p data-aos="fade-up" data-aos-delay="100" data-aos-offset="50"><?php the_sub_field('description'); ?></p-->
             <!--a href="<?php // the_sub_field('link'); ?>"><h6 class="arrow-after"><?php // the_field('read_more', 'option') ?></h6></a-->
         <?php endwhile; endif; ?>
