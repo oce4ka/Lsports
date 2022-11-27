@@ -21,18 +21,8 @@ get_header();
                 <h2><?php the_sub_field('subtitle') ?></h2>
                 <p><?php the_sub_field('description') ?></p>
                 <div class="s-contact__form">
-                    <?php echo do_shortcode('[contact-form-7 id="347"]') ?>
-<!--                    <input type="text" placeholder="First name*">-->
-<!--                    <input type="text" placeholder="Last name">-->
-<!--                    <input type="text" placeholder="Email*">-->
-<!--                    <input type="text" placeholder="Phone*">-->
-<!--                    <select class="full-width" name="" id="">-->
-<!--                        <option value="Country*">Country*</option>-->
-<!--                    </select>-->
-<!--                    <input type="text" placeholder="Skype">-->
-<!--                    <input type="text" placeholder="Telegram">-->
-<!--                    <textarea class="full-width" placeholder="Message*"></textarea>-->
-<!--                    <div class="btn-yellow">Get in touch</div>-->
+                    <?php //echo do_shortcode('[contact-form-7 id="347"]') ?>
+                    <iframe style="border: 0;" src="https://www2.lsports.eu/l/893471/2020-10-29/7z4" width="100%" height="820" frameborder="0"></iframe>
                 </div>
             </div>
             <?php endwhile;
