@@ -102,6 +102,9 @@ h3 {
   background-image: url("data:image/svg+xml,%3Csvg width='26' height='11' viewBox='0 0 26 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 5.5958H24.7623M24.7623 5.5958L20.3925 1.22601M24.7623 5.5958L20.3925 9.96559' stroke='black'/%3E%3C/svg%3E%0A");
   background-size: 100% 100%;
 }
+.arrow-after__blue:after {
+  background-image: url("data:image/svg+xml,%3Csvg width='27' height='17' viewBox='0 0 27 17' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 8.39528H25.4069M25.4069 8.39528L18.0116 1M25.4069 8.39528L18.0116 15.7906' stroke='%2300CEF5'/%3E%3C/svg%3E%0A");
+}
 .arrow-after--right:after {
   float: right;
 }
@@ -315,6 +318,9 @@ h3 {
 .ical {
   background-image: url("../img/icon-ical.svg");
 }
+.under-more {
+  display: none;
+}
 html,
 body {
   background: #E8E8ED;
@@ -328,6 +334,32 @@ body {
   align-items: center;
   padding: 0 30px;
   border-bottom: 1px solid #000;
+}
+.header-global.transparent-white {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  border-bottom: 1px solid #fff;
+}
+.header-global.transparent-white .logo-global {
+  background-image: url(../img/logo-footer.svg);
+}
+.header-global.transparent-white .nav-main > ul > li {
+  color: #fff;
+}
+.header-global.transparent-white .nav-main > ul > li:has(ul):before {
+  background-image: url("data:image/svg+xml,%3Csvg width='8' height='5' viewBox='0 0 8 5' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.19696 1.06293L4.02539 3.89136L6.85382 1.06293' stroke='white'/%3E%3C/svg%3E%0A");
+}
+.header-global.transparent-white .nav-main > ul > li.active {
+  border-color: #fff;
+  color: #000;
+}
+.header-global.transparent-white .btn-hamburger {
+  background-image: url(../img/icon-hamb-white.svg);
+}
+.header-global.transparent-white .btn-hamburger.close {
+  background-image: url(../img/icon-close-white.svg);
 }
 .logo-global {
   background: url("../img/logo.svg") no-repeat;
@@ -1437,6 +1469,55 @@ body {
 .s-prod-header {
   border-bottom: 1px solid #000;
   padding: 170px 0 85px;
+  /*
+  &.exclusive-data {
+    .s-prod-header__grid {
+      grid-template-columns: 514px 564px;
+      gap: 112px;
+      margin-top: 70px;
+    }
+
+    .s-prod-header__image {
+      margin: 0;
+
+      &:before {
+        background-image: url(../img/decor-5.svg);
+        width: 92px;
+        height: 102px;
+        top: -54px;
+        left: 29px;
+        right: auto;
+      }
+
+      &:after {
+        background-image: url(../img/decor-17.svg);
+        width: 139px;
+        height: 88px;
+        left: 0;
+        bottom: -81px;
+      }
+    }
+  }
+   */
+  /*
+    .logos {
+      margin-top: 10px;
+      list-style: none;
+      display: flex;
+      gap: 25px;
+
+      img {
+        max-height: 50px;
+      }
+    }
+   */
+}
+.s-prod-header.no-border {
+  border: 0;
+}
+.s-prod-header.in-numbers-only {
+  padding: 40px 0 85px;
+  border-bottom: 0;
 }
 .s-prod-header__grid {
   display: grid;
@@ -1467,6 +1548,9 @@ body {
   position: relative;
   margin: 70px 0 45px;
 }
+.s-prod-header__image img {
+  border: 1px solid #000;
+}
 .s-prod-header__image:before,
 .s-prod-header__image:after {
   content: '';
@@ -1487,6 +1571,30 @@ body {
   height: 154px;
   left: -65px;
   bottom: -44px;
+}
+.s-prod-header.premium-racing .s-prod-header__grid {
+  gap: 75px;
+  grid-template-columns: 567px 564px;
+}
+.s-prod-header.premium-racing .s-prod-header__image {
+  margin: 90px 0;
+}
+.s-prod-header.premium-racing .s-prod-header__image img {
+  display: block;
+}
+.s-prod-header.premium-racing .s-prod-header__image:before {
+  background-image: url(../img/decor-4.svg);
+  width: 82px;
+  height: 90px;
+  top: -89px;
+  right: 0;
+}
+.s-prod-header.premium-racing .s-prod-header__image:after {
+  background-image: url(../img/decor-17.svg);
+  width: 139px;
+  height: 87px;
+  left: 0;
+  bottom: -86px;
 }
 .s-prod-header .powered {
   font-family: "PP Formula", sans-serif;
@@ -1883,18 +1991,22 @@ body {
   top: -246px;
   right: -425px;
 }
-.s-about-acknowledgments {
+.s-about-acknowledgments,
+.s-racing-types {
   padding: 120px 0;
   text-align: center;
 }
-.s-about-acknowledgments h3 {
+.s-about-acknowledgments h3,
+.s-racing-types h3 {
   font-size: 25px;
   margin: 20px 20px 0;
 }
-.s-about-acknowledgments p {
+.s-about-acknowledgments p,
+.s-racing-types p {
   margin: 0 20px;
 }
-.s-about-acknowledgments .year {
+.s-about-acknowledgments .year,
+.s-racing-types .year {
   font-family: "PP Formula", sans-serif;
   font-weight: 500;
   font-size: 10px;
@@ -1903,20 +2015,42 @@ body {
   text-transform: uppercase;
   margin: 5px 20px 16px;
 }
-.s-about-acknowledgments__list {
+.s-about-acknowledgments__list,
+.s-racing-types__list {
   display: flex;
   justify-content: space-between;
 }
-.s-about-acknowledgments__item {
+.s-about-acknowledgments__item,
+.s-racing-types__item {
   border: 1px solid #000;
   margin-top: 60px;
 }
-.s-about-acknowledgments__image {
+.s-about-acknowledgments__image,
+.s-racing-types__image {
   border-bottom: 1px solid #000;
 }
-.s-about-acknowledgments__image img {
+.s-about-acknowledgments__image img,
+.s-racing-types__image img {
   display: block;
   max-width: 222px;
+}
+.s-racing-types__list {
+  flex-wrap: wrap;
+}
+.s-racing-types h3 {
+  font-size: 35px;
+  margin: 30px 0 27px;
+}
+.s-racing-types p {
+  max-width: 700px;
+  margin: 20px auto 35px;
+}
+.s-racing-types__image img {
+  max-width: 100vw;
+  width: 371px;
+}
+.s-racing-types__item:hover {
+  background-color: #E1F32C;
 }
 .s-about-positions {
   margin: 110px 0;
@@ -2757,6 +2891,48 @@ body {
   margin-bottom: 100px;
   font-size: 75px;
 }
+.s-american__header .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: start;
+  min-height: 612px;
+  padding-bottom: 80px;
+}
+.s-american h1,
+.s-american h2 {
+  max-width: 568px;
+}
+.s-american h1 {
+  font-size: 75px;
+  line-height: 0.95;
+  margin-bottom: 10px;
+}
+.s-american h2 {
+  font-family: "Test Söhne", sans-serif;
+  font-size: 18px;
+  line-height: 1.55;
+  letter-spacing: 0.2em;
+}
+.s-american__header {
+  color: #fff;
+  background-size: cover;
+  background-position: center;
+}
+.s-american__content .container {
+  max-width: 756px;
+  padding: 100px 0;
+}
+.s-american__read-more {
+  font-family: "PP Formula", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.55;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #00CEF5;
+  margin-top: 50px;
+}
 @media (max-width: 1300px) {
   .container {
     width: 92.4vw;
@@ -3384,6 +3560,9 @@ body {
   .s-prod-header {
     padding: 13.09vw 0 6.545vw;
   }
+  .s-prod-header.in-numbers-only {
+    padding: 3.08vw 0 6.545vw;
+  }
   .s-prod-header__grid {
     grid-template-columns: 43.659vw 37.73vw;
     gap: 10.78vw;
@@ -3431,6 +3610,23 @@ body {
     font-size: 1.925vw;
     padding: 1.155vw 1.54vw;
     margin-top: -0.77vw;
+  }
+  .s-prod-header.premium-racing .s-prod-header__grid {
+    gap: 5.775vw;
+    grid-template-columns: 43.659vw 43.428vw;
+  }
+  .s-prod-header.premium-racing .s-prod-header__image {
+    margin: 6.93vw 0;
+  }
+  .s-prod-header.premium-racing .s-prod-header__image:before {
+    width: 6.314vw;
+    height: 6.93vw;
+    top: -6.853vw;
+  }
+  .s-prod-header.premium-racing .s-prod-header__image:after {
+    width: 10.703vw;
+    height: 6.699vw;
+    bottom: -6.622vw;
   }
   .s-prod-qa {
     padding: 8.624vw 0;
@@ -3632,25 +3828,43 @@ body {
     top: -18.942vw;
     right: -32.725vw;
   }
-  .s-about-acknowledgments {
+  .s-about-acknowledgments,
+  .s-racing-types {
     padding: 9.24vw 0;
   }
-  .s-about-acknowledgments h3 {
+  .s-about-acknowledgments h3,
+  .s-racing-types h3 {
     font-size: 1.925vw;
     margin: 1.54vw 1.54vw 0;
   }
-  .s-about-acknowledgments p {
+  .s-about-acknowledgments p,
+  .s-racing-types p {
     margin: 0 1.54vw;
   }
-  .s-about-acknowledgments .year {
+  .s-about-acknowledgments .year,
+  .s-racing-types .year {
     font-size: 0.77vw;
     margin: 0.385vw 1.54vw 1.232vw;
   }
-  .s-about-acknowledgments__item {
+  .s-about-acknowledgments__item,
+  .s-racing-types__item {
     margin-top: 4.62vw;
   }
-  .s-about-acknowledgments__image img {
+  .s-about-acknowledgments__image img,
+  .s-racing-types__image img {
     max-width: 17.094vw;
+  }
+  .s-racing-types h3 {
+    font-size: 2.695vw;
+    margin: 2.31vw 0 2.079vw;
+  }
+  .s-racing-types p {
+    max-width: 53.9vw;
+    margin: 1.54vw auto 2.695vw;
+  }
+  .s-racing-types__image img {
+    max-width: 100vw;
+    width: 28.567vw;
   }
   .s-about-positions {
     margin: 8.47vw 0;
@@ -4086,6 +4300,29 @@ body {
     margin-bottom: 7.7vw;
     font-size: 5.775vw;
   }
+  .s-american__header .container {
+    min-height: 47.124vw;
+    padding-bottom: 6.16vw;
+  }
+  .s-american h1,
+  .s-american h2 {
+    max-width: 43.736vw;
+  }
+  .s-american h1 {
+    font-size: 5.775vw;
+    margin-bottom: 0.77vw;
+  }
+  .s-american h2 {
+    font-size: 1.386vw;
+  }
+  .s-american__content .container {
+    max-width: 58.212vw;
+    padding: 7.7vw 0;
+  }
+  .s-american__read-more {
+    font-size: 0.924vw;
+    margin-top: 3.85vw;
+  }
 }
 @media (max-width: 768px) {
   .container {
@@ -4168,6 +4405,12 @@ body {
   .header-global {
     height: 15.486vw;
     padding: 0 8.01vw;
+  }
+  .header-global.transparent-white .nav-main {
+    font-size: 3.204vw;
+  }
+  .header-global.transparent-white .nav-main > ul {
+    background-color: rgba(0, 0, 0, 0.4);
   }
   .logo-global {
     width: 34.71vw;
@@ -4933,6 +5176,9 @@ body {
   .s-prod-header {
     padding: 11.214vw 0 22.695vw;
   }
+  .s-prod-header.in-numbers-only {
+    padding: 0 0 22.695vw;
+  }
   .s-prod-header__grid {
     grid-template-columns: 1fr;
     gap: 0;
@@ -4990,6 +5236,26 @@ body {
     font-size: 4.806vw;
     padding: 4.005vw 1.335vw;
     margin-top: -2.67vw;
+  }
+  .s-prod-header.premium-racing {
+    padding-bottom: 8.01vw;
+  }
+  .s-prod-header.premium-racing .s-prod-header__grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .s-prod-header.premium-racing .s-prod-header__image {
+    margin: 10.68vw 0 25.365vw;
+  }
+  .s-prod-header.premium-racing .s-prod-header__image:before {
+    width: 15.219vw;
+    height: 16.554vw;
+    top: -16.554vw;
+  }
+  .s-prod-header.premium-racing .s-prod-header__image:after {
+    width: 25.632vw;
+    height: 16.554vw;
+    bottom: -16.287vw;
   }
   .s-prod-qa {
     padding: 13.35vw 0;
@@ -5539,30 +5805,56 @@ body {
     position: static;
     margin: 0 auto 0 8.01vw;
   }
-  .s-about-acknowledgments {
+  .s-about-acknowledgments,
+  .s-racing-types {
     padding: 18.69vw 0;
   }
-  .s-about-acknowledgments h3 {
+  .s-about-acknowledgments h3,
+  .s-racing-types h3 {
     font-size: 4.806vw;
     margin: 6.675vw 2.67vw 0;
   }
-  .s-about-acknowledgments p {
+  .s-about-acknowledgments p,
+  .s-racing-types p {
     margin: 0 5.34vw;
   }
-  .s-about-acknowledgments .year {
+  .s-about-acknowledgments .year,
+  .s-racing-types .year {
     font-size: 2.67vw;
     margin: 1.335vw 5.34vw 4.272vw;
   }
-  .s-about-acknowledgments__list {
+  .s-about-acknowledgments__list,
+  .s-racing-types__list {
     flex-wrap: wrap;
     margin-top: 5.34vw;
   }
-  .s-about-acknowledgments__item {
+  .s-about-acknowledgments__item,
+  .s-racing-types__item {
     margin-top: 4.806vw;
   }
-  .s-about-acknowledgments__image img {
+  .s-about-acknowledgments__image img,
+  .s-racing-types__image img {
     max-width: 39.516vw;
     height: 18.69vw;
+  }
+  .s-racing-types {
+    padding: 12.015vw 0;
+  }
+  .s-racing-types h2 {
+    font-size: 12.015vw;
+  }
+  .s-racing-types h3 {
+    font-size: 9.345vw;
+    margin: 6.675vw 0 6.675vw;
+  }
+  .s-racing-types p {
+    max-width: 186.9vw;
+    margin: 5.34vw auto 9.345vw;
+  }
+  .s-racing-types__image img {
+    max-width: 100vw;
+    width: calc(100vw - 60 * 0.267vw);
+    height: auto;
   }
   .s-about-positions {
     margin: 18.69vw 0;
@@ -5779,6 +6071,32 @@ body {
   .s-text__heading {
     margin-bottom: 26.7vw;
     font-size: 20.025vw;
+  }
+  .s-american__header .container {
+    min-height: 129.228vw;
+    padding-bottom: 6.942vw;
+  }
+  .s-american h1,
+  .s-american h2 {
+    max-width: 100vw;
+  }
+  .s-american h1 {
+    font-size: 14.685vw;
+    margin-bottom: 2.67vw;
+  }
+  .s-american h2 {
+    font-size: 3.204vw;
+  }
+  .s-american__content {
+    margin-top: 12.549vw;
+  }
+  .s-american__content .container {
+    max-width: 201.852vw;
+    padding: 26.7vw 0;
+  }
+  .s-american__read-more {
+    font-size: 3.204vw;
+    margin-top: 8.01vw;
   }
 }
 @media (min-width: 768.01px) {

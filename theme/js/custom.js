@@ -323,6 +323,15 @@
         });
     });
 
+    // Read more link in Coverage posts
+
+    $('[href=#readmore]').click(function (e) {
+        e.preventDefault();
+        $(e.target).siblings('.under-more').slideDown('fast');
+        $(e.target).animate({'opacity': 0});
+    });
+
+
     // Past events functionality
     // Load more events past button on Events pages
     /*

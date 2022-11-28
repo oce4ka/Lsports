@@ -134,6 +134,12 @@ h1, h2, h3 {
     background-size: 100% 100%;
   }
 
+  &__blue {
+    &:after {
+      background-image: url("data:image/svg+xml,%3Csvg width='27' height='17' viewBox='0 0 27 17' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 8.39528H25.4069M25.4069 8.39528L18.0116 1M25.4069 8.39528L18.0116 15.7906' stroke='%2300CEF5'/%3E%3C/svg%3E%0A");
+    }
+  }
+
   &--right {
     &:after {
       float: right;
@@ -363,6 +369,10 @@ h1, h2, h3 {
   background-image: url("../img/icon-ical.svg");
 }
 
+.under-more {
+  display: none;
+}
+
 // end variables and common
 
 html, body {
@@ -378,6 +388,47 @@ html, body {
   align-items: center;
   padding: 0 30px;
   border-bottom: 1px solid #000;
+
+  &.transparent-white {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    border-bottom: 1px solid #fff;
+
+    .logo-global {
+      background-image: url(../img/logo-footer.svg);
+    }
+
+    .nav-main {
+      & > ul {
+        //background-color: rgba(0, 0, 0, .4);
+
+        & > li {
+          color: #fff;
+
+          &:has(ul):before {
+            background-image: url("data:image/svg+xml,%3Csvg width='8' height='5' viewBox='0 0 8 5' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.19696 1.06293L4.02539 3.89136L6.85382 1.06293' stroke='white'/%3E%3C/svg%3E%0A");
+          }
+        }
+
+        & > li.active {
+          border-color: #fff;
+          color: #000;
+        }
+      }
+    }
+
+    .btn-hamburger {
+      background-image: url(../img/icon-hamb-white.svg);
+
+      &.close {
+        background-image: url(../img/icon-close-white.svg);
+      }
+    }
+
+  }
+
 }
 
 .logo-global {
@@ -1686,6 +1737,15 @@ html, body {
   border-bottom: 1px solid #000;
   padding: 170px 0 85px;
 
+  &.no-border {
+    border: 0;
+  }
+
+  &.in-numbers-only {
+    padding: 40px 0 85px;
+    border-bottom: 0;
+  }
+
   &__grid {
     display: grid;
     grid-template-columns: 567px 490px;
@@ -1719,6 +1779,10 @@ html, body {
     position: relative;
     margin: 70px 0 45px;
 
+    img {
+      border: 1px solid #000;
+    }
+
     &:before, &:after {
       content: '';
       position: absolute;
@@ -1742,6 +1806,68 @@ html, body {
       bottom: -44px;
     }
   }
+
+  &.premium-racing {
+    .s-prod-header__grid {
+      gap: 75px;
+      grid-template-columns: 567px 564px;
+    }
+
+    .s-prod-header__image {
+      margin: 90px 0;
+
+      img {
+        display: block;
+      }
+
+      &:before {
+        background-image: url(../img/decor-4.svg);
+        width: 82px;
+        height: 90px;
+        top: -89px;
+        right: 0;
+      }
+
+      &:after {
+        background-image: url(../img/decor-17.svg);
+        width: 139px;
+        height: 87px;
+        left: 0;
+        bottom: -86px;
+      }
+    }
+  }
+
+  /*
+  &.exclusive-data {
+    .s-prod-header__grid {
+      grid-template-columns: 514px 564px;
+      gap: 112px;
+      margin-top: 70px;
+    }
+
+    .s-prod-header__image {
+      margin: 0;
+
+      &:before {
+        background-image: url(../img/decor-5.svg);
+        width: 92px;
+        height: 102px;
+        top: -54px;
+        left: 29px;
+        right: auto;
+      }
+
+      &:after {
+        background-image: url(../img/decor-17.svg);
+        width: 139px;
+        height: 88px;
+        left: 0;
+        bottom: -81px;
+      }
+    }
+  }
+   */
 
   .powered {
     font-family: @ff1;
@@ -1784,6 +1910,19 @@ html, body {
     display: inline-block;
     margin-top: -10px;
   }
+
+  /*
+    .logos {
+      margin-top: 10px;
+      list-style: none;
+      display: flex;
+      gap: 25px;
+
+      img {
+        max-height: 50px;
+      }
+    }
+   */
 }
 
 .s-prod-qa {
@@ -2226,7 +2365,7 @@ html, body {
   }
 }
 
-.s-about-acknowledgments {
+.s-about-acknowledgments, .s-racing-types {
   padding: 120px 0;
   text-align: center;
 
@@ -2266,6 +2405,33 @@ html, body {
       display: block;
       max-width: 222px;
     }
+  }
+}
+
+.s-racing-types {
+  &__list {
+    flex-wrap: wrap;
+  }
+
+  h3 {
+    font-size: 35px;
+    margin: 30px 0 27px;
+  }
+
+  p {
+    max-width: 700px;
+    margin: 20px auto 35px;
+  }
+
+  &__image {
+    img {
+      max-width: 100vw;
+      width: 371px;
+    }
+  }
+
+  &__item:hover {
+    background-color: @yellow;
   }
 }
 
@@ -3263,6 +3429,63 @@ html, body {
   }
 }
 
+// pages coverage
+
+.s-american {
+  &__header {
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      align-items: start;
+      min-height: 612px;
+      padding-bottom: 80px;
+    }
+  }
+
+  h1, h2 {
+    max-width: 568px;
+  }
+
+  h1 {
+    font-size: 75px;
+    line-height: .95;
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    font-family: @ff2;
+    font-size: 18px;
+    line-height: 1.55;
+    letter-spacing: 0.2em;
+  }
+
+  &__header {
+    color: #fff;
+    background-size: cover;
+    background-position: center;
+  }
+
+  &__content {
+    .container {
+      max-width: 756px;
+      padding: 100px 0;
+    }
+  }
+
+  &__read-more {
+    font-family: @ff1;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.55;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #00CEF5;
+    margin-top: 50px;
+  }
+}
+
+
 // medium screens
 
 @media (max-width: 1300px) {
@@ -4047,6 +4270,10 @@ html, body {
   .s-prod-header {
     padding: 170*@x 0 85*@x;
 
+    &.in-numbers-only {
+      padding: 40*@x 0 85*@x;
+    }
+
     &__grid {
       grid-template-columns: 567*@x 490*@x;
       gap: 140*@x;
@@ -4105,6 +4332,29 @@ html, body {
       font-size: 25*@x;
       padding: 15*@x 20*@x;
       margin-top: -10*@x;
+    }
+
+    &.premium-racing {
+      .s-prod-header__grid {
+        gap: 75*@x;
+        grid-template-columns: 567*@x 564*@x;
+      }
+
+      .s-prod-header__image {
+        margin: 90*@x 0;
+
+        &:before {
+          width: 82*@x;
+          height: 90*@x;
+          top: -89*@x;
+        }
+
+        &:after {
+          width: 139*@x;
+          height: 87*@x;
+          bottom: -86*@x;
+        }
+      }
     }
   }
 
@@ -4366,7 +4616,7 @@ html, body {
     }
   }
 
-  .s-about-acknowledgments {
+  .s-about-acknowledgments, .s-racing-types {
     padding: 120*@x 0;
 
     h3 {
@@ -4390,6 +4640,25 @@ html, body {
     &__image {
       img {
         max-width: 222*@x;
+      }
+    }
+  }
+
+  .s-racing-types {
+    h3 {
+      font-size: 35*@x;
+      margin: 30*@x 0 27*@x;
+    }
+
+    p {
+      max-width: 700*@x;
+      margin: 20*@x auto 35*@x;
+    }
+
+    &__image {
+      img {
+        max-width: 100vw;
+        width: 371*@x;
       }
     }
   }
@@ -4921,14 +5190,12 @@ html, body {
     }
   }
   */
-
   .nav-footer-links {
     margin-top: -30*@x;
     font-size: 14*@x;
   }
 
   // Page 404
-
   .s-404 {
     .container {
       margin-top: 120*@x;
@@ -4964,7 +5231,43 @@ html, body {
 
     }
   }
+
+  // pages coverage
+  .s-american {
+    &__header {
+      .container {
+        min-height: 612*@x;
+        padding-bottom: 80*@x;
+      }
+    }
+
+    h1, h2 {
+      max-width: 568*@x;
+    }
+
+    h1 {
+      font-size: 75*@x;
+      margin-bottom: 10*@x;
+    }
+
+    h2 {
+      font-size: 18*@x;
+    }
+
+    &__content {
+      .container {
+        max-width: 756*@x;
+        padding: 100*@x 0;
+      }
+    }
+
+    &__read-more {
+      font-size: 12*@x;
+      margin-top: 50*@x;
+    }
+  }
 }
+
 
 // mobile screens
 
@@ -5047,6 +5350,16 @@ html, body {
   .header-global {
     height: 58*@x;
     padding: 0 30*@x;
+
+    &.transparent-white {
+      .nav-main {
+        font-size: 12*@x;
+
+        & > ul {
+          background-color: rgba(0, 0, 0, .4);
+        }
+      }
+    }
   }
 
   .logo-global {
@@ -5987,6 +6300,10 @@ html, body {
   .s-prod-header {
     padding: 42*@x 0 85*@x;
 
+    &.in-numbers-only {
+      padding: 0 0 85*@x;
+    }
+
     &__grid {
       grid-template-columns: 1fr;
       gap: 0;
@@ -6057,6 +6374,31 @@ html, body {
       font-size: 18*@x;
       padding: 15*@x 5*@x;
       margin-top: -10*@x;
+    }
+
+    &.premium-racing {
+      padding-bottom: 30*@x;
+
+      .s-prod-header__grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .s-prod-header__image {
+        margin: 40*@x 0 95*@x;
+
+        &:before {
+          width: 57*@x;
+          height: 62*@x;
+          top: -62*@x;
+        }
+
+        &:after {
+          width: 96*@x;
+          height: 62*@x;
+          bottom: -61*@x;
+        }
+      }
     }
   }
 
@@ -6768,7 +7110,7 @@ html, body {
     }
   }
 
-  .s-about-acknowledgments {
+  .s-about-acknowledgments, .s-racing-types {
     padding: 70*@x 0;
 
     h3 {
@@ -6798,6 +7140,32 @@ html, body {
       img {
         max-width: 148*@x;
         height: 70*@x;
+      }
+    }
+  }
+
+  .s-racing-types {
+    padding: 45*@x 0;
+
+    h2 {
+      font-size: 45*@x;
+    }
+
+    h3 {
+      font-size: 35*@x;
+      margin: 25*@x 0 25*@x;
+    }
+
+    p {
+      max-width: 700*@x;
+      margin: 20*@x auto 35*@x;
+    }
+
+    &__image {
+      img {
+        max-width: 100vw;
+        width: calc(100vw - 60 * @x);
+        height: auto;
       }
     }
   }
@@ -7027,14 +7395,12 @@ html, body {
       }
     }
   */
-
   .nav-footer-links {
     margin: 20px 0;
     font-size: 14*@x;
   }
 
   // Page 404
-
   .s-404 {
     .container {
       background-image: url(../img/img-404-mob.svg);
@@ -7070,6 +7436,43 @@ html, body {
 
     &__content {
 
+    }
+  }
+
+  // pages coverage
+  .s-american {
+    &__header {
+      .container {
+        min-height: 484*@x;
+        padding-bottom: 26*@x;
+      }
+    }
+
+    h1, h2 {
+      max-width: 100vw;
+    }
+
+    h1 {
+      font-size: 55*@x;
+      margin-bottom: 10*@x;
+    }
+
+    h2 {
+      font-size: 12*@x;
+    }
+
+    &__content {
+      margin-top: 47*@x;
+
+      .container {
+        max-width: 756*@x;
+        padding: 100*@x 0;
+      }
+    }
+
+    &__read-more {
+      font-size: 12*@x;
+      margin-top: 30*@x;
     }
   }
 }
