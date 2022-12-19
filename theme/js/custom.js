@@ -8,7 +8,12 @@
 
     $('.menu-item-has-children>a').click(function (e) {
         e.preventDefault();
-        $(e.target).parent().find('ul').fadeToggle();
+        if ($(e.target).parent().find('ul').is(':visible')) {
+            $(e.target).parent().find('ul').fadeOut();
+        } else {
+            $(e.target).parent().parent().find('ul').fadeOut();
+            $(e.target).parent().find('ul').fadeIn();
+        }
         //console.log('prevent');
     })
 
@@ -58,8 +63,7 @@
     });
 
     // carousels on main page
-
-    $('.s-hp-header-promo__slides').slick({
+    let optionsCarouselHeaderPromo = {
         infinite: true,
         arrows: false,
         dots: false,
@@ -69,7 +73,10 @@
         fade: true,
         cssEase: 'linear',
         pauseOnHover: false,
-    });
+    };
+
+    $('.s-hp-header-promo__slides').slick(optionsCarouselHeaderPromo);
+    $('.s-hp-trusted__slides').slick(optionsCarouselHeaderPromo);
 
 
     // Responsive transforming of an iframe with animation on main page
@@ -353,5 +360,113 @@
         });
      */
 
+    // Comeet sort positions
+    if ($('.comeet-positions-list').length) {
+        let positionsElements = document.getElementsByClassName('comeet-position');
+        document.getElementsByClassName('s-comeet-catalog__total-number')[0].innerHTML = positionsElements.length;
+        let arrayElements = [];
+        let arrayDepartments = [];
+        let arrayLocations = [];
+        for (let positionElement of positionsElements) {
+            let arrayElement = [];
+            arrayElement['href'] = positionElement.getAttribute('href');
+            arrayElement['department'] = positionElement.getElementsByClassName('comeet-position-department')[0].textContent;
+            arrayElement['location'] = positionElement.getElementsByClassName('comeet-position-location-name')[0].textContent;
+            arrayElement['name'] = positionElement.getElementsByClassName('comeet-position-title')[0].textContent;
+            arrayElement['element'] = positionElement;
+            arrayElements.push(arrayElement);
+            arrayDepartments.push(arrayElement['department']);
+            arrayLocations.push(arrayElement['location']);
+        }
+
+        let uniqueDepartments = [...new Set(arrayDepartments)];
+        let uniqueLocations = [...new Set(arrayLocations)];
+
+        // add count number to Locations/Departments select
+        document.getElementsByClassName('count-departments')[0].innerHTML = uniqueDepartments.length;
+        document.getElementsByClassName('count-locations')[0].innerHTML = uniqueLocations.length;
+
+        // add options to Locations select
+        for (let uniqueLocation of uniqueLocations) {
+            let li = document.createElement("li");
+            let a = document.createElement("a");
+            a.textContent = uniqueLocation;
+            li.append(a);
+            document.getElementsByClassName('locations-list')[0].append(li);
+        }
+
+        // add options to Departments select
+        for (let uniqueDepartment of uniqueDepartments) {
+            let li = document.createElement("li");
+            let a = document.createElement("a");
+            a.textContent = uniqueDepartment;
+            li.append(a);
+            document.getElementsByClassName('departments-list')[0].append(li);
+        }
+
+        // Sort positions by alphabet
+        arrayElements.sort((a, b) => {
+            if (a['name'] > b['name']) return 1;
+            if (b['name'] > a['name']) return -1;
+            return 0;
+        });
+
+        // function update list of positions
+        let appendPositionList = (arrayElements) => {
+            document.getElementsByClassName('comeet-positions-list')[0].innerHTML = '';
+            for (let arrayElement of arrayElements) {
+                let li = document.createElement("li");
+                li.append(arrayElement['element']);
+                document.getElementsByClassName('comeet-positions-list')[0].append(li);
+            }
+        };
+
+        appendPositionList(arrayElements);
+
+        $('.dropdown-locations a, .dropdown-departments a').click(function (e) {
+            e.preventDefault();
+            //console.log($(this));
+            //console.log($(this).parents('.dropdown-locations, .dropdown-departments'));
+            $(this).parents('.dropdown-locations, .dropdown-departments').find('.locations-list, .departments-list').hide();
+            $(this).parents('.dropdown-locations, .dropdown-departments').find('.count-locations, .count-departments').detach();
+            $(this).parents('.dropdown-locations, .dropdown-departments').contents().filter(function () {
+                return this.nodeType == 3;
+            })[0].nodeValue = $(this).text();
+
+        });
+
+        $('.action-dropdown-filter').click(function (e) {
+            e.preventDefault();
+
+            $('.dropdown-locations').text();
+            $('.dropdown-departments').text();
+
+            let location = $('.dropdown-locations').contents().filter(function () {
+                return this.nodeType == 3;
+            })[0].nodeValue;
+
+            let department = $('.dropdown-departments').contents().filter(function () {
+                return this.nodeType == 3;
+            })[0].nodeValue;
+
+            let arrayElementsFiltered = [...arrayElements];
+
+            if (arrayLocations.includes(location)) {
+                arrayElementsFiltered = arrayElementsFiltered.filter((position) => {
+                    if (position['location'] == location) return true;
+                });
+            }
+
+            if (arrayDepartments.includes(department)) {
+                arrayElementsFiltered = arrayElementsFiltered.filter((position) => {
+                    if (position['department'] == department) return true;
+                });
+            }
+
+            document.getElementsByClassName('s-comeet-catalog__total-number')[0].innerHTML = arrayElementsFiltered.length;
+            appendPositionList(arrayElementsFiltered);
+            AOS.refresh();
+        });
+    }
 })(jQuery);
 

@@ -38,9 +38,22 @@ get_header();
         <div class="container">
             <div class="s-hp-trusted__content">
                 <div class="trusted-label"><?php the_field('trusted_by', 'option') ?></div>
-                <?php if (have_rows('trusted')): while (have_rows('trusted')) : the_row(); ?>
-                    <img src="<?php the_sub_field('image') ?>" alt="">
-                <?php endwhile; endif; ?>
+                <div class="s-hp-trusted__slides">
+                    <?php $image_counter = 1; ?>
+                    <div>
+                        <div class="s-hp-trusted__slide">
+                            <?php if (have_rows('trusted')): while (have_rows('trusted')) : the_row(); ?>
+                                <?php $image_counter++ ?>
+                                <img src="<?php the_sub_field('image') ?>" alt="trusted by organization">
+                                <?php if ($image_counter % 6 == 1) : ?>
+                                    <?php echo '</div></div>'; ?>
+                                    <?php echo '<div><div class="s-hp-trusted__slide">'; ?>
+                                    <?php $image_counter = 1; ?>
+                                <?php endif; ?>
+                            <?php endwhile; endif; ?>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -107,7 +120,7 @@ get_header();
         <?php
         wp_reset_postdata();
         $args_news = array(
-            'posts_per_page' => 3,
+            'posts_per_page' => 5,
             'category_name' => 'news'
         );
 

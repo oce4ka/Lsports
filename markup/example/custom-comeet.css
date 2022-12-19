@@ -1,0 +1,312 @@
+@font-face {
+    font-family: "PP Formula";
+    src: url("../fonts/FormulaCondensed-Bold.woff") format("woff"), url("../fonts/FormulaCondensed-Bold.ttf") format("truetype");
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "PP Formula";
+    src: url("../fonts/Formula-Medium.woff") format("woff"), url("../fonts/Formula-Medium.ttf") format("truetype");
+    font-weight: 400;
+}
+
+.col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+    padding: 0;
+}
+
+.form-horizontal .form-group {
+    margin: 0;
+}
+
+h4 {
+    font-family: "PP Formula", sans-serif;
+    font-weight: 900;
+    font-size: 55px;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin-bottom: 5px;
+}
+
+#jobFormDiv label, #questionnairesDiv label {
+    display: block;
+    width: 100%;
+}
+
+.form-group .col-xs-12.col-sm-9 {
+    width: 100%;
+}
+
+#jobFormDiv .form-group {
+    width: 370px;
+    margin-right: 20px;
+    float: left;
+}
+
+.form-group.field-personal-note {
+    width: 762px !important;
+}
+
+.form-container {
+    width: 782px;
+}
+
+.form-control {
+    border: 1px solid #333;
+}
+
+.focusHighlight:focus {
+    border: 1px solid #333 !important;
+}
+
+#jobFormDiv label {
+    font-family: 'PP Formula', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 1.55;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #000000;
+}
+
+textarea.form-control {
+    height: 228px;
+}
+
+.form-group.submit-button .col-sm-offset-3 {
+    margin-left: 0;
+}
+
+.form-group.privacy-policy-2 .col-sm-offset-3 {
+    margin-left: 0;
+}
+
+.form-group.privacy-policy-2 {
+    width: 762px !important;
+}
+
+.form-group.submit-button {
+    width: 762px !important;
+    margin-top: 30px;
+}
+
+.brandColoredButton {
+    background: #E1F32C !important;
+}
+
+.brandColoredButton:active, .brandColoredButton:focus {
+    background: #E8E8ED !Important;
+}
+
+.applyButton {
+    width: 244px;
+    font-family: 'PP Formula', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 50px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #000;
+    border: 1px solid #000;
+    border-radius: 0;
+}
+
+.privacyPolicy {
+    font-family: 'PP Formula', sans-serif !important;
+    font-weight: 500;
+    font-size: 12px !important;
+    line-height: 2;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin: 20px 0;
+}
+
+.privacyPolicy a {
+    color: #8F6CFF;
+}
+
+#jobFormDiv .clickableLink, #questionnairesDiv .clickableLink {
+    color: #8F6CFF !important;
+}
+
+.field-cover-letter .cover-letter-wrp, .field-cover-letter .portfolio-wrp {
+    margin-bottom: 20px;
+}
+
+/*
+.form-group.field-resume {
+    position: absolute;
+    right: 0;
+    top: 28px;
+}
+
+.form-group.field-cover-letter {
+    position: absolute;
+    right: 0;
+    top: 178px;
+}
+
+.form-group.field-portfolio {
+    position: absolute;
+    right: 0;
+    top: 328px;
+}
+*/
+
+#jobFormDiv .field-resume .control-label {
+    display: none;
+}
+
+#jobFormDiv #field-resume-aria-desc span.secondary,
+#jobFormDiv .form-group.field-portfolio div.secondary,
+#jobFormDiv .form-group.field-cover-letter span.secondary {
+    font-family: 'PP Formula', sans-serif !important;
+    font-weight: 500;
+    font-size: 13px !important;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.form-container form {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.form-container {
+    width: auto;
+}
+
+.form-group.field-cover-letter {
+    order: 6 !important;
+    margin-bottom: -50px;
+}
+
+.form-group.field-resume {
+    order: 3;
+    margin: 28px 0 -40px;
+}
+
+.form-group.field-cover-letter + .form-group.field-cover-letter {
+    order: 9 !important;
+}
+
+.form-group.field-cover-letter.ng-hide {
+    /*display: block !important;*/
+    order: 100;
+}
+
+.form-group.field-portfolio {
+    order: 9;
+}
+
+.form-group.field-first-name {
+    order: 1;
+}
+
+.form-group.field-last-name {
+    order: 2;
+}
+
+.form-group.field-email {
+    order: 4;
+}
+
+.form-group.field-phone {
+    order: 5;
+}
+
+.form-group.field-website-url {
+    order: 7;
+}
+
+.form-group.field-linkedin-url {
+    order: 8;
+}
+
+.form-group.field-personal-note {
+    order: 10;
+}
+
+.form-group.privacy-policy-2 {
+    order: 11;
+}
+
+.form-group.submit-button {
+    order: 12;
+}
+
+/* Social networks plugin */
+.socialWidget > ul {
+    display: block;
+}
+
+.socialWidget .shareButton.col-fifth {
+    width: auto !important;
+    display: inline-block;
+}
+
+.socialWidget .shareButton.col-fifth:nth-child(5),
+.socialWidget .shareButton.col-fifth:nth-child(4) {
+    display: none !important;
+}
+
+.socialWidget .shareButton a {
+    color: transparent !important;
+    background: transparent !important;
+    width: 30px;
+}
+
+.socialWidget .socialIcon.linkedin {
+    background-image: url("data:image/svg+xml,%3Csvg width='18' height='18' viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.296875 18H4.02888V5.98279H0.296875V18Z' fill='black'/%3E%3Cpath d='M2.16075 0C0.96825 0 0 0.96825 0 2.1615C0 3.35475 0.96825 4.34325 2.16075 4.34325C3.354 4.34325 4.32225 3.35475 4.32225 2.1615C4.32225 0.96825 3.354 0 2.16075 0V0Z' fill='black'/%3E%3Cpath d='M2.16075 0C0.96825 0 0 0.96825 0 2.1615C0 3.35475 0.96825 4.34325 2.16075 4.34325H2.163V0C2.16225 0 2.1615 0 2.16075 0Z' fill='black'/%3E%3Cpath d='M17.9959 18L18.0004 17.9993V11.3978C18.0004 8.16754 17.3052 5.68054 13.5297 5.68054C11.7147 5.68054 10.4974 6.67654 9.99944 7.62079H9.94769V5.98204H6.36719V17.9993H10.0947V12.0488C10.0947 10.482 10.3917 8.96779 12.3319 8.96779C14.2437 8.96779 14.2722 10.7558 14.2722 12.1508V18H17.9959Z' fill='black'/%3E%3Cpath d='M12.1842 5.88C11.1057 6.21825 10.3617 6.933 9.99944 7.62075H9.94769V5.982H6.36719V17.9993H10.0947V12.0488C10.0947 10.5233 10.3767 9.04651 12.1834 8.97076V5.88H12.1842Z' fill='black'/%3E%3C/svg%3E%0A") !important;
+    background-position: center center !important;
+}
+
+.socialWidget .socialIcon.twitter {
+    background-image: url("data:image/svg+xml,%3Csvg width='19' height='15' viewBox='0 0 19 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18.5659 1.7507C17.896 2.0482 17.1764 2.2484 16.4211 2.3387C17.1925 1.8767 17.784 1.1452 18.0626 0.273C17.3416 0.7007 16.5422 1.0115 15.691 1.1795C15.0099 0.4536 14.0397 0 12.9659 0C10.9037 0 9.23213 1.6723 9.23213 3.7338C9.23213 4.0264 9.26573 4.312 9.32873 4.5843C6.22563 4.4289 3.47463 2.9421 1.63223 0.6825C1.31163 1.2341 1.12753 1.8753 1.12753 2.5606C1.12753 3.8556 1.78623 4.9987 2.78793 5.6679C2.17613 5.6483 1.60003 5.4803 1.09673 5.201C1.09673 5.2171 1.09673 5.2318 1.09673 5.2479C1.09673 7.0574 2.38333 8.5666 4.09203 8.9089C3.77913 8.9943 3.44873 9.0398 3.10783 9.0398C2.86773 9.0398 2.63323 9.016 2.40573 8.9733C2.88103 10.4566 4.26003 11.5367 5.89383 11.5668C4.61633 12.5685 3.00633 13.1656 1.25633 13.1656C0.955334 13.1656 0.657834 13.1481 0.365234 13.1131C2.01793 14.1722 3.98003 14.7903 6.08913 14.7903C12.9575 14.7903 16.7123 9.1007 16.7123 4.1664C16.7123 4.0047 16.7088 3.8437 16.7018 3.6834C17.4319 3.1563 18.0654 2.499 18.5659 1.7507Z' fill='black'/%3E%3C/svg%3E%0A") !important;
+    background-position: center center !important;
+}
+
+.socialWidget .socialIcon.facebook {
+    background-image: url("data:image/svg+xml,%3Csvg width='10' height='17' viewBox='0 0 10 17' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.47826 5.95002H6.40492V4.25002C6.40492 3.37283 6.4774 2.82033 7.7535 2.82033H8.50242C8.97869 2.82033 9.36523 2.43953 9.36523 1.97033V0.90443C9.36523 0.459881 9.01925 0.0799317 8.56886 0.0501818C8.04772 0.0153318 7.52572 -0.00081815 7.00285 3.18484e-05C4.66204 3.18484e-05 2.95367 1.40848 2.95367 3.99417V5.95002H1.22805C0.751775 5.95002 0.365234 6.33082 0.365234 6.80002V8.50002C0.365234 8.96921 0.751775 9.35001 1.22805 9.35001L2.95367 9.34916V16.15C2.95367 16.6192 3.34021 17 3.81649 17H5.54211C6.01838 17 6.40492 16.6192 6.40492 16.15V9.34746L8.28068 9.34661C8.71899 9.34661 9.08741 9.02276 9.13745 8.59351L9.33504 6.89692C9.39457 6.39287 8.99423 5.95002 8.47826 5.95002Z' fill='black'/%3E%3C/svg%3E%0A") !important;
+    background-position: center center !important;
+}
+
+.shareHeader .suggestEmployee, footer .conditions {
+    display: none !important;
+    opacity: 0 !important;
+    text-indent: -1000vw;
+}
+
+@media (max-width: 1265px) {
+    #jobFormDiv .form-group {
+        width: 31vw;
+    }
+
+    .form-group.field-personal-note, .form-group.privacy-policy-2 {
+        width: 63.7vw !important;
+    }
+
+    #jobFormDiv .form-group {
+        margin-right: 1.7vw;
+    }
+}
+
+@media (max-width: 830px) {
+    #jobFormDiv .form-group, .form-group.field-personal-note, .form-group.privacy-policy-2 {
+        width: 100% !important;
+    }
+
+    #jobFormDiv .form-group {
+        margin-right: 0;
+    }
+
+    .form-container form {
+        display: block;
+    }
+
+    .form-group.field-cover-letter, .form-group.field-resume {
+        margin: 20px 0 0;
+    }
+}
+
