@@ -25,7 +25,7 @@ get_header();
             <div class="s-about-positions__image">
                 <img alt="<?php echo strip_tags(get_sub_field('title')) ?>" src="<?php the_sub_field('video_preview_image') ?>">
             </div>
-            <div class="s-about-positions__gallery">
+            <div class="s-about-positions__gallery four-images">
                 <?php if (have_rows('gallery')): while (have_rows('gallery')) : the_row(); ?>
                     <img src="<?php the_sub_field('image') ?>" alt="<?php echo strip_tags(get_sub_field('title')) ?>">
                 <?php endwhile; endif; ?>
@@ -35,6 +35,15 @@ get_header();
     </section>
 <?php endwhile; endif; ?>
 
+<?php if (have_rows('career')): while (have_rows('career')) : the_row(); ?>
+    <section class="s-comeet-catalog">
+        <div class="container">
+            <h2><?php the_sub_field('header') ?></h2>
+            <div class="s-comeet-catalog__total"><strong class="s-comeet-catalog__total-number"></strong> <?php the_sub_field('open_positions_label') ?></div>
+            <?php echo do_shortcode('[comeet_data]'); ?>
+        </div>
+    </section>
+<?php endwhile; endif; ?>
 
 <?php if (get_field('show_features')): ?>
     <?php if (have_rows('features')): while (have_rows('features')) : the_row(); ?>
@@ -97,16 +106,6 @@ get_header();
         </section>
     <?php endwhile; endif; ?>
 <?php endif; ?>
-
-<?php if (have_rows('career')): while (have_rows('career')) : the_row(); ?>
-    <section class="s-comeet-catalog">
-        <div class="container">
-            <h2><?php the_sub_field('header') ?></h2>
-            <div class="s-comeet-catalog__total"><strong class="s-comeet-catalog__total-number"></strong> <?php the_sub_field('open_positions_label') ?></div>
-            <?php echo do_shortcode('[comeet_data]'); ?>
-        </div>
-    </section>
-<?php endwhile; endif; ?>
 
 <?php if (get_field('add_contact_section')) get_template_part('contact-section'); ?>
 <?php get_footer();

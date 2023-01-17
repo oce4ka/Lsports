@@ -354,6 +354,7 @@ body {
 .header-global.transparent-white .nav-main > ul > li > ul {
   background-color: rgba(0, 0, 0, 0.4);
   border-color: #fff;
+  color: #fff;
 }
 .header-global.transparent-white .nav-main > ul > li > ul > li:after {
   background: #fff;
@@ -361,6 +362,9 @@ body {
 .header-global.transparent-white .nav-main > ul > li.active {
   border-color: #fff;
   color: #000;
+}
+.header-global.transparent-white .nav-main > ul > li.active:hover {
+  color: #fff;
 }
 .header-global.transparent-white .btn-hamburger {
   background-image: url(../img/icon-hamb-white.svg);
@@ -391,6 +395,14 @@ body {
   border-style: solid;
   border-color: transparent;
   position: relative;
+  transition: all 0.2s ease-in-out;
+}
+.nav-main > ul > li:hover {
+  background: #000;
+  color: #fff;
+}
+.nav-main > ul > li:hover:has(ul):before {
+  background-image: url("data:image/svg+xml,%3Csvg width='7' height='5' viewBox='0 0 7 5' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.88544 1.06293L3.71387 3.89136L6.54229 1.06293' stroke='white'/%3E%3C/svg%3E%0A");
 }
 .nav-main > ul > li:has(ul):before {
   content: "";
@@ -404,6 +416,11 @@ body {
 .nav-main > ul > li.active {
   background: #E1F32C;
   border-color: #000;
+  transition: all 0.2s ease-in-out;
+}
+.nav-main > ul > li.active:hover {
+  background: #000;
+  color: #fff;
 }
 .nav-main > ul > li > a {
   height: 65px;
@@ -414,8 +431,8 @@ body {
   position: absolute;
   padding: 20px 15px;
   text-align: center;
-  left: 0;
-  right: 0;
+  left: -1px;
+  right: -1px;
   top: 66px;
   border-width: 0 1px 1px 1px;
   border-style: solid;
@@ -423,6 +440,7 @@ body {
   background-color: #E8E8ED;
   z-index: 2;
   display: none;
+  color: #000;
 }
 .nav-main > ul > li > ul > li {
   font-size: 12px;
@@ -651,6 +669,9 @@ body {
   width: 647px;
   height: 505px;
   margin: -3px -6px 4px -6px;
+}
+.s-hp-products__image.only-image {
+  margin: 0 auto;
 }
 .s-hp-products__controls {
   position: absolute;
@@ -1203,9 +1224,13 @@ body {
 .nav-footer {
   display: flex;
   align-items: start;
+  flex-grow: 10;
+  max-width: 1140px;
 }
 .nav-footer ul {
   display: flex;
+  flex-grow: 10;
+  justify-content: space-between;
 }
 .nav-footer ul li,
 .nav-footer ul a {
@@ -1213,12 +1238,10 @@ body {
   letter-spacing: 0.2em;
   text-transform: uppercase;
 }
-.nav-footer ul li:hover,
 .nav-footer ul a:hover {
   color: #E1F32C;
 }
 .nav-footer ul > li {
-  padding: 0 30px;
   position: relative;
   font-size: 12px;
   line-height: 55px;
@@ -2137,6 +2160,9 @@ body {
 .s-about-positions__gallery img {
   max-width: 365px;
 }
+.s-about-positions__gallery.four-images img {
+  max-width: 270px;
+}
 .btn-play {
   position: relative;
 }
@@ -3052,7 +3078,6 @@ body {
 }
 .s-careers-cite {
   padding: 250px 0 150px;
-  border-bottom: 1px solid #000;
 }
 .s-careers-cite .container {
   display: flex;
@@ -3103,6 +3128,7 @@ body {
 }
 .s-comeet-catalog {
   padding: 120px 0;
+  border-top: 1px solid #000;
 }
 .s-comeet-catalog h2 {
   font-family: "PP Formula", sans-serif;
@@ -3768,7 +3794,6 @@ body {
     margin-right: 1.694vw;
   }
   .nav-footer ul > li {
-    padding: 0 2.31vw;
     font-size: 0.924vw;
     line-height: 4.235vw;
   }
@@ -4252,6 +4277,9 @@ body {
   }
   .s-about-positions__gallery img {
     max-width: 28.105vw;
+  }
+  .s-about-positions__gallery.four-images img {
+    max-width: 20.79vw;
   }
   .s-news {
     padding: 11.55vw 0 6.545vw;
@@ -4984,6 +5012,13 @@ body {
     line-height: 17.355vw;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   }
+  .nav-main > ul > li:hover {
+    background: #E8E8ED;
+    color: #000;
+  }
+  .nav-main > ul > li:hover:has(ul):before {
+    background-image: url("data:image/svg+xml,%3Csvg width='7' height='5' viewBox='0 0 7 5' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.88544 1.06293L3.71387 3.89136L6.54229 1.06293' stroke='black'/%3E%3C/svg%3E%0A");
+  }
   .nav-main > ul > li:has(ul):before {
     background-size: 1.869vw 1.335vw;
     height: 12.282vw;
@@ -5136,6 +5171,9 @@ body {
     height: auto;
     margin: -1px -1px 5.34vw;
     order: 1;
+  }
+  .s-hp-products__image.only-image {
+    margin: -1px -1px 9.879vw;
   }
   .s-hp-products__controls {
     height: 9.879vw;
@@ -6456,6 +6494,9 @@ body {
   .s-about-positions__gallery img:nth-child(2) {
     max-width: calc(50% - 6.5px);
   }
+  .s-about-positions__gallery.four-images img:nth-child(n) {
+    max-width: calc(50% - 6.5px);
+  }
   .s-about-positions img {
     width: 100%;
   }
@@ -6679,6 +6720,7 @@ body {
   .s-career-features__item {
     width: 100%;
     margin: 0 0 8.01vw;
+    text-align: center;
   }
   .s-career-features__title {
     margin-top: 4.272vw;

@@ -13,7 +13,7 @@
         </div>
     </div>
 </section>
-<?php if (have_rows('in_numbers')): while (have_rows('in_numbers')) : the_row(); ?>
+<?php if (have_rows('in_numbers_coverage')): while (have_rows('in_numbers_coverage')) : the_row(); ?>
     <section class="s-prod-header bg-grey in-numbers-only">
         <div class="container s-prod-header__numbers-wrapper">
             <h3><?php the_sub_field('title') ?></h3>
@@ -28,7 +28,7 @@
         </div>
     </section>
 <?php endwhile; endif; ?>
-<?php if (have_rows('highlights_and_benefits')): while (have_rows('highlights_and_benefits')) : the_row(); ?>
+<?php if (have_rows('highlights_and_benefits_coverage')): while (have_rows('highlights_and_benefits_coverage')) : the_row(); ?>
     <section class="s-cat-highlights bg-white">
         <div class="container">
             <h2 data-aos="fade-up"><?php the_sub_field('title') ?></h2>

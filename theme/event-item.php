@@ -74,8 +74,8 @@
                 <h3><?php the_field('schedule', 'option') ?></h3>
                 <?php the_field('schedule') ?>
             <?php endif; ?>
-            <br>
-            <a href="<?php the_field('set_a_meeting_link', 'option'); ?>" class="btn-yellow"><?php the_field('meet_us', 'option'); ?></a>
+<!--            <br>-->
+<!--            <a href="--><?php //the_field('set_a_meeting_link', 'option'); ?><!--" class="btn-yellow">--><?php //the_field('meet_us', 'option'); ?><!--</a>-->
         </div>
     </div>
 </section>

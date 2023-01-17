@@ -47,21 +47,8 @@ get_header();
         <?php endwhile; endif; ?>
     </section>
 
-<?php if (have_rows('highlights_and_benefits')): while (have_rows('highlights_and_benefits')) : the_row(); ?>
-    <section class="s-cat-highlights bg-white">
-        <div class="container">
-            <h2 data-aos="fade-up"><?php the_sub_field('title') ?></h2>
-            <ul class="s-cat-highlights__list">
-                <?php if (have_rows('item')): while (have_rows('item')) : the_row(); ?>
-                    <li class="s-cat-highlights__item"><?php the_sub_field('text') ?></li>
-                <?php endwhile; endif; ?>
-            </ul>
-        </div>
-    </section>
-<?php endwhile; endif; ?>
-
 <?php if (have_rows('subcategories')): while (have_rows('subcategories')) : the_row(); ?>
-    <section class="s-racing-types bg-grey">
+    <section class="s-racing-types bg-white">
         <div class="container">
             <h2><?php the_sub_field('title') ?></h2>
             <p><?php the_sub_field('description') ?></p>
@@ -75,6 +62,19 @@ get_header();
                     </a>
                 <?php endwhile; endif; ?>
             </div>
+        </div>
+    </section>
+<?php endwhile; endif; ?>
+
+<?php if (have_rows('highlights_and_benefits')): while (have_rows('highlights_and_benefits')) : the_row(); ?>
+    <section class="s-cat-highlights bg-grey">
+        <div class="container">
+            <h2 data-aos="fade-up"><?php the_sub_field('title') ?></h2>
+            <ul class="s-cat-highlights__list">
+                <?php if (have_rows('item')): while (have_rows('item')) : the_row(); ?>
+                    <li class="s-cat-highlights__item"><?php the_sub_field('text') ?></li>
+                <?php endwhile; endif; ?>
+            </ul>
         </div>
     </section>
 <?php endwhile; endif; ?>

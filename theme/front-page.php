@@ -102,7 +102,7 @@ get_header();
                                     <a href="<?php the_sub_field('link'); ?>" class="btn-yellow"><?php the_field('learn_more', 'option') ?></a>
                                 </div>
                                 <div class="s-hp-products__image">
-                                    <img src="<?php the_sub_field('image'); ?>" alt=""/>
+                                    <img src="<?php the_sub_field('image'); ?>" alt="<?php the_sub_field('vertical_title'); ?>"/>
                                 </div>
                             </div>
                         </div>

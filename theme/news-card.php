@@ -17,7 +17,9 @@
         <div class="s-news__item-content">
             <div class="type"><?php echo $category_name ?></div>
             <h3 class="two-lines"><?php the_field('title') ?></h3>
-            <p class="excerpt three-lines"><?php the_field('excerpt') ?></p>
+            <p class="excerpt three-lines">
+                <?php the_field('excerpt') ?>
+            </p>
             <div class="date arrow-after arrow-after--right">
                 <div class="icon-calendar"></div>
                 <?php echo get_the_date('F d, Y'); ?>

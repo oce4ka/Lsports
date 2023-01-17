@@ -6,7 +6,7 @@
         $(this).siblings('ul').fadeToggle();
     });
 
-    $('.menu-item-has-children>a').click(function (e) {
+    $('#menu-header-menu .menu-item-has-children>a').click(function (e) {
         e.preventDefault();
         if ($(e.target).parent().find('ul').is(':visible')) {
             $(e.target).parent().find('ul').fadeOut();
@@ -118,7 +118,7 @@
         dots: false,
         arrows: false,
         autoplay: true,
-        autoplaySpeed: 3000,
+        autoplaySpeed: 8000,
         speed: 500,
         fade: true,
         cssEase: 'linear',

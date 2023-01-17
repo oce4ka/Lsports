@@ -64,6 +64,44 @@
     </section>
 <?php endwhile; endif; ?>
 
+<?php if (get_field('show_products_slider')): ?>
+    <section class="s-hp-products bg-white">
+        <div class="container">
+            <h2>
+                <?php if (have_rows('products_heading')): while (have_rows('products_heading')) : the_row(); ?>
+                    <div><?php the_sub_field('title_line'); ?></div>
+                <?php endwhile; endif; ?>
+            </h2>
+            <div class="s-hp-products__carousel">
+                <div class="s-hp-products__controls">
+                    <div class="s-hp-products__prev arrow-after"></div>
+                    <div class="s-hp-products__img-title">
+                        <div class="s-hp-products__img-title-slides">
+                            <?php if (have_rows('products')): while (have_rows('products')) : the_row(); ?>
+                                <div>
+                                    <div class="text-vertical"><?php the_sub_field('vertical_title'); ?></div>
+                                </div>
+                            <?php endwhile; endif; ?>
+                        </div>
+                    </div>
+                    <div class="s-hp-products__next arrow-after"></div>
+                </div>
+                <div class="s-hp-products__slides">
+                    <?php if (have_rows('products')): while (have_rows('products')) : the_row(); ?>
+                        <div class="s-hp-products__slide">
+                            <div class="s-hp-products__slide-content">
+                                <div class="s-hp-products__image only-image">
+                                    <img src="<?php the_sub_field('image'); ?>" alt="<?php the_sub_field('vertical_title'); ?>"/>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endwhile; endif; ?>
+                </div>
+            </div>
+        </div>
+    </section>
+<?php endif; ?>
+
 <?php if (have_rows('sport_type')): ?>
     <section class="s-prod-sports bg-white">
         <div class="container">
