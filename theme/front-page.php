@@ -21,12 +21,7 @@ get_header();
                             <a href="<?php the_field('tell_us_what_you_need_link', 'option') ?>" class="btn-yellow"><?php the_field('tell_us_what_you_need', 'option') ?></a>
                         </div>
                         <div class="s-hp-header-promo__image-container">
-                            <?php $isMob = is_numeric(strpos(strtolower($_SERVER["HTTP_USER_AGENT"]), "mobile")); ?>
-                            <?php if ($isMob) : ?>
-                                <img src="<?php the_sub_field('image') ?>" alt="<?php echo strip_tags(get_sub_field('title')) ?>">
-                            <?php else : ?>
-                                <iframe src="<?php the_sub_field('spline_video') ?>" frameborder="0"></iframe>
-                            <?php endif; ?>
+                            <img class="hero-image" src="<?php the_sub_field('image_desktop') ?>" alt="<?php echo strip_tags(get_sub_field('title')) ?>">
                         </div>
                     </div>
                 </div>

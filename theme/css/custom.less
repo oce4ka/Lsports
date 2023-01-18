@@ -619,7 +619,8 @@ html, body {
       z-index: 3;
     }
 
-    lottie-player, iframe {
+    lottie-player {
+      //, iframe
       position: absolute;
       left: 0;
       top: 0;
@@ -629,17 +630,9 @@ html, body {
       height: 100%;
     }
 
-    iframe {
+    .hero-image {
+      position: absolute;
       z-index: 2;
-      height: 730px;
-      width: 730px;
-      transform-origin: 0 0;
-    }
-
-    img {
-      z-index: 2;
-      position: relative;
-      animation: rotation 16s infinite linear;
     }
   }
 
@@ -648,10 +641,10 @@ html, body {
       top: -46px;
     }
 
-    iframe {
-      transform: scale(.8);
-      left: 169px;
-      top: 72px;
+    .hero-image {
+      width: 570px;
+      top: 90px;
+      right: 50px;
     }
   }
 
@@ -660,18 +653,10 @@ html, body {
       top: -76px;
     }
 
-    iframe {
-      transform: scale(.9);
-      top: 64px;
-      left: 87px;
-    }
-
-    img {
-      animation: rotation-sides 6s infinite linear;
-      margin-bottom: -30px;
-      margin-right: 36px;
-      max-width: 50%;
-      max-height: 100%;
+    .hero-image {
+      width: 687px;
+      top: 0;
+      right: 25px;
     }
   }
 
@@ -680,9 +665,10 @@ html, body {
       top: -99px;
     }
 
-    iframe {
-      //transform: scale(.8);
-      left: 215px;
+    .hero-image {
+      width: 615px;
+      top: 75px;
+      right: 75px;
     }
   }
 }
@@ -3937,6 +3923,32 @@ html, body {
   padding: 100px 0;
 }
 
+.s-thank-you {
+  min-height: 950px;
+  text-align: center;
+  background: url(../img/bg-thank-you.svg) no-repeat center 70px;
+  background-size: 1200px 633px;
+  overflow: hidden;
+
+  h1, h1 p, p {
+    font-family: @ff1;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 260px;
+    color: #000;
+    line-height: .9;
+  }
+
+  h1 {
+    margin: 220px auto 0;
+  }
+
+  .btn-yellow {
+    display: inline-block;
+    margin: 60px auto 0;
+  }
+}
+
 // medium screens
 
 @media (max-width: 1300px) {
@@ -4078,11 +4090,6 @@ html, body {
       margin-right: -110*@x;
       height: 730*@x;
       width: 730*@x;
-
-      iframe {
-        height: 730px;
-        width: 730px;
-      }
     }
 
     .slide-1 {
@@ -4090,9 +4097,11 @@ html, body {
         top: -46*@x;
       }
 
-      iframe {
-        left: 169*@x;
-        top: 72*@x;
+      .hero-image {
+        width: 570*@x;
+        top: 90*@x;
+        right: 50*@x;
+        margin-right: 110*@x;
       }
     }
 
@@ -4101,9 +4110,10 @@ html, body {
         top: -76*@x;
       }
 
-      iframe {
-        top: 64*@x;
-        left: 87*@x;
+      .hero-image {
+        width: 687*@x;
+        top: 0;
+        right: 25*@x;
       }
     }
 
@@ -4112,9 +4122,10 @@ html, body {
         top: -99*@x;
       }
 
-      iframe {
-        top: 80*@x;
-        left: 215*@x;
+      .hero-image {
+        width: 615*@x;
+        top: 75*@x;
+        right: 75*@x;
       }
     }
   }
@@ -5946,6 +5957,25 @@ html, body {
       }
     }
   }
+
+  // page thank you
+  .s-thank-you {
+    min-height: 950*@x;
+    background-position: center 70*@x;
+    background-size: 1200*@x 633*@x;
+
+    h1, h1 p, p {
+      font-size: 260*@x;
+    }
+
+    h1 {
+      margin: 220*@x auto 0;
+    }
+
+    .btn-yellow {
+      margin: 60*@x auto 0;
+    }
+  }
 }
 
 
@@ -6155,11 +6185,6 @@ html, body {
       lottie-player {
         top: -14*@x;
       }
-
-      iframe {
-        left: 138*@x;
-        top: 24*@x;
-      }
     }
 
     .slide-2 {
@@ -6167,25 +6192,19 @@ html, body {
         top: -25*@x;
       }
 
-      iframe {
-        top: 26*@x;
-        left: 116*@x;
-      }
-
-      img {
+      .hero-image {
         margin-bottom: -30*@x;
         margin-right: 36*@x;
+        width: 283*@x;
+        top: -69*@x;
+        right: -73*@x;
+        transform: scaleX(-1) rotate(41deg);
       }
     }
 
     .slide-3 {
       lottie-player {
         top: -33*@x;
-      }
-
-      iframe {
-        top: 33*@x;
-        left: 171*@x;
       }
     }
   }
@@ -8449,6 +8468,27 @@ html, body {
           }
         }
       }
+    }
+  }
+
+  // page thank you
+  .s-thank-you {
+    min-height: 650*@x;
+    background-image: url('../img/bg-thank-you-mob.svg');
+    background-position: center 35*@x;
+    background-size: 336*@x 564*@x;
+
+    h1, h1 p, p {
+      font-size: 100*@x;
+    }
+
+    h1 {
+      margin: 200*@x auto 0;
+    }
+
+    .btn-yellow {
+      margin: 0 auto;
+      min-width: 165*@x;
     }
   }
 }

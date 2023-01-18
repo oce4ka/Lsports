@@ -522,8 +522,7 @@ body {
   right: 0;
   z-index: 3;
 }
-.s-hp-header-promo__image-container lottie-player,
-.s-hp-header-promo__image-container iframe {
+.s-hp-header-promo__image-container lottie-player {
   position: absolute;
   left: 0;
   top: 0;
@@ -532,45 +531,33 @@ body {
   width: 100%;
   height: 100%;
 }
-.s-hp-header-promo__image-container iframe {
+.s-hp-header-promo__image-container .hero-image {
+  position: absolute;
   z-index: 2;
-  height: 730px;
-  width: 730px;
-  transform-origin: 0 0;
-}
-.s-hp-header-promo__image-container img {
-  z-index: 2;
-  position: relative;
-  animation: rotation 16s infinite linear;
 }
 .s-hp-header-promo .slide-1 lottie-player {
   top: -46px;
 }
-.s-hp-header-promo .slide-1 iframe {
-  transform: scale(0.8);
-  left: 169px;
-  top: 72px;
+.s-hp-header-promo .slide-1 .hero-image {
+  width: 570px;
+  top: 90px;
+  right: 50px;
 }
 .s-hp-header-promo .slide-2 lottie-player {
   top: -76px;
 }
-.s-hp-header-promo .slide-2 iframe {
-  transform: scale(0.9);
-  top: 64px;
-  left: 87px;
-}
-.s-hp-header-promo .slide-2 img {
-  animation: rotation-sides 6s infinite linear;
-  margin-bottom: -30px;
-  margin-right: 36px;
-  max-width: 50%;
-  max-height: 100%;
+.s-hp-header-promo .slide-2 .hero-image {
+  width: 687px;
+  top: 0;
+  right: 25px;
 }
 .s-hp-header-promo .slide-3 lottie-player {
   top: -99px;
 }
-.s-hp-header-promo .slide-3 iframe {
-  left: 215px;
+.s-hp-header-promo .slide-3 .hero-image {
+  width: 615px;
+  top: 75px;
+  right: 75px;
 }
 .s-hp-trusted {
   border-top: 1px solid #000;
@@ -3319,6 +3306,30 @@ body {
 .s-comeet-apply {
   padding: 100px 0;
 }
+.s-thank-you {
+  min-height: 950px;
+  text-align: center;
+  background: url(../img/bg-thank-you.svg) no-repeat center 70px;
+  background-size: 1200px 633px;
+  overflow: hidden;
+}
+.s-thank-you h1,
+.s-thank-you h1 p,
+.s-thank-you p {
+  font-family: "PP Formula", sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 260px;
+  color: #000;
+  line-height: 0.9;
+}
+.s-thank-you h1 {
+  margin: 220px auto 0;
+}
+.s-thank-you .btn-yellow {
+  display: inline-block;
+  margin: 60px auto 0;
+}
 @media (max-width: 1300px) {
   .container {
     width: 92.4vw;
@@ -3446,30 +3457,30 @@ body {
     height: 56.21vw;
     width: 56.21vw;
   }
-  .s-hp-header-promo__image-container iframe {
-    height: 730px;
-    width: 730px;
-  }
   .s-hp-header-promo .slide-1 lottie-player {
     top: -3.542vw;
   }
-  .s-hp-header-promo .slide-1 iframe {
-    left: 13.013vw;
-    top: 5.544vw;
+  .s-hp-header-promo .slide-1 .hero-image {
+    width: 43.89vw;
+    top: 6.93vw;
+    right: 3.85vw;
+    margin-right: 8.47vw;
   }
   .s-hp-header-promo .slide-2 lottie-player {
     top: -5.852vw;
   }
-  .s-hp-header-promo .slide-2 iframe {
-    top: 4.928vw;
-    left: 6.699vw;
+  .s-hp-header-promo .slide-2 .hero-image {
+    width: 52.899vw;
+    top: 0;
+    right: 1.925vw;
   }
   .s-hp-header-promo .slide-3 lottie-player {
     top: -7.623vw;
   }
-  .s-hp-header-promo .slide-3 iframe {
-    top: 6.16vw;
-    left: 16.555vw;
+  .s-hp-header-promo .slide-3 .hero-image {
+    width: 47.355vw;
+    top: 5.775vw;
+    right: 5.775vw;
   }
   .s-hp-trusted__content {
     padding: 1.54vw 0;
@@ -4891,6 +4902,22 @@ body {
   .s-about-positions.one-position .s-about-positions__image img:nth-child(even) {
     margin-right: -5.775vw;
   }
+  .s-thank-you {
+    min-height: 73.15vw;
+    background-position: center 5.39vw;
+    background-size: 92.4vw 48.741vw;
+  }
+  .s-thank-you h1,
+  .s-thank-you h1 p,
+  .s-thank-you p {
+    font-size: 20.02vw;
+  }
+  .s-thank-you h1 {
+    margin: 16.94vw auto 0;
+  }
+  .s-thank-you .btn-yellow {
+    margin: 4.62vw auto 0;
+  }
 }
 @media (max-width: 768px) {
   .container {
@@ -5074,27 +5101,19 @@ body {
   .s-hp-header-promo .slide-1 lottie-player {
     top: -3.738vw;
   }
-  .s-hp-header-promo .slide-1 iframe {
-    left: 36.846vw;
-    top: 6.408vw;
-  }
   .s-hp-header-promo .slide-2 lottie-player {
     top: -6.675vw;
   }
-  .s-hp-header-promo .slide-2 iframe {
-    top: 6.942vw;
-    left: 30.972vw;
-  }
-  .s-hp-header-promo .slide-2 img {
+  .s-hp-header-promo .slide-2 .hero-image {
     margin-bottom: -8.01vw;
     margin-right: 9.612vw;
+    width: 75.561vw;
+    top: -18.423vw;
+    right: -19.491vw;
+    transform: scaleX(-1) rotate(41deg);
   }
   .s-hp-header-promo .slide-3 lottie-player {
     top: -8.811vw;
-  }
-  .s-hp-header-promo .slide-3 iframe {
-    top: 8.811vw;
-    left: 45.657vw;
   }
   .s-hp-trusted {
     margin: 8.01vw 0 0;
@@ -6906,6 +6925,24 @@ body {
   }
   .s-about-positions.one-position .s-about-positions__image img:nth-child(even) {
     margin-right: 0;
+  }
+  .s-thank-you {
+    min-height: 173.55vw;
+    background-image: url('../img/bg-thank-you-mob.svg');
+    background-position: center 9.345vw;
+    background-size: 89.712vw 150.588vw;
+  }
+  .s-thank-you h1,
+  .s-thank-you h1 p,
+  .s-thank-you p {
+    font-size: 26.7vw;
+  }
+  .s-thank-you h1 {
+    margin: 53.4vw auto 0;
+  }
+  .s-thank-you .btn-yellow {
+    margin: 0 auto;
+    min-width: 44.055vw;
   }
 }
 @media (min-width: 768.01px) {
