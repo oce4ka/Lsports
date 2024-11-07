@@ -49,6 +49,9 @@ function LSport_scripts()
 
     wp_enqueue_style('style-slick', get_template_directory_uri() . '/css/slick.css', array(), _S_VERSION, 'all');
     wp_enqueue_style('style', get_template_directory_uri() . '/css/custom.css', array(), _S_VERSION, 'all');
+    // this stylesheet made by combination of custom.less and few strange devs, who added styles directly into css file.
+    // temporary backup for 7 NOV 2024, WIP: custom.css synching with custom.less, to allow working in less file in future
+    wp_enqueue_style('style-broken', get_template_directory_uri() . '/css/custom-broken.css', array(), _S_VERSION, 'all');
     wp_enqueue_style('style-megamenu', get_template_directory_uri() . '/css/mega-menu.css', array(), '1.0.1', 'all');
     wp_enqueue_style('style-animation-aos', get_template_directory_uri() . '/css/aos.css', array(), _S_VERSION, 'all');
 
@@ -321,7 +324,7 @@ function blog_category(){
         'add_new_item'      => 'Add new category',
         'new_item_name'     => 'Category new name',
         'menu_name'         => 'Blog categories',
-    ); 
+    );
     $args = array(
         'label'                 => '',
         'labels'                => $labels,
@@ -687,7 +690,7 @@ function smartwp_remove_wp_block_library_css(){
    wp_dequeue_style( 'wp-block-library' );
    wp_dequeue_style( 'wp-block-library-theme' );
  wp_dequeue_style( 'wc-blocks-style' ); // Remove WooCommerce block CSS
-} 
+}
 add_action( 'wp_enqueue_scripts', 'smartwp_remove_wp_block_library_css', 100 );
 
 function add_nofollow_to_specific_menu($args) {
@@ -751,10 +754,10 @@ function load_more_posts_by_tags() {
                 <div class="related-posts-widget__item-content">
                     <h3 class="two-lines"><?php the_title(); ?></h3>
                     <p class="excerpt three-lines">
-                        <?php 
+                        <?php
                         // Get the ACF excerpt field
                         $acf_excerpt = get_field('excerpt');
-                        
+
                         // Get the description from the "header" group field
                         $header = get_field('header');
                         $description = $header['description'] ?? '';
@@ -1834,4 +1837,4 @@ array(
 'show_in_rest' => 0,
 ));
 
-endif; 
+endif;
