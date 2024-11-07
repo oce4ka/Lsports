@@ -2,32 +2,72 @@
     <?php if (have_rows('header')): while (have_rows('header')) : the_row(); ?>
         <div class="container s-prod-header__grid">
             <div class="s-prod-header__content">
-                <h2><?php the_sub_field('title') ?></h2>
+                <h1><?php the_sub_field('title') ?></h1>
                 <h6><?php the_sub_field('subtitle') ?></h6>
+                <?php $alt = strip_tags(get_sub_field('title')); ?>
                 <div class="s-prod-header__image mobile-only">
-                    <img src="<?php the_sub_field('image') ?>" alt="<?php the_sub_field('title') ?>">
-                </div>
+    <?php
+        $image = get_sub_field('image'); // Получаем массив изображения
+        $acf_alt = get_sub_field('acf_alt');
+        $alt_text = '';
+
+        if (!empty($acf_alt)) {
+            $alt_text = esc_attr($acf_alt);
+        } elseif (!empty($image) && is_array($image)) {
+            $alt_text = esc_attr(get_post_meta($image['ID'], '_wp_attachment_image_alt', true));
+        }
+    ?>
+    <img src="<?php echo esc_url($image['url']); ?>"<?php echo !empty($alt_text) ? ' alt="' . $alt_text . '"' : ''; ?> />
+</div>
                 <?php the_sub_field('description') ?>
                 <p class="powered"><?php the_sub_field('powered') ?></p>
             </div>
-            <div class="s-prod-header__image desktop-only">
-                <img src="<?php the_sub_field('image') ?>" alt="<?php the_sub_field('title') ?>">
-            </div>
+             <div class="s-prod-header__image desktop-only">
+    <?php
+        $image = get_sub_field('image'); // Получаем массив изображения
+        $acf_alt = get_sub_field('acf_alt');
+        $alt_text = '';
+
+        if (!empty($acf_alt)) {
+            $alt_text = esc_attr($acf_alt);
+        } elseif (!empty($image) && is_array($image)) {
+            $alt_text = esc_attr(get_post_meta($image['ID'], '_wp_attachment_image_alt', true));
+        }
+    ?>
+    <img src="<?php echo esc_url($image['url']); ?>"<?php echo !empty($alt_text) ? ' alt="' . $alt_text . '"' : ''; ?> />
+</div>
         </div>
     <?php endwhile; endif; ?>
     <?php if (have_rows('in_numbers')): while (have_rows('in_numbers')) : the_row(); ?>
-        <div class="container s-prod-header__numbers-wrapper">
-            <h3><?php the_sub_field('title') ?></h3>
-            <div class="s-prod-header__numbers">
-                <?php if (have_rows('number')): while (have_rows('number')) : the_row(); ?>
-                    <div class="s-prod-header__number">
-                        <div class="number"><?php the_sub_field('digit') ?></div>
-                        <div class="name"><?php the_sub_field('label') ?></div>
-                    </div>
-                <?php endwhile; endif; ?>
+ 
+	<div class="container s-prod-header__numbers-wrapper">
+    <h3><?php the_sub_field('title'); ?></h3>
+    <?php
+    // Предполагаем, что 'number' это подполе повторителя и вы хотите подсчитать количество элементов в нем.
+    $numbers = get_sub_field('number');
+    $numbers_count = is_array($numbers) ? count($numbers) : 0;
+    $numbers_class = $numbers_count > 5 ? 's-prod-header__numbers more-than-five' : 's-prod-header__numbers';
+    ?>
+    <div class="<?php echo $numbers_class; ?>">
+        <?php if (have_rows('number')): while (have_rows('number')) : the_row(); ?>
+            <div class="s-prod-header__number">
+                <?php $image = get_sub_field('image'); ?>
+                <?php if (!empty($image)) { ?>
+                    <div class="number"><img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>"></div>
+                <?php } else { ?>
+                    <div class="number"><?php the_sub_field('digit') ?></div>
+                <?php } ?>
+                <div class="name"><?php the_sub_field('label') ?></div>
+                <?php $text = get_sub_field('text');
+                if (!empty($text)) { ?>
+                     <p><?php echo $text; ?></p>
+                 <?php } ?>
             </div>
-        </div>
-    <?php endwhile; endif; ?>
+        <?php endwhile; endif; ?>
+    </div>
+</div>
+   <?php endwhile; endif; ?>
+	
 </section>
 
 <?php if (have_rows('highlights_and_benefits')): while (have_rows('highlights_and_benefits')) : the_row(); ?>
@@ -90,9 +130,21 @@
                     <?php if (have_rows('products')): while (have_rows('products')) : the_row(); ?>
                         <div class="s-hp-products__slide">
                             <div class="s-hp-products__slide-content">
-                                <div class="s-hp-products__image only-image">
-                                    <img src="<?php the_sub_field('image'); ?>" alt="<?php the_sub_field('vertical_title'); ?>"/>
-                                </div>
+                               <div class="s-hp-products__image only-image">
+    <?php
+        $image = get_sub_field('image'); // Получаем массив изображения
+        $acf_alt = get_sub_field('acf_alt');
+        $alt_text = '';
+
+        if (!empty($acf_alt)) {
+            $alt_text = esc_attr($acf_alt);
+        } elseif (!empty($image) && is_array($image)) {
+            $alt_text = esc_attr(get_post_meta($image['ID'], '_wp_attachment_image_alt', true));
+        }
+    ?>
+    <img src="<?php echo esc_url($image['url']); ?>"<?php echo !empty($alt_text) ? ' alt="' . $alt_text . '"' : ''; ?> />
+</div>
+
                             </div>
                         </div>
                     <?php endwhile; endif; ?>
@@ -108,7 +160,19 @@
             <div class="s-prod-sports__grid">
                 <?php while (have_rows('sport_type')) : the_row(); ?>
                     <div class="s-prod-sports__item">
-                        <img src="<?php the_sub_field('image') ?>" alt="">
+                            <?php
+        $image = get_sub_field('image'); // Получаем массив изображения
+        $acf_alt = get_sub_field('acf_alt');
+        $alt_text = '';
+
+        if (!empty($acf_alt)) {
+            $alt_text = esc_attr($acf_alt);
+        } elseif (!empty($image) && is_array($image)) {
+            $alt_text = esc_attr(get_post_meta($image['ID'], '_wp_attachment_image_alt', true));
+        }
+    ?>
+    <img src="<?php echo esc_url($image['url']); ?>"<?php echo !empty($alt_text) ? ' alt="' . $alt_text . '"' : ''; ?> />
+
                         <h3><?php the_sub_field('title') ?></h3>
                         <?php if (have_rows('sports')): while (have_rows('sports')) : the_row(); ?>
                             <p><?php the_sub_field('title') ?></p>

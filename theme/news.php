@@ -47,20 +47,22 @@ $news = new WP_Query([
         <div class="container">
             <div class="s-news__header">
                 <h1><?php the_field('news_decorated', 'option') ?></h1>
-                <div class="s-news__types-dropdown dropdown-js-action">
-                    <?php
-                    if (strpos($cat_slug, ',') !== false)
-                        the_field('all_types', 'option');
-                    else
-                        echo get_term_by('slug', $cat_slug, 'category')->name;
-                    ?>
-                    <ul>
-                        <li><a href="?cat=news"><?php the_field('all_types', 'option') ?></a></li>
-                        <li><a href="?cat=article"><?php echo get_term_by('slug', 'article', 'category')->name ?></a></li>
-                        <li><a href="?cat=press-release"><?php echo get_term_by('slug', 'press-release', 'category')->name ?></a></li>
-                        <li><a href="?cat=blog-post"><?php echo get_term_by('slug', 'blog-post', 'category')->name ?></a></li>
-                    </ul>
-                </div>
+<?php /*
+<div class="s-news__types-dropdown dropdown-js-action">
+    <?php
+    // if (strpos($cat_slug, ',') !== false)
+    //     the_field('all_types', 'option');
+    // else
+    //     echo get_term_by('slug', $cat_slug, 'category')->name;
+    ?>
+    <ul>
+        <li><a href="?cat=news"><?php //the_field('all_types', 'option') ?></a></li>
+        <li><a href="?cat=article"><?php //echo get_term_by('slug', 'article', 'category')->name ?></a></li>
+        <li><a href="?cat=press-release"><?php //echo get_term_by('slug', 'press-release', 'category')->name ?></a></li>
+        <li><a href="?cat=blog-post"><?php //echo get_term_by('slug', 'blog-post', 'category')->name ?></a></li>
+    </ul>
+</div>
+*/ ?>
             </div>
             <div class="s-news__wrapper">
                 <?php if ($news->have_posts()): ?>

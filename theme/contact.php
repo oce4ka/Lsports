@@ -21,8 +21,7 @@ get_header();
                 <h2><?php the_sub_field('subtitle') ?></h2>
                 <p><?php the_sub_field('description') ?></p>
                 <div class="s-contact__form">
-                    <?php //echo do_shortcode('[contact-form-7 id="347"]') ?>
-                    <iframe style="border: 0;" src="https://www2.lsports.eu/l/893471/2020-10-29/7z4" width="100%" height="820" frameborder="0"></iframe>
+                    <?php the_sub_field('form') ?>
                 </div>
             </div>
             <?php endwhile;

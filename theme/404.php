@@ -15,8 +15,8 @@ get_header();
             <h2><u>W</u>hoops!</h2>
             <h3>Something went wrong....</h3>
             <h1>4<u>04</u></h1>
-            <button class="btn-yellow">tAKE ME BACK</button>
-        </div>
+              <a href="<?php echo pll_home_url(); ?>" class="btn-yellow">TAKE ME BACK</a>
+    </div>
     </section>
 
 <?php

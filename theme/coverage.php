@@ -19,17 +19,40 @@ get_header();
         <?php if (have_rows('header')): while (have_rows('header')) : the_row(); ?>
             <div class="container s-prod-header__grid">
                 <div class="s-prod-header__content">
-                    <h2><?php the_sub_field('title') ?></h2>
+                    <h1><?php the_sub_field('title') ?></h1>
                     <h6><?php the_sub_field('subtitle') ?></h6>
+                    <?php $alt = strip_tags(get_sub_field('title')); ?>
                     <div class="s-prod-header__image mobile-only">
-                        <img src="<?php the_sub_field('image') ?>" alt="<?php the_sub_field('title') ?>">
-                    </div>
+    <?php
+        $image = get_sub_field('image'); // Получаем массив изображения
+        $acf_alt = get_sub_field('acf_alt');
+        $alt_text = '';
+
+        if (!empty($acf_alt)) {
+            $alt_text = esc_attr($acf_alt);
+        } elseif (!empty($image) && is_array($image)) {
+            $alt_text = esc_attr(get_post_meta($image['ID'], '_wp_attachment_image_alt', true));
+        }
+    ?>
+    <img src="<?php echo esc_url($image['url']); ?>"<?php echo !empty($alt_text) ? ' alt="' . $alt_text . '"' : ''; ?> />
+</div>
                     <?php the_sub_field('description') ?>
                     <p class="powered"><?php the_sub_field('powered') ?></p>
                 </div>
-                <div class="s-prod-header__image desktop-only">
-                    <img src="<?php the_sub_field('image') ?>" alt="<?php the_sub_field('title') ?>">
-                </div>
+               <div class="s-prod-header__image desktop-only">
+    <?php
+        $image = get_sub_field('image'); // Получаем массив изображения
+        $acf_alt = get_sub_field('acf_alt');
+        $alt_text = '';
+
+        if (!empty($acf_alt)) {
+            $alt_text = esc_attr($acf_alt);
+        } elseif (!empty($image) && is_array($image)) {
+            $alt_text = esc_attr(get_post_meta($image['ID'], '_wp_attachment_image_alt', true));
+        }
+    ?>
+    <img src="<?php echo esc_url($image['url']); ?>"<?php echo !empty($alt_text) ? ' alt="' . $alt_text . '"' : ''; ?> />
+</div>
             </div>
         <?php endwhile; endif; ?>
         <?php if (have_rows('in_numbers')): while (have_rows('in_numbers')) : the_row(); ?>
@@ -53,18 +76,42 @@ get_header();
             <h2><?php the_sub_field('title') ?></h2>
             <p><?php the_sub_field('description') ?></p>
             <div class="s-racing-types__list">
-                <?php if (have_rows('subcategory')): while (have_rows('subcategory')) : the_row(); ?>
-                    <a href="<?php the_sub_field('link') ?>" class="s-racing-types__item bg-white">
-                        <div class="s-racing-types__image">
-                            <img src="<?php the_sub_field('image') ?>" alt="">
+                <?php if (have_rows('subcategory')): while (have_rows('subcategory')) : the_row(); 
+                    $link = get_sub_field('link');
+                    $image = get_sub_field('image'); // Получаем массив изображения
+                    $acf_alt = get_sub_field('acf_alt');
+                    $alt_text = '';
+
+                    if (!empty($acf_alt)) {
+                        $alt_text = esc_attr($acf_alt);
+                    } elseif (!empty($image) && is_array($image)) {
+                        $alt_text = esc_attr(get_post_meta($image['ID'], '_wp_attachment_image_alt', true));
+                    }
+
+                    // Определяем CSS-класс в зависимости от наличия ссылки
+                    $item_class = $link ? 's-racing-types__item bg-white' : 's-racing-types__item bg-white no-link';
+                ?>
+                    <?php if ($link): ?>
+                        <a href="<?php echo esc_url($link); ?>" class="<?php echo $item_class; ?>">
+                    <?php else: ?>
+                        <div class="<?php echo $item_class; ?>">
+                    <?php endif; ?>
+                            <div class="s-racing-types__image">
+                                <img src="<?php echo esc_url($image['url']); ?>"<?php echo !empty($alt_text) ? ' alt="' . $alt_text . '"' : ''; ?> />
+                            </div>
+                            <h3><?php the_sub_field('title') ?></h3>
+                    <?php if ($link): ?>
+                        </a>
+                    <?php else: ?>
                         </div>
-                        <h3><?php the_sub_field('title') ?></h3>
-                    </a>
+                    <?php endif; ?>
                 <?php endwhile; endif; ?>
             </div>
         </div>
     </section>
 <?php endwhile; endif; ?>
+
+
 
 <?php if (have_rows('highlights_and_benefits')): while (have_rows('highlights_and_benefits')) : the_row(); ?>
     <section class="s-cat-highlights bg-grey">

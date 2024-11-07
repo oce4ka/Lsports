@@ -19,7 +19,7 @@ get_header();
     <section class="s-cat-header bg-yellow">
         <div class="container">
             <div class="s-cat-header__content">
-                <h2><?php the_sub_field('title') ?></h2>
+                <h1><?php the_sub_field('title') ?></h1>
                 <h6><?php the_sub_field('subtitle') ?></h6>
                 <p><?php the_sub_field('description') ?></p>
             </div>
@@ -36,9 +36,23 @@ get_header();
                     <div class="s-cat-features__content">
                         <h2><?php the_sub_field('title') ?></h2>
                         <p><?php the_sub_field('description') ?></p>
-                        <a href="<?php the_sub_field('link') ?>" class="btn-learn-more"><?php the_field('learn_more', 'option') ?></a>
+                        <?php $current_lang = pll_current_language(); ?>
+<a href="<?php the_sub_field('link'); ?>" class="btn-yellow"><?php the_field('learn_more_'.$current_lang, 'option') ?></a>
                     </div>
-                    <div class="s-cat-features__image decor-<?php echo $decor_number ?>"><img src="<?php the_sub_field('image') ?>" alt=""></div>
+                    <div class="s-cat-features__image decor-<?php echo $decor_number ?>">
+    <?php
+        $image = get_sub_field('image'); // Получаем массив изображения
+        $acf_alt = get_sub_field('acf_alt');
+        $alt_text = '';
+
+        if (!empty($acf_alt)) {
+            $alt_text = esc_attr($acf_alt);
+        } elseif (!empty($image) && is_array($image)) {
+            $alt_text = esc_attr(get_post_meta($image['ID'], '_wp_attachment_image_alt', true));
+        }
+    ?>
+    <img src="<?php echo esc_url($image['url']); ?>"<?php echo !empty($alt_text) ? ' alt="' . $alt_text . '"' : ''; ?> />
+</div>
                 </div>
                 <?php
                 $decor_number++;
@@ -82,7 +96,9 @@ get_header();
                         <li class="s-cat-solutions__item"><?php the_sub_field('item') ?></li>
                     <?php endwhile; endif; ?>
                 </ul>
-                <a href="<?php the_sub_field('link') ?>" class="btn-yellow"><?php the_sub_field('button_label') ?></a>
+				 <?php $current_lang = pll_current_language(); ?>
+                <a href="<?php the_sub_field('link'); ?>" class="btn-yellow"><?php the_field('learn_more_'.$current_lang, 'option') ?></a>
+				
             </div>
         </section>
     <?php endwhile; endif; ?>

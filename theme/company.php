@@ -52,12 +52,12 @@ get_header();
                 <div class="s-about-values__slides">
                     <?php
                     $slide_number = 0;
-                    $color_classes = ['bg-turquoise', 'bg-purple', 'bg-yellow'];
+                    $color_classes = ['bg-compval1', 'bg-compval2', 'bg-compval3', 'bg-compval4', 'bg-compval5', 'bg-compval6'];
                     ?>
                     <?php if (have_rows('slide')): while (have_rows('slide')) : the_row(); ?>
                         <div>
                             <div class="s-about-values__slide">
-                                <div class="s-about-values__image <?php echo $color_classes[$slide_number % 3]; ?>">
+                                <div class="s-about-values__image <?php echo $color_classes[$slide_number % 6]; ?>">
                                     <img src="<?php the_sub_field('image') ?>" alt="<?php echo strip_tags(get_sub_field('title')) ?>">
                                 </div>
                                 <h3><?php the_sub_field('title') ?></h3>
@@ -217,6 +217,7 @@ get_header();
     </section>
 <?php endwhile; endif; ?>
 
+ <?php if (pll_current_language() == 'en') : ?>
     <section class="s-hp-news bg-yellow image-bordered">
         <div class="s-hp-news__headings">
             <h2><?php the_field('news', 'option') ?></h2>
@@ -252,6 +253,7 @@ get_header();
             </div>
         </div>
     </section>
+   <?php endif; ?>
 <?php wp_reset_postdata(); ?>
 
 <?php if (the_field('show_acknowledgements')): ?>

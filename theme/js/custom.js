@@ -1,5 +1,30 @@
 (function ($) {
 
+    site_url = document.location.origin;
+    $(document).ready(function(){
+        $('.video-slider').owlCarousel({
+            responsive:{
+                0:{
+                    items:1,
+                },
+                500:{
+                    items:2,
+                },
+                769:{
+                    items:3,
+                }
+            },
+            slideBy: 1,
+            loop:true,
+            autoplay:false,
+            nav:true,
+            dots: true,
+            margin: 28,
+            navText: ['<img src="'+site_url+'/wp-content/themes/LSport/img/slider-left.svg">',
+                '<img src="'+site_url+'/wp-content/themes/LSport/img/slider-right.svg">']
+        });
+    });
+
     $('.btn-hamburger').click(function (e) {
         e.preventDefault();
         $(this).toggleClass('close');
@@ -8,15 +33,35 @@
 
     $('#menu-header-menu .menu-item-has-children>a').click(function (e) {
         e.preventDefault();
-        if ($(e.target).parent().find('ul').is(':visible')) {
-            $(e.target).parent().find('ul').fadeOut();
-        } else {
-            $(e.target).parent().parent().find('ul').fadeOut();
-            $(e.target).parent().find('ul').fadeIn();
-        }
+        // if ($(e.target).parent().find('ul').is(':visible')) {
+        //     $(e.target).parent().find('ul').fadeOut();
+        // } else {
+        //     $(e.target).parent().parent().find('ul').fadeOut();
+        //     $(e.target).parent().find('ul').fadeIn();
+        // }
         //console.log('prevent');
     })
 
+    // Ваш новый код
+    $('#menu-header-es .menu-item-has-children>a').click(function (e) {
+        e.preventDefault(); // это отменяет событие клика на элементах внутри #menu-header-es
+    }) 
+
+    // Ваш новый код
+    $('#menu-header-pt .menu-item-has-children>a').click(function (e) {
+        e.preventDefault(); // это отменяет событие клика на элементах внутри #menu-header-es
+    }) 
+
+    // Ваш новый код
+    $('#menu-header-ko .menu-item-has-children>a').click(function (e) {
+        e.preventDefault(); // это отменяет событие клика на элементах внутри #menu-header-es
+    }) 
+
+    // Ваш новый код
+    $('#menu-header-cn .menu-item-has-children>a').click(function (e) {
+        e.preventDefault(); // это отменяет событие клика на элементах внутри #menu-header-es
+    })  
+    
     // Share and add to cal dropdowns
     $('.dropdown-js-action').click(function (e) {
         if (!$(e.target).is('a, a *')) {
@@ -62,6 +107,7 @@
         }
     });
 
+
     // carousels on main page
     let optionsCarouselHeaderPromo = {
         infinite: true,
@@ -75,6 +121,7 @@
         pauseOnHover: false,
     };
 
+
     $('.s-hp-header-promo__slides').slick(optionsCarouselHeaderPromo);
     $('.s-hp-trusted__slides').slick(optionsCarouselHeaderPromo);
 
@@ -82,9 +129,9 @@
     // Responsive transforming of an iframe with animation on main page
     if ($('.s-hp-header-promo').length) {
         // Because Slick removes lottie on init
-        $('.slide-1 .s-hp-header-promo__image-container').append('<lottie-player id="iframe-fotball" src="/wp-content/themes/LSport/img/lottie/football.json" background="transparent" speed="1" loop autoplay></lottie-player>');
-        $('.slide-2 .s-hp-header-promo__image-container').append('<lottie-player id="iframe-tennis" src="/wp-content/themes/LSport/img/lottie/basketball.json" background="transparent" speed="1" loop autoplay></lottie-player>');
-        $('.slide-3 .s-hp-header-promo__image-container').append('<lottie-player id="iframe-basketball" src="/wp-content/themes/LSport/img/lottie/tennis.json" background="transparent" speed="1" loop autoplay></lottie-player>');
+        $('.slide-1 .s-hp-header-promo__image-container').append('<dotlottie-player id="iframe-fotball" src="/wp-content/themes/LSport/img/lottie/football.lottie" background="transparent" speed="1" loop autoplay></dotlottie-player>');
+        $('.slide-2 .s-hp-header-promo__image-container').append('<dotlottie-player id="iframe-tennis" src="/wp-content/themes/LSport/img/lottie/basketball.lottie" background="transparent" speed="1" loop autoplay></dotlottie-player>');
+        $('.slide-3 .s-hp-header-promo__image-container').append('<dotlottie-player id="iframe-basketball" src="/wp-content/themes/LSport/img/lottie/tennis.lottie" background="transparent" speed="1" loop autoplay></dotlottie-player>');
 
         function fitIframeToResponsive() {
             let windowWidth = $(window).width();
@@ -110,6 +157,8 @@
             fitIframeToResponsive();
         });
     }
+
+
 
     // Carousel Products
 
@@ -188,14 +237,14 @@
         nextArrow: $(".s-hp-news__arrow-next"),
         appendDots: $(".s-hp-news__dots"),
         responsive: [
-            {
-                breakpoint: 768,
-                settings: {
-                    centerPadding: '30px',
+        {
+            breakpoint: 768,
+            settings: {
+                centerPadding: '30px',
                     //centerMode: true,
-                    variableWidth: true
-                }
-            },
+                variableWidth: true
+            }
+        },
         ],
     });
 
@@ -203,8 +252,8 @@
     // https://codepen.io/pentagonus/pen/gMaJBy
 
     var carousel = $(".s-about-values__slides"),
-        items = $(".s-about-values__slide"),
-        currdeg = 0;
+    items = $(".s-about-values__slide"),
+    currdeg = 0;
 
     $(".s-about-values__next").on("click", {d: "n"}, rotate);
     $(".s-about-values__prev").on("click", {d: "p"}, rotate);
@@ -235,9 +284,9 @@
         $('.timeline .line').height(0);
         $(window).scroll(function () {
             var hT = $('.timeline .line').offset().top,
-                hH = $('.timeline .line').outerHeight(),
-                wH = $(window).height(),
-                wS = $(this).scrollTop();
+            hH = $('.timeline .line').outerHeight(),
+            wH = $(window).height(),
+            wS = $(this).scrollTop();
             if (wS > (hT + hH - wH)) {
                 $('.timeline .line').height(wS - hT + (wH / 2));
             }
@@ -263,7 +312,7 @@
     // video player on click
     function videoPlay(self, youtube) {
         let src = self.parentNode.querySelector(youtube).getAttribute('data-url'),
-            yPlay = `${src}?rel=0&autoplay=1`;
+        yPlay = `${src}?rel=0&autoplay=1`;
 
         if (src.length) {
             self.parentNode.querySelector(youtube).innerHTML = `<iframe src="${yPlay}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
@@ -282,7 +331,7 @@
                 videoPlay(
                     __this,
                     '.video-wrapper__iframe'
-                );
+                    );
             });
         });
     }
@@ -294,12 +343,12 @@
     var $_GET = {};
     if (document.location.toString().indexOf('?') !== -1) {
         var query = document.location
-            .toString()
+        .toString()
             // get the query string
-            .replace(/^.*?\?/, '')
+        .replace(/^.*?\?/, '')
             // and remove any existing hash string (thanks, @vrijdenker)
-            .replace(/#.*$/, '')
-            .split('&');
+        .replace(/#.*$/, '')
+        .split('&');
 
         for (var i = 0, l = query.length; i < l; i++) {
             var aux = decodeURIComponent(query[i]).split('=');
@@ -330,9 +379,31 @@
         });
     });
 
+    // Load more button on Blog pages
+    let bcurrentPage = 1;
+    $('#load-more-blogs').on('click', function (e) {
+        e.preventDefault();
+        bcurrentPage++; // Do currentPage + 1, because we want to load the next page
+        $.ajax({
+            type: 'POST',
+            url: '/wp-admin/admin-ajax.php',
+            dataType: 'json',
+            data: {
+                action: 'blogs_load_more',
+                paged: bcurrentPage,
+            },
+            success: function (res) {
+                $('.s-news__wrapper').append(res.html);
+                if (res.count < 6) {
+                    $('#load-more-blogs').fadeOut('slow');
+                }
+            }
+        });
+    });
+
     // Read more link in Coverage posts
 
-    $('[href=#readmore]').click(function (e) {
+    $('[href="#readmore"]').click(function (e) {
         e.preventDefault();
         $(e.target).siblings('.under-more').slideDown('fast');
         $(e.target).animate({'opacity': 0});
@@ -468,5 +539,122 @@
             AOS.refresh();
         });
     }
+
+
+    //open video popup
+    $('.video_list').on('click','.video-item',function(){
+        var key = $(this).attr('data-key');
+        var id = $(this).closest('.video_list').attr('data-id');
+        $.ajax({
+            type: "POST",
+            url: "/wp-content/themes/LSport/inc/get_video.php",
+            data: {id:id, key:key},
+            action: "getvideo",
+            success: function (res) {
+                $('.embed-container').html(res);
+            }
+        });
+        $('.video-popup').fadeIn();
+        $('#video-bg').fadeIn();
+    });
+
+    $('.video-slider').on('click','.video-item',function(){
+        var key = $(this).attr('data-key');
+        var id = $(this).closest('.video-slider').attr('data-id');
+        $.ajax({
+            type: "POST",
+            url: "/wp-content/themes/LSport/inc/get_video.php",
+            data: {id:id, key:key},
+            action: "getvideo",
+            success: function (res) {
+                $('.embed-container').html(res);
+            }
+        });
+        $('.video-popup').fadeIn();
+        $('#video-bg').fadeIn();
+    });
+
+    //close video popup
+    $('#video-bg').on('click','.close-video-popup',function(event){
+        event.stopPropagation();
+        $(this).closest('.video-popup').fadeOut();
+        $('#video-bg').fadeOut();
+        $('.embed-container').empty();
+    });
+    $('#video-bg').on('click',function(){
+        $('.video-popup').fadeOut();
+        $(this).fadeOut();
+        $('.embed-container').empty();
+    });
+
+    //load more video
+    $('.video-button-block').on('click',function(){
+        var key = $('.video_list').find('.video-item:last').attr('data-key');
+        var id = $('.video_list').attr('data-id');
+        $.ajax({
+            type: "POST",
+            url: "/wp-content/themes/LSport/inc/get_video_list.php",
+            data: {id:id, key:key},
+            action: "getvideo",
+            success: function (res) {
+                $('.video_list').append(res);
+                if ($('.video_list').find('.video-item:last').attr('data-last') == 'true') {
+                    $('.block-video .video-button-block').css('display','none');
+                }
+            }
+        });
+    });
+
+    $(document).ready(function() {
+        function toggleToolbarVisibility() {
+            var toolbar = $('.pojo-a11y-toolbar-toggle');
+        if(toolbar.length) { // Проверяем, существует ли элемент на странице
+            var scrollDistance = $(window).scrollTop();
+            if (scrollDistance > 400) { // Изменено условие на фиксированное значение в пикселях
+                toolbar.addClass('hidden');
+            } else {
+                toolbar.removeClass('hidden');
+            }
+        }
+    }
+
+    // Вызываем функцию при загрузке страницы и при скроллинге
+    toggleToolbarVisibility();
+    $(window).scroll(function() {
+        toggleToolbarVisibility();
+    });
+});
+
+	
+    $(document).ready(function() {
+        var activeMenu = null;
+        
+        $('li.list-mega-menu.list-1, li.list-mega-menu.list-2, li.list-mega-menu.list-3').hover(
+        function() {
+            if (activeMenu && activeMenu !== $(this)) {
+                activeMenu.find('.sub-menu').hide();
+            }
+            $(this).find('.sub-menu').slideDown();
+            $('#custom-mega-menu-bg').stop(true, true).css('display', 'block');
+            
+            activeMenu = $(this);
+        }, 
+        function() {
+            var self = $(this);
+            if ($(self).is(':hover')) {
+                $(self).find('.sub-menu').hide();
+                $('#custom-mega-menu-bg').stop(true, true).css('display', 'none');
+            } else {
+                if (!$(self).is(':hover')) {
+                        $(self).find('.sub-menu').stop(true, true).slideUp();
+                        $('#custom-mega-menu-bg').stop(true, true).css('display', 'none');
+                    }
+            }
+        }
+    );
+
+    });
+	
+
 })(jQuery);
 

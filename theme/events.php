@@ -17,6 +17,10 @@ $today = date("Ymd");
         <div class="s-events__header">
             <h1><?php the_field('upcoming_events', 'option') ?></h1>
         </div>
+			    		<div class="container">
+           <div  class="events_under_h1-2"> <p class="events_under_h1"><?php the_field('events_under_h1', 'option') ?></p>
+           </div>
+		</div>
         <div class="container">
             <?php /*
             <ul class="s-events__filter">
@@ -40,23 +44,27 @@ $today = date("Ymd");
                 </li>
             </ul> */ ?>
             <div class="s-events__grid">
-                <?php
-                $upcoming_events = new WP_Query([
-                    'post_type' => 'post',
-                    'category_name' => 'events',
-                    'meta_query' => array( // past
-                        array(
-                            'key' => 'date_start',
-                            'value' => $today,
-                            'compare' => '>=',
-                        ),
-                    ),
-                    'posts_per_page' => -1,
-                    'orderby' => 'meta_value',
-                    'meta_key' => 'date_start',
-                    'order' => 'ASC',
-                ]);
-                ?>
+<?php
+// Получить текущую дату
+$today = current_time('Ymd');
+
+$upcoming_events = new WP_Query([
+    'post_type' => 'post',
+    'category_name' => 'events2',
+    'meta_query' => array(
+        array(
+            'key' => 'date_end',
+            'value' => $today,
+            'compare' => '>=', // Сравним с сегодняшней датой
+            'type' => 'DATE'
+        ),
+    ),
+    'posts_per_page' => -1,
+    'orderby' => 'meta_value',
+    'meta_key' => 'date_start',
+    'order' => 'ASC',
+]);
+?>
                 <?php if ($upcoming_events->have_posts()): ?>
                     <?php while ($upcoming_events->have_posts()): ?>
                         <?php $upcoming_events->the_post(); ?>
@@ -80,8 +88,8 @@ $today = date("Ymd");
                                         <?php the_field('location') ?>
                                     </div>
                                 </div>
-                                <h3><?php the_field('title') ?></h3>
-                                <div class="excerpt"><?php echo strip_tags(get_field('title')) ?></div>
+                                <h3><?php the_field('title_short') ?></h3>
+                                <div class="excerpt"><?php echo strip_tags(get_field('stand_location')) ?></div>
                                 <a href="<?php the_permalink() ?>" class="btn btn-yellow"><?php the_field('meet_us', 'option') ?></a>
                             </div>
                         </div>

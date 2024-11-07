@@ -15,17 +15,19 @@
 get_header();
 ?>
 
-    <section class="s-text">
-        <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-            <div class="container">
+<section class="s-text">
+    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+        <div class="container">
+            <?php if (strpos($_SERVER['REQUEST_URI'], '/contactthankyou/') === false) : ?>
                 <h1 class="s-text__heading"><?php the_title(); ?></h1>
-                <div class="s-text__content">
-                    <?php the_content(); ?>
-                </div>
+            <?php endif; ?>
+            <div class="s-text__content">
+                <?php the_content(); ?>
             </div>
-        <?php endwhile; ?>
-        <?php endif; ?>
-    </section>
+        </div>
+    <?php endwhile; ?>
+    <?php endif; ?>
+</section>
 
 <?php if (get_field('add_contact_section')) get_template_part('contact-section'); ?>
 
