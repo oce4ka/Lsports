@@ -58,7 +58,6 @@ function LSport_scripts()
     wp_enqueue_style('style-temp-from-db', get_template_directory_uri() . '/css/styles-temp.css', array(), _S_VERSION, 'all');
 
     // styles for event type Event Ice event-item-ice.php
-    // todo: change version
     wp_enqueue_style('style-event-ice', get_template_directory_uri() . '/css/custom-event-ice.css', array(), _S_VERSION, 'all');
 
 //    if (isset($_GET['iscsstest'])) {

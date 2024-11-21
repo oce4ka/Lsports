@@ -38,6 +38,8 @@ get_header();
     <?php get_template_part('event-item2'); ?>
 <?php elseif (has_category('events3')): ?>
     <?php get_template_part('event-item3'); ?>
+<?php elseif (has_category('events-ice')): ?>
+    <?php get_template_part('event-item-ice'); ?>
 <?php elseif (has_category('coverage')): ?>
     <?php get_template_part('coverage-item'); ?>
 <?php elseif (has_category('coverage-es')): ?>
