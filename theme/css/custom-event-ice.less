@@ -1,0 +1,1059 @@
+@ff1: "PP Formula", sans-serif;
+@ff2: "Test Söhne", sans-serif;
+
+@yellow: #E1F32C;
+@grey: #E8E8ED;
+@purple: #8F6CFF;
+
+@transition: all .2s ease-in-out;
+
+// Common styles -- move to common
+
+body {
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    letter-spacing: 0; // facepalm bug fix because of common - remove if it is fixed in common
+}
+
+//@media (max-width: 768px) {
+.logo-global img {
+    width: 100%;
+}
+
+//}
+
+.header-global {
+    height: auto;
+}
+
+@media (max-width: 1300px) {
+    .header-global {
+        height: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-global {
+        height: 15.486vw;
+    }
+}
+
+.nav-main > ul > li > a {
+    height: auto;
+}
+
+@media (max-width: 1300px) {
+    .nav-main > ul > li > a {
+        height: auto;
+    }
+}
+
+.nav-main > ul > li {
+    border-top: 0;
+    border-bottom: 0;
+    transition: background-color .2s ease-in-out;
+}
+
+.nav-main > ul > li.active {
+    border-color: transparent #000;
+    transition: background-color .2s ease-in-out;
+}
+
+.nav-main > ul > li {
+    line-height: 65px;
+}
+
+@media (max-width: 1300px) {
+    @x: 0.076923vw; //100/1300
+    .nav-main > ul > li {
+        line-height: 65*@x;
+    }
+}
+
+// Icons
+
+.facebook {
+    &--grey {
+        background-image: url("../img/icon-facebook-grey.svg");
+    }
+}
+
+.twitter {
+    &--grey {
+        background-image: url(../img/icon-twitterx-grey.svg)
+    }
+}
+
+.linkedin {
+    &--grey {
+        background-image: url("../img/icon-linkedin-grey.svg");
+    }
+}
+
+.whatsapp {
+    &--grey {
+        background-image: url("../img/icon-whatsapp-grey.svg");
+    }
+}
+
+// Buttons
+
+// Designer: We will be redesigning the entire website.
+// The new design of the current page is the first step.
+// Please create a button design based on Figma.
+
+.btn-black { // todo: change accordingly new design of the project
+    padding: 0 30px;
+    min-width: 270px;
+    height: 55px;
+    background: @yellow;
+    border: 1px solid #000;
+    display: inline-block;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 55px;
+    text-align: center;
+    cursor: pointer;
+    background: #000;
+    color: #fff;
+    white-space: nowrap;
+    transition: .2s ease-in-out;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+
+    &:hover {
+        background-color: @grey;
+        color: #000;
+    }
+}
+
+.s-event-ice-header, .s-ice-team, .s-video {
+    .btn-yellow, .btn-black { // todo: change accordingly new design of the project
+        font-family: @ff1;
+        font-weight: 500;
+        font-size: 22px;
+        line-height: 62px;
+        height: 62px;
+        letter-spacing: 0;
+    }
+}
+
+// Sections of the page
+// Section Header
+.s-event-ice-header {
+    padding: 80px 0 85px;
+
+    &__grid {
+        display: grid;
+        grid-template-columns: 635px auto;
+        grid-template-areas:
+    'h1 image'
+    'nav-social image'
+    'description image'
+    'description-highlight image'
+    'btn-yellow image';
+    }
+
+    h1 {
+        font-size: 90px;
+        line-height: 80px;
+        margin-bottom: 10px;
+        grid-area: h1;
+    }
+
+    .nav-social {
+        grid-area: nav-social;
+        justify-content: start;
+        gap: 35px;
+
+        .facebook--grey, .link--grey, .linkedin--grey, .twitter--grey {
+            width: 23px;
+            height: 23px;
+            margin: 0;
+        }
+    }
+
+    .description {
+        max-width: 530px;
+        grid-area: description;
+
+        p {
+            font-size: 20px;
+            line-height: 32px;
+        }
+    }
+
+    .description-highlight {
+        font-size: 22px;
+        max-width: 505px;
+        margin: 10px auto 45px 0;
+        grid-area: description-highlight;
+    }
+
+    .btn-yellow {
+        grid-area: btn-yellow;
+        justify-self: start;
+    }
+
+    img {
+        grid-area: image;
+    }
+}
+
+// Section Solutions
+.s-solutions {
+    padding: 80px 0 85px; // 60px 0 50px;
+
+    h2 {
+        font-size: 90px;
+        line-height: 80px;
+        margin: 0 0 60px;
+        text-align: center;
+    }
+
+    &__features {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__feature {
+        max-width: 235px;
+        text-align: center;
+
+        & > img {
+            max-width: 90px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        & > h3 {
+            font-weight: 500;
+            font-size: 22px;
+            line-height: 30px;
+            margin: 5px 0 18px;
+            min-height: 60px;
+        }
+
+        & > p {
+            line-height: 20px;
+        }
+    }
+}
+
+// Section Expectations
+.s-expectations {
+    padding: 80px 0 85px;
+
+    &__grid {
+        display: grid;
+        grid-template-columns: 393px 725px;
+        gap: 35px;
+        align-items: start;
+
+    }
+
+    h2 {
+        font-size: 45px;
+        line-height: 59px;
+        text-align: center;
+        margin-bottom: 60px;
+    }
+
+    &__text {
+        & > p {
+            font-size: 20px;
+            line-height: 32px;
+        }
+    }
+}
+
+// Section Video
+.s-video {
+    padding: 80px 0 85px; //70 0 50
+    text-align: center;
+
+    &__video-wrapper {
+        position: relative;
+        margin-bottom: 60px;
+
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        iframe {
+            max-width: 100%;
+        }
+    }
+}
+
+// Section Stay Tuned
+.s-stay-tuned {
+    box-shadow: inset 0 5px 5px -3px rgba(0, 0, 0, .2); // if prev section has a shadow
+
+    &:before,
+    &:after {
+        content: '';
+        display: block;
+        //background-color: #E8E8ED;
+    }
+
+    &:before {
+        height: 175px;
+    }
+
+    &:after {
+        height: 95px;
+        box-shadow: inset 0 5px 5px -3px rgba(0, 0, 0, .2); // if prev section has a shadow
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: 42% 58%; //550px 750px;
+        grid-template-areas:
+    'stay-tuned post1'
+    'stay-tuned post2'
+    'stay-tuned image'
+    'stay-tuned post3';
+    }
+
+    &__banner {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: right;
+        grid-area: stay-tuned;
+        position: relative;
+    }
+
+    h2 {
+        font-size: 160px;
+        line-height: 160px;
+        color: #E1F32C;
+        text-shadow: 0 6px 6px rgba(0, 0, 0, 0.396);
+        max-width: 373px;
+        position: absolute;
+        right: 130px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    &__post {
+        font-size: 45px;
+        line-height: 45px;
+        padding: 30px;
+        background: #E1F32C;
+        display: flex;
+        align-items: center;
+        font-family: @ff1;
+        font-weight: 900;
+
+        &.post-1 {
+            grid-area: post1;
+        }
+
+        &.post-2 {
+            grid-area: post2;
+            background: #000;
+            color: #fff;
+        }
+
+        &.post-3 {
+            grid-area: post3;
+        }
+
+        &:before {
+            content: '';
+            display: inline-block;
+            width: 55px;
+            height: 55px;
+            background: url(../img/icon-ball.png) center center/contain no-repeat;
+            margin-right: 18px;
+            flex-shrink: 0;
+        }
+    }
+
+    .img-wrapper {
+        grid-area: image;
+        width: 100%;
+        max-height: 314px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            width: 100%;
+        }
+    }
+}
+
+// Section Ice Team
+.s-ice-team {
+    padding: 80px 0 85px;
+    text-align: center;
+
+    h2 {
+        font-size: 90px;
+        line-height: 80px;
+        margin-bottom: 100px;
+    }
+
+    &__list {
+        display: flex;
+        gap: 50px;
+        margin-bottom: 100px;
+        flex-wrap: wrap;
+    }
+
+    &__item {
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 33px;
+        width: calc(50% - 25px);
+        text-align: left;
+        display: flex;
+        align-items: start;
+
+        &:before {
+            content: "";
+            width: 22px;
+            height: 22px;
+            margin-right: 28px;
+            background: url(../img/icon-highlight.svg) center center / contain no-repeat;
+            flex-shrink: 0;
+            flex-grow: 0;
+        }
+
+    }
+
+    &__members {
+        display: flex;
+        align-items: start;
+        justify-content: space-between;
+        margin-bottom: 40px;
+    }
+
+    &__social {
+        margin: 10px 0 4px;
+        display: flex;
+        gap: 7px;
+        justify-content: center;
+
+        .linkedin, .email {
+            width: 18px;
+            height: 18px;
+        }
+
+        .linkedin {
+            background: url(../img/icon-linkedin-team.svg) center center/contain no-repeat;
+        }
+
+        .email {
+            background: url(../img/icon-mail-team.svg) center center/contain no-repeat;
+        }
+    }
+
+    &__member {
+        max-width: 150px;
+
+        .img-wrapper {
+            box-shadow: 0 6px 6px rgba(0, 0, 0, 0.161), inset 0 5px 6px 2px rgba(0, 0, 0, 0.05);
+            border: 1px solid #fff;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+        }
+
+        h6 {
+            font-family: @ff2;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 20px;
+        }
+
+        .role {
+            font-family: @ff2;
+            font-size: 16px;
+            line-height: 20px;
+        }
+    }
+}
+
+// Section sportbooks
+.s-sportbooks {
+    box-shadow: inset 0 5px 5px -3px rgba(0, 0, 0, .2); // if prev section has a shadow
+    padding: 80px 0 85px;
+    text-align: center;
+
+    h2 {
+        font-size: 45px;
+        line-height: 59px;
+        margin-bottom: 15px;
+    }
+
+    h3 {
+        font-weight: 500;
+        font-size: 22px;
+        line-height: 30px;
+        text-transform: none;
+        max-width: 520px;
+        margin: 0 auto;
+    }
+
+    &__logos {
+        display: flex;
+        flex-wrap: wrap;
+        opacity: .35;
+        margin-top: 60px;
+        justify-content: space-between;
+        gap: 40px 0;
+    }
+
+    &__logo {
+        width: 220px;
+        height: 35px;
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    }
+}
+
+@media (max-width: 1300px) {
+    @x: 0.077vw; //100/1300
+    // Buttons
+    .btn-black { // todo: change accordingly new design of the project
+        padding: 0 30*@x;
+        min-width: 270*@x;
+        height: 55*@x;
+        font-size: 12*@x;
+        line-height: 55*@x;
+    }
+
+    .s-event-ice-header, .s-ice-team, .s-video {
+        .btn-yellow, .btn-black { // todo: change accordingly new design of the project
+            font-size: 22*@x;
+            line-height: 62*@x;
+            height: 62*@x;
+        }
+    }
+
+    // Sections of the page
+    // Section Header
+    .s-event-ice-header {
+        padding: 80*@x 0 85*@x;
+
+        &__grid {
+            grid-template-columns: 635*@x auto;
+        }
+
+        h1 {
+            font-size: 90*@x;
+            line-height: 80*@x;
+            margin-bottom: 10*@x;
+        }
+
+        .nav-social {
+            gap: 35*@x;
+
+            .facebook--grey, .link--grey, .linkedin--grey, .twitter--grey {
+                width: 23*@x;
+                height: 23*@x;
+            }
+        }
+
+        .description {
+            max-width: 530*@x;
+
+            p {
+                font-size: 20*@x;
+                line-height: 32*@x;
+            }
+        }
+
+        .description-highlight {
+            font-size: 22*@x;
+            max-width: 505*@x;
+            margin: 10*@x auto 45*@x 0;
+        }
+    }
+
+    // Section Solutions
+    .s-solutions {
+        padding: 80*@x 0 85*@x; // 60px 0 50px;
+
+        h2 {
+            font-size: 90*@x;
+            line-height: 80*@x;
+            margin: 0 0 60*@x;
+        }
+
+        &__features {
+            flex-wrap: wrap;
+        }
+
+        &__feature {
+            max-width: 235*@x;
+
+            & > img {
+                max-width: 90*@x;
+            }
+
+            & > h3 {
+                font-size: 22*@x;
+                line-height: 30*@x;
+                margin: 5*@x 0 18*@x;
+                min-height: 60*@x;
+            }
+
+            & > p {
+                line-height: 20*@x;
+            }
+        }
+    }
+
+    // Section Expectations
+    .s-expectations {
+        padding: 80*@x 0 85*@x;
+
+        &__grid {
+            grid-template-columns: 393*@x 725*@x;
+            gap: 35*@x;
+        }
+
+        h2 {
+            font-size: 45*@x;
+            line-height: 59*@x;
+            margin-bottom: 60*@x;
+        }
+
+        &__text {
+            & > p {
+                font-size: 20*@x;
+                line-height: 32*@x;
+            }
+        }
+    }
+
+    // Section Video
+    .s-video {
+        padding: 80*@x 0 85*@x; //70 0 50
+
+        &__video-wrapper {
+            margin-bottom: 60*@x;
+
+            iframe {
+                max-height: 51.855vw;
+            }
+        }
+    }
+
+    // Section Stay Tuned
+    .s-stay-tuned {
+        box-shadow: inset 0 5*@x 5*@x -3*@x rgba(0, 0, 0, .2); // if prev section has a shadow
+
+        &:before {
+            height: 175*@x;
+        }
+
+        &:after {
+            height: 95*@x;
+            box-shadow: inset 0 5*@x 5*@x -3*@x rgba(0, 0, 0, .2); // if prev section has a shadow
+        }
+
+        h2 {
+            font-size: 160*@x;
+            line-height: 160*@x;
+            text-shadow: 0 6*@x 6*@x rgba(0, 0, 0, 0.396);
+            max-width: 373*@x;
+            right: 130*@x;
+        }
+
+        &__post {
+            font-size: 45*@x;
+            line-height: 45*@x;
+            padding: 30*@x;
+
+            &:before {
+                width: 55*@x;
+                height: 55*@x;
+                margin-right: 18*@x;
+            }
+        }
+    }
+
+    // Section Ice Team
+    .s-ice-team {
+        padding: 80*@x 0 85*@x;
+
+        h2 {
+            font-size: 90*@x;
+            line-height: 80*@x;
+            margin-bottom: 100*@x;
+        }
+
+        &__list {
+            gap: 50*@x;
+            margin-bottom: 100*@x;
+        }
+
+        &__item {
+            font-size: 24*@x;
+            line-height: 33*@x;
+            width: calc(50% - 25 * @x);
+
+            &:before {
+                width: 22*@x;
+                height: 22*@x;
+                margin-right: 28*@x;
+            }
+
+        }
+
+        &__members {
+            margin-bottom: 40*@x;
+        }
+
+        &__member {
+            max-width: 150*@x;
+
+            h6 {
+                font-size: 16*@x;
+                line-height: 20*@x;
+            }
+
+            .role {
+                font-size: 16*@x;
+                line-height: 20*@x;
+            }
+        }
+
+        .btn-yellow { // todo: change accordingly new design of the project
+            font-family: @ff1;
+            font-size: 22*@x;
+            line-height: 62*@x;
+            height: 62*@x;
+        }
+    }
+
+    // Section sportbooks
+    .s-sportbooks {
+        padding: 80*@x 0 85*@x;
+        box-shadow: inset 0 5*@x 5*@x -3*@x rgba(0, 0, 0, .2); // if prev section has a shadow
+
+        h2 {
+            font-size: 45*@x;
+            line-height: 59*@x;
+            margin-bottom: 15*@x;
+        }
+
+        h3 {
+            font-weight: 500;
+            font-size: 22*@x;
+            line-height: 30*@x;
+            max-width: 520*@x;
+        }
+
+        &__logos {
+            margin-top: 60*@x;
+            gap: 40*@x 0;
+        }
+
+        &__logo {
+            width: 220*@x;
+            height: 35*@x;
+        }
+    }
+}
+
+
+@media (max-width: 768px) {
+    @x: .267vw; // 100/375px;
+    // Buttons
+    .btn-black { // todo: change accordingly new design of the project
+        padding: 0 30*@x;
+        min-width: 270*@x;
+        height: 55*@x;
+        font-size: 12*@x;
+        line-height: 55*@x;
+    }
+
+    .s-event-ice-header, .s-ice-team, .s-video {
+        .btn-yellow, .btn-black { // todo: change accordingly new design of the project
+            font-size: 14*@x;
+            line-height: 39*@x;
+            height: 39*@x;
+        }
+    }
+
+    // Sections of the page
+    // Section Header
+    .s-event-ice-header {
+        padding: 42*@x 0 85*@x;
+
+        &__grid {
+            grid-template-columns: auto;
+            grid-template-areas:
+    'h1'
+    'nav-social'
+    'image'
+    'description'
+    'description-highlight'
+    'btn-yellow';
+        }
+
+        h1 {
+            font-size: 42*@x;
+            line-height: 40*@x;
+            margin-bottom: 15*@x;
+        }
+
+        .nav-social {
+            gap: 18*@x;
+            margin-bottom: 25*@x;
+
+            .facebook, .link, .linkedin, .twitter, .whatsapp {
+                width: 20*@x;
+                height: 20*@x;
+            }
+        }
+
+        .description {
+            max-width: 100%;
+            margin-top: 15*@x;
+
+            p {
+                font-size: 16*@x;
+                line-height: 22*@x;
+            }
+        }
+
+        .description-highlight {
+            font-size: 16*@x;
+            max-width: 262*@x;
+            margin: 6*@x auto 26*@x 0;
+        }
+
+        .btn-yellow {
+            justify-self: center;
+        }
+    }
+
+    // Section Solutions
+    .s-solutions {
+        padding: 50*@x 0;
+
+        h2 {
+            font-size: 42*@x;
+            line-height: 40*@x;
+            margin: 0 0 46*@x;
+        }
+
+        &__features {
+            justify-content: center;
+            gap: 16*@x;
+        }
+
+        &__feature {
+            max-width: 235*@x;
+
+            & > img {
+                max-width: 90*@x;
+            }
+
+            & > h3 {
+                font-size: 16*@x;
+                line-height: 22*@x;
+                margin: 5*@x 0 18*@x;
+                min-height: 0;
+            }
+
+            & > p {
+                line-height: 20*@x;
+            }
+        }
+    }
+
+    // Section Expectations
+    .s-expectations {
+        padding: 50*@x 0;
+
+
+        &__grid {
+            grid-template-columns: auto;
+            gap: 0;
+        }
+
+        h2 {
+            font-size: 42*@x;
+            line-height: 40*@x;
+            margin-bottom: 20*@x;
+        }
+
+        &__text {
+            & > p {
+                font-size: 16*@x;
+                line-height: 20*@x;
+            }
+        }
+    }
+
+    // Section Video
+    .s-video {
+        padding: 50*@x 0;
+
+        &__video-wrapper {
+            margin-bottom: 30*@x;
+
+            iframe {
+                max-height: 47.13vw;
+            }
+        }
+    }
+
+    // Section Stay Tuned
+    .s-stay-tuned {
+        box-shadow: inset 0 5*@x 5*@x -3*@x rgba(0, 0, 0, .2); // if prev section has a shadow
+        &:before {
+            height: 52*@x;
+        }
+
+        &:after {
+            height: 0;
+            box-shadow: none;
+        }
+
+        &__grid {
+            display: grid;
+            grid-template-columns: auto;
+            grid-template-areas:
+                'post1'
+                'post2'
+                'image'
+                'post3'
+                'stay-tuned';
+        }
+
+        &__banner {
+            //display: none;
+            height: 112*@x;
+            background-image: none !important;
+            background-color: #000;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 45*@x;
+            line-height: 45*@x;
+            text-shadow: 0 6*@x 6*@x rgba(0, 0, 0, 0.396);
+            max-width: 110*@x;
+            right: 50%;
+            top: 50%;
+            transform: translate(50%, -50%);
+
+        }
+
+        &__post {
+            font-size: 24*@x;
+            line-height: 24*@x;
+            padding: 12*@x 24*@x;
+
+            &:before {
+                width: 38*@x;
+                height: 38*@x;
+                margin-right: 10*@x;
+            }
+        }
+    }
+
+    // Section Ice Team
+    .s-ice-team {
+        padding: 50*@x 0;
+
+        h2 {
+            font-size: 42*@x;
+            line-height: 42*@x;
+            margin-bottom: 50*@x;
+        }
+
+        &__list {
+            gap: 18*@x;
+            margin-bottom: 50*@x;
+        }
+
+        &__item {
+            font-size: 14*@x;
+            line-height: 20*@x;
+            width: auto;
+
+            &:before {
+                width: 22*@x;
+                height: 22*@x;
+                margin-right: 28*@x;
+            }
+
+        }
+
+        &__members {
+            margin-bottom: 40*@x;
+            flex-wrap: wrap;
+            gap: 26*@x 0;
+        }
+
+        &__member {
+            max-width: 144*@x;
+            flex-shrink: 0;
+
+            h6 {
+                font-size: 16*@x;
+                line-height: 20*@x;
+            }
+
+            .role {
+                font-size: 16*@x;
+                line-height: 20*@x;
+            }
+        }
+
+        //.btn-yellow { // todo: change accordingly new design of the project
+        //    font-family: @ff1;
+        //    font-size: 22*@x;
+        //    line-height: 62*@x;
+        //    height: 62*@x;
+        //}
+    }
+
+    // Section sportbooks
+    .s-sportbooks {
+        padding: 50*@x 0;
+        box-shadow: inset 0 5*@x 5*@x -3*@x rgba(0, 0, 0, .2); // if prev section has a shadow
+
+        h2 {
+            font-size: 42*@x;
+            line-height: 42*@x;
+            margin-bottom: 15*@x;
+        }
+
+        h3 {
+            font-weight: 500;
+            font-size: 16*@x;
+            line-height: 20*@x;
+            max-width: none;
+        }
+
+        &__logos {
+            margin-top: 20*@x;
+            gap: 30*@x 0;
+        }
+
+        &__logo {
+            width: auto;
+            max-width: 130*@x;
+            height: 40*@x;
+            max-height: 25*@x;
+        }
+    }
+}

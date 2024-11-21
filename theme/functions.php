@@ -9,7 +9,7 @@
 
 if (!defined('_S_VERSION')) {
     // Replace the version number of the theme on each release.
-    define('_S_VERSION', '1.7.1');
+    define('_S_VERSION', '1.8.8');
 }
 
 /*
@@ -46,13 +46,26 @@ function LSport_scripts()
         wp_enqueue_script( "my-custom-owl-js", get_template_directory_uri() . "/owlcarousel/owl.carousel.min.js", array("jquery"), "", TRUE );
         wp_enqueue_script('owl-script', get_template_directory_uri() . '/js/owl.js', array('jquery'), _S_VERSION, true);
     }
-
     wp_enqueue_style('style-slick', get_template_directory_uri() . '/css/slick.css', array(), _S_VERSION, 'all');
-    wp_enqueue_style('style', get_template_directory_uri() . '/css/custom.css', array(), _S_VERSION, 'all');
+
+    // wp_enqueue_style('style', get_template_directory_uri() . '/css/custom.css', array(), _S_VERSION, 'all');
     // this stylesheet made by combination of custom.less and few strange devs, who added styles directly into css file.
-    // temporary backup for 7 NOV 2024, WIP: custom.css synching with custom.less, to allow working in less file in future
+    // custom-broken.css is a temporary backup for 7 NOV 2024
+    // WIP: custom.css is in process of repairing to make it synching with custom.less, to allow working in less file in future
     wp_enqueue_style('style-broken', get_template_directory_uri() . '/css/custom-broken.css', array(), _S_VERSION, 'all');
-    wp_enqueue_style('style-megamenu', get_template_directory_uri() . '/css/mega-menu.css', array(), '1.0.1', 'all');
+
+    // Styles that I've found in Appearance >> Theme >> Customize
+    wp_enqueue_style('style-temp-from-db', get_template_directory_uri() . '/css/styles-temp.css', array(), _S_VERSION, 'all');
+
+    // styles for event type Event Ice event-item-ice.php
+    // todo: change version
+    wp_enqueue_style('style-event-ice', get_template_directory_uri() . '/css/custom-event-ice.css', array(), _S_VERSION, 'all');
+
+//    if (isset($_GET['iscsstest'])) {
+//        wp_enqueue_style('style', get_template_directory_uri() . '/css/custom.css', array(), _S_VERSION, 'all');
+//    }
+
+    wp_enqueue_style('style-megamenu', get_template_directory_uri() . '/css/mega-menu.css', array(), _S_VERSION, 'all');
     wp_enqueue_style('style-animation-aos', get_template_directory_uri() . '/css/aos.css', array(), _S_VERSION, 'all');
 
     wp_enqueue_script('lottie-player', '//unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.js', '', _S_VERSION, true);
@@ -1838,3 +1851,13 @@ array(
 ));
 
 endif;
+
+function enqueue_termly_custom_styles() {
+    wp_enqueue_style(
+        'termly-custom',
+        get_stylesheet_directory_uri() . '/css/termly-custom.css',
+        array(),
+        null
+    );
+}
+add_action('wp_enqueue_scripts', 'enqueue_termly_custom_styles');
