@@ -1,17 +1,3 @@
-body {
-  -webkit-font-smoothing: antialiased;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  letter-spacing: 0;
-}
-.logo-global img {
-  width: 100%;
-}
 .header-global {
   height: auto;
 }
@@ -77,7 +63,7 @@ h6 {
   background: #000;
   color: #fff;
   white-space: nowrap;
-  transition: 0.2s ease-in-out;
+  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
   text-transform: uppercase;
   letter-spacing: 0.2em;
 }
@@ -97,6 +83,14 @@ h6 {
   line-height: 62px;
   height: 62px;
   letter-spacing: 0;
+}
+.aos-animation-on-load {
+  opacity: 0;
+  transform: translate3d(0, 100px, 0);
+  transition-delay: 50ms;
+  transition-timing-function: ease-out;
+  transition-duration: 0.6s;
+  transition-property: opacity, transform;
 }
 .s-event-ice-header {
   padding: 80px 0 85px;
@@ -121,9 +115,15 @@ h6 {
 .s-event-ice-header .nav-social .link--grey,
 .s-event-ice-header .nav-social .linkedin--grey,
 .s-event-ice-header .nav-social .twitter--grey {
-  width: 23px;
-  height: 23px;
   margin: 0;
+  opacity: 0.5;
+  transition: opacity 0.2s ease-in-out;
+}
+.s-event-ice-header .nav-social .facebook--grey:hover,
+.s-event-ice-header .nav-social .link--grey:hover,
+.s-event-ice-header .nav-social .linkedin--grey:hover,
+.s-event-ice-header .nav-social .twitter--grey:hover {
+  opacity: 1;
 }
 .s-event-ice-header .description {
   max-width: 530px;
@@ -182,8 +182,8 @@ h6 {
 }
 .s-expectations__grid {
   display: grid;
-  grid-template-columns: 393px 725px;
-  gap: 35px;
+  grid-template-columns: 338px 725px;
+  gap: 90px;
   align-items: start;
 }
 .s-expectations h2 {
@@ -238,22 +238,21 @@ h6 {
   background-position: right;
   grid-area: stay-tuned;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .s-stay-tuned h2 {
-  font-size: 160px;
-  line-height: 160px;
+  font-size: 220px;
+  line-height: 198px;
   color: #E1F32C;
   text-shadow: 0 6px 6px rgba(0, 0, 0, 0.396);
   max-width: 373px;
-  position: absolute;
-  right: 130px;
-  top: 50%;
-  transform: translateY(-50%);
 }
 .s-stay-tuned__post {
   font-size: 45px;
   line-height: 45px;
-  padding: 30px;
+  padding: 30px 30px 22px;
   background: #E1F32C;
   display: flex;
   align-items: center;
@@ -284,13 +283,14 @@ h6 {
   grid-area: image;
   width: 100%;
   max-height: 314px;
+  height: 314px;
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .s-stay-tuned .img-wrapper img {
-  width: 100%;
+  height: 100%;
 }
 .s-ice-team {
   padding: 80px 0 85px;
@@ -393,15 +393,52 @@ h6 {
   opacity: 0.35;
   margin-top: 60px;
   justify-content: space-between;
-  gap: 40px 0;
+  gap: 40px 100px;
 }
 .s-sportbooks__logo {
-  width: 220px;
-  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .s-sportbooks__logo img {
   max-width: 100%;
   max-height: 100%;
+}
+.ice-modal .modal-wrapper {
+  padding: 50px 40px;
+  border: 0;
+  border-bottom: 44px solid #E1F32C;
+  width: 673px;
+  height: 656px;
+}
+.ice-modal .modal-close {
+  top: 25px;
+  right: 25px;
+  width: 54px;
+  height: 54px;
+  border: 0;
+  background: url(../img/icon-close-ice.svg);
+  background-size: contain;
+}
+.ice-modal h3 {
+  text-align: center;
+  font-size: 72px;
+  line-height: 95px;
+}
+.ice-modal .modal-grid {
+  justify-content: space-between;
+  align-items: start;
+}
+.ice-modal .modal-grid .content-wrapper {
+  width: 230px;
+}
+.ice-modal .modal-grid .content-wrapper iframe {
+  transform: scale(0.75);
+  transform-origin: top left;
+  width: 125%;
+}
+.ice-modal .modal-grid .image-wrapper {
+  width: 330px;
 }
 @media (max-width: 1300px) {
   .btn-black {
@@ -434,13 +471,6 @@ h6 {
   }
   .s-event-ice-header .nav-social {
     gap: 2.695vw;
-  }
-  .s-event-ice-header .nav-social .facebook--grey,
-  .s-event-ice-header .nav-social .link--grey,
-  .s-event-ice-header .nav-social .linkedin--grey,
-  .s-event-ice-header .nav-social .twitter--grey {
-    width: 1.771vw;
-    height: 1.771vw;
   }
   .s-event-ice-header .description {
     max-width: 40.81vw;
@@ -484,8 +514,8 @@ h6 {
     padding: 6.16vw 0 6.545vw;
   }
   .s-expectations__grid {
-    grid-template-columns: 30.261vw 55.825vw;
-    gap: 2.695vw;
+    grid-template-columns: 26.026vw 55.825vw;
+    gap: 6.93vw;
   }
   .s-expectations h2 {
     font-size: 3.465vw;
@@ -516,8 +546,8 @@ h6 {
     box-shadow: inset 0 0.385vw 0.385vw -0.231vw rgba(0, 0, 0, 0.2);
   }
   .s-stay-tuned h2 {
-    font-size: 12.32vw;
-    line-height: 12.32vw;
+    font-size: 16.94vw;
+    line-height: 15.246vw;
     text-shadow: 0 0.462vw 0.462vw rgba(0, 0, 0, 0.396);
     max-width: 28.721vw;
     right: 10.01vw;
@@ -525,12 +555,16 @@ h6 {
   .s-stay-tuned__post {
     font-size: 3.465vw;
     line-height: 3.465vw;
-    padding: 2.31vw;
+    padding: 2.31vw 2.31vw 1.694vw;
   }
   .s-stay-tuned__post:before {
     width: 4.235vw;
     height: 4.235vw;
     margin-right: 1.386vw;
+  }
+  .s-stay-tuned .img-wrapper {
+    max-height: 24.178vw;
+    height: 24.178vw;
   }
   .s-ice-team {
     padding: 6.16vw 0 6.545vw;
@@ -591,11 +625,34 @@ h6 {
   }
   .s-sportbooks__logos {
     margin-top: 4.62vw;
-    gap: 3.08vw 0;
+    gap: 3.08vw 7.7vw;
   }
-  .s-sportbooks__logo {
-    width: 16.94vw;
-    height: 2.695vw;
+  .ice-modal .modal-wrapper {
+    padding: 3.85vw 3.08vw;
+    border-bottom: 3.388vw solid #E1F32C;
+    width: 51.821vw;
+    height: 50.512vw;
+  }
+  .ice-modal .modal-close {
+    top: 1.925vw;
+    right: 1.925vw;
+    width: 4.158vw;
+    height: 4.158vw;
+  }
+  .ice-modal h3 {
+    font-size: 5.544vw;
+    line-height: 7.315vw;
+  }
+  .ice-modal .modal-grid .content-wrapper {
+    width: 17.71vw;
+  }
+  .ice-modal .modal-grid .content-wrapper iframe {
+    transform: scale(0.5);
+    transform-origin: top left;
+    width: 200%;
+  }
+  .ice-modal .modal-grid .image-wrapper {
+    width: 25.41vw;
   }
 }
 @media (max-width: 768px) {
@@ -632,14 +689,6 @@ h6 {
     gap: 4.806vw;
     margin-bottom: 6.675vw;
   }
-  .s-event-ice-header .nav-social .facebook,
-  .s-event-ice-header .nav-social .link,
-  .s-event-ice-header .nav-social .linkedin,
-  .s-event-ice-header .nav-social .twitter,
-  .s-event-ice-header .nav-social .whatsapp {
-    width: 5.34vw;
-    height: 5.34vw;
-  }
   .s-event-ice-header .description {
     max-width: 100%;
     margin-top: 4.005vw;
@@ -652,9 +701,6 @@ h6 {
     font-size: 4.272vw;
     max-width: 69.954vw;
     margin: 1.602vw auto 6.942vw 0;
-  }
-  .s-event-ice-header .btn-yellow {
-    justify-self: center;
   }
   .s-solutions {
     padding: 13.35vw 0;
@@ -699,6 +745,10 @@ h6 {
     font-size: 4.272vw;
     line-height: 5.34vw;
   }
+  .s-expectations__image {
+    max-width: 50%;
+    margin: 0 auto 2.67vw;
+  }
   .s-video {
     padding: 13.35vw 0;
   }
@@ -727,6 +777,7 @@ h6 {
     height: 29.904vw;
     background-image: none !important;
     background-color: #000;
+    padding-top: 2.67vw;
   }
   .s-stay-tuned h2 {
     text-align: center;
@@ -734,14 +785,11 @@ h6 {
     line-height: 12.015vw;
     text-shadow: 0 1.602vw 1.602vw rgba(0, 0, 0, 0.396);
     max-width: 29.37vw;
-    right: 50%;
-    top: 50%;
-    transform: translate(50%, -50%);
   }
   .s-stay-tuned__post {
-    font-size: 6.408vw;
-    line-height: 6.408vw;
-    padding: 3.204vw 6.408vw;
+    font-size: 7.476vw;
+    line-height: 7.476vw;
+    padding: 3.738vw 7.476vw 2.403vw;
   }
   .s-stay-tuned__post:before {
     width: 10.146vw;
@@ -774,9 +822,10 @@ h6 {
     margin-bottom: 10.68vw;
     flex-wrap: wrap;
     gap: 6.942vw 0;
+    justify-content: space-around;
   }
   .s-ice-team__member {
-    max-width: 38.448vw;
+    max-width: 30.705vw;
     flex-shrink: 0;
   }
   .s-ice-team__member h6 {
@@ -804,7 +853,7 @@ h6 {
   }
   .s-sportbooks__logos {
     margin-top: 5.34vw;
-    gap: 8.01vw 0;
+    gap: 8.01vw 8.01vw;
   }
   .s-sportbooks__logo {
     width: auto;
@@ -812,5 +861,64 @@ h6 {
     height: 10.68vw;
     max-height: 6.675vw;
   }
+  .ice-modal .modal-wrapper {
+    padding: 10.68vw;
+    border-bottom: 10.68vw solid #E1F32C;
+    width: 100%;
+    height: 100%;
+  }
+  .ice-modal .modal-close {
+    top: 4.005vw;
+    right: 4.005vw;
+    width: 8.01vw;
+    height: 8.01vw;
+  }
+  .ice-modal h3 {
+    font-size: 10.68vw;
+    line-height: 14.418vw;
+  }
+  .ice-modal .modal-grid {
+    align-items: center;
+    flex-direction: column;
+    margin-top: 5.34vw;
+    justify-content: start;
+  }
+  .ice-modal .modal-grid .content-wrapper {
+    width: 100%;
+    text-align: center;
+    max-height: 530px;
+  }
+  .ice-modal .modal-grid .content-wrapper iframe {
+    width: 280px !important;
+    margin: 0 auto;
+    transform: scale(0.88);
+    transform-origin: top center;
+  }
+  .ice-modal .modal-grid .image-wrapper {
+    width: 100%;
+    text-align: right;
+    margin-top: -60px;
+    position: relative;
+    z-index: -1;
+  }
+  .ice-modal .modal-grid .image-wrapper img {
+    max-width: 24.03vw;
+  }
 }
+/*
+970+
+@media (max-width: 1300px) {
+    .ice-modal .modal-grid .content-wrapper iframe {
+        transform: scale(0.55);
+        transform-origin: top left;
+        width: 190%;
+    }
+}
+
+1100+
+max-height: 55vw
+        transform: scale(0.65);
+        transform-origin: top left;
+        width: 155%;
+ */
 /*# sourceMappingURL=custom-event-ice.css.map */

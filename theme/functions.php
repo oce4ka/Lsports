@@ -9,7 +9,7 @@
 
 if (!defined('_S_VERSION')) {
     // Replace the version number of the theme on each release.
-    define('_S_VERSION', '1.8.8');
+    define('_S_VERSION', '1.8.11');
 }
 
 /*
@@ -40,29 +40,31 @@ function LSport_scripts()
 {
     wp_enqueue_style('LSport-style', get_stylesheet_uri(), array(), _S_VERSION);
 
-    if (!is_front_page()) {
+    if (is_page_template('careers.php')) {
         wp_enqueue_style("style-owl-default",get_bloginfo('stylesheet_directory')."/owlcarousel/owl.theme.default.min.css");
         wp_enqueue_style("style-owl-min",get_bloginfo('stylesheet_directory')."/owlcarousel/owl.carousel.min.css");
         wp_enqueue_script( "my-custom-owl-js", get_template_directory_uri() . "/owlcarousel/owl.carousel.min.js", array("jquery"), "", TRUE );
         wp_enqueue_script('owl-script', get_template_directory_uri() . '/js/owl.js', array('jquery'), _S_VERSION, true);
     }
+
     wp_enqueue_style('style-slick', get_template_directory_uri() . '/css/slick.css', array(), _S_VERSION, 'all');
 
-    // wp_enqueue_style('style', get_template_directory_uri() . '/css/custom.css', array(), _S_VERSION, 'all');
-    // this stylesheet made by combination of custom.less and few strange devs, who added styles directly into css file.
-    // custom-broken.css is a temporary backup for 7 NOV 2024
-    // WIP: custom.css is in process of repairing to make it synching with custom.less, to allow working in less file in future
-    wp_enqueue_style('style-broken', get_template_directory_uri() . '/css/custom-broken.css', array(), _S_VERSION, 'all');
+    // if any page is broken, you can try ?showold in the end of url to compare
 
-    // Styles that I've found in Appearance >> Theme >> Customize
-    wp_enqueue_style('style-temp-from-db', get_template_directory_uri() . '/css/styles-temp.css', array(), _S_VERSION, 'all');
+    if (isset($_GET['showold'])) {
+        // custom-broken.css is a temporary backup for 7 NOV 2024
+        wp_enqueue_style('style-broken', get_template_directory_uri() . '/css/custom-broken.css', array(), _S_VERSION, 'all');
+        // Styles that I've found in Appearance >> Theme >> Customize -- they have been added to theme-additional-css-styles.css
+        wp_enqueue_style('style-temp-from-db', get_template_directory_uri() . '/css/styles-temp.css', array(), _S_VERSION, 'all');
+
+    } else {
+        wp_enqueue_style('theme-less-styles', get_template_directory_uri() . '/css/theme-less-styles.css', array(), _S_VERSION, 'all');
+        wp_enqueue_style('theme-additional-css-styles.css', get_template_directory_uri() . '/css/theme-additional-css-styles.css', array(), _S_VERSION, 'all');
+    }
 
     // styles for event type Event Ice event-item-ice.php
     wp_enqueue_style('style-event-ice', get_template_directory_uri() . '/css/custom-event-ice.css', array(), _S_VERSION, 'all');
 
-//    if (isset($_GET['iscsstest'])) {
-//        wp_enqueue_style('style', get_template_directory_uri() . '/css/custom.css', array(), _S_VERSION, 'all');
-//    }
 
     wp_enqueue_style('style-megamenu', get_template_directory_uri() . '/css/mega-menu.css', array(), _S_VERSION, 'all');
     wp_enqueue_style('style-animation-aos', get_template_directory_uri() . '/css/aos.css', array(), _S_VERSION, 'all');
@@ -117,6 +119,7 @@ if( function_exists('acf_add_options_page') ) {
 // remove <p> from CF7
 add_filter('wpcf7_autop_or_not', '__return_false');
 
+
 /**
  * Move image inside <p> tag above the <p> tag while preserving any link around image.
  * Can be prevented by adding any attribute or whitespace to <p> tag, e.g. <p class="yolo"> or even <p >
@@ -137,6 +140,7 @@ function remove_p_around_img($content)
 }
 
 add_filter('the_content', 'remove_p_around_img');
+
 
 // load more button on News page
 function news_load_more()
@@ -194,6 +198,7 @@ function news_load_more()
 add_action('wp_ajax_news_load_more', 'news_load_more');
 add_action('wp_ajax_nopriv_news_load_more', 'news_load_more');
 
+
 function blogs_load_more()
 {
 
@@ -231,6 +236,7 @@ function blogs_load_more()
 
 add_action('wp_ajax_blogs_load_more', 'blogs_load_more');
 add_action('wp_ajax_nopriv_blogs_load_more', 'blogs_load_more');
+
 
 // Past events functionality https://weichie.com/blog/load-more-posts-ajax-wordpress/
 /*
@@ -462,6 +468,7 @@ function polylang_slug_unique_slug_in_language( $slug, $post_ID, $post_status, $
 }
 add_filter( 'wp_unique_post_slug', 'polylang_slug_unique_slug_in_language', 10, 6 );
 
+
 /**
  * Modify the sql query to include checks for the current language.
  *
@@ -531,6 +538,7 @@ function polylang_slug_filter_queries( $query ) {
 }
 add_filter( 'query', 'polylang_slug_filter_queries' );
 
+
 /**
  * Extend the WHERE clause of the query.
  *
@@ -558,6 +566,7 @@ function polylang_slug_posts_where_filter( $where, $query ) {
 }
 add_filter( 'posts_where', 'polylang_slug_posts_where_filter', 10, 2 );
 
+
 /**
  * Extend the JOIN clause of the query.
  *
@@ -583,6 +592,7 @@ function polylang_slug_posts_join_filter( $join, $query ) {
 	return $join;
 }
 add_filter( 'posts_join', 'polylang_slug_posts_join_filter', 10, 2 );
+
 
 /**
  * Check if the query needs to be adapted.
@@ -619,6 +629,7 @@ function polylang_slug_should_run( $query = '' ) {
 	return ! ( empty( $lang ) || $is_translated );
 }
 
+
 /**
  * Standardize the query.
  *
@@ -640,6 +651,7 @@ function polylang_slug_standardize_query( $query ) {
 	return trim( $query );
 }
 
+
 /**
  * Fetch the polylang join clause.
  *
@@ -656,6 +668,7 @@ function polylang_slug_model_post_join_clause() {
 	}
 	return '';
 }
+
 
 /**
  * Fetch the polylang where clause.
@@ -675,6 +688,7 @@ function polylang_slug_model_post_where_clause( $lang = '' ) {
 	}
 	return '';
 }
+
 
 //Disable emojis in WordPress
 add_action( 'init', 'smartwp_disable_emojis' );
@@ -697,6 +711,7 @@ function disable_emojis_tinymce( $plugins ) {
     }
 }
 
+
 //Remove Gutenberg Block Library CSS from loading on the frontend
 function smartwp_remove_wp_block_library_css(){
    wp_dequeue_style( 'wp-block-library' );
@@ -705,13 +720,16 @@ function smartwp_remove_wp_block_library_css(){
 }
 add_action( 'wp_enqueue_scripts', 'smartwp_remove_wp_block_library_css', 100 );
 
+
 function add_nofollow_to_specific_menu($args) {
     if ($args['theme_location'] == 'footer-links-menu') {
         $args['walker'] = new Walker_Nav_Menu_Nofollow();
     }
     return $args;
 }
+
 add_filter('wp_nav_menu_args', 'add_nofollow_to_specific_menu');
+
 
 class Walker_Nav_Menu_Nofollow extends Walker_Nav_Menu {
     function start_el(&$output, $item, $depth=0, $args=array(), $id=0) {
@@ -730,14 +748,13 @@ class Walker_Nav_Menu_Nofollow extends Walker_Nav_Menu {
     }
 }
 
+
 function allow_svg_uploads($mimes) {
     $mimes['svg'] = 'image/svg+xml';
     return $mimes;
 }
+
 add_filter('upload_mimes', 'allow_svg_uploads');
-
-
-
 
 
 function load_more_posts_by_tags() {
@@ -805,1052 +822,6 @@ add_action('wp_ajax_nopriv_load_more_posts_by_tags', 'load_more_posts_by_tags');
 add_action('wp_ajax_load_more_posts_by_tags', 'load_more_posts_by_tags');
 
 
-
-if( function_exists('acf_add_local_field_group') ):
-
-    acf_add_local_field_group(array(
-        'key' => 'group_66f2cd97a9a04',
-        'title' => 'Mega menu',
-        'fields' => array(
-            array(
-                'key' => 'field_66f2cf7ad35e6',
-                'label' => '1',
-                'name' => '',
-                'type' => 'tab',
-                'instructions' => '',
-                'required' => 0,
-                'conditional_logic' => 0,
-                'wrapper' => array(
-                    'width' => '',
-                    'class' => '',
-                    'id' => '',
-                ),
-                'placement' => 'top',
-                'endpoint' => 0,
-            ),
-            array(
-                'key' => 'field_66f3af1311f94',
-                'label' => 'First menu item',
-                'name' => 'first_menu_item',
-                'type' => 'group',
-                'instructions' => '',
-                'required' => 0,
-                'conditional_logic' => 0,
-                'wrapper' => array(
-                    'width' => '',
-                    'class' => '',
-                    'id' => '',
-                ),
-                'layout' => 'block',
-                'sub_fields' => array(
-                    array(
-                        'key' => 'field_66f3af6211f95',
-                        'label' => 'Menu item title',
-                        'name' => 'menu_item_title',
-                        'type' => 'text',
-                        'instructions' => '',
-                        'required' => 0,
-                        'conditional_logic' => 0,
-                        'wrapper' => array(
-                            'width' => '',
-                            'class' => '',
-                            'id' => '',
-                        ),
-                        'default_value' => 'Products',
-                        'placeholder' => '',
-                        'prepend' => '',
-                        'append' => '',
-                        'maxlength' => '',
-                    ),
-                    array(
-                        'key' => 'field_66f3b147de933',
-                        'label' => 'Fist submenu item',
-                        'name' => 'fist_submenu_item',
-                        'type' => 'group',
-                        'instructions' => '',
-                        'required' => 0,
-                        'conditional_logic' => 0,
-                        'wrapper' => array(
-                            'width' => '',
-                            'class' => '',
-                            'id' => '',
-                        ),
-                        'layout' => 'block',
-                        'sub_fields' => array(
-                            array(
-                                'key' => 'field_66f3afbf11f96',
-                                'label' => 'First submenu title',
-                                'name' => 'first_submenu_title',
-                                'type' => 'text',
-                                'instructions' => '',
-                                'required' => 0,
-                                'conditional_logic' => 0,
-                                'wrapper' => array(
-                                    'width' => '',
-                                    'class' => '',
-                                    'id' => '',
-                                ),
-                                'default_value' => 'Data feeds',
-                                'placeholder' => '',
-                                'prepend' => '',
-                                'append' => '',
-                                'maxlength' => '',
-                            ),
-                            array(
-                                'key' => 'field_66f3aff611f97',
-                                'label' => 'Left column list',
-                                'name' => 'left_column_list',
-                                'type' => 'repeater',
-                                'instructions' => '',
-                                'required' => 0,
-                                'conditional_logic' => 0,
-                                'wrapper' => array(
-                                    'width' => '',
-                                    'class' => '',
-                                    'id' => '',
-                                ),
-                                'collapsed' => '',
-                                'min' => 0,
-                                'max' => 0,
-                                'layout' => 'table',
-                                'button_label' => '',
-                                'sub_fields' => array(
-                                    array(
-                                        'key' => 'field_66f3b01b11f98',
-                                        'label' => 'Text',
-                                        'name' => 'text',
-                                        'type' => 'text',
-                                        'instructions' => '',
-                                        'required' => 0,
-                                        'conditional_logic' => 0,
-                                        'wrapper' => array(
-                                            'width' => '',
-                                            'class' => '',
-                                            'id' => '',
-                                            ),
-                                        'default_value' => '',
-                                        'placeholder' => '',
-                                        'prepend' => '',
-                                        'append' => '',
-                                        'maxlength' => '',
-                                    ),
-                                    array(
-                                        'key' => 'field_66f3b02511f99',
-                                        'label' => 'Link',
-                                        'name' => 'link',
-                                        'type' => 'text',
-                                        'instructions' => '',
-                                        'required' => 0,
-                                        'conditional_logic' => 0,
-                                        'wrapper' => array(
-                                            'width' => '',
-                                            'class' => '',
-                                            'id' => '',
-                                            ),
-                                        'default_value' => '',
-                                        'placeholder' => '',
-                                        'prepend' => '',
-                                        'append' => '',
-                                        'maxlength' => '',
-                                    ),
-                                ),
-                            ),
-                            array(
-                                'key' => 'field_66f3b03d11f9a',
-                                'label' => 'Right column list',
-                                'name' => 'right_column_list',
-                                'type' => 'repeater',
-                                'instructions' => '',
-                                'required' => 0,
-                                'conditional_logic' => 0,
-                                'wrapper' => array(
-                                    'width' => '',
-                                    'class' => '',
-                                    'id' => '',
-                                ),
-                                'collapsed' => '',
-                                'min' => 0,
-                                'max' => 0,
-                                'layout' => 'table',
-                                'button_label' => '',
-                                'sub_fields' => array(
-                                    array(
-                                        'key' => 'field_66f3b07711f9b',
-                                        'label' => 'Text',
-                                        'name' => 'text',
-                                        'type' => 'text',
-                                        'instructions' => '',
-                                        'required' => 0,
-                                        'conditional_logic' => 0,
-                                        'wrapper' => array(
-                                            'width' => '',
-                                            'class' => '',
-                                            'id' => '',
-                                            ),
-                                        'default_value' => '',
-                                        'placeholder' => '',
-                                        'prepend' => '',
-                                        'append' => '',
-                                        'maxlength' => '',
-                                    ),
-                                    array(
-                                        'key' => 'field_66f3b08011f9c',
-                                        'label' => 'Link',
-                                        'name' => 'link',
-                                        'type' => 'text',
-                                        'instructions' => '',
-                                        'required' => 0,
-                                        'conditional_logic' => 0,
-                                        'wrapper' => array(
-                                            'width' => '',
-                                            'class' => '',
-                                            'id' => '',
-                                            ),
-                                        'default_value' => '',
-                                        'placeholder' => '',
-                                        'prepend' => '',
-                                        'append' => '',
-                                        'maxlength' => '',
-                                    ),
-                                ),
-                            ),
-                            array(
-                                'key' => 'field_66f3b09f11f9d',
-                                'label' => 'To all link',
-                                'name' => 'to_all_link',
-                                'type' => 'group',
-                                'instructions' => '',
-                                'required' => 0,
-                                'conditional_logic' => 0,
-                                'wrapper' => array(
-                                    'width' => '',
-                                    'class' => '',
-                                    'id' => '',
-                                ),
-                                'layout' => 'block',
-                                'sub_fields' => array(
-                                    array(
-                                        'key' => 'field_66f3b0b311f9e',
-                                        'label' => 'Text to all',
-                                        'name' => 'text_to_all',
-                                        'type' => 'text',
-                                        'instructions' => '',
-                                        'required' => 0,
-                                        'conditional_logic' => 0,
-                                        'wrapper' => array(
-                                            'width' => '',
-                                            'class' => '',
-                                            'id' => '',
-                                            ),
-                                        'default_value' => 'All Sports',
-                                        'placeholder' => '',
-                                        'prepend' => '',
-                                        'append' => '',
-                                        'maxlength' => '',
-                                    ),
-                                    array(
-                                        'key' => 'field_66f3b0c011f9f',
-                                        'label' => 'Link to all',
-                                        'name' => 'link_to_all',
-                                        'type' => 'text',
-                                        'instructions' => '',
-                                        'required' => 0,
-                                        'conditional_logic' => 0,
-                                        'wrapper' => array(
-                                            'width' => '',
-                                            'class' => '',
-                                            'id' => '',
-                                            ),
-                                        'default_value' => '',
-                                        'placeholder' => '',
-                                        'prepend' => '',
-                                        'append' => '',
-                                        'maxlength' => '',
-                                    ),
-                                ),
-                            ),
-                        ),
-),
-array(
-    'key' => 'field_66f3b109de932',
-    'label' => 'Second submenu item',
-    'name' => 'second_submenu_item',
-    'type' => 'group',
-    'instructions' => '',
-    'required' => 0,
-    'conditional_logic' => 0,
-    'wrapper' => array(
-        'width' => '',
-        'class' => '',
-        'id' => '',
-    ),
-    'layout' => 'block',
-    'sub_fields' => array(
-        array(
-            'key' => 'field_66f3b23f217ec',
-            'label' => 'Second menu title',
-            'name' => 'second_menu_title',
-            'type' => 'text',
-            'instructions' => '',
-            'required' => 0,
-            'conditional_logic' => 0,
-            'wrapper' => array(
-                'width' => '',
-                'class' => '',
-                'id' => '',
-            ),
-            'default_value' => 'Engagement Tools',
-            'placeholder' => '',
-            'prepend' => '',
-            'append' => '',
-            'maxlength' => '',
-        ),
-        array(
-            'key' => 'field_66f3b255217ed',
-            'label' => 'Second menu list',
-            'name' => 'second_menu_list',
-            'type' => 'repeater',
-            'instructions' => '',
-            'required' => 0,
-            'conditional_logic' => 0,
-            'wrapper' => array(
-                'width' => '',
-                'class' => '',
-                'id' => '',
-            ),
-            'collapsed' => '',
-            'min' => 0,
-            'max' => 0,
-            'layout' => 'table',
-            'button_label' => '',
-            'sub_fields' => array(
-                array(
-                    'key' => 'field_66f3b26b217ee',
-                    'label' => 'Text',
-                    'name' => 'text',
-                    'type' => 'text',
-                    'instructions' => '',
-                    'required' => 0,
-                    'conditional_logic' => 0,
-                    'wrapper' => array(
-                        'width' => '',
-                        'class' => '',
-                        'id' => '',
-                        ),
-                    'default_value' => '',
-                    'placeholder' => '',
-                    'prepend' => '',
-                    'append' => '',
-                    'maxlength' => '',
-                ),
-                array(
-                    'key' => 'field_66f3b272217ef',
-                    'label' => 'Link',
-                    'name' => 'link',
-                    'type' => 'text',
-                    'instructions' => '',
-                    'required' => 0,
-                    'conditional_logic' => 0,
-                    'wrapper' => array(
-                        'width' => '',
-                        'class' => '',
-                        'id' => '',
-                        ),
-                    'default_value' => '',
-                    'placeholder' => '',
-                    'prepend' => '',
-                    'append' => '',
-                    'maxlength' => '',
-                ),
-            ),
-        ),
-    ),
-),
-array(
-    'key' => 'field_66f3b29c217f0',
-    'label' => 'Third submenu item',
-    'name' => 'third_submenu_item',
-    'type' => 'group',
-    'instructions' => '',
-    'required' => 0,
-    'conditional_logic' => 0,
-    'wrapper' => array(
-        'width' => '',
-        'class' => '',
-        'id' => '',
-    ),
-    'layout' => 'block',
-    'sub_fields' => array(
-        array(
-            'key' => 'field_66f3b2b4217f1',
-            'label' => 'Third menu title',
-            'name' => 'third_menu_title',
-            'type' => 'text',
-            'instructions' => '',
-            'required' => 0,
-            'conditional_logic' => 0,
-            'wrapper' => array(
-                'width' => '',
-                'class' => '',
-                'id' => '',
-            ),
-            'default_value' => 'Trading Intelligence',
-            'placeholder' => '',
-            'prepend' => '',
-            'append' => '',
-            'maxlength' => '',
-        ),
-        array(
-            'key' => 'field_66f3b2ca217f2',
-            'label' => 'Third menu list',
-            'name' => 'third_menu_list',
-            'type' => 'repeater',
-            'instructions' => '',
-            'required' => 0,
-            'conditional_logic' => 0,
-            'wrapper' => array(
-                'width' => '',
-                'class' => '',
-                'id' => '',
-            ),
-            'collapsed' => '',
-            'min' => 0,
-            'max' => 0,
-            'layout' => 'table',
-            'button_label' => '',
-            'sub_fields' => array(
-                array(
-                    'key' => 'field_66f3b2d9217f3',
-                    'label' => 'Text',
-                    'name' => 'text',
-                    'type' => 'text',
-                    'instructions' => '',
-                    'required' => 0,
-                    'conditional_logic' => 0,
-                    'wrapper' => array(
-                        'width' => '',
-                        'class' => '',
-                        'id' => '',
-                        ),
-                    'default_value' => '',
-                    'placeholder' => '',
-                    'prepend' => '',
-                    'append' => '',
-                    'maxlength' => '',
-                ),
-                array(
-                    'key' => 'field_66f3b2e6217f4',
-                    'label' => 'Link',
-                    'name' => 'link',
-                    'type' => 'text',
-                    'instructions' => '',
-                    'required' => 0,
-                    'conditional_logic' => 0,
-                    'wrapper' => array(
-                        'width' => '',
-                        'class' => '',
-                        'id' => '',
-                        ),
-                    'default_value' => '',
-                    'placeholder' => '',
-                    'prepend' => '',
-                    'append' => '',
-                    'maxlength' => '',
-                ),
-            ),
-        ),
-    ),
-),
-array(
-    'key' => 'field_66f3b30c217f5',
-    'label' => 'Fourth submenu item',
-    'name' => 'fourth_submenu_item',
-    'type' => 'group',
-    'instructions' => '',
-    'required' => 0,
-    'conditional_logic' => 0,
-    'wrapper' => array(
-        'width' => '',
-        'class' => '',
-        'id' => '',
-    ),
-    'layout' => 'block',
-    'sub_fields' => array(
-        array(
-            'key' => 'field_66f3b330217f6',
-            'label' => 'Fourth menu title',
-            'name' => 'fourth_menu_title',
-            'type' => 'text',
-            'instructions' => '',
-            'required' => 0,
-            'conditional_logic' => 0,
-            'wrapper' => array(
-                'width' => '',
-                'class' => '',
-                'id' => '',
-            ),
-            'default_value' => 'Promotion area',
-            'placeholder' => '',
-            'prepend' => '',
-            'append' => '',
-            'maxlength' => '',
-        ),
-        array(
-            'key' => 'field_66f3b34b217f7',
-            'label' => 'Text',
-            'name' => 'text',
-            'type' => 'textarea',
-            'instructions' => '',
-            'required' => 0,
-            'conditional_logic' => 0,
-            'wrapper' => array(
-                'width' => '',
-                'class' => '',
-                'id' => '',
-            ),
-            'default_value' => 'Discover the emerging sports betting industry in latam',
-            'placeholder' => '',
-            'maxlength' => '',
-            'rows' => '',
-            'new_lines' => '',
-        ),
-        array(
-            'key' => 'field_66f3b36f217f8',
-            'label' => 'Image',
-            'name' => 'image',
-            'type' => 'image',
-            'instructions' => '',
-            'required' => 0,
-            'conditional_logic' => 0,
-            'wrapper' => array(
-                'width' => '',
-                'class' => '',
-                'id' => '',
-            ),
-            'return_format' => 'array',
-            'preview_size' => 'thumbnail',
-            'library' => 'all',
-            'min_width' => '',
-            'min_height' => '',
-            'min_size' => '',
-            'max_width' => '',
-            'max_height' => '',
-            'max_size' => '',
-            'mime_types' => '',
-        ),
-        array(
-            'key' => 'field_66f3b38e217f9',
-            'label' => 'Button',
-            'name' => 'button',
-            'type' => 'group',
-            'instructions' => '',
-            'required' => 0,
-            'conditional_logic' => 0,
-            'wrapper' => array(
-                'width' => '',
-                'class' => '',
-                'id' => '',
-            ),
-            'layout' => 'block',
-            'sub_fields' => array(
-                array(
-                    'key' => 'field_66f3b3a1217fa',
-                    'label' => 'Text',
-                    'name' => 'text',
-                    'type' => 'text',
-                    'instructions' => '',
-                    'required' => 0,
-                    'conditional_logic' => 0,
-                    'wrapper' => array(
-                        'width' => '',
-                        'class' => '',
-                        'id' => '',
-                        ),
-                    'default_value' => 'Download now',
-                    'placeholder' => '',
-                    'prepend' => '',
-                    'append' => '',
-                    'maxlength' => '',
-                ),
-                array(
-                    'key' => 'field_66f3b3ac217fb',
-                    'label' => 'Link',
-                    'name' => 'link',
-                    'type' => 'text',
-                    'instructions' => '',
-                    'required' => 0,
-                    'conditional_logic' => 0,
-                    'wrapper' => array(
-                        'width' => '',
-                        'class' => '',
-                        'id' => '',
-                        ),
-                    'default_value' => '',
-                    'placeholder' => '',
-                    'prepend' => '',
-                    'append' => '',
-                    'maxlength' => '',
-                ),
-            ),
-        ),
-    ),
-),
-),
-),
-array(
-    'key' => 'field_66f3b4167f127',
-    'label' => '2',
-    'name' => '',
-    'type' => 'tab',
-    'instructions' => '',
-    'required' => 0,
-    'conditional_logic' => 0,
-    'wrapper' => array(
-        'width' => '',
-        'class' => '',
-        'id' => '',
-    ),
-    'placement' => 'top',
-    'endpoint' => 0,
-),
-array(
-    'key' => 'field_66f3b4737f128',
-    'label' => 'Second menu item',
-    'name' => 'second_menu_item',
-    'type' => 'group',
-    'instructions' => '',
-    'required' => 0,
-    'conditional_logic' => 0,
-    'wrapper' => array(
-        'width' => '',
-        'class' => '',
-        'id' => '',
-    ),
-    'layout' => 'block',
-    'sub_fields' => array(
-        array(
-            'key' => 'field_66f3b48c7f129',
-            'label' => 'Second menu title',
-            'name' => 'second_menu_title',
-            'type' => 'text',
-            'instructions' => '',
-            'required' => 0,
-            'conditional_logic' => 0,
-            'wrapper' => array(
-                'width' => '',
-                'class' => '',
-                'id' => '',
-            ),
-            'default_value' => 'Company',
-            'placeholder' => '',
-            'prepend' => '',
-            'append' => '',
-            'maxlength' => '',
-        ),
-        array(
-            'key' => 'field_66f3b49d7f12a',
-            'label' => 'List',
-            'name' => 'list',
-            'type' => 'repeater',
-            'instructions' => '',
-            'required' => 0,
-            'conditional_logic' => 0,
-            'wrapper' => array(
-                'width' => '',
-                'class' => '',
-                'id' => '',
-            ),
-            'collapsed' => '',
-            'min' => 0,
-            'max' => 0,
-            'layout' => 'table',
-            'button_label' => '',
-            'sub_fields' => array(
-                array(
-                    'key' => 'field_66f3b4af7f12b',
-                    'label' => 'Image',
-                    'name' => 'image',
-                    'type' => 'image',
-                    'instructions' => '',
-                    'required' => 0,
-                    'conditional_logic' => 0,
-                    'wrapper' => array(
-                        'width' => '',
-                        'class' => '',
-                        'id' => '',
-                    ),
-                    'return_format' => 'array',
-                    'preview_size' => 'thumbnail',
-                    'library' => 'all',
-                    'min_width' => '',
-                    'min_height' => '',
-                    'min_size' => '',
-                    'max_width' => '',
-                    'max_height' => '',
-                    'max_size' => '',
-                    'mime_types' => '',
-                ),
-                array(
-                    'key' => 'field_66f3b4b67f12c',
-                    'label' => 'Text',
-                    'name' => 'text',
-                    'type' => 'text',
-                    'instructions' => '',
-                    'required' => 0,
-                    'conditional_logic' => 0,
-                    'wrapper' => array(
-                        'width' => '',
-                        'class' => '',
-                        'id' => '',
-                    ),
-                    'default_value' => '',
-                    'placeholder' => '',
-                    'prepend' => '',
-                    'append' => '',
-                    'maxlength' => '',
-                ),
-                array(
-                    'key' => 'field_66f3b4bd7f12d',
-                    'label' => 'Link',
-                    'name' => 'link',
-                    'type' => 'text',
-                    'instructions' => '',
-                    'required' => 0,
-                    'conditional_logic' => 0,
-                    'wrapper' => array(
-                        'width' => '',
-                        'class' => '',
-                        'id' => '',
-                    ),
-                    'default_value' => '',
-                    'placeholder' => '',
-                    'prepend' => '',
-                    'append' => '',
-                    'maxlength' => '',
-                ),
-            ),
-        ),
-    ),
-),
-array(
-    'key' => 'field_66f3b87044054',
-    'label' => '3',
-    'name' => '',
-    'type' => 'tab',
-    'instructions' => '',
-    'required' => 0,
-    'conditional_logic' => 0,
-    'wrapper' => array(
-        'width' => '',
-        'class' => '',
-        'id' => '',
-    ),
-    'placement' => 'top',
-    'endpoint' => 0,
-),
-array(
-    'key' => 'field_66f3b88344055',
-    'label' => 'Third menu item',
-    'name' => 'third_menu_item',
-    'type' => 'group',
-    'instructions' => '',
-    'required' => 0,
-    'conditional_logic' => 0,
-    'wrapper' => array(
-        'width' => '',
-        'class' => '',
-        'id' => '',
-    ),
-    'layout' => 'block',
-    'sub_fields' => array(
-        array(
-            'key' => 'field_66f3b8b944056',
-            'label' => 'Third menu title',
-            'name' => 'third_menu_title',
-            'type' => 'text',
-            'instructions' => '',
-            'required' => 0,
-            'conditional_logic' => 0,
-            'wrapper' => array(
-                'width' => '',
-                'class' => '',
-                'id' => '',
-            ),
-            'default_value' => 'News',
-            'placeholder' => '',
-            'prepend' => '',
-            'append' => '',
-            'maxlength' => '',
-        ),
-        array(
-            'key' => 'field_66f3b8d244057',
-            'label' => 'News',
-            'name' => 'news',
-            'type' => 'group',
-            'instructions' => '',
-            'required' => 0,
-            'conditional_logic' => 0,
-            'wrapper' => array(
-                'width' => '',
-                'class' => '',
-                'id' => '',
-            ),
-            'layout' => 'block',
-            'sub_fields' => array(
-                array(
-                    'key' => 'field_66f3b8e044058',
-                    'label' => 'Image',
-                    'name' => 'image',
-                    'type' => 'image',
-                    'instructions' => '',
-                    'required' => 0,
-                    'conditional_logic' => 0,
-                    'wrapper' => array(
-                        'width' => '',
-                        'class' => '',
-                        'id' => '',
-                    ),
-                    'return_format' => 'array',
-                    'preview_size' => 'medium',
-                    'library' => 'all',
-                    'min_width' => '',
-                    'min_height' => '',
-                    'min_size' => '',
-                    'max_width' => '',
-                    'max_height' => '',
-                    'max_size' => '',
-                    'mime_types' => '',
-                ),
-                array(
-                    'key' => 'field_66f3b8ea44059',
-                    'label' => 'Text',
-                    'name' => 'text',
-                    'type' => 'text',
-                    'instructions' => '',
-                    'required' => 0,
-                    'conditional_logic' => 0,
-                    'wrapper' => array(
-                        'width' => '',
-                        'class' => '',
-                        'id' => '',
-                    ),
-                    'default_value' => '',
-                    'placeholder' => '',
-                    'prepend' => '',
-                    'append' => '',
-                    'maxlength' => '',
-                ),
-                array(
-                    'key' => 'field_66f3b8ef4405a',
-                    'label' => 'Link',
-                    'name' => 'link',
-                    'type' => 'text',
-                    'instructions' => '',
-                    'required' => 0,
-                    'conditional_logic' => 0,
-                    'wrapper' => array(
-                        'width' => '',
-                        'class' => '',
-                        'id' => '',
-                    ),
-                    'default_value' => '',
-                    'placeholder' => '',
-                    'prepend' => '',
-                    'append' => '',
-                    'maxlength' => '',
-                ),
-            ),
-        ),
-        array(
-            'key' => 'field_66f3b9064405b',
-            'label' => 'Events',
-            'name' => 'events',
-            'type' => 'group',
-            'instructions' => '',
-            'required' => 0,
-            'conditional_logic' => 0,
-            'wrapper' => array(
-                'width' => '',
-                'class' => '',
-                'id' => '',
-            ),
-            'layout' => 'block',
-            'sub_fields' => array(
-                array(
-                    'key' => 'field_66f3b91b4405c',
-                    'label' => 'Button text',
-                    'name' => 'all_events_text',
-                    'type' => 'text',
-                    'instructions' => '',
-                    'required' => 0,
-                    'conditional_logic' => 0,
-                    'wrapper' => array(
-                        'width' => '',
-                        'class' => '',
-                        'id' => '',
-                    ),
-                    'default_value' => 'All events',
-                    'placeholder' => '',
-                    'prepend' => '',
-                    'append' => '',
-                    'maxlength' => '',
-                ),
-                array(
-                    'key' => 'field_66f3b92c4405d',
-                    'label' => 'Button link',
-                    'name' => 'all_events_link',
-                    'type' => 'text',
-                    'instructions' => '',
-                    'required' => 0,
-                    'conditional_logic' => 0,
-                    'wrapper' => array(
-                        'width' => '',
-                        'class' => '',
-                        'id' => '',
-                    ),
-                    'default_value' => '',
-                    'placeholder' => '',
-                    'prepend' => '',
-                    'append' => '',
-                    'maxlength' => '',
-                ),
-            ),
-        ),
-        array(
-            'key' => 'field_66f3b93c4405e',
-            'label' => 'Blog',
-            'name' => 'blog',
-            'type' => 'group',
-            'instructions' => '',
-            'required' => 0,
-            'conditional_logic' => 0,
-            'wrapper' => array(
-                'width' => '',
-                'class' => '',
-                'id' => '',
-            ),
-            'layout' => 'block',
-            'sub_fields' => array(
-                array(
-                    'key' => 'field_66f3b9474405f',
-                    'label' => 'Text',
-                    'name' => 'text',
-                    'type' => 'text',
-                    'instructions' => '',
-                    'required' => 0,
-                    'conditional_logic' => 0,
-                    'wrapper' => array(
-                        'width' => '',
-                        'class' => '',
-                        'id' => '',
-                    ),
-                    'default_value' => 'Blog',
-                    'placeholder' => '',
-                    'prepend' => '',
-                    'append' => '',
-                    'maxlength' => '',
-                ),
-                array(
-                    'key' => 'field_66f3b95044060',
-                    'label' => 'Link',
-                    'name' => 'link',
-                    'type' => 'text',
-                    'instructions' => '',
-                    'required' => 0,
-                    'conditional_logic' => 0,
-                    'wrapper' => array(
-                        'width' => '',
-                        'class' => '',
-                        'id' => '',
-                    ),
-                    'default_value' => '',
-                    'placeholder' => '',
-                    'prepend' => '',
-                    'append' => '',
-                    'maxlength' => '',
-                ),
-            ),
-        ),
-        array(
-            'key' => 'field_66f3b97044061',
-            'label' => 'Video',
-            'name' => 'video',
-            'type' => 'group',
-            'instructions' => '',
-            'required' => 0,
-            'conditional_logic' => 0,
-            'wrapper' => array(
-                'width' => '',
-                'class' => '',
-                'id' => '',
-            ),
-            'layout' => 'block',
-            'sub_fields' => array(
-                array(
-                    'key' => 'field_66f3b97f44062',
-                    'label' => 'Button text',
-                    'name' => 'button_text',
-                    'type' => 'text',
-                    'instructions' => '',
-                    'required' => 0,
-                    'conditional_logic' => 0,
-                    'wrapper' => array(
-                        'width' => '',
-                        'class' => '',
-                        'id' => '',
-                    ),
-                    'default_value' => 'Go to LSportsTV',
-                    'placeholder' => '',
-                    'prepend' => '',
-                    'append' => '',
-                    'maxlength' => '',
-                ),
-                array(
-                    'key' => 'field_66f3b99144063',
-                    'label' => 'Button link',
-                    'name' => 'button_link',
-                    'type' => 'text',
-                    'instructions' => '',
-                    'required' => 0,
-                    'conditional_logic' => 0,
-                    'wrapper' => array(
-                        'width' => '',
-                        'class' => '',
-                        'id' => '',
-                    ),
-                    'default_value' => '',
-                    'placeholder' => '',
-                    'prepend' => '',
-                    'append' => '',
-                    'maxlength' => '',
-                ),
-            ),
-        ),
-    ),
-),
-),
-'location' => array(
-    array(
-        array(
-            'param' => 'options_page',
-            'operator' => '==',
-            'value' => 'acf-options-mega-menu',
-        ),
-    ),
-),
-'menu_order' => 0,
-'position' => 'normal',
-'style' => 'default',
-'label_placement' => 'top',
-'instruction_placement' => 'label',
-'hide_on_screen' => '',
-'active' => true,
-'description' => '',
-'show_in_rest' => 0,
-));
-
-endif;
-
 function enqueue_termly_custom_styles() {
     wp_enqueue_style(
         'termly-custom',
@@ -1859,4 +830,5 @@ function enqueue_termly_custom_styles() {
         null
     );
 }
+
 add_action('wp_enqueue_scripts', 'enqueue_termly_custom_styles');

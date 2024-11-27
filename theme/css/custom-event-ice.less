@@ -5,25 +5,7 @@
 @grey: #E8E8ED;
 @purple: #8F6CFF;
 
-@transition: all .2s ease-in-out;
-
-// Common styles -- move to common
-
-body {
-    -webkit-font-smoothing: antialiased;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    letter-spacing: 0; // facepalm bug fix because of common - remove if it is fixed in common
-}
-
-//@media (max-width: 768px) {
-.logo-global img {
-    width: 100%;
-}
-
-//}
-
+// Fix for bottom line of yellow button in nav
 .header-global {
     height: auto;
 }
@@ -119,7 +101,7 @@ h1, h2, h3, h4, h5, h6 {
     background: #000;
     color: #fff;
     white-space: nowrap;
-    transition: .2s ease-in-out;
+    transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
     text-transform: uppercase;
     letter-spacing: .2em;
 
@@ -138,6 +120,17 @@ h1, h2, h3, h4, h5, h6 {
         height: 62px;
         letter-spacing: 0;
     }
+}
+
+// AOS animation on load
+
+.aos-animation-on-load {
+    opacity: 0;
+    transform: translate3d(0, 100px, 0);
+    transition-delay: 50ms;
+    transition-timing-function: ease-out;
+    transition-duration: .6s;
+    transition-property: opacity, transform;
 }
 
 // Sections of the page
@@ -169,9 +162,15 @@ h1, h2, h3, h4, h5, h6 {
         gap: 35px;
 
         .facebook--grey, .link--grey, .linkedin--grey, .twitter--grey {
-            width: 23px;
-            height: 23px;
+            //width: 23px;
+            //height: 23px;
             margin: 0;
+            opacity: .5;
+            transition: opacity 0.2s ease-in-out;
+
+            &:hover {
+                opacity: 1;
+            }
         }
     }
 
@@ -247,8 +246,8 @@ h1, h2, h3, h4, h5, h6 {
 
     &__grid {
         display: grid;
-        grid-template-columns: 393px 725px;
-        gap: 35px;
+        grid-template-columns: 338px 725px;
+        gap: 90px;
         align-items: start;
 
     }
@@ -325,24 +324,27 @@ h1, h2, h3, h4, h5, h6 {
         background-position: right;
         grid-area: stay-tuned;
         position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     h2 {
-        font-size: 160px;
-        line-height: 160px;
+        font-size: 220px; //160px;
+        line-height: 198px; //160px;
         color: #E1F32C;
         text-shadow: 0 6px 6px rgba(0, 0, 0, 0.396);
         max-width: 373px;
-        position: absolute;
-        right: 130px;
-        top: 50%;
-        transform: translateY(-50%);
+        //position: absolute;
+        //right: 130px;
+        //top: 50%;
+        //transform: translateY(-50%);
     }
 
     &__post {
         font-size: 45px;
         line-height: 45px;
-        padding: 30px;
+        padding: 30px 30px 22px;
         background: #E1F32C;
         display: flex;
         align-items: center;
@@ -378,13 +380,15 @@ h1, h2, h3, h4, h5, h6 {
         grid-area: image;
         width: 100%;
         max-height: 314px;
+        height: 314px;
         overflow: hidden;
         display: flex;
         justify-content: center;
         align-items: center;
 
         img {
-            width: 100%;
+            //width: 100%;
+            height: 100%;
         }
     }
 }
@@ -508,16 +512,66 @@ h1, h2, h3, h4, h5, h6 {
         opacity: .35;
         margin-top: 60px;
         justify-content: space-between;
-        gap: 40px 0;
+        gap: 40px 100px;
     }
 
     &__logo {
-        width: 220px;
-        height: 35px;
+        //width: 220px;
+        //height: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
         img {
             max-width: 100%;
             max-height: 100%;
+        }
+    }
+}
+
+// Modal Ice
+
+.ice-modal {
+    .modal-wrapper {
+        padding: 50px 40px;
+        border: 0;
+        border-bottom: 44px solid #E1F32C;
+        width: 673px;
+        height: 656px;
+    }
+
+    .modal-close {
+        top: 25px;
+        right: 25px;
+        width: 54px;
+        height: 54px;
+        border: 0;
+        background: url(../img/icon-close-ice.svg);
+        background-size: contain;
+    }
+
+    h3 {
+        text-align: center;
+        font-size: 72px;
+        line-height: 95px;
+    }
+
+    .modal-grid {
+        justify-content: space-between;
+        align-items: start;
+
+        .content-wrapper {
+            width: 230px;
+
+            iframe {
+                transform: scale(.75);
+                transform-origin: top left;
+                width: 125%;
+            }
+        }
+
+        .image-wrapper {
+            width: 330px;
         }
     }
 }
@@ -560,8 +614,8 @@ h1, h2, h3, h4, h5, h6 {
             gap: 35*@x;
 
             .facebook--grey, .link--grey, .linkedin--grey, .twitter--grey {
-                width: 23*@x;
-                height: 23*@x;
+                //width: 23*@x;
+                //height: 23*@x;
             }
         }
 
@@ -620,8 +674,8 @@ h1, h2, h3, h4, h5, h6 {
         padding: 80*@x 0 85*@x;
 
         &__grid {
-            grid-template-columns: 393*@x 725*@x;
-            gap: 35*@x;
+            grid-template-columns: 338*@x 725*@x;
+            gap: 90*@x;
         }
 
         h2 {
@@ -665,8 +719,8 @@ h1, h2, h3, h4, h5, h6 {
         }
 
         h2 {
-            font-size: 160*@x;
-            line-height: 160*@x;
+            font-size: 220*@x; //160*@x;
+            line-height: 198*@x; //160*@x;
             text-shadow: 0 6*@x 6*@x rgba(0, 0, 0, 0.396);
             max-width: 373*@x;
             right: 130*@x;
@@ -675,13 +729,18 @@ h1, h2, h3, h4, h5, h6 {
         &__post {
             font-size: 45*@x;
             line-height: 45*@x;
-            padding: 30*@x;
+            padding: 30*@x 30*@x 22*@x;
 
             &:before {
                 width: 55*@x;
                 height: 55*@x;
                 margin-right: 18*@x;
             }
+        }
+
+        .img-wrapper {
+            max-height: 314*@x;
+            height: 314*@x;
         }
     }
 
@@ -759,12 +818,50 @@ h1, h2, h3, h4, h5, h6 {
 
         &__logos {
             margin-top: 60*@x;
-            gap: 40*@x 0;
+            gap: 40*@x 100*@x;
         }
 
         &__logo {
-            width: 220*@x;
-            height: 35*@x;
+            //width: 220*@x;
+            //height: 35*@x;
+        }
+    }
+
+    // Modal Ice
+    .ice-modal {
+        .modal-wrapper {
+            padding: 50*@x 40*@x;
+            border-bottom: 44*@x solid #E1F32C;
+            width: 673*@x;
+            height: 656*@x;
+        }
+
+        .modal-close {
+            top: 25*@x;
+            right: 25*@x;
+            width: 54*@x;
+            height: 54*@x;
+        }
+
+        h3 {
+            font-size: 72*@x;
+            line-height: 95*@x;
+        }
+
+        .modal-grid {
+            .content-wrapper {
+                width: 230*@x;
+
+                iframe {
+                    transform: scale(0.5);
+                    transform-origin: top left;
+                    width: 200%;
+                }
+            }
+
+            .image-wrapper {
+                width: 330*@x;
+            }
         }
     }
 }
@@ -816,8 +913,8 @@ h1, h2, h3, h4, h5, h6 {
             margin-bottom: 25*@x;
 
             .facebook, .link, .linkedin, .twitter, .whatsapp {
-                width: 20*@x;
-                height: 20*@x;
+                //width: 20*@x;
+                //height: 20*@x;
             }
         }
 
@@ -838,7 +935,7 @@ h1, h2, h3, h4, h5, h6 {
         }
 
         .btn-yellow {
-            justify-self: center;
+            //justify-self: center;
         }
     }
 
@@ -899,6 +996,11 @@ h1, h2, h3, h4, h5, h6 {
                 line-height: 20*@x;
             }
         }
+
+        &__image {
+            max-width: 50%;
+            margin: 0 auto 10*@x;
+        }
     }
 
     // Section Video
@@ -942,6 +1044,7 @@ h1, h2, h3, h4, h5, h6 {
             height: 112*@x;
             background-image: none !important;
             background-color: #000;
+            padding-top: 10*@x;
         }
 
         h2 {
@@ -950,16 +1053,16 @@ h1, h2, h3, h4, h5, h6 {
             line-height: 45*@x;
             text-shadow: 0 6*@x 6*@x rgba(0, 0, 0, 0.396);
             max-width: 110*@x;
-            right: 50%;
-            top: 50%;
-            transform: translate(50%, -50%);
+            //right: 50%;
+            //top: 50%;
+            //transform: translate(50%, -50%);
 
         }
 
         &__post {
-            font-size: 24*@x;
-            line-height: 24*@x;
-            padding: 12*@x 24*@x;
+            font-size: 28*@x;
+            line-height: 28*@x;
+            padding: 14*@x 28*@x 9*@x;
 
             &:before {
                 width: 38*@x;
@@ -1001,10 +1104,11 @@ h1, h2, h3, h4, h5, h6 {
             margin-bottom: 40*@x;
             flex-wrap: wrap;
             gap: 26*@x 0;
+            justify-content: space-around;
         }
 
         &__member {
-            max-width: 144*@x;
+            max-width: 115*@x;
             flex-shrink: 0;
 
             h6 {
@@ -1046,7 +1150,7 @@ h1, h2, h3, h4, h5, h6 {
 
         &__logos {
             margin-top: 20*@x;
-            gap: 30*@x 0;
+            gap: 30*@x 30*@x;
         }
 
         &__logo {
@@ -1056,4 +1160,76 @@ h1, h2, h3, h4, h5, h6 {
             max-height: 25*@x;
         }
     }
+
+    // Modal Ice
+    .ice-modal {
+        .modal-wrapper {
+            padding: 40*@x;
+            border-bottom: 40*@x solid #E1F32C;
+            width: 100%;
+            height: 100%;
+        }
+
+        .modal-close {
+            top: 15*@x;
+            right: 15*@x;
+            width: 30*@x;
+            height: 30*@x;
+        }
+
+        h3 {
+            font-size: 40*@x;
+            line-height: 54*@x;
+        }
+
+        .modal-grid {
+            align-items: center;
+            flex-direction: column;
+            margin-top: 20*@x;
+            justify-content: start;
+
+            .content-wrapper {
+                width: 100%;
+                text-align: center;
+                max-height: 530px;
+
+                iframe {
+                    width: 280px !important;
+                    margin: 0 auto;
+                    transform: scale(0.88);
+                    //width: 112%;
+                    transform-origin: top center;
+                }
+            }
+
+            .image-wrapper {
+                width: 100%;
+                text-align: right;
+                margin-top: -60px;
+                position: relative;
+                z-index: -1;
+
+                img {
+                    max-width: 90*@x;
+                }
+            }
+        }
+    }
 }
+
+/*
+970+
+@media (max-width: 1300px) {
+    .ice-modal .modal-grid .content-wrapper iframe {
+        transform: scale(0.55);
+        transform-origin: top left;
+        width: 190%;
+    }
+}
+
+1100+
+max-height: 55vw
+        transform: scale(0.65);
+        transform-origin: top left;
+        width: 155%;
+ */

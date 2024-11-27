@@ -2,25 +2,33 @@
     <?php if (have_rows('header')): while (have_rows('header')) : the_row(); ?>
         <section class="s-event-ice-header bg-white" style="background-color: <?php the_sub_field('color') ?>">
             <div class="container s-event-ice-header__grid">
-                <h1><?php the_sub_field('title') ?></h1>
+                <h1 class="aos-animation-on-load"><?php the_sub_field('title') ?></h1>
                 <div class="nav-social nav-social--event">
-                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.lsports.eu/lsports-secures-best-real-time-sports-data-provider-award-at-sigma-east-europe-2024/" target="_blank" rel="nofollow" role="link">
+                    <?php if (get_sub_field('show_facebook_link')) : ?>
+                    <a href="<?php the_sub_field('facebook_link') ?>" target="_blank" rel="nofollow" role="link">
                         <div class="facebook facebook--grey"></div>
                     </a>
-                    <a href="https://twitter.com/intent/tweet?url=https://www.lsports.eu/lsports-secures-best-real-time-sports-data-provider-award-at-sigma-east-europe-2024/&amp;text=LSports Secures Best Real-Time Sports Data Provider Award at SIGMA East Europe 2024" target="_blank" rel="nofollow" role="link">
+                    <?php endif; ?>
+                    <?php if (get_sub_field('show_x_link')) : ?>
+                    <a href="<?php the_sub_field('x_link') ?>" target="_blank" rel="nofollow" role="link">
                         <div class="twitter twitter--grey"></div>
                     </a>
-                    <a href="https://twitter.com/intent/tweet?url=https://www.lsports.eu/lsports-secures-best-real-time-sports-data-provider-award-at-sigma-east-europe-2024/&amp;text=LSports Secures Best Real-Time Sports Data Provider Award at SIGMA East Europe 2024" target="_blank" rel="nofollow" role="link">
+                    <?php endif; ?>
+                    <?php if (get_sub_field('show_whatsapp_link')) : ?>
+                    <a href="<?php the_sub_field('whatsapp_link') ?>" target="_blank" rel="nofollow" role="link">
                         <div class="whatsapp whatsapp--grey"></div>
                     </a>
-                    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://www.lsports.eu/lsports-secures-best-real-time-sports-data-provider-award-at-sigma-east-europe-2024/" target="_blank" rel="nofollow" role="link">
+                    <?php endif; ?>
+                    <?php if (get_sub_field('show_linkedin_link')) : ?>
+                    <a href="<?php the_sub_field('linkedin_link') ?>" target="_blank" rel="nofollow" role="link">
                         <div class="linkedin linkedin--grey"></div>
                     </a>
+                    <?php endif; ?>
                 </div>
                 <div class="description"><?php the_sub_field('description') ?></div>
                 <div class="description-highlight"><?php the_sub_field('description_highlight') ?></div>
-                <a href="<?php echo get_sub_field('button_url') ?>" class="btn-yellow"><?php echo get_sub_field('button_name') ?></a>
-                <img src="<?php echo get_sub_field('image') ?>"<?php echo !empty(get_sub_field('image_alt')) ? ' alt="' . get_sub_field('image_alt') . '"' : ''; ?> />
+                <a href="#ice-modal<?php //echo get_sub_field('button_url') ?>" class="btn-yellow"><?php echo get_sub_field('button_name') ?></a>
+                <img class="aos-animation-on-load" src="<?php echo get_sub_field('image') ?>"<?php echo !empty(get_sub_field('image_alt')) ? ' alt="' . get_sub_field('image_alt') . '"' : ''; ?> />
             </div>
         </section>
     <?php endwhile; endif; ?>
@@ -30,9 +38,7 @@
     <?php if (have_rows('section_solutions')): while (have_rows('section_solutions')) : the_row(); ?>
         <section class="s-solutions" style="background-color: <?php the_sub_field('color') ?>">
             <div class="container">
-                <h2>
-                    <?php the_sub_field('title') ?>
-                </h2>
+                <div data-aos="fade-up" class="aos-init aos-animate"><h2><?php the_sub_field('title') ?></h2></div>
                 <?php if (have_rows('solution')): ?>
                     <ul class="s-solutions__features">
                         <?php while (have_rows('solution')): the_row(); ?>
@@ -53,7 +59,7 @@
     <?php if (have_rows('section_description')): while (have_rows('section_description')) : the_row(); ?>
         <section class="s-expectations bg-white" style="background-color: <?php the_sub_field('color') ?>">
             <div class="container">
-                <h2>
+                <h2 data-aos="fade-up" class="aos-init aos-animate">
                     <?php the_sub_field('title') ?>
                 </h2>
                 <div class="s-expectations__grid">
@@ -77,7 +83,7 @@
                     <iframe width="1200" height="674" src="<?php the_sub_field('video_url') ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     <img class="s-video__placeholder" src="<?php the_sub_field('image') ?>" alt="<?php echo acf_esc_html(get_sub_field('image_alt')); ?>">
                 </div>
-                <a href="<?php the_sub_field('button_url') ?>" class="btn-black"><?php the_sub_field('button_label') ?></a>
+                <a href="#ice-modal<?php //the_sub_field('button_url') ?>" class="btn-black"><?php the_sub_field('button_label') ?></a>
             </div>
         </section>
     <?php endwhile; endif; ?>
@@ -95,7 +101,7 @@
         <section class="s-stay-tuned bg-grass" style="background-color: <?php the_sub_field('color') ?>">
             <div class="s-stay-tuned__grid">
                 <div class="s-stay-tuned__banner" style="background-image: url(<?php the_sub_field('image_background') ?>)">
-                    <h2><?php the_sub_field('title') ?></h2>
+                    <h2 data-aos="fade-up" class="aos-init aos-animate"><?php the_sub_field('title') ?></h2>
                 </div>
                 <?php if (have_rows('posts')): ?>
                     <?php $n = 0 ?>
@@ -140,7 +146,7 @@
                         <?php endwhile; ?>
                     </ul>
                 <?php endif; ?>
-                <a href="<?php the_sub_field('button_url') ?>" class="btn-yellow"><?php the_sub_field('button_label') ?></a>
+                <a href="#ice-modal<?php // the_sub_field('button_url') ?>" class="btn-yellow"><?php the_sub_field('button_label') ?></a>
         </section>
     <?php endwhile; endif; ?>
 <?php endif; ?>
@@ -224,7 +230,7 @@ if ($posts): ?>
                                     <div class="excerpt"><?php the_field('excerpt'); ?></div>
                                 </div>
                             </div>
-                            <a href="<?php the_permalink(); ?>" class="btn-read-more"><span class="text-vertical"><?php the_field('register_now', 'option'); ?></span></a>
+                            <a href="<?php the_permalink(); ?>" class="btn-read-more"><span class="text-vertical"><?php the_field('meet_us', 'option'); ?></span></a>
                         </div>
                     <?php endforeach; ?>
                 </div>
@@ -242,37 +248,43 @@ if ($posts): ?>
 <?php endif; ?>
 
 
-<?php echo do_shortcode('[sg_popup id=6642]'); ?>
-
-
-<h3 id="form-book-meeting">BOOK A MEETING</h3>
-<iframe src="https://www2.lsports.eu/l/893471/2024-01-08/qj73v" width="100%" height="740" type="text/html" frameborder="0" allowTransparency="true" style="border: 0"></iframe>
-
-
-<div class="modal register-modal hide">
-    <div class="modal-overlay">
-        <div class="logo-footer modal-logo"></div>
-        <div class="modal-wrapper">
-            <div class="modal-close register-modal-close"></div>
-            <div class="modal-grid">
-                <div class="modal-grid__headings">
-                    <div class="modal-grid__date">
-                        <div class="icon-calendar"></div>
-                        <?php
-                        if (get_field('date_end')):
-                            echo date("l", strtotime(get_field('date_start', false, false))) . '-' . date("l", strtotime(get_field('date_end', false, false))) . ', ' . date("j", strtotime(get_field('date_start', false, false))) . '-' . date("j", strtotime(get_field('date_end', false, false))) . ' ' . date("M", strtotime(get_field('date_end', false, false))) . ' ' . date("Y", strtotime(get_field('date_end', false, false)));
-                        else:
-                            echo date("l", strtotime(get_field('date_start', false, false))) . ', ' . date("F", strtotime(get_field('date_start', false, false))) . ' ' . date("j", strtotime(get_field('date_start', false, false))) . ' ' . date("Y", strtotime(get_field('date_start', false, false))) . ' at ' . get_field('time');
-                        endif;
-                        ?>
+<?php if (get_field('show_section_popup')) : ?>
+    <?php if (have_rows('section_popup')): while (have_rows('section_popup')) : the_row(); ?>
+        <div class="modal ice-modal hide">
+            <div class="modal-overlay" style="background-color: <?php the_sub_field('color_overlay') ?>">
+                <div class="logo-footer modal-logo"></div>
+                <div class="modal-wrapper" style="background-color: <?php the_sub_field('color') ?>">
+                    <div class="modal-close register-modal-close"></div>
+                    <h3 id="form-book-meeting"><?php the_sub_field('title'); ?></h3>
+                    <div class="modal-grid">
+                        <div class="content-wrapper">
+                            <?php the_sub_field('form_code'); ?>
+                        </div>
+                        <div class="image-wrapper">
+                            <img src="<?php the_sub_field('image'); ?>" alt="<?php the_sub_field('image_alt'); ?>">
+                        </div>
                     </div>
-                    <h3><?php the_title(); ?></h3>
-                </div>
-                <div class="modal-grid__form s-contact">
-                    <div class="modal__form-heading"><?php the_field('register_now', 'option'); ?></div>
-                    <?php echo do_shortcode('[contact-form-7 id="539"]') ?>
                 </div>
             </div>
         </div>
-    </div>
-</div>
+    <?php endwhile; endif; ?>
+<?php endif; ?>
+
+<script>
+    (function ($) {
+        // button on Event Ice page
+        $('[href=#ice-modal]').on('click', function () {
+            $('.ice-modal').removeClass('hide');
+
+        });
+
+        $('.ice-modal .modal-close').on('click', function () {
+            $('.ice-modal').addClass('hide');
+        });
+
+        // aos animation on load on top of the page
+        setTimeout(function () {
+            $('.aos-animation-on-load').css({opacity: 1, transform: 'translateZ(0)'});
+        }, 1)
+    })(jQuery);
+</script>
