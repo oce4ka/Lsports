@@ -1,0 +1,139 @@
+/* Styles that I've found in Appearance >> Theme >> Customize */
+
+.award_team {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    clear: both;
+    margin-top: 25px;
+}
+
+.award_team p {
+    margin: 0;
+    margin-right: 30px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #000;
+    flex-grow: 0;
+    flex-shrink: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+}
+
+.award_team_images {
+    display: flex;
+    align-items: center;
+}
+
+.award_team_images img {
+    border: none;
+}
+
+.award_team_images img:not(:last-child) {
+    margin-right: 15px;
+}
+
+
+.image-bdi {
+    height: 60px;
+    width: auto;
+}
+
+.image-duns {
+    height: 88px;
+    width: auto;
+}
+
+
+@media (max-width: 1300px) {
+    .award_team p {
+        font-size: 0.924vw;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .award_team {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .award_team p {
+        margin-right: 0;
+        margin-bottom: 1.005vw;
+        width: 100%;
+        text-align: center;
+        font-size: 3.204vw;
+    }
+
+    .award_team_images {
+        justify-content: center;
+    }
+
+    .image-bdi {
+        height: 62px;
+        width: auto !important;
+
+    }
+
+    .image-duns {
+        height: 90px;
+        width: auto !important;
+
+    }
+}
+
+.popuph3 h3 {
+    font-size: 45px;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 1300px) {
+    .popuph3 h3 {
+        font-size: 4.235vw;
+    }
+}
+
+@media (max-width: 768px) {
+    .popuph3 {
+        min-width: 300px;
+    }
+
+    .popuph3 h3 {
+        font-size: 7.345vw;
+    }
+}
+
+
+.background-overlay-events-3 {
+    height: 100%;
+    width: 100%;
+    margin: 220px 0 0 -100px;
+    background-image: url(/wp-content/uploads/Group-141.svg);
+    background-size: 36% auto;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+
+@media (max-width: 1300px) {
+    .background-overlay-events-3 {
+        margin: 330px 0 0 -160px;
+        background-size: 55% auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .background-overlay-events-3 {
+        margin: 55px 0 0;
+        background-size: 29% auto;
+        background-position: 155px;
+    }
+}
+
+.background-overlay-events-3 {
+    z-index: -9999999;
+}
+
+/* end Styles that I've found in Appearance >> Theme >> Customize */
