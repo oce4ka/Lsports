@@ -13,16 +13,16 @@ get_header();
 
 $today = date("Ymd");
 ?>
-    <section class="s-events bg-grey">
-        <div class="s-events__header">
-            <h1><?php the_field('upcoming_events', 'option') ?></h1>
+<section class="s-events bg-grey">
+    <div class="s-events__header">
+        <h1><?php the_field('upcoming_events', 'option') ?></h1>
+    </div>
+    <div class="container">
+        <div class="events_under_h1-2"><p class="events_under_h1"><?php the_field('events_under_h1', 'option') ?></p>
         </div>
-			    		<div class="container">
-           <div  class="events_under_h1-2"> <p class="events_under_h1"><?php the_field('events_under_h1', 'option') ?></p>
-           </div>
-		</div>
-        <div class="container">
-            <?php /*
+    </div>
+    <div class="container">
+        <?php /*
             <ul class="s-events__filter">
                 <li>
                     <div class="active">2023</div>
@@ -43,60 +43,60 @@ $today = date("Ymd");
                     <div>Conference</div>
                 </li>
             </ul> */ ?>
-            <div class="s-events__grid">
-<?php
-// Получить текущую дату
-$today = current_time('Ymd');
+        <div class="s-events__grid">
+            <?php
+            // Получить текущую дату
+            $today = current_time('Ymd');
 
-$upcoming_events = new WP_Query([
-    'post_type' => 'post',
-    'category_name' => 'events2',
-    'meta_query' => array(
-        array(
-            'key' => 'date_end',
-            'value' => $today,
-            'compare' => '>=', // Сравним с сегодняшней датой
-            'type' => 'DATE'
-        ),
-    ),
-    'posts_per_page' => -1,
-    'orderby' => 'meta_value',
-    'meta_key' => 'date_start',
-    'order' => 'ASC',
-]);
-?>
-                <?php if ($upcoming_events->have_posts()): ?>
-                    <?php while ($upcoming_events->have_posts()): ?>
-                        <?php $upcoming_events->the_post(); ?>
-                        <div class="s-events__item">
-                            <div class="image-wrapper" style="background-image: url(<?php echo wp_get_attachment_url(get_post_thumbnail_id(get_the_ID())); ?>)"></div>
-                            <div class="item-content">
-                                <div class="meta">
-                                    <div class="date">
-                                        <div class="icon-calendar"></div>
-                                        <?php
-                                        if (get_field('date_end')):
-                                            echo date("j", strtotime(get_field('date_start', false, false))) . '-' . date("j", strtotime(get_field('date_end', false, false))) . ' ' . date("F", strtotime(get_field('date_start', false, false))) . ', ' . date("Y", strtotime(get_field('date_end', false, false)));
-                                        else:
-                                            echo date("F", strtotime(get_field('date_start', false, false))) . ' ' . date("j", strtotime(get_field('date_start', false, false))) . ', ' . date("Y", strtotime(get_field('date_start', false, false)));
-                                        endif;
-                                        ?>
-                                    </div>
-                                    <div class="separator"></div>
-                                    <div class="place">
-                                        <div class="icon-place"></div>
-                                        <?php the_field('location') ?>
-                                    </div>
+            $upcoming_events = new WP_Query([
+                'post_type' => 'post',
+                'category_name' => 'events2,events-ice',
+                'meta_query' => array(
+                    array(
+                        'key' => 'date_end',
+                        'value' => $today,
+                        'compare' => '>=', // Сравним с сегодняшней датой
+                        'type' => 'DATE'
+                    ),
+                ),
+                'posts_per_page' => -1,
+                'orderby' => 'meta_value',
+                'meta_key' => 'date_start',
+                'order' => 'ASC',
+            ]);
+            ?>
+            <?php if ($upcoming_events->have_posts()): ?>
+                <?php while ($upcoming_events->have_posts()): ?>
+                    <?php $upcoming_events->the_post(); ?>
+                    <div class="s-events__item">
+                        <div class="image-wrapper" style="background-image: url(<?php echo wp_get_attachment_url(get_post_thumbnail_id(get_the_ID())); ?>)"></div>
+                        <div class="item-content">
+                            <div class="meta">
+                                <div class="date">
+                                    <div class="icon-calendar"></div>
+                                    <?php
+                                    if (get_field('date_end')):
+                                        echo date("j", strtotime(get_field('date_start', false, false))) . '-' . date("j", strtotime(get_field('date_end', false, false))) . ' ' . date("F", strtotime(get_field('date_start', false, false))) . ', ' . date("Y", strtotime(get_field('date_end', false, false)));
+                                    else:
+                                        echo date("F", strtotime(get_field('date_start', false, false))) . ' ' . date("j", strtotime(get_field('date_start', false, false))) . ', ' . date("Y", strtotime(get_field('date_start', false, false)));
+                                    endif;
+                                    ?>
                                 </div>
-                                <h3><?php the_field('title_short') ?></h3>
-                                <div class="excerpt"><?php echo strip_tags(get_field('stand_location')) ?></div>
-                                <a href="<?php the_permalink() ?>" class="btn btn-yellow"><?php the_field('meet_us', 'option') ?></a>
+                                <div class="separator"></div>
+                                <div class="place">
+                                    <div class="icon-place"></div>
+                                    <?php the_field('location') ?>
+                                </div>
                             </div>
+                            <h3><?php the_field('title_short') ?></h3>
+                            <div class="excerpt"><?php echo strip_tags(get_field('stand_location')) ?></div>
+                            <a href="<?php the_permalink() ?>" class="btn btn-yellow"><?php the_field('meet_us', 'option') ?></a>
                         </div>
-                    <?php endwhile; ?>
-                <?php endif; ?>
-                <?php wp_reset_postdata(); ?>
-                <?php /* <!--a href="" class="s-events__item">
+                    </div>
+                <?php endwhile; ?>
+            <?php endif; ?>
+            <?php wp_reset_postdata(); ?>
+            <?php /* <!--a href="" class="s-events__item">
                     <div class="image-wrapper" style="background-image: url(images-upload/img-news.png)"></div>
                     <div class="item-content">
                         <div class="meta">
@@ -153,9 +153,9 @@ $upcoming_events = new WP_Query([
                         <div class="btn btn-yellow">register now</div>
                     </div>
                 </a--> */ ?>
-            </div>
         </div>
-    </section>
+    </div>
+</section>
 <?php // Past events functionality
 /*
 $past_events = new WP_Query([

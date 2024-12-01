@@ -1,20 +1,39 @@
 <?php
 $today = date("Ymd");
-$posts = get_posts(array(
-    'numberposts' => -1,
-    'post_type' => 'post',
-    'category_name' => 'events-widgets',
-    'meta_query' => array(
-        array(
-            'key' => 'date_start',
-            'value' => $today,
-            'compare' => '>=',
+if (is_user_logged_in()) {
+    $posts = get_posts(array(
+        'numberposts' => -1,
+        'post_type' => 'post',
+        'post_status' => array('publish', 'private'),
+        'category_name' => 'events-widgets',
+        'meta_query' => array(
+            array(
+                'key' => 'date_start',
+                'value' => $today,
+                'compare' => '>=',
+            ),
         ),
-    ),
-    'meta_key' => 'date_start',
-    'orderby' => 'meta_value_num',
-    'order' => 'ASC'
-));
+        'meta_key' => 'date_start',
+        'orderby' => 'meta_value_num',
+        'order' => 'ASC'
+    ));
+} else {
+    $posts = get_posts(array(
+        'numberposts' => -1,
+        'post_type' => 'post',
+        'category_name' => 'events-widgets',
+        'meta_query' => array(
+            array(
+                'key' => 'date_start',
+                'value' => $today,
+                'compare' => '>=',
+            ),
+        ),
+        'meta_key' => 'date_start',
+        'orderby' => 'meta_value_num',
+        'order' => 'ASC'
+    ));
+}
 
 if ($posts): ?>
     <section class="s-hp-news s-hp-news--event bg-white" style="background-color: <?php the_field('event-carousel-color') ?>">
